@@ -62,8 +62,17 @@ def test_parse_mlkem_request_missing_gateway_id():
 
 def test_parse_mlkem_request_valid():
     gateway_id = cloud_processing.parse_mlkem_request(
-        {"type": protocol.MSG_MLKEM_REQUEST_PUBKEY, "gateway_id": "gw-01"})
+        {"type": protocol.MSG_MLKEM_REQUEST_PUBKEY, "gateway_id": "gw-01",
+         "auth_nonce": "AA==", "auth_tag": "AA=="})
     assert gateway_id == "gw-01"
+
+
+def test_parse_mlkem_request_missing_auth_fields():
+    # P08 BF-01: a handshake request without gateway auth fields is
+    # structurally malformed.
+    with pytest.raises(protocol.ProtocolError):
+        cloud_processing.parse_mlkem_request(
+            {"type": protocol.MSG_MLKEM_REQUEST_PUBKEY, "gateway_id": "gw-01"})
 
 
 def test_parse_mlkem_encaps_missing_ciphertext():

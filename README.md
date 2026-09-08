@@ -3,8 +3,11 @@
 > ⚠️ **AI-assisted project, student-owned.** The P01 baseline was
 > AI-generated; P02 reviewed it; P03 defined the security design; P04
 > implemented the approved fixes; P05 independently re-tested every
-> security claim and discovered NEW-1; P06 fixed NEW-1. Every phase
-> is documented in `prompt/` and `review/`. This is a university
+> security claim and discovered NEW-1; P06 fixed NEW-1; P07
+> consolidated the evidence; P08 added adversarial testing, reproduced
+> the BF-01..BF-07 findings, and remediated BF-01 (gateway
+> authentication) and BF-03A (configuration-driven credentials). Every
+> phase is documented in `prompt/` and `review/`. This is a university
 > prototype — **not** production-grade secure software. Passing tests
 > never means secure.
 
@@ -31,7 +34,9 @@ JSON-lines protocol (no TLS — see section 7):
 | Control | Mechanism | Finding |
 | --- | --- | --- |
 | Cloud authentication | Gateway pins the SHA-256 fingerprint of the cloud's ML-KEM public key (fails closed if unconfigured) | F-01 |
+| Gateway authentication | Cloud verifies a per-gateway AEAD tag over the gateway's handshake request (unknown/invalid/tampered rejected) | BF-01 (P08) |
 | Device authentication | Per-device keys (simulated provisioning registry) + AEAD-tagged hello | F-02, F-06 |
+| Credential handling | Device/gateway keys are read from configuration (env or demo JSON), never from Python source | BF-03A (P08) |
 | Fallback policy | Fallback ONLY for known devices with authenticated legacy-only hello; everything else rejected | F-02 |
 | Replay protection | Monotonic per-device sequence bound into the AEAD AAD; enforced at gateway and cloud; device persists its counter | F-05 |
 | Session lifecycle | 5-state machine, send-failure detection, automatic reconnect with a fresh session id, cloud-side eviction on disconnect | F-07 |
@@ -55,13 +60,18 @@ JSON-lines protocol (no TLS — see section 7):
 
 ```
 ├── common/            shared utilities
-│   ├── config.py      hosts/ports, per-device key registry (F-06),
-│   │                  cloud key pin (F-01), state paths
+│   ├── config.py      hosts/ports, per-device + per-gateway key
+│   │                  registries (F-06, BF-01), cloud key pin (F-01),
+│   │                  state paths; credentials loaded from config
+│   ├── demo_device_keys.json / demo_gateway_keys.json
+│   │                  DEMO-ONLY credentials for the local run
+│   │                  (real keys come from env/config — BF-03A)
 │   ├── protocol.py    JSON-lines framing, field validation helpers,
 │   │                  AAD construction (F-03/F-04/F-05/F-15)
 │   ├── crypto.py      `cryptography` wrappers: AEAD with AAD, hello
-│   │                  tags, ML-KEM-768, HKDF, fingerprints, key
-│   │                  persistence — NO from-scratch crypto
+│   │                  + gateway-auth tags, ML-KEM-768, HKDF,
+│   │                  fingerprints, key persistence — NO from-scratch
+│   │                  crypto
 │   ├── replay.py      ReplayGuard: per-device monotonic sequences
 │   ├── metrics.py     counters + unit-aware observations
 │   ├── health.py      minimal HTTP /health endpoint
@@ -82,7 +92,7 @@ JSON-lines protocol (no TLS — see section 7):
 │   ├── store.py       bounded in-memory reading store
 │   └── cloud.py       gateway TCP server, session registry with
 │                      eviction, persisted ML-KEM keypair
-├── tests/             120 pytest tests (P06)
+├── tests/             136 pytest tests (P08)
 ├── .github/workflows/ci.yml
 ├── Dockerfile.device / Dockerfile.gateway / Dockerfile.cloud
 ├── docker-compose.yml
@@ -137,7 +147,7 @@ Health endpoints: `GET http://127.0.0.1:8002/health` (cloud),
 ## 5. Run tests
 
 ```bash
-pytest   # 120 passed at the end of P06 (101 at P04; baseline 39)
+pytest   # 136 passed at the end of P08 (120 at P06; 101 at P04; baseline 39)
 ```
 
 Coverage: sensor generation, AEAD round trips + AAD binding (F-05),
@@ -169,10 +179,10 @@ until someone runs it.** The compose setup mirrors the local run:
 cloud persists its keypair in a named volume (stable fingerprint),
 the device keeps its sequence counter in a named volume.
 
-## 7. Security limitations (final state, P06)
+## 7. Security limitations (final state, P08)
 
-**Fixed in P04 (evidence in `review/P04`) and P06 (evidence in
-`review/P06`):**
+**Fixed in P04, P06 and P08 (evidence in `review/P04`, `review/P06`
+and `review/P08`):**
 - unauthenticated ML-KEM key establishment (now fingerprint-pinned),
 - downgrade via unauthenticated capability claims (now AEAD-tagged
   hellos + explicit reject policy),
@@ -184,6 +194,11 @@ the device keeps its sequence counter in a named volume.
   nonces crashed handler threads with uncontrolled tracebacks and
   bypassed the error metrics; nonce length is now validated before
   the AEAD call.
+- **BF-01 (P08):** the cloud did not authenticate gateways; the
+  gateway handshake request now carries a per-gateway AEAD tag,
+  verified by the cloud before the session is accepted.
+- **BF-03A (P08):** device/gateway credentials were embedded in source;
+  they are now loaded from configuration (env or demo JSON files).
 
 **Remaining limitations** (each with status):
 
@@ -203,6 +218,9 @@ the device keeps its sequence counter in a named volume.
 | 12 | Docker compose not yet verified in any environment | Deferred | Docker unavailable on the dev machine |
 | 13 | Gateway `/health` is only available after the first successful cloud session; during the initial establishment retry loop there is no health endpoint (NEW-2, found in P05) | Deferred | Not required for the NEW-1 fix; P06 scope decision |
 | 14 | No keepalive/heartbeat: a dead cloud connection is detected only when the next forwarding operation fails (NEW-3, found in P05) | Accepted | P03 send-failure-detection design; educational prototype |
+| 15 | One-thread-per-connection resource growth (BF-02, P08) | Deferred | A bounded worker pool/rate limit was out of scope for P08 |
+| 16 | No sequence jump window: replay state can be poisoned by a large accepted sequence number (BF-03B, P08) | Accepted | P03 design; a jump window may weaken replay protection |
+| 17 | Unauthenticated `/health` and `/readings`, bound to `0.0.0.0` (BF-05, P08) | Accepted | Educational deployment; do not expose to an untrusted network |
 
 ## 8. Known TODOs
 
@@ -210,6 +228,12 @@ the device keeps its sequence counter in a named volume.
   policy until implemented (`gateway/processing.py`).
 - Fallback policy extensions: credential expiry/rotation, migration
   management (`gateway/processing.py`, P03 questions).
+- BF-02 (P08): bounded worker pool / connection rate limit to avoid
+  one-thread-per-connection resource growth.
+- BF-03B (P08): a bounded sequence jump window or incarnation counter
+  to resist sequence-state poisoning (revisit P03 decision).
+- BF-05 (P08): authentication/access control for `/health` and
+  `/readings` if ever exposed to an untrusted network.
 - Test gaps listed in section 5.
 - CI improvements: linting, static analysis, Docker builds,
   integration tests (`.github/workflows/ci.yml`).
@@ -224,6 +248,8 @@ the device keeps its sequence counter in a named volume.
 | P04 | `review/P04 - Security Implementation & Verification.md` (fail-first evidence, attack re-tests) |
 | P05 | `review/P05 - Independent Security Verification & Re-test.md` (independent TCP attacks; NEW-1 discovered) |
 | P06 | `review/P06 - NEW-1 Fix & Final Security Verification.md` (NEW-1 fail-first fix + re-verification) |
+| P07 | `review/P07 - Final Project Evaluation & Evidence Consolidation.md` (final evidence matrix + verdict) |
+| P08 | `review/P08 - Additional Adversarial Testing, Attack-Chain Analysis & Targeted Remediation.md` (BF-01..BF-07 reproduction; BF-01 + BF-03A remediation) |
 
 Every significant AI interaction must be recorded by the student team
 with the full chain: prompt → output → evaluation → decision →

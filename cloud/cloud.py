@@ -104,6 +104,13 @@ class CloudServer:
                 self._receive_readings(stream, session_id, session_key)
             except protocol.ConnectionClosedError:
                 logger.info("gateway %s:%d disconnected", addr[0], addr[1])
+            except crypto.AuthenticationError as exc:
+                # P08 BF-01: unknown gateway identity or failed/tampered
+                # gateway authentication is a POLICY rejection, not an
+                # unexpected error - count it as messages_rejected.
+                logger.warning("rejecting gateway connection %s:%d: %s",
+                               addr[0], addr[1], exc)
+                self._metrics.inc("messages_rejected")
             except (protocol.ProtocolError, processing.ProcessingError,
                     crypto.CryptoError, OSError) as exc:
                 # F-04: malformed handshake messages land here as a
@@ -120,8 +127,17 @@ class CloudServer:
 
     def _establish_session(self, conn: socket.socket, stream):
         """ML-KEM-768 decapsulation side of key establishment."""
-        gateway_id = processing.parse_mlkem_request(
-            protocol.read_message(stream))
+        request = protocol.read_message(stream)
+        gateway_id = processing.parse_mlkem_request(request)
+        # P08 BF-01: authenticate the gateway BEFORE accepting a
+        # session. Unknown gateway ids and invalid/tampered auth are
+        # rejected (the gateway key registry is config-driven).
+        try:
+            gateway_key = config.gateway_key(gateway_id)
+        except KeyError:
+            raise crypto.AuthenticationError(
+                f"unknown gateway identity '{gateway_id}'") from None
+        processing.verify_gateway_request_auth(request, gateway_key)
 
         # Send our ML-KEM public key (public material - safe to send;
         # the gateway verifies its fingerprint - F-01).

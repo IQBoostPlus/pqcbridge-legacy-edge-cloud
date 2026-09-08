@@ -25,6 +25,8 @@ services:
       CLOUD_LISTEN_PORT: "5002"
       CLOUD_HEALTH_PORT: "8002"
       CLOUD_KEY_FILE: /app/cloud_state/cloud.key
+      # P08 BF-01 simulated provisioning registry (demo gateway only).
+      GATEWAY_KEYS_JSON: '{"gw-01": "1112131415161718212223242526272831323334353637384142434445464748"}'
     volumes:
       - cloud_state:/app/cloud_state
     ports:
@@ -50,7 +52,10 @@ services:
       # F-01 trust anchor: empty -> the gateway FAILS CLOSED. Provision
       # via .env after the first cloud start (see header).
       CLOUD_PUBLIC_KEY_SHA256: ${CLOUD_PUBLIC_KEY_SHA256:-}
-      # F-06 simulated provisioning registry (demo keys only).
+      # P08 BF-01: the gateway's OWN key (must match the cloud registry
+      # entry for its gateway id - simulated provisioning).
+      GATEWAY_KEY_HEX: "1112131415161718212223242526272831323334353637384142434445464748"
+      # F-06 simulated provisioning registry (demo device keys only).
       DEVICE_KEYS_JSON: '{"dev-01": "a1a2a3a4a5a6a7a8b1b2b3b4b5b6b7b8c1c2c3c4c5c6c7c8d1d2d3d4d5d6d7d8", "dev-02": "e1e2e3e4e5e6e7e8f1f2f3f4f5f6f7f801020304050607081112131415161718"}'
     ports:
       - "5001:5001"

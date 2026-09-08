@@ -224,15 +224,20 @@ def _cloud_handshake(port):
     sock = socket.create_connection(("127.0.0.1", port), timeout=5)
     sock.settimeout(5)
     stream = sock.makefile("rb")
+    gateway_id = "gw-01"
+    auth = crypto.build_gateway_auth(gateway_id, config.gateway_key(gateway_id))
     sock.sendall(protocol.encode_message({
-        "type": protocol.MSG_MLKEM_REQUEST_PUBKEY, "gateway_id": "gw-test"}))
+        "type": protocol.MSG_MLKEM_REQUEST_PUBKEY,
+        "gateway_id": gateway_id,
+        **auth,
+    }))
     reply = json.loads(stream.readline())
     assert reply["type"] == protocol.MSG_MLKEM_PUBKEY
     shared, ct = crypto.mlkem_encapsulate(
         crypto.load_public_key(protocol.b64d(reply["public_key"])))
     session_id = "test-session"
     sock.sendall(protocol.encode_message({
-        "type": protocol.MSG_MLKEM_ENCAPS, "gateway_id": "gw-test",
+        "type": protocol.MSG_MLKEM_ENCAPS, "gateway_id": gateway_id,
         "session_id": session_id, "ciphertext": protocol.b64e(ct)}))
     established = json.loads(stream.readline())
     assert established["type"] == protocol.MSG_MLKEM_ESTABLISHED

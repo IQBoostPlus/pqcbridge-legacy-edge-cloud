@@ -14,6 +14,7 @@ them per deployment and MUST use the same environment variable names.
 """
 import json
 import os
+from pathlib import Path
 
 
 def _env(name: str, default: str) -> str:
@@ -53,31 +54,53 @@ CLOUD_HEALTH_PORT = _env_int("CLOUD_HEALTH_PORT", 8002)
 DEVICE_INTERVAL_SECONDS = _env_int("DEVICE_INTERVAL_SECONDS", 5)
 
 
-# --- Per-device key registry (F-06) -----------------------------------------
+# --- Device/gateway credential registry (F-06, P08 BF-01/BF-03A) -------------
 #
-# The registry SIMULATES device provisioning: each device id maps to
+# The registry SIMULATES provisioning: each device/gateway id maps to
 # its own 32-byte ChaCha20-Poly1305 key. It is NOT a production
-# provisioning system, and the keys below are demo-only values.
-# Read dynamically so environment changes take effect at call time.
+# provisioning system.
+#
+# P08 BF-03A: credential secrets are NO LONGER embedded in this Python
+# source. They are read from configuration (environment or a JSON
+# file). The committed `demo_*_keys.json` files contain DEMO-ONLY
+# material so the educational local run works out of the box; a real
+# deployment must supply its own keys via DEVICE_KEYS_FILE /
+# DEVICE_KEYS_JSON / GATEWAY_KEYS_FILE / GATEWAY_KEYS_JSON and must
+# NOT commit real secrets.
 
-_DEFAULT_DEVICE_KEYS_JSON = json.dumps({
-    "dev-01": "a1a2a3a4a5a6a7a8b1b2b3b4b5b6b7b8"
-              "c1c2c3c4c5c6c7c8d1d2d3d4d5d6d7d8",
-    "dev-02": "e1e2e3e4e5e6e7e8f1f2f3f4f5f6f7f8"
-              "01020304050607081112131415161718",
-})
+_DEMO_DEVICE_KEYS_FILE = Path(__file__).with_name("demo_device_keys.json")
+_DEMO_GATEWAY_KEYS_FILE = Path(__file__).with_name("demo_gateway_keys.json")
+
+
+def _load_keys_json(raw_json: str, source_name: str) -> dict:
+    """Parse a key-id -> hex-key JSON document into bytes."""
+    registry = {}
+    for key_id, key_hex in json.loads(raw_json).items():
+        key = bytes.fromhex(key_hex)
+        if len(key) != 32:
+            raise ValueError(
+                f"key for '{key_id}' in {source_name} is not 32 bytes")
+        registry[key_id] = key
+    return registry
+
+
+def _keys_from_env_or_file(inline_env: str, file_env: str,
+                           demo_path: Path) -> dict:
+    """Resolve a key registry from inline env, a file env, or the demo file."""
+    inline = os.environ.get(inline_env)
+    if inline is not None:
+        return _load_keys_json(inline, inline_env)
+    file_value = os.environ.get(file_env)
+    if file_value is not None:
+        return _load_keys_json(
+            Path(file_value).read_text(encoding="utf-8"), file_env)
+    return _load_keys_json(demo_path.read_text(encoding="utf-8"), demo_path.name)
 
 
 def device_keys() -> dict:
-    """Return the device-id -> key-bytes registry."""
-    raw = _env("DEVICE_KEYS_JSON", _DEFAULT_DEVICE_KEYS_JSON)
-    registry = {}
-    for device_id, key_hex in json.loads(raw).items():
-        key = bytes.fromhex(key_hex)
-        if len(key) != 32:
-            raise ValueError(f"device key for '{device_id}' is not 32 bytes")
-        registry[device_id] = key
-    return registry
+    """Return the device-id -> key-bytes registry (F-06, P08 BF-03A)."""
+    return _keys_from_env_or_file(
+        "DEVICE_KEYS_JSON", "DEVICE_KEYS_FILE", _DEMO_DEVICE_KEYS_FILE)
 
 
 def device_key(device_id: str) -> bytes:
@@ -86,15 +109,40 @@ def device_key(device_id: str) -> bytes:
     return device_keys()[device_id]
 
 
-# The simulated device's OWN key. In a real deployment this would come
-# from secure provisioning, not a shared registry variable.
-_DEVICE_KEY_HEX_DEFAULT = ("a1a2a3a4a5a6a7a8b1b2b3b4b5b6b7b8"
-                           "c1c2c3c4c5c6c7c8d1d2d3d4d5d6d7d8")
+def gateway_keys() -> dict:
+    """Return the gateway-id -> key-bytes registry (P08 BF-01)."""
+    return _keys_from_env_or_file(
+        "GATEWAY_KEYS_JSON", "GATEWAY_KEYS_FILE", _DEMO_GATEWAY_KEYS_FILE)
+
+
+def gateway_key(gateway_id: str) -> bytes:
+    """Return one gateway's key. Raises KeyError for unknown gateways -
+    the cloud uses this to reject unknown gateway ids (P08 BF-01)."""
+    return gateway_keys()[gateway_id]
 
 
 def local_device_key() -> bytes:
-    """The key of the simulated device running this process."""
-    return bytes.fromhex(_env("DEVICE_KEY_HEX", _DEVICE_KEY_HEX_DEFAULT))
+    """The key of the simulated device running this process (P08 BF-03A).
+
+    Override with DEVICE_KEY_HEX. Defaults to the demo key matching the
+    default device id "dev-01".
+    """
+    raw = os.environ.get("DEVICE_KEY_HEX")
+    if raw is not None:
+        return bytes.fromhex(raw)
+    return device_keys()["dev-01"]
+
+
+def local_gateway_key() -> bytes:
+    """The key of the simulated gateway running this process (P08 BF-01).
+
+    Override with GATEWAY_KEY_HEX. Defaults to the demo key matching the
+    default gateway id "gw-01".
+    """
+    raw = os.environ.get("GATEWAY_KEY_HEX")
+    if raw is not None:
+        return bytes.fromhex(raw)
+    return gateway_keys()["gw-01"]
 
 
 # --- Cloud ML-KEM public key pin (F-01) -------------------------------------

@@ -16,12 +16,31 @@ class ProcessingError(Exception):
 def parse_mlkem_request(request: dict) -> str:
     """Validate mlkem_request_pubkey; returns the gateway_id.
 
-    Raises ProtocolError on ANY violation (uniform handshake
+    P08 BF-01: the request must also carry the AEAD auth fields
+    (auth_nonce + auth_tag) over the gateway identity claim. Raises
+    ProtocolError on ANY structural violation (uniform handshake
     validation policy, F-03/F-04)."""
     if request.get("type") != protocol.MSG_MLKEM_REQUEST_PUBKEY:
         raise protocol.ProtocolError(
             "expected mlkem_request_pubkey as first message")
-    return protocol.require_str(request, "gateway_id")
+    gateway_id = protocol.require_str(request, "gateway_id")
+    protocol.require_str(request, "auth_nonce")
+    protocol.require_str(request, "auth_tag")
+    return gateway_id
+
+
+def verify_gateway_request_auth(request: dict, gateway_key: bytes) -> None:
+    """Verify a gateway handshake request's AEAD tag (P08 BF-01).
+
+    Raises crypto.AuthenticationError when the tag is missing,
+    tampered, or produced with the wrong key.
+    """
+    crypto.verify_gateway_auth(
+        gateway_key,
+        request["gateway_id"],
+        request["auth_nonce"],
+        request["auth_tag"],
+    )
 
 
 def parse_mlkem_encaps(encaps: dict):

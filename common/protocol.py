@@ -136,6 +136,16 @@ def hello_claims_bytes(device_id: str, capabilities: list) -> bytes:
         separators=(",", ":")).encode("utf-8")
 
 
+def gateway_auth_claims_bytes(gateway_id: str) -> bytes:
+    """Canonical serialization of the gateway identity claim
+    authenticated by the gateway handshake AEAD tag (P08 BF-01).
+    Sender and verifier MUST both use this exact format. The `scope`
+    field gives domain separation from the device hello claims."""
+    return json.dumps(
+        {"gateway_id": gateway_id, "scope": "gateway-cloud-handshake"},
+        separators=(",", ":")).encode("utf-8")
+
+
 def parse_reading_bytes(plaintext: bytes) -> dict:
     """Validate that decrypted plaintext is a JSON sensor reading.
 

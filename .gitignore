@@ -26,6 +26,11 @@ htmlcov/
 *.crt
 *.cer
 
+# P08 BF-03A: real device/gateway credential files (never commit).
+# The committed common/demo_*_keys.json files are DEMO-ONLY material.
+device_keys.json
+gateway_keys.json
+
 # Logs and temporary data
 *.log
 state/
@@ -33,3 +38,11 @@ data/
 tmp/
 temp/
 *.tmp
+
+# P08 local tooling / temporary verification artifacts (never commit)
+_p8python/
+_p8deps/
+_p8wheels/
+_p8verify/
+_p8*.zip
+_p8get-pip.py

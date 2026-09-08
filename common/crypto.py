@@ -174,6 +174,43 @@ def verify_hello_auth(key: bytes, hello: dict) -> None:
         raise AuthenticationError("hello authentication failed") from exc
 
 
+# --- Authenticated gateway handshake (P08 BF-01) ------------------------------
+
+def build_gateway_auth(gateway_id: str, key: bytes) -> dict:
+    """Build the AEAD auth fields proving possession of a gateway key.
+
+    The tag is the ChaCha20-Poly1305 output over EMPTY plaintext with
+    the gateway identity claim as AAD - a MAC-only use of the library
+    AEAD, exactly mirroring the device hello mechanism (F-02). It
+    proves possession of the gateway credential and authenticates the
+    self-declared gateway_id.
+    """
+    nonce = os.urandom(NONCE_LENGTH)
+    claims = protocol.gateway_auth_claims_bytes(gateway_id)
+    tag = ChaCha20Poly1305(key).encrypt(nonce, b"", claims)
+    return {
+        "auth_nonce": protocol.b64e(nonce),
+        "auth_tag": protocol.b64e(tag),
+    }
+
+
+def verify_gateway_auth(key: bytes, gateway_id: str, auth_nonce: str,
+                        auth_tag: str) -> None:
+    """Verify the gateway handshake AEAD tag. Raises AuthenticationError."""
+    try:
+        nonce = protocol.b64d(auth_nonce)
+        tag = protocol.b64d(auth_tag)
+        if len(nonce) != NONCE_LENGTH:
+            raise protocol.ProtocolError("invalid nonce length")
+        claims = protocol.gateway_auth_claims_bytes(gateway_id)
+    except (KeyError, TypeError, protocol.ProtocolError) as exc:
+        raise AuthenticationError("malformed gateway auth fields") from exc
+    try:
+        ChaCha20Poly1305(key).decrypt(nonce, tag, claims)  # empty plaintext
+    except InvalidTag as exc:
+        raise AuthenticationError("gateway authentication failed") from exc
+
+
 # --- ML-KEM-768 ---------------------------------------------------------------
 
 def generate_mlkem_keypair():

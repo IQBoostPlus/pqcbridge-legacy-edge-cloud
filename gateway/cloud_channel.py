@@ -42,8 +42,13 @@ class CloudChannel:
     """Maintains one ML-KEM-protected session to the cloud."""
 
     def __init__(self, gateway_id: str, host: str, port: int,
-                 metrics: Metrics, auto_reconnect: bool = True):
+                 metrics: Metrics, auto_reconnect: bool = True,
+                 gateway_key: bytes = None):
         self.gateway_id = gateway_id
+        # P08 BF-01: the gateway's own credential (from config by
+        # default). NEVER logged or exposed.
+        self.gateway_key = (gateway_key if gateway_key is not None
+                            else config.local_gateway_key())
         self.host = host
         self.port = port
         self.metrics = metrics
@@ -97,9 +102,15 @@ class CloudChannel:
         try:
             self.state = State.ESTABLISHING
             # 1. Request the cloud's ML-KEM public key.
+            #    P08 BF-01: authenticate the request with an AEAD tag
+            #    over the gateway identity claim (proves possession of
+            #    the gateway credential; the cloud rejects otherwise).
+            auth = crypto.build_gateway_auth(self.gateway_id,
+                                             self.gateway_key)
             sock.sendall(protocol.encode_message({
                 "type": protocol.MSG_MLKEM_REQUEST_PUBKEY,
                 "gateway_id": self.gateway_id,
+                **auth,
             }))
             # 2. Validate the reply (F-03) and verify the pin (F-01)
             # BEFORE encapsulating to the received key.
