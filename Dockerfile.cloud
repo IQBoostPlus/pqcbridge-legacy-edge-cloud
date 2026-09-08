@@ -1,0 +1,15 @@
+# Simulated cloud service (project prompt section 11).
+# NOT production-ready - this is a university test-environment image.
+FROM python:3.12-slim
+
+WORKDIR /app
+
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY common/ ./common/
+COPY cloud/ ./cloud/
+
+EXPOSE 5002 8002
+
+CMD ["python", "-m", "cloud.cloud"]

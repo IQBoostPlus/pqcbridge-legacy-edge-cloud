@@ -1,0 +1,12 @@
+# P04.1 (P03 F-14 decision): pinned for reproducibility.
+#
+# `cryptography` 50.0.1 provides ML-KEM-768 (module
+# cryptography.hazmat.primitives.asymmetric.mlkem) via its bundled
+# OpenSSL >= 3.5, plus ChaCha20-Poly1305 and HKDF. No cryptographic
+# algorithm is implemented from scratch in this project.
+#
+# WHY PINNED: the ML-KEM Python API is young and already changed
+# between versions during P01 (assumed module name `ml_kem`; actual
+# `mlkem`). Review and re-pin when the environment is upgraded.
+cryptography==50.0.1
+pytest==9.1.1

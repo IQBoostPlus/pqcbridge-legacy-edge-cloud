@@ -1,0 +1,35 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+
+# Runtime state (P04): device sequence counters and the cloud's
+# persisted ML-KEM keypair must never be committed.
+device_state/
+cloud_state/
+
+# Generic Python / tooling
+venv/
+env/
+.coverage
+htmlcov/
+.vscode/
+.idea/
+
+# Secrets and credentials (never commit)
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*.cer
+
+# Logs and temporary data
+*.log
+state/
+data/
+tmp/
+temp/
+*.tmp

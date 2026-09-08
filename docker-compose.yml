@@ -1,0 +1,88 @@
+# Minimal compose file for the university test environment
+# (project prompt section 11). NOT production-ready.
+#
+# P04 changes (P03-approved):
+#   - per-device keys instead of one shared PSK (F-06)
+#   - cloud ML-KEM public-key fingerprint pin (F-01) - set
+#     CLOUD_PUBLIC_KEY_SHA256 in a .env file after the FIRST
+#     `docker compose up cloud` (the cloud prints the fingerprint at
+#     startup and persists its keypair in the cloud_state volume)
+#   - device sequence counter persisted in the device_state volume
+#     (F-05)
+#
+# Two-step first start:
+#   1. docker compose up cloud     -> read the SHA-256 fingerprint
+#   2. write CLOUD_PUBLIC_KEY_SHA256=<fingerprint> into .env
+#   3. docker compose up --build
+
+services:
+  cloud:
+    build:
+      context: .
+      dockerfile: Dockerfile.cloud
+    environment:
+      CLOUD_LISTEN_HOST: "0.0.0.0"
+      CLOUD_LISTEN_PORT: "5002"
+      CLOUD_HEALTH_PORT: "8002"
+      CLOUD_KEY_FILE: /app/cloud_state/cloud.key
+    volumes:
+      - cloud_state:/app/cloud_state
+    ports:
+      - "5002:5002"
+      - "8002:8002"
+    healthcheck:
+      test: ["CMD", "python", "-c",
+             "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8002/health', timeout=2)"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+
+  gateway:
+    build:
+      context: .
+      dockerfile: Dockerfile.gateway
+    environment:
+      GATEWAY_LISTEN_HOST: "0.0.0.0"
+      GATEWAY_LISTEN_PORT: "5001"
+      GATEWAY_HEALTH_PORT: "8001"
+      CLOUD_HOST: cloud
+      CLOUD_PORT: "5002"
+      # F-01 trust anchor: empty -> the gateway FAILS CLOSED. Provision
+      # via .env after the first cloud start (see header).
+      CLOUD_PUBLIC_KEY_SHA256: ${CLOUD_PUBLIC_KEY_SHA256:-}
+      # F-06 simulated provisioning registry (demo keys only).
+      DEVICE_KEYS_JSON: '{"dev-01": "a1a2a3a4a5a6a7a8b1b2b3b4b5b6b7b8c1c2c3c4c5c6c7c8d1d2d3d4d5d6d7d8", "dev-02": "e1e2e3e4e5e6e7e8f1f2f3f4f5f6f7f801020304050607081112131415161718"}'
+    ports:
+      - "5001:5001"
+      - "8001:8001"
+    depends_on:
+      cloud:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c",
+             "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8001/health', timeout=2)"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+
+  device:
+    build:
+      context: .
+      dockerfile: Dockerfile.device
+    environment:
+      GATEWAY_HOST: gateway
+      GATEWAY_PORT: "5001"
+      DEVICE_INTERVAL_SECONDS: "5"
+      # The device's OWN key (must match the gateway registry entry
+      # for its device id - simulated provisioning, F-06).
+      DEVICE_KEY_HEX: "a1a2a3a4a5a6a7a8b1b2b3b4b5b6b7b8c1c2c3c4c5c6c7c8d1d2d3d4d5d6d7d8"
+      DEVICE_STATE_DIR: /app/device_state
+    volumes:
+      - device_state:/app/device_state
+    depends_on:
+      gateway:
+        condition: service_healthy
+
+volumes:
+  cloud_state:
+  device_state:
