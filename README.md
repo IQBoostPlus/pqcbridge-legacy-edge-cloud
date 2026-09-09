@@ -150,6 +150,9 @@ Health endpoints: `GET http://127.0.0.1:8002/health` (cloud),
 pytest   # 136 passed at the end of P08 (120 at P06; 101 at P04; baseline 39)
 ```
 
+CI: GitHub Actions runs this suite on every push/PR
+(`.github/workflows/ci.yml`); green on `main`.
+
 Coverage: sensor generation, AEAD round trips + AAD binding (F-05),
 hello authentication + full fallback policy (F-02), handshake field
 validation (F-03/F-04), replay guard semantics, pin verification
@@ -199,28 +202,35 @@ and `review/P08`):**
   verified by the cloud before the session is accepted.
 - **BF-03A (P08):** device/gateway credentials were embedded in source;
   they are now loaded from configuration (env or demo JSON files).
+- **BF-06/BF-07 (P08):** the zero-credential compound attack chain
+  (fake Gateway → seq=99999 poisoning → data blindness / plausible
+  fake stream) is blocked at BF-01. A credential-bearing attacker
+  (anyone with the committed demo gateway key) can still poison
+  sequence state and inject plausible readings — see the BF-03B and
+  static-demo-key limitation rows below. This residual is
+  intentional: demo keys are public by design in this educational
+  repo, and a real deployment must supply its own keys.
 
 **Remaining limitations** (each with status):
 
 | # | Limitation | Status | Reason / future improvement |
 | --- | --- | --- | --- |
 | 1 | No TLS; metadata (ids, sizes, timing) visible; transport-level tampering only *detected* where tags/pins apply | Deferred | Out of scope for the educational protocol demo; TLS would hide the ML-KEM handshake |
-| 2 | Cloud does NOT authenticate gateways (gateway_id self-declared) | Deferred | Future phase: gateway credentials or signatures |
-| 3 | Static demo keys; no rotation, revocation, or expiry timers | Deferred | P03 F-11 decision; pin must be updated when the cloud key rotates |
-| 4 | Gateway/cloud restart loses replay state until devices send again | Accepted (P03) | Documented P03 limitation; do NOT silently add a database |
-| 5 | No sequence jump window (an attacker with a device key can jump the counter and wedge the device stream until it catches up — observed live during P04) | Accepted (P03) | Future: bounded jump windows / incarnation counters |
-| 6 | Hello replay re-triggers fallback activation (benign, observable) | Accepted | Future: hello anti-replay |
-| 7 | Device has no reconnect logic; drops out during gateway-cloud outages | Deferred | P03 decision; future device retry/backoff |
-| 8 | No rate limiting / thread caps (accepted at 1–3 device demo scale) | Deferred | P03 F-12 decision |
-| 9 | Key material lives in Python bytes for the process lifetime (no zeroization) | Deferred | Python limitation; C-level secure memory out of scope |
-| 10 | Pins and device keys are provisioned via env/config (simulated provisioning) | Accepted | The registry simulates provisioning; it is not a production provisioning system |
-| 11 | In-memory storage/metrics only; health endpoint unauthenticated | Accepted | By design (prompt section 4/8) |
-| 12 | Docker compose not yet verified in any environment | Deferred | Docker unavailable on the dev machine |
-| 13 | Gateway `/health` is only available after the first successful cloud session; during the initial establishment retry loop there is no health endpoint (NEW-2, found in P05) | Deferred | Not required for the NEW-1 fix; P06 scope decision |
-| 14 | No keepalive/heartbeat: a dead cloud connection is detected only when the next forwarding operation fails (NEW-3, found in P05) | Accepted | P03 send-failure-detection design; educational prototype |
-| 15 | One-thread-per-connection resource growth (BF-02, P08) | Deferred | A bounded worker pool/rate limit was out of scope for P08 |
-| 16 | No sequence jump window: replay state can be poisoned by a large accepted sequence number (BF-03B, P08) | Accepted | P03 design; a jump window may weaken replay protection |
-| 17 | Unauthenticated `/health` and `/readings`, bound to `0.0.0.0` (BF-05, P08) | Accepted | Educational deployment; do not expose to an untrusted network |
+| 2 | Static demo keys; no rotation, revocation, or expiry timers | Deferred | P03 F-11 decision; pin must be updated when the cloud key rotates |
+| 3 | Gateway/cloud restart loses replay state until devices send again | Accepted (P03) | Documented P03 limitation; do NOT silently add a database |
+| 4 | No sequence jump window (an attacker with a device key can jump the counter and wedge the device stream until it catches up — observed live during P04) | Accepted (P03) | Future: bounded jump windows / incarnation counters |
+| 5 | Hello replay re-triggers fallback activation (benign, observable) | Accepted | Future: hello anti-replay |
+| 6 | Device has no reconnect logic; drops out during gateway-cloud outages | Deferred | P03 decision; future device retry/backoff |
+| 7 | No rate limiting / thread caps (accepted at 1–3 device demo scale) | Deferred | P03 F-12 decision |
+| 8 | Key material lives in Python bytes for the process lifetime (no zeroization) | Deferred | Python limitation; C-level secure memory out of scope |
+| 9 | Pins and device keys are provisioned via env/config (simulated provisioning) | Accepted | The registry simulates provisioning; it is not a production provisioning system |
+| 10 | In-memory storage/metrics only; health endpoint unauthenticated | Accepted | By design (prompt section 4/8) |
+| 11 | Docker compose not yet verified in any environment | Deferred | Docker unavailable on the dev machine |
+| 12 | Gateway `/health` is only available after the first successful cloud session; during the initial establishment retry loop there is no health endpoint (NEW-2, found in P05) | Deferred | Not required for the NEW-1 fix; P06 scope decision |
+| 13 | No keepalive/heartbeat: a dead cloud connection is detected only when the next forwarding operation fails (NEW-3, found in P05) | Accepted | P03 send-failure-detection design; educational prototype |
+| 14 | One-thread-per-connection resource growth (BF-02, P08) | Deferred | A bounded worker pool/rate limit was out of scope for P08 |
+| 15 | No sequence jump window: replay state can be poisoned by a large accepted sequence number (BF-03B, P08) | Accepted | P03 design; a jump window may weaken replay protection |
+| 16 | Unauthenticated `/health` and `/readings`, bound to `0.0.0.0` (BF-05, P08) | Accepted | Educational deployment; do not expose to an untrusted network |
 
 ## 8. Known TODOs
 
