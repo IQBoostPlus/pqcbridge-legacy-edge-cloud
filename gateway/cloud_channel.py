@@ -10,8 +10,11 @@ P04 changes (P03-approved):
     invalidate the session and trigger reconnection; a NEW session id
     is generated per establishment attempt.
 
-IMPORTANT (documented limitation, P03 section 7.1): the cloud does
-NOT authenticate the gateway - gateway_id is self-declared.
+P08 BF-01: the handshake request carries an AEAD tag under the
+gateway's own per-gateway credential (crypto.build_gateway_auth),
+proving possession of the credential; the cloud verifies the tag
+before accepting the session and rejects unknown gateway ids and
+invalid/tampered auth.
 """
 import enum
 import secrets

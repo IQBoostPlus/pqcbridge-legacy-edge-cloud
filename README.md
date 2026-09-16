@@ -151,7 +151,10 @@ pytest   # 136 passed at the end of P08 (120 at P06; 101 at P04; baseline 39)
 ```
 
 CI: GitHub Actions runs this suite on every push/PR
-(`.github/workflows/ci.yml`); green on `main`.
+(`.github/workflows/ci.yml`). Last recorded status: green on `main`
+(as of the 2026-09-09 closure commit). Not re-verified on 2026-09-16:
+github.com was unreachable from the verification environment, so the
+current CI status could not be checked.
 
 Coverage: sensor generation, AEAD round trips + AAD binding (F-05),
 hello authentication + full fallback policy (F-02), handshake field
@@ -176,11 +179,24 @@ docker compose up cloud
 docker compose up --build
 ```
 
-**Not verified:** Docker is not installed on the development machine;
-the compose file is inspection-reviewed only. **Do not claim it works
-until someone runs it.** The compose setup mirrors the local run:
-cloud persists its keypair in a named volume (stable fingerprint),
-the device keeps its sequence counter in a named volume.
+**Verification status (2026-09-16):** Docker deployment configuration
+was statically reviewed, but runtime container deployment could not
+be verified in the development environment because Docker Engine was
+unavailable (no Docker or Podman installation present). **Do not
+claim it works until someone runs it.**
+
+The static review cross-checked the compose file against the code:
+service names and Compose DNS hosts (`cloud`, `gateway`), ports
+(cloud 5002/8002, gateway 5001/8001), all environment variable names
+against `common/config.py`, the simulated provisioning registries
+(`GATEWAY_KEYS_JSON` ↔ `GATEWAY_KEY_HEX`, `DEVICE_KEYS_JSON` ↔
+`DEVICE_KEY_HEX`; demo keys only), the named volumes for cloud
+ML-KEM key persistence (`cloud_state`) and device sequence
+persistence (`device_state`), and the healthchecks (stdlib urllib
+against each service's own `/health` endpoint). No defects were found
+in static review; runtime behavior (build, health checks, end-to-end
+Device → Gateway → Cloud, pin enforcement, restart behavior) remains
+unverified.
 
 ## 7. Security limitations (final state, P08)
 
@@ -225,7 +241,7 @@ and `review/P08`):**
 | 8 | Key material lives in Python bytes for the process lifetime (no zeroization) | Deferred | Python limitation; C-level secure memory out of scope |
 | 9 | Pins and device keys are provisioned via env/config (simulated provisioning) | Accepted | The registry simulates provisioning; it is not a production provisioning system |
 | 10 | In-memory storage/metrics only; health endpoint unauthenticated | Accepted | By design (prompt section 4/8) |
-| 11 | Docker compose not yet verified in any environment | Deferred | Docker unavailable on the dev machine |
+| 11 | Docker compose configuration statically reviewed only; runtime container deployment not verified (no Docker Engine in the development environment, re-checked 2026-09-16) | Deferred | No Docker installation on the dev machine |
 | 12 | Gateway `/health` is only available after the first successful cloud session; during the initial establishment retry loop there is no health endpoint (NEW-2, found in P05) | Deferred | Not required for the NEW-1 fix; P06 scope decision |
 | 13 | No keepalive/heartbeat: a dead cloud connection is detected only when the next forwarding operation fails (NEW-3, found in P05) | Accepted | P03 send-failure-detection design; educational prototype |
 | 14 | One-thread-per-connection resource growth (BF-02, P08) | Deferred | A bounded worker pool/rate limit was out of scope for P08 |
