@@ -179,11 +179,25 @@ docker compose up cloud
 docker compose up --build
 ```
 
-**Verification status (2026-09-16):** Docker deployment configuration
-was statically reviewed, but runtime container deployment could not
-be verified in the development environment because Docker Engine was
-unavailable (no Docker or Podman installation present). **Do not
-claim it works until someone runs it.**
+**Verification status (2026-09-21): Docker runtime VERIFIED.**
+
+Docker Desktop 29.8.0 was used to run the complete edge-cloud
+simulation with Docker Compose. All three services started
+successfully. Cloud and Gateway were healthy, and the Device was
+running successfully.
+
+The Gateway established an ML-KEM-768 session with the Cloud. The
+Device successfully connected to the Gateway and continuously sent
+sensor readings; the Cloud received and stored them (seq=11–19
+during the final verification run). The Device used the intended
+legacy ChaCha20-Poly1305 fallback path.
+
+The verification also confirmed state persistence. After Docker
+Desktop was restarted, the Cloud loaded its existing ML-KEM keypair,
+and the Device resumed its sequence number from the previous state.
+
+Therefore, the Docker runtime and the complete Device → Gateway →
+Cloud communication path were successfully verified.
 
 The static review cross-checked the compose file against the code:
 service names and Compose DNS hosts (`cloud`, `gateway`), ports
@@ -194,9 +208,10 @@ against `common/config.py`, the simulated provisioning registries
 ML-KEM key persistence (`cloud_state`) and device sequence
 persistence (`device_state`), and the healthchecks (stdlib urllib
 against each service's own `/health` endpoint). No defects were found
-in static review; runtime behavior (build, health checks, end-to-end
-Device → Gateway → Cloud, pin enforcement, restart behavior) remains
-unverified.
+in static review. The runtime behavior (build, health checks,
+end-to-end Device → Gateway → Cloud, pin enforcement, restart
+behavior) was verified on 2026-09-21 with Docker Desktop 29.8.0 —
+see the verification status above.
 
 ## 7. Security limitations (final state, P08)
 
@@ -241,7 +256,7 @@ and `review/P08`):**
 | 8 | Key material lives in Python bytes for the process lifetime (no zeroization) | Deferred | Python limitation; C-level secure memory out of scope |
 | 9 | Pins and device keys are provisioned via env/config (simulated provisioning) | Accepted | The registry simulates provisioning; it is not a production provisioning system |
 | 10 | In-memory storage/metrics only; health endpoint unauthenticated | Accepted | By design (prompt section 4/8) |
-| 11 | Docker compose configuration statically reviewed only; runtime container deployment not verified (no Docker Engine in the development environment, re-checked 2026-09-16) | Deferred | No Docker installation on the dev machine |
+| 11 | Docker compose runtime deployment | Resolved (2026-09-21) | Previously unverifiable on the dev machine (no Docker Engine); now verified end-to-end with Docker Desktop 29.8.0 — see section 6 |
 | 12 | Gateway `/health` is only available after the first successful cloud session; during the initial establishment retry loop there is no health endpoint (NEW-2, found in P05) | Deferred | Not required for the NEW-1 fix; P06 scope decision |
 | 13 | No keepalive/heartbeat: a dead cloud connection is detected only when the next forwarding operation fails (NEW-3, found in P05) | Accepted | P03 send-failure-detection design; educational prototype |
 | 14 | One-thread-per-connection resource growth (BF-02, P08) | Deferred | A bounded worker pool/rate limit was out of scope for P08 |

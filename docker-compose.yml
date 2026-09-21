@@ -51,7 +51,7 @@ services:
       CLOUD_PORT: "5002"
       # F-01 trust anchor: empty -> the gateway FAILS CLOSED. Provision
       # via .env after the first cloud start (see header).
-      CLOUD_PUBLIC_KEY_SHA256: ${CLOUD_PUBLIC_KEY_SHA256:-}
+      CLOUD_PUBLIC_KEY_SHA256: "5bbbc4956c3fd6d5000d9ebbc88bcb6d6089a3d7049065163de8097b47727382"
       # P08 BF-01: the gateway's OWN key (must match the cloud registry
       # entry for its gateway id - simulated provisioning).
       GATEWAY_KEY_HEX: "1112131415161718212223242526272831323334353637384142434445464748"
