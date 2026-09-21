@@ -93,6 +93,8 @@ JSON-lines protocol (no TLS — see section 7):
 │   └── cloud.py       gateway TCP server, session registry with
 │                      eviction, persisted ML-KEM keypair
 ├── tests/             136 pytest tests (P08)
+├── scripts/docker_bootstrap.py  fresh-clone Docker trust-anchor
+│   │                  provisioning (F-01 pin, section 6)
 ├── .github/workflows/ci.yml
 ├── Dockerfile.device / Dockerfile.gateway / Dockerfile.cloud
 ├── docker-compose.yml
@@ -150,11 +152,16 @@ Health endpoints: `GET http://127.0.0.1:8002/health` (cloud),
 pytest   # 136 passed at the end of P08 (120 at P06; 101 at P04; baseline 39)
 ```
 
-CI: GitHub Actions runs this suite on every push/PR
-(`.github/workflows/ci.yml`). Last recorded status: green on `main`
-(as of the 2026-09-09 closure commit). Not re-verified on 2026-09-16:
-github.com was unreachable from the verification environment, so the
-current CI status could not be checked.
+CI (`.github/workflows/ci.yml`): GitHub Actions runs two jobs on
+every push/PR:
+1. `test` — Python 3.12 + pinned requirements + this pytest suite;
+2. `docker` — `docker compose config --quiet` (compose validation),
+   all three image builds, and the fresh-clone bootstrap smoke test
+   (`scripts/docker_bootstrap.py`): cloud keypair generation →
+   fingerprint provisioning → gateway ML-KEM-768 session → device
+   readings reaching the cloud, all against empty CI volumes with no
+   `.env`. CI verifies the repository as it exists in GitHub, never
+   against local Docker volumes or local `.env` files.
 
 Coverage: sensor generation, AEAD round trips + AAD binding (F-05),
 hello authentication + full fallback policy (F-02), handshake field
@@ -164,20 +171,53 @@ validation (F-03/F-04), replay guard semantics, pin verification
 messages (F-15), metrics units (F-08).
 
 **Remaining test gaps (TODO):** concurrent clients, failure
-injection at scale, Docker/CI tests. (Real-socket integration tests
-were added in P04/P06: `tests/test_session.py`,
+injection at scale. (Real-socket integration tests were added in
+P04/P06: `tests/test_session.py`,
 `tests/test_nonce_validation.py`.)
 
 ## 6. Run with Docker
 
+Fresh clone, first start (trust-anchor provisioning is automatic):
+
 ```bash
-# first start (one-time trust-anchor provisioning):
-docker compose up cloud
-#  read the printed "ML-KEM public key SHA-256 fingerprint" from the
-#  logs, then create a .env file:
-#    CLOUD_PUBLIC_KEY_SHA256=<fingerprint>
-docker compose up --build
+python scripts/docker_bootstrap.py
 ```
+
+Every later start (the cloud keypair persists in the `cloud_state`
+volume and `.env` is already provisioned):
+
+```bash
+docker compose up -d
+```
+
+**How the cloud fingerprint is provisioned**
+(`scripts/docker_bootstrap.py`, Python standard library only):
+
+1. starts only the cloud, which generates its ML-KEM-768 keypair on
+   first start and persists it in the `cloud_state` volume
+   (`CLOUD_KEY_FILE=/app/cloud_state/cloud.key`);
+2. waits for the cloud health endpoint, then reads the cloud's
+   ML-KEM public key SHA-256 fingerprint from the cloud logs (public
+   material — the private key never leaves the container);
+3. writes `CLOUD_PUBLIC_KEY_SHA256=<fingerprint>` to the gitignored
+   `.env` file;
+4. starts the gateway + device and waits until the gateway's
+   ML-KEM-768 session is established and the cloud has stored at
+   least one device reading.
+
+The gateway **fails closed** when the pin is absent or incorrect:
+with a missing/empty `CLOUD_PUBLIC_KEY_SHA256` or a fingerprint that
+does not match the cloud's actual public key, no session is ever
+established — the gateway logs the rejection and keeps retrying. The
+fingerprint is deliberately NOT hardcoded in the compose file, so a
+fresh clone with a fresh `cloud_state` volume provisions its own
+pin. Re-run the bootstrap whenever the `cloud_state` volume is
+recreated (e.g. `docker compose down -v`); re-running against the
+persisted keypair simply provisions the same fingerprint again.
+
+**Local Docker verification:** `docker compose config --quiet`
+(compose syntax/consistency) and the bootstrap smoke test above
+(fresh-clone provisioning + ML-KEM session + end-to-end readings).
 
 **Verification status (2026-09-21): Docker runtime VERIFIED.**
 
@@ -276,8 +316,8 @@ and `review/P08`):**
 - BF-05 (P08): authentication/access control for `/health` and
   `/readings` if ever exposed to an untrusted network.
 - Test gaps listed in section 5.
-- CI improvements: linting, static analysis, Docker builds,
-  integration tests (`.github/workflows/ci.yml`).
+- CI improvements: linting, static analysis, security scanning
+  (`.github/workflows/ci.yml`).
 
 ## 9. AI development chain (course documentation)
 

@@ -1,5 +1,13 @@
-# Minimal CI baseline (project prompt section 12).
-# Install dependencies, run pytest, fail when tests fail.
+# CI: unit tests + Docker verification (project prompt section 12).
+#
+# test:   Python 3.12 + pinned requirements + pytest (136 tests).
+# docker: compose configuration validation, image builds, and a
+#         fresh-clone bootstrap smoke test that exercises the exact
+#         documented first-start procedure (cloud keypair generation,
+#         fingerprint provisioning, gateway ML-KEM-768 session,
+#         device readings reaching the cloud). Runs with empty
+#         volumes and no .env - nothing depends on local machine
+#         state.
 
 name: CI
 
@@ -23,9 +31,25 @@ jobs:
       - name: Run tests
         run: pytest
 
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate Docker Compose configuration
+        run: docker compose config --quiet
+
+      - name: Build Docker images
+        run: docker compose build
+
+      - name: Fresh-clone bootstrap smoke test
+        run: python3 scripts/docker_bootstrap.py
+
+      - name: Show service logs on failure
+        if: failure()
+        run: docker compose logs
+
 # TODO: Student review required - possible future CI improvements:
 #   - linting (ruff / flake8)
 #   - static analysis (bandit, mypy)
 #   - security scanning (pip-audit)
-#   - Docker image building + docker-compose smoke test
-#   - integration tests between the three services

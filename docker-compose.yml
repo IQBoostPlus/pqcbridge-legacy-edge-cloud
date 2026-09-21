@@ -3,17 +3,26 @@
 #
 # P04 changes (P03-approved):
 #   - per-device keys instead of one shared PSK (F-06)
-#   - cloud ML-KEM public-key fingerprint pin (F-01) - set
-#     CLOUD_PUBLIC_KEY_SHA256 in a .env file after the FIRST
-#     `docker compose up cloud` (the cloud prints the fingerprint at
-#     startup and persists its keypair in the cloud_state volume)
+#   - cloud ML-KEM public-key fingerprint pin (F-01): the gateway's
+#     CLOUD_PUBLIC_KEY_SHA256 comes from a .env file (see below);
+#     empty/missing -> the gateway FAILS CLOSED
 #   - device sequence counter persisted in the device_state volume
 #     (F-05)
 #
-# Two-step first start:
-#   1. docker compose up cloud     -> read the SHA-256 fingerprint
-#   2. write CLOUD_PUBLIC_KEY_SHA256=<fingerprint> into .env
-#   3. docker compose up --build
+# First start after a fresh clone (trust-anchor provisioning):
+#
+#     python scripts/docker_bootstrap.py
+#
+# The script starts only the cloud, waits for its health endpoint,
+# reads the cloud's ML-KEM public key SHA-256 fingerprint from the
+# cloud logs (the cloud generates its keypair and persists it in the
+# cloud_state volume on first start), writes
+# CLOUD_PUBLIC_KEY_SHA256=<fingerprint> to .env, then starts the
+# gateway + device and verifies the ML-KEM session and the reading
+# pipeline. Re-run it whenever the cloud_state volume is recreated
+# (e.g. after `docker compose down -v`).
+#
+# Later starts simply use: docker compose up -d
 
 services:
   cloud:
@@ -49,9 +58,10 @@ services:
       GATEWAY_HEALTH_PORT: "8001"
       CLOUD_HOST: cloud
       CLOUD_PORT: "5002"
-      # F-01 trust anchor: empty -> the gateway FAILS CLOSED. Provision
-      # via .env after the first cloud start (see header).
-      CLOUD_PUBLIC_KEY_SHA256: "5bbbc4956c3fd6d5000d9ebbc88bcb6d6089a3d7049065163de8097b47727382"
+      # F-01 trust anchor: provisioned via .env by
+      # scripts/docker_bootstrap.py. Empty/missing -> the gateway
+      # FAILS CLOSED (no session; it keeps retrying).
+      CLOUD_PUBLIC_KEY_SHA256: "${CLOUD_PUBLIC_KEY_SHA256:-}"
       # P08 BF-01: the gateway's OWN key (must match the cloud registry
       # entry for its gateway id - simulated provisioning).
       GATEWAY_KEY_HEX: "1112131415161718212223242526272831323334353637384142434445464748"

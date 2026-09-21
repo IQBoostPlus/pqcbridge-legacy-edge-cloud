@@ -1,0 +1,15 @@
+# Build-context hygiene: the Dockerfiles COPY only requirements.txt
+# and the three service packages. Never send secrets, local runtime
+# state, or bulky non-code directories to the Docker daemon.
+.git/
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+cloud_state/
+device_state/
+.env
+.env.*
+review/
+prompt/
+tests/
