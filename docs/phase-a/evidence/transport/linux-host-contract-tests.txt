@@ -1,0 +1,13 @@
+Captured from the actual focused test execution (tool output chunk aad1a7).
+Command: .venv\Scripts\python.exe -B scripts\phase_a\linux_tls_host_test.py
+Exit code: 0
+.
+----------------------------------------------------------------------
+Ran 1 test in 0.061s
+
+OK
+
+Checks: a mocked Docker ownership-query timeout still produces matching raw and
+sanitized failure status, preserves the exception and host source snapshot,
+attempts the independent final absence query, and returns exit code 1.
+No real Docker failure was induced by this test.

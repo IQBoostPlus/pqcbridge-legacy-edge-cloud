@@ -1,0 +1,722 @@
+{
+  "status": "failed",
+  "runtime_root": "D:\\Code\\pqcbridge-phase-a-artifacts\\linux-tls-c54751ca733540c5a9906b41563d2ac1",
+  "container": "pqc-linux-tls-c54751ca733540c5",
+  "owner": "c54751ca733540c5a9906b41563d2ac1",
+  "image": "sha256:2f17fc044b579bab302c2e8054d3a686e2cb9a83de48e70534b94cd8ebbe06a9",
+  "commands": [
+    {
+      "arguments": [
+        "context",
+        "inspect",
+        "desktop-linux"
+      ],
+      "exit_code": 0,
+      "stdout": "[\n    {\n        \"Name\": \"desktop-linux\",\n        \"Metadata\": {\n            \"Description\": \"Docker Desktop\",\n            \"GODEBUG\": \"x509negativeserial=1\",\n            \"otel\": {\n                \"OTEL_EXPORTER_OTLP_ENDPOINT\": \"unix:////./c:/Users/taccz/AppData/Local/Docker/run/userAnalyticsOtlpHttp.sock\"\n            }\n        },\n        \"Endpoints\": {\n            \"docker\": {\n                \"Host\": \"npipe:////./pipe/dockerDesktopLinuxEngine\",\n                \"SkipTLSVerify\": false\n            }\n        },\n        \"TLSMaterial\": {},\n        \"Storage\": {\n            \"MetadataPath\": \"C:\\\\Users\\\\taccz\\\\.docker\\\\contexts\\\\meta\\\\fe9c6bd7a66301f49ca9b6a70b217107cd1284598bfc254700c989b916da791e\",\n            \"TLSPath\": \"C:\\\\Users\\\\taccz\\\\.docker\\\\contexts\\\\tls\\\\fe9c6bd7a66301f49ca9b6a70b217107cd1284598bfc254700c989b916da791e\"\n        }\n    }\n]\n",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "info",
+        "--format",
+        "{{json .ServerVersion}}"
+      ],
+      "exit_code": 0,
+      "stdout": "\"29.8.0\"\n",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "image",
+        "inspect",
+        "sha256:2f17fc044b579bab302c2e8054d3a686e2cb9a83de48e70534b94cd8ebbe06a9",
+        "--format",
+        "{{.Id}}"
+      ],
+      "exit_code": 0,
+      "stdout": "sha256:2f17fc044b579bab302c2e8054d3a686e2cb9a83de48e70534b94cd8ebbe06a9\n",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "run",
+        "--rm",
+        "--pull",
+        "never",
+        "--name",
+        "pqc-linux-tls-c54751ca733540c5",
+        "--label",
+        "pqc.phase_a.owner=c54751ca733540c5a9906b41563d2ac1",
+        "--network",
+        "none",
+        "--read-only",
+        "--tmpfs",
+        "/tmp:rw,noexec,nosuid,size=33554432",
+        "--cap-drop",
+        "ALL",
+        "--security-opt",
+        "no-new-privileges",
+        "--pids-limit",
+        "64",
+        "--memory",
+        "256m",
+        "--cpus",
+        "1",
+        "--user",
+        "65534:65534",
+        "-i",
+        "sha256:2f17fc044b579bab302c2e8054d3a686e2cb9a83de48e70534b94cd8ebbe06a9",
+        "python",
+        "-I",
+        "-"
+      ],
+      "exit_code": 1,
+      "stdout": "{\n  \"status\": \"failed\",\n  \"mode\": \"full\",\n  \"runtime\": {\n    \"python\": \"3.12.14\",\n    \"platform\": \"Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.41\",\n    \"openssl_cli\": \"OpenSSL 3.5.7 9 Jun 2026 (Library: OpenSSL 3.5.7 9 Jun 2026)\\nbuilt on: Sun Aug 23 15:26:22 2026 UTC\\nplatform: debian-amd64\\noptions:  bn(64,64)\\ncompiler: gcc -fPIC -pthread -m64 -Wa,--noexecstack -Wall -fzero-call-used-regs=used-gpr -Wa,--noexecstack -g -O2 -Werror=implicit-function-declaration -ffile-prefix-map=/build/reproducible-path/openssl-3.5.7=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -fcf-protection -DOPENSSL_USE_NODELETE -DL_ENDIAN -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DZSTD -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2\\nOPENSSLDIR: \\\"/usr/lib/ssl\\\"\\nENGINESDIR: \\\"/usr/lib/x86_64-linux-gnu/engines-3\\\"\\nMODULESDIR: \\\"/usr/lib/x86_64-linux-gnu/ossl-modules\\\"\\nSeeding source: os-specific\\nCPUINFO: OPENSSL_ia32cap=0xfed83203078bffff:0x00405fc6f1bf07a9:0x0000002000000010:0x0000000000000000:0x0000000000000000\\n\"\n  },\n  \"policy\": \"config_diagnostics = 1\\nopenssl_conf = openssl_init\\n[openssl_init]\\nssl_conf = ssl_section\\n[ssl_section]\\nsystem_default = tls_defaults\\n[tls_defaults]\\nMinProtocol = TLSv1.3\\nMaxProtocol = TLSv1.3\\nGroups = X25519MLKEM768\\n\",\n  \"policy_sha256\": \"68375cb30d9284888675f12a658f8980795170ca205cca7e227038f525b18bd2\",\n  \"cases\": [\n    {\n      \"case\": \"python_server_hybrid\",\n      \"expected\": \"accept\",\n      \"client\": {\n        \"arguments\": [\n          \"openssl\",\n          \"s_client\",\n          \"-connect\",\n          \"127.0.0.1:58217\",\n          \"-servername\",\n          \"localhost\",\n          \"-verify_hostname\",\n          \"localhost\",\n          \"-verify_return_error\",\n          \"-CAfile\",\n          \"/tmp/pqc-linux-tls-mb0eafc_/ca.crt\",\n          \"-tls1_3\",\n          \"-groups\",\n          \"X25519MLKEM768\",\n          \"-brief\",\n          \"-ign_eof\",\n          \"-ignore_unexpected_eof\",\n          \"-cert\",\n          \"/tmp/pqc-linux-tls-mb0eafc_/client.crt\",\n          \"-key\",\n          \"/tmp/pqc-linux-tls-mb0eafc_/client.key\"\n        ],\n        \"exit_code\": 0,\n        \"stdout\": \"phase-a-ack\\n\",\n        \"stderr\": \"Connecting to 127.0.0.1\\nCONNECTION ESTABLISHED\\nProtocol version: TLSv1.3\\nCiphersuite: TLS_AES_256_GCM_SHA384\\nRequested Signature Algorithms: id-ml-dsa-65:id-ml-dsa-87:id-ml-dsa-44:ECDSA+SHA256:ECDSA+SHA384:ECDSA+SHA512:ed25519:ed448:ecdsa_brainpoolP256r1_sha256:ecdsa_brainpoolP384r1_sha384:ecdsa_brainpoolP512r1_sha512:rsa_pss_pss_sha256:rsa_pss_pss_sha384:rsa_pss_pss_sha512:RSA-PSS+SHA256:RSA-PSS+SHA384:RSA-PSS+SHA512:RSA+SHA256:RSA+SHA384:RSA+SHA512\\nPeer certificate: CN=localhost\\nHash used: SHA256\\nSignature type: rsa_pss_rsae_sha256\\nVerification: OK\\nVerified peername: localhost\\nNegotiated TLS1.3 group: X25519MLKEM768\\n\"\n      },\n      \"server\": {\n        \"exit_code\": 0,\n        \"stdout\": \"{\\\"status\\\": \\\"accepted\\\", \\\"protocol\\\": \\\"TLSv1.3\\\", \\\"cipher\\\": [\\\"TLS_AES_256_GCM_SHA384\\\", \\\"TLSv1.3\\\", 256], \\\"peer_identity\\\": {\\\"subject\\\": [[[\\\"commonName\\\", \\\"phase-a-client\\\"]]], \\\"issuer\\\": [[[\\\"commonName\\\", \\\"Phase A ca\\\"]]], \\\"version\\\": 3, \\\"serialNumber\\\": \\\"6D4078B7F884AF64671C2A0BA63DF897FAB72AA1\\\", \\\"notBefore\\\": \\\"Oct 16 13:32:28 2026 GMT\\\", \\\"notAfter\\\": \\\"Oct 17 13:32:28 2026 GMT\\\"}, \\\"peer_der_sha256\\\": \\\"4e70d6cd621f8f040df72523c93fddc479f7b814e8e8e6771674bec8388c2aea\\\", \\\"received_hex\\\": \\\"70686173652d612d6c696e75780a\\\", \\\"session_reused\\\": false}\\n\",\n        \"stderr\": \"\"\n      },\n      \"passed\": true\n    },\n    {\n      \"case\": \"python_server_classical_rejected\",\n      \"expected\": \"reject\",\n      \"client\": {\n        \"arguments\": [\n          \"openssl\",\n          \"s_client\",\n          \"-connect\",\n          \"127.0.0.1:41035\",\n          \"-servername\",\n          \"localhost\",\n          \"-verify_hostname\",\n          \"localhost\",\n          \"-verify_return_error\",\n          \"-CAfile\",\n          \"/tmp/pqc-linux-tls-mb0eafc_/ca.crt\",\n          \"-tls1_3\",\n          \"-groups\",\n          \"X25519\",\n          \"-brief\",\n          \"-ign_eof\",\n          \"-ignore_unexpected_eof\",\n          \"-cert\",\n          \"/tmp/pqc-linux-tls-mb0eafc_/client.crt\",\n          \"-key\",\n          \"/tmp/pqc-linux-tls-mb0eafc_/client.key\"\n        ],\n        \"exit_code\": 1,\n        \"stdout\": \"\",\n        \"stderr\": \"Connecting to 127.0.0.1\\n40B71B3BD3720000:error:0A000410:SSL routines:ssl3_read_bytes:ssl/tls alert handshake failure:../ssl/record/rec_layer_s3.c:918:SSL alert number 40\\n\"\n      },\n      \"server\": {\n        \"exit_code\": 2,\n        \"stdout\": \"{\\\"status\\\": \\\"rejected\\\", \\\"error_type\\\": \\\"SSLError\\\", \\\"error\\\": \\\"[SSL: NO_SUITABLE_KEY_SHARE] no suitable key share (_ssl.c:1010)\\\"}\\n\",\n        \"stderr\": \"\"\n      },\n      \"passed\": true\n    },\n    {\n      \"case\": \"python_to_python_exact_roundtrip\",\n      \"expected\": \"accept\",\n      \"client\": {\n        \"arguments\": [\n          \"/usr/local/bin/python\",\n          \"-I\",\n          \"/tmp/pqc-linux-tls-mb0eafc_/endpoint.py\",\n          \"client\",\n          \"/tmp/pqc-linux-tls-mb0eafc_\",\n          \"config_diagnostics = 1\\nopenssl_conf = openssl_init\\n[openssl_init]\\nssl_conf = ssl_section\\n[ssl_section]\\nsystem_default = tls_defaults\\n[tls_defaults]\\nMinProtocol = TLSv1.3\\nMaxProtocol = TLSv1.3\\nGroups = X25519MLKEM768\\n\",\n          \"client\",\n          \"51437\",\n          \"localhost\"\n        ],\n        \"exit_code\": 0,\n        \"stdout\": \"{\\\"status\\\": \\\"accepted\\\", \\\"protocol\\\": \\\"TLSv1.3\\\", \\\"cipher\\\": [\\\"TLS_AES_256_GCM_SHA384\\\", \\\"TLSv1.3\\\", 256], \\\"peer_identity\\\": {\\\"subject\\\": [[[\\\"commonName\\\", \\\"localhost\\\"]]], \\\"issuer\\\": [[[\\\"commonName\\\", \\\"Phase A ca\\\"]]], \\\"version\\\": 3, \\\"serialNumber\\\": \\\"6D4078B7F884AF64671C2A0BA63DF897FAB72AA0\\\", \\\"notBefore\\\": \\\"Oct 16 13:32:28 2026 GMT\\\", \\\"notAfter\\\": \\\"Oct 17 13:32:28 2026 GMT\\\", \\\"subjectAltName\\\": [[\\\"DNS\\\", \\\"localhost\\\"]]}, \\\"peer_der_sha256\\\": \\\"dbeca933aaca1cf6ba31f6b5ef8e861aef7400c89c7e6fd0634ad9c8ab10352b\\\", \\\"received_hex\\\": \\\"70686173652d612d61636b0a\\\", \\\"session_reused\\\": false}\\n\",\n        \"stderr\": \"\"\n      },\n      \"server\": {\n        \"exit_code\": 0,\n        \"stdout\": \"{\\\"status\\\": \\\"accepted\\\", \\\"protocol\\\": \\\"TLSv1.3\\\", \\\"cipher\\\": [\\\"TLS_AES_256_GCM_SHA384\\\", \\\"TLSv1.3\\\", 256], \\\"peer_identity\\\": {\\\"subject\\\": [[[\\\"commonName\\\", \\\"phase-a-client\\\"]]], \\\"issuer\\\": [[[\\\"commonName\\\", \\\"Phase A ca\\\"]]], \\\"version\\\": 3, \\\"serialNumber\\\": \\\"6D4078B7F884AF64671C2A0BA63DF897FAB72AA1\\\", \\\"notBefore\\\": \\\"Oct 16 13:32:28 2026 GMT\\\", \\\"notAfter\\\": \\\"Oct 17 13:32:28 2026 GMT\\\"}, \\\"peer_der_sha256\\\": \\\"4e70d6cd621f8f040df72523c93fddc479f7b814e8e8e6771674bec8388c2aea\\\", \\\"received_hex\\\": \\\"70686173652d612d6c696e75780a\\\", \\\"session_reused\\\": false}\\n\",\n        \"stderr\": \"\"\n      },\n      \"passed\": true\n    },\n    {\n      \"case\": \"python_server_no_client_certificate\",\n      \"expected\": \"reject\",\n      \"client\": {\n        \"arguments\": [\n          \"openssl\",\n          \"s_client\",\n          \"-connect\",\n          \"127.0.0.1:37053\",\n          \"-servername\",\n          \"localhost\",\n          \"-verify_hostname\",\n          \"localhost\",\n          \"-verify_return_error\",\n          \"-CAfile\",\n          \"/tmp/pqc-linux-tls-mb0eafc_/ca.crt\",\n          \"-tls1_3\",\n          \"-groups\",\n          \"X25519MLKEM768\",\n          \"-brief\",\n          \"-ign_eof\",\n          \"-ignore_unexpected_eof\"\n        ],\n        \"exit_code\": 1,\n        \"stdout\": \"\",\n        \"stderr\": \"Connecting to 127.0.0.1\\nCONNECTION ESTABLISHED\\nProtocol version: TLSv1.3\\nCiphersuite: TLS_AES_256_GCM_SHA384\\nRequested Signature Algorithms: id-ml-dsa-65:id-ml-dsa-87:id-ml-dsa-44:ECDSA+SHA256:ECDSA+SHA384:ECDSA+SHA512:ed25519:ed448:ecdsa_brainpoolP256r1_sha256:ecdsa_brainpoolP384r1_sha384:ecdsa_brainpoolP512r1_sha512:rsa_pss_pss_sha256:rsa_pss_pss_sha384:rsa_pss_pss_sha512:RSA-PSS+SHA256:RSA-PSS+SHA384:RSA-PSS+SHA512:RSA+SHA256:RSA+SHA384:RSA+SHA512\\nPeer certificate: CN=localhost\\nHash used: SHA256\\nSignature type: rsa_pss_rsae_sha256\\nVerification: OK\\nVerified peername: localhost\\nNegotiated TLS1.3 group: X25519MLKEM768\\n4007247939730000:error:0A00045C:SSL routines:ssl3_read_bytes:tlsv13 alert certificate required:../ssl/record/rec_layer_s3.c:918:SSL alert number 116\\n\"\n      },\n      \"server\": {\n        \"exit_code\": 2,\n        \"stdout\": \"{\\\"status\\\": \\\"rejected\\\", \\\"error_type\\\": \\\"SSLError\\\", \\\"error\\\": \\\"[SSL: PEER_DID_NOT_RETURN_A_CERTIFICATE] peer did not return a certificate (_ssl.c:1010)\\\"}\\n\",\n        \"stderr\": \"\"\n      },\n      \"passed\": true\n    },\n    {\n      \"case\": \"python_server_untrusted_client\",\n      \"expected\": \"reject\",\n      \"client\": {\n        \"arguments\": [\n          \"openssl\",\n          \"s_client\",\n          \"-connect\",\n          \"127.0.0.1:50861\",\n          \"-servername\",\n          \"localhost\",\n          \"-verify_hostname\",\n          \"localhost\",\n          \"-verify_return_error\",\n          \"-CAfile\",\n          \"/tmp/pqc-linux-tls-mb0eafc_/ca.crt\",\n          \"-tls1_3\",\n          \"-groups\",\n          \"X25519MLKEM768\",\n          \"-brief\",\n          \"-ign_eof\",\n          \"-ignore_unexpected_eof\",\n          \"-cert\",\n          \"/tmp/pqc-linux-tls-mb0eafc_/untrusted-client.crt\",\n          \"-key\",\n          \"/tmp/pqc-linux-tls-mb0eafc_/untrusted-client.key\"\n        ],\n        \"exit_code\": 1,\n        \"stdout\": \"\",\n        \"stderr\": \"Connecting to 127.0.0.1\\nCONNECTION ESTABLISHED\\nProtocol version: TLSv1.3\\nCiphersuite: TLS_AES_256_GCM_SHA384\\nRequested Signature Algorithms: id-ml-dsa-65:id-ml-dsa-87:id-ml-dsa-44:ECDSA+SHA256:ECDSA+SHA384:ECDSA+SHA512:ed25519:ed448:ecdsa_brainpoolP256r1_sha256:ecdsa_brainpoolP384r1_sha384:ecdsa_brainpoolP512r1_sha512:rsa_pss_pss_sha256:rsa_pss_pss_sha384:rsa_pss_pss_sha512:RSA-PSS+SHA256:RSA-PSS+SHA384:RSA-PSS+SHA512:RSA+SHA256:RSA+SHA384:RSA+SHA512\\nPeer certificate: CN=localhost\\nHash used: SHA256\\nSignature type: rsa_pss_rsae_sha256\\nVerification: OK\\nVerified peername: localhost\\nNegotiated TLS1.3 group: X25519MLKEM768\\n4057667D3C780000:error:0A000418:SSL routines:ssl3_read_bytes:tlsv1 alert unknown ca:../ssl/record/rec_layer_s3.c:918:SSL alert number 48\\n\"\n      },\n      \"server\": {\n        \"exit_code\": 2,\n        \"stdout\": \"{\\\"status\\\": \\\"rejected\\\", \\\"error_type\\\": \\\"SSLCertVerificationError\\\", \\\"error\\\": \\\"[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)\\\"}\\n\",\n        \"stderr\": \"\"\n      }\n    }\n  ],\n  \"provisioning\": [\n    {\n      \"arguments\": [\n        \"openssl\",\n        \"version\",\n        \"-a\"\n      ],\n      \"exit_code\": 0,\n      \"stdout\": \"OpenSSL 3.5.7 9 Jun 2026 (Library: OpenSSL 3.5.7 9 Jun 2026)\\nbuilt on: Sun Aug 23 15:26:22 2026 UTC\\nplatform: debian-amd64\\noptions:  bn(64,64)\\ncompiler: gcc -fPIC -pthread -m64 -Wa,--noexecstack -Wall -fzero-call-used-regs=used-gpr -Wa,--noexecstack -g -O2 -Werror=implicit-function-declaration -ffile-prefix-map=/build/reproducible-path/openssl-3.5.7=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -fcf-protection -DOPENSSL_USE_NODELETE -DL_ENDIAN -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DZSTD -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2\\nOPENSSLDIR: \\\"/usr/lib/ssl\\\"\\nENGINESDIR: \\\"/usr/lib/x86_64-linux-gnu/engines-3\\\"\\nMODULESDIR: \\\"/usr/lib/x86_64-linux-gnu/ossl-modules\\\"\\nSeeding source: os-specific\\nCPUINFO: OPENSSL_ia32cap=0xfed83203078bffff:0x00405fc6f1bf07a9:0x0000002000000010:0x0000000000000000:0x0000000000000000\\n\",\n      \"stderr\": \"\"\n    },\n    {\n      \"arguments\": [\n        \"openssl\",\n        \"req\",\n        \"-x509\",\n        \"-newkey\",\n        \"rsa:2048\",\n        \"-nodes\",\n        \"-keyout\",\n        \"/tmp/pqc-linux-tls-mb0eafc_/ca.key\",\n        \"-out\",\n        \"/tmp/pqc-linux-tls-mb0eafc_/ca.crt\",\n        \"-days\",\n        \"1\",\n        \"-subj\",\n        \"/CN=Phase A ca\",\n        \"-addext\",\n        \"basicConstraints=critical,CA:TRUE\",\n        \"-addext\",\n        \"keyUsage=critical,keyCertSign,cRLSign\"\n      ],\n      \"exit_code\": 0,\n      \"stdout\": \"\",\n      \"stderr\": \"...+..+............+....+...............+......+.....+......+...+.+...+............+.........+.....+++++++++++++++++++++++++++++++++++++++*..+....+..+.+..+......+.......+..+......+....+..+.+..+..........+...............+..+.+...+..............+.+.....+.+........+++++++++++++++++++++++++++++++++++++++*..+...+...+....+......+..............+............+...+.......+...+......+.........+..+....+..+...................+........+......+...............+......+.+..+.+..+...+......+.+.........+.....+.++++++\\n....+........+...+.+++++++++++++++++++++++++++++++++++++++*...+++++++++++++++++++++++++++++++++++++++*....+...+....+..+....+..+...+......+...+..........+......+............+..+.......+....................+....+.........+...........+.......+........+.......+..+...............+......+....+...+........+.+.....+.+..............+...+.+.....+.+...........+....+.....+....+..+..........+..+.......+...+.....+.......+......+.....+...+.+.....+...+................+..+...+.+......+........+.+...+...+...+..+.......+...+..+...+.......+..................+.....+....+.....+................+..+...+....+.....+......+.......+...+.....+.......+...+............+.....+......+.+...+......+.....+....+............+.........+...........+.+..............+....+...............+..+...............+....+.........+......+.........+...........+.+..+......+....+.....+......+.+......+....................+.........+...+.+..+...+.......+..+.......+..............+..........+..+..........+..+...+.........+....+..+...+.......+...+...........+......+...+..........+..+...+....+...........+......+.+.....+.......+..+.+...............+............+..++++++\\n-----\\n\"\n    },\n    {\n      \"arguments\": [\n        \"openssl\",\n        \"req\",\n        \"-x509\",\n        \"-newkey\",\n        \"rsa:2048\",\n        \"-nodes\",\n        \"-keyout\",\n        \"/tmp/pqc-linux-tls-mb0eafc_/other-ca.key\",\n        \"-out\",\n        \"/tmp/pqc-linux-tls-mb0eafc_/other-ca.crt\",\n        \"-days\",\n        \"1\",\n        \"-subj\",\n        \"/CN=Phase A other-ca\",\n        \"-addext\",\n        \"basicConstraints=critical,CA:TRUE\",\n        \"-addext\",\n        \"keyUsage=critical,keyCertSign,cRLSign\"\n      ],\n      \"exit_code\": 0,\n      \"stdout\": \"\",\n      \"stderr\": \"........+......+.+...............+.........+...+..........................+....+..+.+...+.....+......+.+.....+..........+........+....+..+......+...+......+......+....+........+...+....+.....................+..+............+.+..+...+...+.+......+++++++++++++++++++++++++++++++++++++++*..+.+............+........+...+.+..............+......+.+.....+.......+.....+...+.......+.....+......+.+.....+...+.+.....+.+.....+..........+...+..+..........+.........+.....+......+++++++++++++++++++++++++++++++++++++++*.+...............+.+...........+...+...+..................+.+...+......+.....+....+.....+.......+...........+....+......+..+.+.........+......+......+.....+...+..........+..+.+........+....+...........+..........+..++++++\\n....+..+...+...+.+...+++++++++++++++++++++++++++++++++++++++*.......+......+++++++++++++++++++++++++++++++++++++++*..........+...+.........+.....+..........+........+....++++++\\n-----\\n\"\n    },\n    {\n      \"arguments\": [\n        \"openssl\",\n        \"req\",\n        \"-new\",\n        \"-newkey\",\n        \"rsa:2048\",\n        \"-nodes\",\n        \"-keyout\",\n        \"/tmp/pqc-linux-tls-mb0eafc_/server.key\",\n        \"-out\",\n        \"/tmp/pqc-linux-tls-mb0eafc_/server.csr\",\n        \"-subj\",\n        \"/CN=localhost\"\n      ],\n      \"exit_code\": 0,\n      \"stdout\": \"\",\n      \"stderr\": \".+.+.................+.+..+....+........+.......+..............+.........+.......+.....+.+..+.......+...+.....+...+....+..............+....+........+....+...+++++++++++++++++++++++++++++++++++++++*.....+........+.+..+++++++++++++++++++++++++++++++++++++++*.+...............+.+.....................+..+...+..........+.....+...........................+.+..+.......+...+..+...+.......+...+...+......+.....+.+........++++++\\n............+++++++++++++++++++++++++++++++++++++++*.....+....+...+.....................+++++++++++++++++++++++++++++++++++++++*.........+............+........+.......+.....+....+.....+....+.....................+...........+...+.+..+....+...............+...+...+.....+....+...+......+.....+.+.....+....+..+...+.+...+...+..+..........+...........+......+...+...+.......+..+....+.....+....+...........+....+...+..+.+.....+..........+..+...+.+.....+...............+....+..+.........+...+.+..+.........................+.....+....+...+...........+......+.+..+...+...............+...+......++++++\\n-----\\n\"\n    },\n    {\n      \"arguments\": [\n        \"openssl\",\n        \"x509\",\n        \"-req\",\n        \"-in\",\n        \"/tmp/pqc-linux-tls-mb0eafc_/server.csr\",\n        \"-CA\",\n        \"/tmp/pqc-linux-tls-mb0eafc_/ca.crt\",\n        \"-CAkey\",\n        \"/tmp/pqc-linux-tls-mb0eafc_/ca.key\",\n        \"-CAcreateserial\",\n        \"-out\",\n        \"/tmp/pqc-linux-tls-mb0eafc_/server.crt\",\n        \"-days\",\n        \"1\",\n        \"-extfile\",\n        \"/tmp/pqc-linux-tls-mb0eafc_/server.ext\"\n      ],\n      \"exit_code\": 0,\n      \"stdout\": \"\",\n      \"stderr\": \"Certificate request self-signature ok\\nsubject=CN=localhost\\n\"\n    },\n    {\n      \"arguments\": [\n        \"openssl\",\n        \"x509\",\n        \"-in\",\n        \"/tmp/pqc-linux-tls-mb0eafc_/server.crt\",\n        \"-noout\",\n        \"-subject\",\n        \"-issuer\",\n        \"-dates\"\n      ],\n      \"exit_code\": 0,\n      \"stdout\": \"subject=CN=localhost\\nissuer=CN=Phase A ca\\nnotBefore=Oct 16 13:32:28 2026 GMT\\nnotAfter=Oct 17 13:32:28 2026 GMT\\n\",\n      \"stderr\": \"\"\n    },\n    {\n      \"arguments\": [\n        \"openssl\",\n        \"req\",\n        \"-new\",\n        \"-newkey\",\n        \"rsa:2048\",\n        \"-nodes\",\n        \"-keyout\",\n        \"/tmp/pqc-linux-tls-mb0eafc_/client.key\",\n        \"-out\",\n        \"/tmp/pqc-linux-tls-mb0eafc_/client.csr\",\n        \"-subj\",\n        \"/CN=phase-a-client\"\n      ],\n      \"exit_code\": 0,\n      \"stdout\": \"\",\n      \"stderr\": \".+...+........+..........+++++++++++++++++++++++++++++++++++++++*....+++++++++++++++++++++++++++++++++++++++*........+.............+..+.......+...+..................+.....+....+...+........+....+..+.+........+......++++++\\n......+...+.+..............+......+....+..+.+.....+.........+...+.+...........+......+...+.+.....................+..+.......+.....+.+.....+....+...........+.........+.+.....+...+++++++++++++++++++++++++++++++++++++++*.....+...+.+..+....+++++++++++++++++++++++++++++++++++++++*....+..+.........+.+...........+.......+...+..+.......+......+.....+...+......+...+......+.+...........+.......+...............+..+.........+....+......+...............+......+.....+...+...+....+...+...........+.......+...+..+.......+...+.......................+.+......+..+...+....+.........+.....+......+.............+...+..+..........+...+...+..+...+.......+...+....................+....++++++\\n-----\\n\"\n    },\n    {\n      \"arguments\": [\n        \"openssl\",\n        \"x509\",\n        \"-req\",\n        \"-in\",\n        \"/tmp/pqc-linux-tls-mb0eafc_/client.csr\",\n        \"-CA\",\n        \"/tmp/pqc-linux-tls-mb0eafc_/ca.crt\",\n        \"-CAkey\",\n        \"/tmp/pqc-linux-tls-mb0eafc_/ca.key\",\n        \"-CAcreateserial\",\n        \"-out\",\n        \"/tmp/pqc-linux-tls-mb0eafc_/client.crt\",\n        \"-days\",\n        \"1\",\n        \"-extfile\",\n        \"/tmp/pqc-linux-tls-mb0eafc_/client.ext\"\n      ],\n      \"exit_code\": 0,\n      \"stdout\": \"\",\n      \"stderr\": \"Certificate request self-signature ok\\nsubject=CN=phase-a-client\\n\"\n    },\n    {\n      \"arguments\": [\n        \"openssl\",\n        \"x509\",\n        \"-in\",\n        \"/tmp/pqc-linux-tls-mb0eafc_/client.crt\",\n        \"-noout\",\n        \"-subject\",\n        \"-issuer\",\n        \"-dates\"\n      ],\n      \"exit_code\": 0,\n      \"stdout\": \"subject=CN=phase-a-client\\nissuer=CN=Phase A ca\\nnotBefore=Oct 16 13:32:28 2026 GMT\\nnotAfter=Oct 17 13:32:28 2026 GMT\\n\",\n      \"stderr\": \"\"\n    },\n    {\n      \"arguments\": [\n        \"openssl\",\n        \"req\",\n        \"-new\",\n        \"-newkey\",\n        \"rsa:2048\",\n        \"-nodes\",\n        \"-keyout\",\n        \"/tmp/pqc-linux-tls-mb0eafc_/untrusted-server.key\",\n        \"-out\",\n        \"/tmp/pqc-linux-tls-mb0eafc_/untrusted-server.csr\",\n        \"-subj\",\n        \"/CN=localhost\"\n      ],\n      \"exit_code\": 0,\n      \"stdout\": \"\",\n      \"stderr\": \"....+.......+...................................+++++++++++++++++++++++++++++++++++++++*.+.....+.......+..+.........+....+..+......+.........+++++++++++++++++++++++++++++++++++++++*............+............+........+.......++++++\\n......+.......+...+.........+.........+..+...+....+......+..+...+.+...+..+.........+.+.....+...+...+.......+...........+....+++++++++++++++++++++++++++++++++++++++*..+....+..+....+...+..+.+.....+.......+...+...............+..+...+....+...........+............+......+......+.........+.+......+...+.....+++++++++++++++++++++++++++++++++++++++*...............+...+.................+.............+......+...+...+.....+...+....+............+......+........+.+........+...+.......+..++++++\\n-----\\n\"\n    },\n    {\n      \"arguments\": [\n        \"openssl\",\n        \"x509\",\n        \"-req\",\n        \"-in\",\n        \"/tmp/pqc-linux-tls-mb0eafc_/untrusted-server.csr\",\n        \"-CA\",\n        \"/tmp/pqc-linux-tls-mb0eafc_/other-ca.crt\",\n        \"-CAkey\",\n        \"/tmp/pqc-linux-tls-mb0eafc_/other-ca.key\",\n        \"-CAcreateserial\",\n        \"-out\",\n        \"/tmp/pqc-linux-tls-mb0eafc_/untrusted-server.crt\",\n        \"-days\",\n        \"1\",\n        \"-extfile\",\n        \"/tmp/pqc-linux-tls-mb0eafc_/untrusted-server.ext\"\n      ],\n      \"exit_code\": 0,\n      \"stdout\": \"\",\n      \"stderr\": \"Certificate request self-signature ok\\nsubject=CN=localhost\\n\"\n    },\n    {\n      \"arguments\": [\n        \"openssl\",\n        \"x509\",\n        \"-in\",\n        \"/tmp/pqc-linux-tls-mb0eafc_/untrusted-server.crt\",\n        \"-noout\",\n        \"-subject\",\n        \"-issuer\",\n        \"-dates\"\n      ],\n      \"exit_code\": 0,\n      \"stdout\": \"subject=CN=localhost\\nissuer=CN=Phase A other-ca\\nnotBefore=Oct 16 13:32:28 2026 GMT\\nnotAfter=Oct 17 13:32:28 2026 GMT\\n\",\n      \"stderr\": \"\"\n    },\n    {\n      \"arguments\": [\n        \"openssl\",\n        \"req\",\n        \"-new\",\n        \"-newkey\",\n        \"rsa:2048\",\n        \"-nodes\",\n        \"-keyout\",\n        \"/tmp/pqc-linux-tls-mb0eafc_/expired-server.key\",\n        \"-out\",\n        \"/tmp/pqc-linux-tls-mb0eafc_/expired-server.csr\",\n        \"-subj\",\n        \"/CN=localhost\"\n      ],\n      \"exit_code\": 0,\n      \"stdout\": \"\",\n      \"stderr\": \".....+.+........+++++++++++++++++++++++++++++++++++++++*.+.........+.....+..........+..............+.......+......+..+.+.....+......+.+..+.............+...+.....+....+...+..+......+.......+............+......+......+.....+++++++++++++++++++++++++++++++++++++++*...+...........+.+..+.+.....+.......+...............+..+...+.........+....+..+.......+.................+..........+...+......++++++\\n........+...+....+......+.....+.............+..+....+...+...............+...+.....+....+.....+.+...............+...+..+...+.+.....+...+.......+...+...+........+......+...+.+..+............+......+.+...+...+...+.....+.+.....+.+..............+....+.....+....+++++++++++++++++++++++++++++++++++++++*................+.+..+...+......+...............+....+.........+..+.............+++++++++++++++++++++++++++++++++++++++*......+....+...+........+....+......++++++\\n-----\\n\"\n    },\n    {\n      \"arguments\": [\n        \"openssl\",\n        \"ca\",\n        \"-batch\",\n        \"-notext\",\n        \"-config\",\n        \"/tmp/pqc-linux-tls-mb0eafc_/expired-server.sign.cnf\",\n        \"-in\",\n        \"/tmp/pqc-linux-tls-mb0eafc_/expired-server.csr\",\n        \"-out\",\n        \"/tmp/pqc-linux-tls-mb0eafc_/expired-server.crt\",\n        \"-extfile\",\n        \"/tmp/pqc-linux-tls-mb0eafc_/expired-server.ext\",\n        \"-startdate\",\n        \"20000101000000Z\",\n        \"-enddate\",\n        \"20000102000000Z\"\n      ],\n      \"exit_code\": 0,\n      \"stdout\": \"\",\n      \"stderr\": \"Using configuration from /tmp/pqc-linux-tls-mb0eafc_/expired-server.sign.cnf\\nCheck that the request matches the signature\\nSignature ok\\nThe Subject's Distinguished Name is as follows\\ncommonName            :ASN.1 12:'localhost'\\nCertificate is to be certified until Jan  2 00:00:00 2000 GMT (-9784 days)\\n\\nWrite out database with 1 new entries\\nDatabase updated\\n\"\n    },\n    {\n      \"arguments\": [\n        \"openssl\",\n        \"x509\",\n        \"-in\",\n        \"/tmp/pqc-linux-tls-mb0eafc_/expired-server.crt\",\n        \"-noout\",\n        \"-subject\",\n        \"-issuer\",\n        \"-dates\"\n      ],\n      \"exit_code\": 0,\n      \"stdout\": \"subject=CN=localhost\\nissuer=CN=Phase A ca\\nnotBefore=Jan  1 00:00:00 2000 GMT\\nnotAfter=Jan  2 00:00:00 2000 GMT\\n\",\n      \"stderr\": \"\"\n    },\n    {\n      \"arguments\": [\n        \"openssl\",\n        \"req\",\n        \"-new\",\n        \"-newkey\",\n        \"rsa:2048\",\n        \"-nodes\",\n        \"-keyout\",\n        \"/tmp/pqc-linux-tls-mb0eafc_/untrusted-client.key\",\n        \"-out\",\n        \"/tmp/pqc-linux-tls-mb0eafc_/untrusted-client.csr\",\n        \"-subj\",\n        \"/CN=phase-a-client\"\n      ],\n      \"exit_code\": 0,\n      \"stdout\": \"\",\n      \"stderr\": \"..+......+...+++++++++++++++++++++++++++++++++++++++*....+.......+..+.+.........+..+......+.......+...+..+.+.....+.......+..+.+......+.....+.+++++++++++++++++++++++++++++++++++++++*.................+.......+.........+..+..........+..+...+...+.......+...+.....+..........+..+.......+..+.........+.+...+...+..............+....+...............+..+.............+.........+..+..........+........+...+............+.......+.........+............+.....+.........+.........+.........+.+......+...+...+...+......+.....+...++++++\\n....+.....+...+...+....+..+.+.................+...+...+.+++++++++++++++++++++++++++++++++++++++*..+...+.....+...+...+.+.....+.+....................+..................+.+...........+...+.+......+........+......+...+.+.....+....+++++++++++++++++++++++++++++++++++++++*.....+.......+......+......+..............+...............+.+.....+...+.+..............+......++++++\\n-----\\n\"\n    },\n    {\n      \"arguments\": [\n        \"openssl\",\n        \"x509\",\n        \"-req\",\n        \"-in\",\n        \"/tmp/pqc-linux-tls-mb0eafc_/untrusted-client.csr\",\n        \"-CA\",\n        \"/tmp/pqc-linux-tls-mb0eafc_/other-ca.crt\",\n        \"-CAkey\",\n        \"/tmp/pqc-linux-tls-mb0eafc_/other-ca.key\",\n        \"-CAcreateserial\",\n        \"-out\",\n        \"/tmp/pqc-linux-tls-mb0eafc_/untrusted-client.crt\",\n        \"-days\",\n        \"1\",\n        \"-extfile\",\n        \"/tmp/pqc-linux-tls-mb0eafc_/untrusted-client.ext\"\n      ],\n      \"exit_code\": 0,\n      \"stdout\": \"\",\n      \"stderr\": \"Certificate request self-signature ok\\nsubject=CN=phase-a-client\\n\"\n    },\n    {\n      \"arguments\": [\n        \"openssl\",\n        \"x509\",\n        \"-in\",\n        \"/tmp/pqc-linux-tls-mb0eafc_/untrusted-client.crt\",\n        \"-noout\",\n        \"-subject\",\n        \"-issuer\",\n        \"-dates\"\n      ],\n      \"exit_code\": 0,\n      \"stdout\": \"subject=CN=phase-a-client\\nissuer=CN=Phase A other-ca\\nnotBefore=Oct 16 13:32:28 2026 GMT\\nnotAfter=Oct 17 13:32:28 2026 GMT\\n\",\n      \"stderr\": \"\"\n    },\n    {\n      \"arguments\": [\n        \"openssl\",\n        \"req\",\n        \"-new\",\n        \"-newkey\",\n        \"rsa:2048\",\n        \"-nodes\",\n        \"-keyout\",\n        \"/tmp/pqc-linux-tls-mb0eafc_/expired-client.key\",\n        \"-out\",\n        \"/tmp/pqc-linux-tls-mb0eafc_/expired-client.csr\",\n        \"-subj\",\n        \"/CN=phase-a-client\"\n      ],\n      \"exit_code\": 0,\n      \"stdout\": \"\",\n      \"stderr\": \"...+......+++++++++++++++++++++++++++++++++++++++*.+..+...+++++++++++++++++++++++++++++++++++++++*.....+....+..+.........+.+.....+....+...+..+.+...+..+...+.........+..........+.....+...+...+.........+.+...........+.+.........+..........................+...+.+...+...+....................+.........+...+......+.......+.....+....+...+......+.....+.......+........+.+....................+....+..+...............+....+..............+....+...+........+.+......+..+......+.......+..+...+....+........+.......+...........+............+.+.........+..+...+.+......+........+.+..+...+.........+................+.....+....+..+......+....+...+..+...............+.............+........+..........+..++++++\\n.....+....+.....+....+++++++++++++++++++++++++++++++++++++++*....+...+.........+......+.......+...+.........+..+..........+.....+++++++++++++++++++++++++++++++++++++++*..................+.....+.+.........+.....+.+.....+...+.......+....................+...+...+.......+...+...+..+.........+..........+...+.....+...+...+.+........+.......+.........+........................+..+...+.......+...+..+.+........+......+...+...+............+...+............................+..............+......+.+......+..+...+.......+..+.+........+....+......+.........+..+...+......+....+.....+.+.....................+.........++++++\\n-----\\n\"\n    },\n    {\n      \"arguments\": [\n        \"openssl\",\n        \"ca\",\n        \"-batch\",\n        \"-notext\",\n        \"-config\",\n        \"/tmp/pqc-linux-tls-mb0eafc_/expired-client.sign.cnf\",\n        \"-in\",\n        \"/tmp/pqc-linux-tls-mb0eafc_/expired-client.csr\",\n        \"-out\",\n        \"/tmp/pqc-linux-tls-mb0eafc_/expired-client.crt\",\n        \"-extfile\",\n        \"/tmp/pqc-linux-tls-mb0eafc_/expired-client.ext\",\n        \"-startdate\",\n        \"20000101000000Z\",\n        \"-enddate\",\n        \"20000102000000Z\"\n      ],\n      \"exit_code\": 0,\n      \"stdout\": \"\",\n      \"stderr\": \"Using configuration from /tmp/pqc-linux-tls-mb0eafc_/expired-client.sign.cnf\\nCheck that the request matches the signature\\nSignature ok\\nThe Subject's Distinguished Name is as follows\\ncommonName            :ASN.1 12:'phase-a-client'\\nCertificate is to be certified until Jan  2 00:00:00 2000 GMT (-9784 days)\\n\\nWrite out database with 1 new entries\\nDatabase updated\\n\"\n    },\n    {\n      \"arguments\": [\n        \"openssl\",\n        \"x509\",\n        \"-in\",\n        \"/tmp/pqc-linux-tls-mb0eafc_/expired-client.crt\",\n        \"-noout\",\n        \"-subject\",\n        \"-issuer\",\n        \"-dates\"\n      ],\n      \"exit_code\": 0,\n      \"stdout\": \"subject=CN=phase-a-client\\nissuer=CN=Phase A ca\\nnotBefore=Jan  1 00:00:00 2000 GMT\\nnotAfter=Jan  2 00:00:00 2000 GMT\\n\",\n      \"stderr\": \"\"\n    }\n  ],\n  \"certificate_der_sha256\": {\n    \"server\": \"dbeca933aaca1cf6ba31f6b5ef8e861aef7400c89c7e6fd0634ad9c8ab10352b\",\n    \"client\": \"4e70d6cd621f8f040df72523c93fddc479f7b814e8e8e6771674bec8388c2aea\",\n    \"untrusted-server\": \"f11a6cfe537ca078143c1182b3361670c9b4d42c36b84d7b54f23ea00591ce4c\",\n    \"expired-server\": \"416fbda62ab5696fd51276db08ce96f8188f6258cc429f6935450cbc97e3c7b2\",\n    \"untrusted-client\": \"cb44874a83cb031628ffa8e542cc072d63dbaaca3ac889e2c74b9e51b7274c0d\",\n    \"expired-client\": \"517f5bdadc277085f1a076b1caf8442578bffc8efdc5a08cf4b1cec5748fef1f\"\n  },\n  \"scope\": \"isolated adapter feasibility; no application integration, authorization or durable ACK\",\n  \"references\": [\n    \"https://docs.openssl.org/3.5/man5/config/\",\n    \"https://docs.openssl.org/3.5/man3/SSL_CONF_cmd/\",\n    \"https://docs.python.org/3.12/library/ssl.html\"\n  ],\n  \"error\": {\n    \"type\": \"AssertionError\",\n    \"message\": \"{'case': 'python_server_untrusted_client', 'expected': 'reject', 'client': {'arguments': ['openssl', 's_client', '-connect', '127.0.0.1:50861', '-servername', 'localhost', '-verify_hostname', 'localhost', '-verify_return_error', '-CAfile', '/tmp/pqc-linux-tls-mb0eafc_/ca.crt', '-tls1_3', '-groups', 'X25519MLKEM768', '-brief', '-ign_eof', '-ignore_unexpected_eof', '-cert', '/tmp/pqc-linux-tls-mb0eafc_/untrusted-client.crt', '-key', '/tmp/pqc-linux-tls-mb0eafc_/untrusted-client.key'], 'exit_code': 1, 'stdout': '', 'stderr': 'Connecting to 127.0.0.1\\\\nCONNECTION ESTABLISHED\\\\nProtocol version: TLSv1.3\\\\nCiphersuite: TLS_AES_256_GCM_SHA384\\\\nRequested Signature Algorithms: id-ml-dsa-65:id-ml-dsa-87:id-ml-dsa-44:ECDSA+SHA256:ECDSA+SHA384:ECDSA+SHA512:ed25519:ed448:ecdsa_brainpoolP256r1_sha256:ecdsa_brainpoolP384r1_sha384:ecdsa_brainpoolP512r1_sha512:rsa_pss_pss_sha256:rsa_pss_pss_sha384:rsa_pss_pss_sha512:RSA-PSS+SHA256:RSA-PSS+SHA384:RSA-PSS+SHA512:RSA+SHA256:RSA+SHA384:RSA+SHA512\\\\nPeer certificate: CN=localhost\\\\nHash used: SHA256\\\\nSignature type: rsa_pss_rsae_sha256\\\\nVerification: OK\\\\nVerified peername: localhost\\\\nNegotiated TLS1.3 group: X25519MLKEM768\\\\n4057667D3C780000:error:0A000418:SSL routines:ssl3_read_bytes:tlsv1 alert unknown ca:../ssl/record/rec_layer_s3.c:918:SSL alert number 48\\\\n'}, 'server': {'exit_code': 2, 'stdout': '{\\\"status\\\": \\\"rejected\\\", \\\"error_type\\\": \\\"SSLCertVerificationError\\\", \\\"error\\\": \\\"[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)\\\"}\\\\n', 'stderr': ''}}\"\n  }\n}\n",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "ps",
+        "-a",
+        "--filter",
+        "name=^/pqc-linux-tls-c54751ca733540c5$",
+        "--filter",
+        "label=pqc.phase_a.owner=c54751ca733540c5a9906b41563d2ac1",
+        "--format",
+        "{{.ID}}"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "ps",
+        "-a",
+        "--filter",
+        "name=^/pqc-linux-tls-c54751ca733540c5$",
+        "--format",
+        "{{.ID}}"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "host_source_sha256": "146d0ddf55fc40158d70c32c8fb6a1cdada8f6b71b296411b81cbb7e5295821c",
+  "source_sha256": "655613cae6f827a85d768d35439328a5f1bed400bbd2b4e0bcacb70c7e942c11",
+  "probe": {
+    "status": "failed",
+    "mode": "full",
+    "runtime": {
+      "python": "3.12.14",
+      "platform": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.41",
+      "openssl_cli": "OpenSSL 3.5.7 9 Jun 2026 (Library: OpenSSL 3.5.7 9 Jun 2026)\nbuilt on: Sun Aug 23 15:26:22 2026 UTC\nplatform: debian-amd64\noptions:  bn(64,64)\ncompiler: gcc -fPIC -pthread -m64 -Wa,--noexecstack -Wall -fzero-call-used-regs=used-gpr -Wa,--noexecstack -g -O2 -Werror=implicit-function-declaration -ffile-prefix-map=/build/reproducible-path/openssl-3.5.7=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -fcf-protection -DOPENSSL_USE_NODELETE -DL_ENDIAN -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DZSTD -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2\nOPENSSLDIR: \"/usr/lib/ssl\"\nENGINESDIR: \"/usr/lib/x86_64-linux-gnu/engines-3\"\nMODULESDIR: \"/usr/lib/x86_64-linux-gnu/ossl-modules\"\nSeeding source: os-specific\nCPUINFO: OPENSSL_ia32cap=0xfed83203078bffff:0x00405fc6f1bf07a9:0x0000002000000010:0x0000000000000000:0x0000000000000000\n"
+    },
+    "policy": "config_diagnostics = 1\nopenssl_conf = openssl_init\n[openssl_init]\nssl_conf = ssl_section\n[ssl_section]\nsystem_default = tls_defaults\n[tls_defaults]\nMinProtocol = TLSv1.3\nMaxProtocol = TLSv1.3\nGroups = X25519MLKEM768\n",
+    "policy_sha256": "68375cb30d9284888675f12a658f8980795170ca205cca7e227038f525b18bd2",
+    "cases": [
+      {
+        "case": "python_server_hybrid",
+        "expected": "accept",
+        "client": {
+          "arguments": [
+            "openssl",
+            "s_client",
+            "-connect",
+            "127.0.0.1:58217",
+            "-servername",
+            "localhost",
+            "-verify_hostname",
+            "localhost",
+            "-verify_return_error",
+            "-CAfile",
+            "/tmp/pqc-linux-tls-mb0eafc_/ca.crt",
+            "-tls1_3",
+            "-groups",
+            "X25519MLKEM768",
+            "-brief",
+            "-ign_eof",
+            "-ignore_unexpected_eof",
+            "-cert",
+            "/tmp/pqc-linux-tls-mb0eafc_/client.crt",
+            "-key",
+            "/tmp/pqc-linux-tls-mb0eafc_/client.key"
+          ],
+          "exit_code": 0,
+          "stdout": "phase-a-ack\n",
+          "stderr": "Connecting to 127.0.0.1\nCONNECTION ESTABLISHED\nProtocol version: TLSv1.3\nCiphersuite: TLS_AES_256_GCM_SHA384\nRequested Signature Algorithms: id-ml-dsa-65:id-ml-dsa-87:id-ml-dsa-44:ECDSA+SHA256:ECDSA+SHA384:ECDSA+SHA512:ed25519:ed448:ecdsa_brainpoolP256r1_sha256:ecdsa_brainpoolP384r1_sha384:ecdsa_brainpoolP512r1_sha512:rsa_pss_pss_sha256:rsa_pss_pss_sha384:rsa_pss_pss_sha512:RSA-PSS+SHA256:RSA-PSS+SHA384:RSA-PSS+SHA512:RSA+SHA256:RSA+SHA384:RSA+SHA512\nPeer certificate: CN=localhost\nHash used: SHA256\nSignature type: rsa_pss_rsae_sha256\nVerification: OK\nVerified peername: localhost\nNegotiated TLS1.3 group: X25519MLKEM768\n"
+        },
+        "server": {
+          "exit_code": 0,
+          "stdout": "{\"status\": \"accepted\", \"protocol\": \"TLSv1.3\", \"cipher\": [\"TLS_AES_256_GCM_SHA384\", \"TLSv1.3\", 256], \"peer_identity\": {\"subject\": [[[\"commonName\", \"phase-a-client\"]]], \"issuer\": [[[\"commonName\", \"Phase A ca\"]]], \"version\": 3, \"serialNumber\": \"6D4078B7F884AF64671C2A0BA63DF897FAB72AA1\", \"notBefore\": \"Oct 16 13:32:28 2026 GMT\", \"notAfter\": \"Oct 17 13:32:28 2026 GMT\"}, \"peer_der_sha256\": \"4e70d6cd621f8f040df72523c93fddc479f7b814e8e8e6771674bec8388c2aea\", \"received_hex\": \"70686173652d612d6c696e75780a\", \"session_reused\": false}\n",
+          "stderr": ""
+        },
+        "passed": true
+      },
+      {
+        "case": "python_server_classical_rejected",
+        "expected": "reject",
+        "client": {
+          "arguments": [
+            "openssl",
+            "s_client",
+            "-connect",
+            "127.0.0.1:41035",
+            "-servername",
+            "localhost",
+            "-verify_hostname",
+            "localhost",
+            "-verify_return_error",
+            "-CAfile",
+            "/tmp/pqc-linux-tls-mb0eafc_/ca.crt",
+            "-tls1_3",
+            "-groups",
+            "X25519",
+            "-brief",
+            "-ign_eof",
+            "-ignore_unexpected_eof",
+            "-cert",
+            "/tmp/pqc-linux-tls-mb0eafc_/client.crt",
+            "-key",
+            "/tmp/pqc-linux-tls-mb0eafc_/client.key"
+          ],
+          "exit_code": 1,
+          "stdout": "",
+          "stderr": "Connecting to 127.0.0.1\n40B71B3BD3720000:error:0A000410:SSL routines:ssl3_read_bytes:ssl/tls alert handshake failure:../ssl/record/rec_layer_s3.c:918:SSL alert number 40\n"
+        },
+        "server": {
+          "exit_code": 2,
+          "stdout": "{\"status\": \"rejected\", \"error_type\": \"SSLError\", \"error\": \"[SSL: NO_SUITABLE_KEY_SHARE] no suitable key share (_ssl.c:1010)\"}\n",
+          "stderr": ""
+        },
+        "passed": true
+      },
+      {
+        "case": "python_to_python_exact_roundtrip",
+        "expected": "accept",
+        "client": {
+          "arguments": [
+            "/usr/local/bin/python",
+            "-I",
+            "/tmp/pqc-linux-tls-mb0eafc_/endpoint.py",
+            "client",
+            "/tmp/pqc-linux-tls-mb0eafc_",
+            "config_diagnostics = 1\nopenssl_conf = openssl_init\n[openssl_init]\nssl_conf = ssl_section\n[ssl_section]\nsystem_default = tls_defaults\n[tls_defaults]\nMinProtocol = TLSv1.3\nMaxProtocol = TLSv1.3\nGroups = X25519MLKEM768\n",
+            "client",
+            "51437",
+            "localhost"
+          ],
+          "exit_code": 0,
+          "stdout": "{\"status\": \"accepted\", \"protocol\": \"TLSv1.3\", \"cipher\": [\"TLS_AES_256_GCM_SHA384\", \"TLSv1.3\", 256], \"peer_identity\": {\"subject\": [[[\"commonName\", \"localhost\"]]], \"issuer\": [[[\"commonName\", \"Phase A ca\"]]], \"version\": 3, \"serialNumber\": \"6D4078B7F884AF64671C2A0BA63DF897FAB72AA0\", \"notBefore\": \"Oct 16 13:32:28 2026 GMT\", \"notAfter\": \"Oct 17 13:32:28 2026 GMT\", \"subjectAltName\": [[\"DNS\", \"localhost\"]]}, \"peer_der_sha256\": \"dbeca933aaca1cf6ba31f6b5ef8e861aef7400c89c7e6fd0634ad9c8ab10352b\", \"received_hex\": \"70686173652d612d61636b0a\", \"session_reused\": false}\n",
+          "stderr": ""
+        },
+        "server": {
+          "exit_code": 0,
+          "stdout": "{\"status\": \"accepted\", \"protocol\": \"TLSv1.3\", \"cipher\": [\"TLS_AES_256_GCM_SHA384\", \"TLSv1.3\", 256], \"peer_identity\": {\"subject\": [[[\"commonName\", \"phase-a-client\"]]], \"issuer\": [[[\"commonName\", \"Phase A ca\"]]], \"version\": 3, \"serialNumber\": \"6D4078B7F884AF64671C2A0BA63DF897FAB72AA1\", \"notBefore\": \"Oct 16 13:32:28 2026 GMT\", \"notAfter\": \"Oct 17 13:32:28 2026 GMT\"}, \"peer_der_sha256\": \"4e70d6cd621f8f040df72523c93fddc479f7b814e8e8e6771674bec8388c2aea\", \"received_hex\": \"70686173652d612d6c696e75780a\", \"session_reused\": false}\n",
+          "stderr": ""
+        },
+        "passed": true
+      },
+      {
+        "case": "python_server_no_client_certificate",
+        "expected": "reject",
+        "client": {
+          "arguments": [
+            "openssl",
+            "s_client",
+            "-connect",
+            "127.0.0.1:37053",
+            "-servername",
+            "localhost",
+            "-verify_hostname",
+            "localhost",
+            "-verify_return_error",
+            "-CAfile",
+            "/tmp/pqc-linux-tls-mb0eafc_/ca.crt",
+            "-tls1_3",
+            "-groups",
+            "X25519MLKEM768",
+            "-brief",
+            "-ign_eof",
+            "-ignore_unexpected_eof"
+          ],
+          "exit_code": 1,
+          "stdout": "",
+          "stderr": "Connecting to 127.0.0.1\nCONNECTION ESTABLISHED\nProtocol version: TLSv1.3\nCiphersuite: TLS_AES_256_GCM_SHA384\nRequested Signature Algorithms: id-ml-dsa-65:id-ml-dsa-87:id-ml-dsa-44:ECDSA+SHA256:ECDSA+SHA384:ECDSA+SHA512:ed25519:ed448:ecdsa_brainpoolP256r1_sha256:ecdsa_brainpoolP384r1_sha384:ecdsa_brainpoolP512r1_sha512:rsa_pss_pss_sha256:rsa_pss_pss_sha384:rsa_pss_pss_sha512:RSA-PSS+SHA256:RSA-PSS+SHA384:RSA-PSS+SHA512:RSA+SHA256:RSA+SHA384:RSA+SHA512\nPeer certificate: CN=localhost\nHash used: SHA256\nSignature type: rsa_pss_rsae_sha256\nVerification: OK\nVerified peername: localhost\nNegotiated TLS1.3 group: X25519MLKEM768\n4007247939730000:error:0A00045C:SSL routines:ssl3_read_bytes:tlsv13 alert certificate required:../ssl/record/rec_layer_s3.c:918:SSL alert number 116\n"
+        },
+        "server": {
+          "exit_code": 2,
+          "stdout": "{\"status\": \"rejected\", \"error_type\": \"SSLError\", \"error\": \"[SSL: PEER_DID_NOT_RETURN_A_CERTIFICATE] peer did not return a certificate (_ssl.c:1010)\"}\n",
+          "stderr": ""
+        },
+        "passed": true
+      },
+      {
+        "case": "python_server_untrusted_client",
+        "expected": "reject",
+        "client": {
+          "arguments": [
+            "openssl",
+            "s_client",
+            "-connect",
+            "127.0.0.1:50861",
+            "-servername",
+            "localhost",
+            "-verify_hostname",
+            "localhost",
+            "-verify_return_error",
+            "-CAfile",
+            "/tmp/pqc-linux-tls-mb0eafc_/ca.crt",
+            "-tls1_3",
+            "-groups",
+            "X25519MLKEM768",
+            "-brief",
+            "-ign_eof",
+            "-ignore_unexpected_eof",
+            "-cert",
+            "/tmp/pqc-linux-tls-mb0eafc_/untrusted-client.crt",
+            "-key",
+            "/tmp/pqc-linux-tls-mb0eafc_/untrusted-client.key"
+          ],
+          "exit_code": 1,
+          "stdout": "",
+          "stderr": "Connecting to 127.0.0.1\nCONNECTION ESTABLISHED\nProtocol version: TLSv1.3\nCiphersuite: TLS_AES_256_GCM_SHA384\nRequested Signature Algorithms: id-ml-dsa-65:id-ml-dsa-87:id-ml-dsa-44:ECDSA+SHA256:ECDSA+SHA384:ECDSA+SHA512:ed25519:ed448:ecdsa_brainpoolP256r1_sha256:ecdsa_brainpoolP384r1_sha384:ecdsa_brainpoolP512r1_sha512:rsa_pss_pss_sha256:rsa_pss_pss_sha384:rsa_pss_pss_sha512:RSA-PSS+SHA256:RSA-PSS+SHA384:RSA-PSS+SHA512:RSA+SHA256:RSA+SHA384:RSA+SHA512\nPeer certificate: CN=localhost\nHash used: SHA256\nSignature type: rsa_pss_rsae_sha256\nVerification: OK\nVerified peername: localhost\nNegotiated TLS1.3 group: X25519MLKEM768\n4057667D3C780000:error:0A000418:SSL routines:ssl3_read_bytes:tlsv1 alert unknown ca:../ssl/record/rec_layer_s3.c:918:SSL alert number 48\n"
+        },
+        "server": {
+          "exit_code": 2,
+          "stdout": "{\"status\": \"rejected\", \"error_type\": \"SSLCertVerificationError\", \"error\": \"[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)\"}\n",
+          "stderr": ""
+        }
+      }
+    ],
+    "provisioning": [
+      {
+        "arguments": [
+          "openssl",
+          "version",
+          "-a"
+        ],
+        "exit_code": 0,
+        "stdout": "OpenSSL 3.5.7 9 Jun 2026 (Library: OpenSSL 3.5.7 9 Jun 2026)\nbuilt on: Sun Aug 23 15:26:22 2026 UTC\nplatform: debian-amd64\noptions:  bn(64,64)\ncompiler: gcc -fPIC -pthread -m64 -Wa,--noexecstack -Wall -fzero-call-used-regs=used-gpr -Wa,--noexecstack -g -O2 -Werror=implicit-function-declaration -ffile-prefix-map=/build/reproducible-path/openssl-3.5.7=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -fcf-protection -DOPENSSL_USE_NODELETE -DL_ENDIAN -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DZSTD -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2\nOPENSSLDIR: \"/usr/lib/ssl\"\nENGINESDIR: \"/usr/lib/x86_64-linux-gnu/engines-3\"\nMODULESDIR: \"/usr/lib/x86_64-linux-gnu/ossl-modules\"\nSeeding source: os-specific\nCPUINFO: OPENSSL_ia32cap=0xfed83203078bffff:0x00405fc6f1bf07a9:0x0000002000000010:0x0000000000000000:0x0000000000000000\n",
+        "stderr": ""
+      },
+      {
+        "arguments": [
+          "openssl",
+          "req",
+          "-x509",
+          "-newkey",
+          "rsa:2048",
+          "-nodes",
+          "-keyout",
+          "/tmp/pqc-linux-tls-mb0eafc_/ca.key",
+          "-out",
+          "/tmp/pqc-linux-tls-mb0eafc_/ca.crt",
+          "-days",
+          "1",
+          "-subj",
+          "/CN=Phase A ca",
+          "-addext",
+          "basicConstraints=critical,CA:TRUE",
+          "-addext",
+          "keyUsage=critical,keyCertSign,cRLSign"
+        ],
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": "...+..+............+....+...............+......+.....+......+...+.+...+............+.........+.....+++++++++++++++++++++++++++++++++++++++*..+....+..+.+..+......+.......+..+......+....+..+.+..+..........+...............+..+.+...+..............+.+.....+.+........+++++++++++++++++++++++++++++++++++++++*..+...+...+....+......+..............+............+...+.......+...+......+.........+..+....+..+...................+........+......+...............+......+.+..+.+..+...+......+.+.........+.....+.++++++\n....+........+...+.+++++++++++++++++++++++++++++++++++++++*...+++++++++++++++++++++++++++++++++++++++*....+...+....+..+....+..+...+......+...+..........+......+............+..+.......+....................+....+.........+...........+.......+........+.......+..+...............+......+....+...+........+.+.....+.+..............+...+.+.....+.+...........+....+.....+....+..+..........+..+.......+...+.....+.......+......+.....+...+.+.....+...+................+..+...+.+......+........+.+...+...+...+..+.......+...+..+...+.......+..................+.....+....+.....+................+..+...+....+.....+......+.......+...+.....+.......+...+............+.....+......+.+...+......+.....+....+............+.........+...........+.+..............+....+...............+..+...............+....+.........+......+.........+...........+.+..+......+....+.....+......+.+......+....................+.........+...+.+..+...+.......+..+.......+..............+..........+..+..........+..+...+.........+....+..+...+.......+...+...........+......+...+..........+..+...+....+...........+......+.+.....+.......+..+.+...............+............+..++++++\n-----\n"
+      },
+      {
+        "arguments": [
+          "openssl",
+          "req",
+          "-x509",
+          "-newkey",
+          "rsa:2048",
+          "-nodes",
+          "-keyout",
+          "/tmp/pqc-linux-tls-mb0eafc_/other-ca.key",
+          "-out",
+          "/tmp/pqc-linux-tls-mb0eafc_/other-ca.crt",
+          "-days",
+          "1",
+          "-subj",
+          "/CN=Phase A other-ca",
+          "-addext",
+          "basicConstraints=critical,CA:TRUE",
+          "-addext",
+          "keyUsage=critical,keyCertSign,cRLSign"
+        ],
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": "........+......+.+...............+.........+...+..........................+....+..+.+...+.....+......+.+.....+..........+........+....+..+......+...+......+......+....+........+...+....+.....................+..+............+.+..+...+...+.+......+++++++++++++++++++++++++++++++++++++++*..+.+............+........+...+.+..............+......+.+.....+.......+.....+...+.......+.....+......+.+.....+...+.+.....+.+.....+..........+...+..+..........+.........+.....+......+++++++++++++++++++++++++++++++++++++++*.+...............+.+...........+...+...+..................+.+...+......+.....+....+.....+.......+...........+....+......+..+.+.........+......+......+.....+...+..........+..+.+........+....+...........+..........+..++++++\n....+..+...+...+.+...+++++++++++++++++++++++++++++++++++++++*.......+......+++++++++++++++++++++++++++++++++++++++*..........+...+.........+.....+..........+........+....++++++\n-----\n"
+      },
+      {
+        "arguments": [
+          "openssl",
+          "req",
+          "-new",
+          "-newkey",
+          "rsa:2048",
+          "-nodes",
+          "-keyout",
+          "/tmp/pqc-linux-tls-mb0eafc_/server.key",
+          "-out",
+          "/tmp/pqc-linux-tls-mb0eafc_/server.csr",
+          "-subj",
+          "/CN=localhost"
+        ],
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": ".+.+.................+.+..+....+........+.......+..............+.........+.......+.....+.+..+.......+...+.....+...+....+..............+....+........+....+...+++++++++++++++++++++++++++++++++++++++*.....+........+.+..+++++++++++++++++++++++++++++++++++++++*.+...............+.+.....................+..+...+..........+.....+...........................+.+..+.......+...+..+...+.......+...+...+......+.....+.+........++++++\n............+++++++++++++++++++++++++++++++++++++++*.....+....+...+.....................+++++++++++++++++++++++++++++++++++++++*.........+............+........+.......+.....+....+.....+....+.....................+...........+...+.+..+....+...............+...+...+.....+....+...+......+.....+.+.....+....+..+...+.+...+...+..+..........+...........+......+...+...+.......+..+....+.....+....+...........+....+...+..+.+.....+..........+..+...+.+.....+...............+....+..+.........+...+.+..+.........................+.....+....+...+...........+......+.+..+...+...............+...+......++++++\n-----\n"
+      },
+      {
+        "arguments": [
+          "openssl",
+          "x509",
+          "-req",
+          "-in",
+          "/tmp/pqc-linux-tls-mb0eafc_/server.csr",
+          "-CA",
+          "/tmp/pqc-linux-tls-mb0eafc_/ca.crt",
+          "-CAkey",
+          "/tmp/pqc-linux-tls-mb0eafc_/ca.key",
+          "-CAcreateserial",
+          "-out",
+          "/tmp/pqc-linux-tls-mb0eafc_/server.crt",
+          "-days",
+          "1",
+          "-extfile",
+          "/tmp/pqc-linux-tls-mb0eafc_/server.ext"
+        ],
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": "Certificate request self-signature ok\nsubject=CN=localhost\n"
+      },
+      {
+        "arguments": [
+          "openssl",
+          "x509",
+          "-in",
+          "/tmp/pqc-linux-tls-mb0eafc_/server.crt",
+          "-noout",
+          "-subject",
+          "-issuer",
+          "-dates"
+        ],
+        "exit_code": 0,
+        "stdout": "subject=CN=localhost\nissuer=CN=Phase A ca\nnotBefore=Oct 16 13:32:28 2026 GMT\nnotAfter=Oct 17 13:32:28 2026 GMT\n",
+        "stderr": ""
+      },
+      {
+        "arguments": [
+          "openssl",
+          "req",
+          "-new",
+          "-newkey",
+          "rsa:2048",
+          "-nodes",
+          "-keyout",
+          "/tmp/pqc-linux-tls-mb0eafc_/client.key",
+          "-out",
+          "/tmp/pqc-linux-tls-mb0eafc_/client.csr",
+          "-subj",
+          "/CN=phase-a-client"
+        ],
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": ".+...+........+..........+++++++++++++++++++++++++++++++++++++++*....+++++++++++++++++++++++++++++++++++++++*........+.............+..+.......+...+..................+.....+....+...+........+....+..+.+........+......++++++\n......+...+.+..............+......+....+..+.+.....+.........+...+.+...........+......+...+.+.....................+..+.......+.....+.+.....+....+...........+.........+.+.....+...+++++++++++++++++++++++++++++++++++++++*.....+...+.+..+....+++++++++++++++++++++++++++++++++++++++*....+..+.........+.+...........+.......+...+..+.......+......+.....+...+......+...+......+.+...........+.......+...............+..+.........+....+......+...............+......+.....+...+...+....+...+...........+.......+...+..+.......+...+.......................+.+......+..+...+....+.........+.....+......+.............+...+..+..........+...+...+..+...+.......+...+....................+....++++++\n-----\n"
+      },
+      {
+        "arguments": [
+          "openssl",
+          "x509",
+          "-req",
+          "-in",
+          "/tmp/pqc-linux-tls-mb0eafc_/client.csr",
+          "-CA",
+          "/tmp/pqc-linux-tls-mb0eafc_/ca.crt",
+          "-CAkey",
+          "/tmp/pqc-linux-tls-mb0eafc_/ca.key",
+          "-CAcreateserial",
+          "-out",
+          "/tmp/pqc-linux-tls-mb0eafc_/client.crt",
+          "-days",
+          "1",
+          "-extfile",
+          "/tmp/pqc-linux-tls-mb0eafc_/client.ext"
+        ],
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": "Certificate request self-signature ok\nsubject=CN=phase-a-client\n"
+      },
+      {
+        "arguments": [
+          "openssl",
+          "x509",
+          "-in",
+          "/tmp/pqc-linux-tls-mb0eafc_/client.crt",
+          "-noout",
+          "-subject",
+          "-issuer",
+          "-dates"
+        ],
+        "exit_code": 0,
+        "stdout": "subject=CN=phase-a-client\nissuer=CN=Phase A ca\nnotBefore=Oct 16 13:32:28 2026 GMT\nnotAfter=Oct 17 13:32:28 2026 GMT\n",
+        "stderr": ""
+      },
+      {
+        "arguments": [
+          "openssl",
+          "req",
+          "-new",
+          "-newkey",
+          "rsa:2048",
+          "-nodes",
+          "-keyout",
+          "/tmp/pqc-linux-tls-mb0eafc_/untrusted-server.key",
+          "-out",
+          "/tmp/pqc-linux-tls-mb0eafc_/untrusted-server.csr",
+          "-subj",
+          "/CN=localhost"
+        ],
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": "....+.......+...................................+++++++++++++++++++++++++++++++++++++++*.+.....+.......+..+.........+....+..+......+.........+++++++++++++++++++++++++++++++++++++++*............+............+........+.......++++++\n......+.......+...+.........+.........+..+...+....+......+..+...+.+...+..+.........+.+.....+...+...+.......+...........+....+++++++++++++++++++++++++++++++++++++++*..+....+..+....+...+..+.+.....+.......+...+...............+..+...+....+...........+............+......+......+.........+.+......+...+.....+++++++++++++++++++++++++++++++++++++++*...............+...+.................+.............+......+...+...+.....+...+....+............+......+........+.+........+...+.......+..++++++\n-----\n"
+      },
+      {
+        "arguments": [
+          "openssl",
+          "x509",
+          "-req",
+          "-in",
+          "/tmp/pqc-linux-tls-mb0eafc_/untrusted-server.csr",
+          "-CA",
+          "/tmp/pqc-linux-tls-mb0eafc_/other-ca.crt",
+          "-CAkey",
+          "/tmp/pqc-linux-tls-mb0eafc_/other-ca.key",
+          "-CAcreateserial",
+          "-out",
+          "/tmp/pqc-linux-tls-mb0eafc_/untrusted-server.crt",
+          "-days",
+          "1",
+          "-extfile",
+          "/tmp/pqc-linux-tls-mb0eafc_/untrusted-server.ext"
+        ],
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": "Certificate request self-signature ok\nsubject=CN=localhost\n"
+      },
+      {
+        "arguments": [
+          "openssl",
+          "x509",
+          "-in",
+          "/tmp/pqc-linux-tls-mb0eafc_/untrusted-server.crt",
+          "-noout",
+          "-subject",
+          "-issuer",
+          "-dates"
+        ],
+        "exit_code": 0,
+        "stdout": "subject=CN=localhost\nissuer=CN=Phase A other-ca\nnotBefore=Oct 16 13:32:28 2026 GMT\nnotAfter=Oct 17 13:32:28 2026 GMT\n",
+        "stderr": ""
+      },
+      {
+        "arguments": [
+          "openssl",
+          "req",
+          "-new",
+          "-newkey",
+          "rsa:2048",
+          "-nodes",
+          "-keyout",
+          "/tmp/pqc-linux-tls-mb0eafc_/expired-server.key",
+          "-out",
+          "/tmp/pqc-linux-tls-mb0eafc_/expired-server.csr",
+          "-subj",
+          "/CN=localhost"
+        ],
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": ".....+.+........+++++++++++++++++++++++++++++++++++++++*.+.........+.....+..........+..............+.......+......+..+.+.....+......+.+..+.............+...+.....+....+...+..+......+.......+............+......+......+.....+++++++++++++++++++++++++++++++++++++++*...+...........+.+..+.+.....+.......+...............+..+...+.........+....+..+.......+.................+..........+...+......++++++\n........+...+....+......+.....+.............+..+....+...+...............+...+.....+....+.....+.+...............+...+..+...+.+.....+...+.......+...+...+........+......+...+.+..+............+......+.+...+...+...+.....+.+.....+.+..............+....+.....+....+++++++++++++++++++++++++++++++++++++++*................+.+..+...+......+...............+....+.........+..+.............+++++++++++++++++++++++++++++++++++++++*......+....+...+........+....+......++++++\n-----\n"
+      },
+      {
+        "arguments": [
+          "openssl",
+          "ca",
+          "-batch",
+          "-notext",
+          "-config",
+          "/tmp/pqc-linux-tls-mb0eafc_/expired-server.sign.cnf",
+          "-in",
+          "/tmp/pqc-linux-tls-mb0eafc_/expired-server.csr",
+          "-out",
+          "/tmp/pqc-linux-tls-mb0eafc_/expired-server.crt",
+          "-extfile",
+          "/tmp/pqc-linux-tls-mb0eafc_/expired-server.ext",
+          "-startdate",
+          "20000101000000Z",
+          "-enddate",
+          "20000102000000Z"
+        ],
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": "Using configuration from /tmp/pqc-linux-tls-mb0eafc_/expired-server.sign.cnf\nCheck that the request matches the signature\nSignature ok\nThe Subject's Distinguished Name is as follows\ncommonName            :ASN.1 12:'localhost'\nCertificate is to be certified until Jan  2 00:00:00 2000 GMT (-9784 days)\n\nWrite out database with 1 new entries\nDatabase updated\n"
+      },
+      {
+        "arguments": [
+          "openssl",
+          "x509",
+          "-in",
+          "/tmp/pqc-linux-tls-mb0eafc_/expired-server.crt",
+          "-noout",
+          "-subject",
+          "-issuer",
+          "-dates"
+        ],
+        "exit_code": 0,
+        "stdout": "subject=CN=localhost\nissuer=CN=Phase A ca\nnotBefore=Jan  1 00:00:00 2000 GMT\nnotAfter=Jan  2 00:00:00 2000 GMT\n",
+        "stderr": ""
+      },
+      {
+        "arguments": [
+          "openssl",
+          "req",
+          "-new",
+          "-newkey",
+          "rsa:2048",
+          "-nodes",
+          "-keyout",
+          "/tmp/pqc-linux-tls-mb0eafc_/untrusted-client.key",
+          "-out",
+          "/tmp/pqc-linux-tls-mb0eafc_/untrusted-client.csr",
+          "-subj",
+          "/CN=phase-a-client"
+        ],
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": "..+......+...+++++++++++++++++++++++++++++++++++++++*....+.......+..+.+.........+..+......+.......+...+..+.+.....+.......+..+.+......+.....+.+++++++++++++++++++++++++++++++++++++++*.................+.......+.........+..+..........+..+...+...+.......+...+.....+..........+..+.......+..+.........+.+...+...+..............+....+...............+..+.............+.........+..+..........+........+...+............+.......+.........+............+.....+.........+.........+.........+.+......+...+...+...+......+.....+...++++++\n....+.....+...+...+....+..+.+.................+...+...+.+++++++++++++++++++++++++++++++++++++++*..+...+.....+...+...+.+.....+.+....................+..................+.+...........+...+.+......+........+......+...+.+.....+....+++++++++++++++++++++++++++++++++++++++*.....+.......+......+......+..............+...............+.+.....+...+.+..............+......++++++\n-----\n"
+      },
+      {
+        "arguments": [
+          "openssl",
+          "x509",
+          "-req",
+          "-in",
+          "/tmp/pqc-linux-tls-mb0eafc_/untrusted-client.csr",
+          "-CA",
+          "/tmp/pqc-linux-tls-mb0eafc_/other-ca.crt",
+          "-CAkey",
+          "/tmp/pqc-linux-tls-mb0eafc_/other-ca.key",
+          "-CAcreateserial",
+          "-out",
+          "/tmp/pqc-linux-tls-mb0eafc_/untrusted-client.crt",
+          "-days",
+          "1",
+          "-extfile",
+          "/tmp/pqc-linux-tls-mb0eafc_/untrusted-client.ext"
+        ],
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": "Certificate request self-signature ok\nsubject=CN=phase-a-client\n"
+      },
+      {
+        "arguments": [
+          "openssl",
+          "x509",
+          "-in",
+          "/tmp/pqc-linux-tls-mb0eafc_/untrusted-client.crt",
+          "-noout",
+          "-subject",
+          "-issuer",
+          "-dates"
+        ],
+        "exit_code": 0,
+        "stdout": "subject=CN=phase-a-client\nissuer=CN=Phase A other-ca\nnotBefore=Oct 16 13:32:28 2026 GMT\nnotAfter=Oct 17 13:32:28 2026 GMT\n",
+        "stderr": ""
+      },
+      {
+        "arguments": [
+          "openssl",
+          "req",
+          "-new",
+          "-newkey",
+          "rsa:2048",
+          "-nodes",
+          "-keyout",
+          "/tmp/pqc-linux-tls-mb0eafc_/expired-client.key",
+          "-out",
+          "/tmp/pqc-linux-tls-mb0eafc_/expired-client.csr",
+          "-subj",
+          "/CN=phase-a-client"
+        ],
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": "...+......+++++++++++++++++++++++++++++++++++++++*.+..+...+++++++++++++++++++++++++++++++++++++++*.....+....+..+.........+.+.....+....+...+..+.+...+..+...+.........+..........+.....+...+...+.........+.+...........+.+.........+..........................+...+.+...+...+....................+.........+...+......+.......+.....+....+...+......+.....+.......+........+.+....................+....+..+...............+....+..............+....+...+........+.+......+..+......+.......+..+...+....+........+.......+...........+............+.+.........+..+...+.+......+........+.+..+...+.........+................+.....+....+..+......+....+...+..+...............+.............+........+..........+..++++++\n.....+....+.....+....+++++++++++++++++++++++++++++++++++++++*....+...+.........+......+.......+...+.........+..+..........+.....+++++++++++++++++++++++++++++++++++++++*..................+.....+.+.........+.....+.+.....+...+.......+....................+...+...+.......+...+...+..+.........+..........+...+.....+...+...+.+........+.......+.........+........................+..+...+.......+...+..+.+........+......+...+...+............+...+............................+..............+......+.+......+..+...+.......+..+.+........+....+......+.........+..+...+......+....+.....+.+.....................+.........++++++\n-----\n"
+      },
+      {
+        "arguments": [
+          "openssl",
+          "ca",
+          "-batch",
+          "-notext",
+          "-config",
+          "/tmp/pqc-linux-tls-mb0eafc_/expired-client.sign.cnf",
+          "-in",
+          "/tmp/pqc-linux-tls-mb0eafc_/expired-client.csr",
+          "-out",
+          "/tmp/pqc-linux-tls-mb0eafc_/expired-client.crt",
+          "-extfile",
+          "/tmp/pqc-linux-tls-mb0eafc_/expired-client.ext",
+          "-startdate",
+          "20000101000000Z",
+          "-enddate",
+          "20000102000000Z"
+        ],
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": "Using configuration from /tmp/pqc-linux-tls-mb0eafc_/expired-client.sign.cnf\nCheck that the request matches the signature\nSignature ok\nThe Subject's Distinguished Name is as follows\ncommonName            :ASN.1 12:'phase-a-client'\nCertificate is to be certified until Jan  2 00:00:00 2000 GMT (-9784 days)\n\nWrite out database with 1 new entries\nDatabase updated\n"
+      },
+      {
+        "arguments": [
+          "openssl",
+          "x509",
+          "-in",
+          "/tmp/pqc-linux-tls-mb0eafc_/expired-client.crt",
+          "-noout",
+          "-subject",
+          "-issuer",
+          "-dates"
+        ],
+        "exit_code": 0,
+        "stdout": "subject=CN=phase-a-client\nissuer=CN=Phase A ca\nnotBefore=Jan  1 00:00:00 2000 GMT\nnotAfter=Jan  2 00:00:00 2000 GMT\n",
+        "stderr": ""
+      }
+    ],
+    "certificate_der_sha256": {
+      "server": "dbeca933aaca1cf6ba31f6b5ef8e861aef7400c89c7e6fd0634ad9c8ab10352b",
+      "client": "4e70d6cd621f8f040df72523c93fddc479f7b814e8e8e6771674bec8388c2aea",
+      "untrusted-server": "f11a6cfe537ca078143c1182b3361670c9b4d42c36b84d7b54f23ea00591ce4c",
+      "expired-server": "416fbda62ab5696fd51276db08ce96f8188f6258cc429f6935450cbc97e3c7b2",
+      "untrusted-client": "cb44874a83cb031628ffa8e542cc072d63dbaaca3ac889e2c74b9e51b7274c0d",
+      "expired-client": "517f5bdadc277085f1a076b1caf8442578bffc8efdc5a08cf4b1cec5748fef1f"
+    },
+    "scope": "isolated adapter feasibility; no application integration, authorization or durable ACK",
+    "references": [
+      "https://docs.openssl.org/3.5/man5/config/",
+      "https://docs.openssl.org/3.5/man3/SSL_CONF_cmd/",
+      "https://docs.python.org/3.12/library/ssl.html"
+    ],
+    "error": {
+      "type": "AssertionError",
+      "message": "{'case': 'python_server_untrusted_client', 'expected': 'reject', 'client': {'arguments': ['openssl', 's_client', '-connect', '127.0.0.1:50861', '-servername', 'localhost', '-verify_hostname', 'localhost', '-verify_return_error', '-CAfile', '/tmp/pqc-linux-tls-mb0eafc_/ca.crt', '-tls1_3', '-groups', 'X25519MLKEM768', '-brief', '-ign_eof', '-ignore_unexpected_eof', '-cert', '/tmp/pqc-linux-tls-mb0eafc_/untrusted-client.crt', '-key', '/tmp/pqc-linux-tls-mb0eafc_/untrusted-client.key'], 'exit_code': 1, 'stdout': '', 'stderr': 'Connecting to 127.0.0.1\\nCONNECTION ESTABLISHED\\nProtocol version: TLSv1.3\\nCiphersuite: TLS_AES_256_GCM_SHA384\\nRequested Signature Algorithms: id-ml-dsa-65:id-ml-dsa-87:id-ml-dsa-44:ECDSA+SHA256:ECDSA+SHA384:ECDSA+SHA512:ed25519:ed448:ecdsa_brainpoolP256r1_sha256:ecdsa_brainpoolP384r1_sha384:ecdsa_brainpoolP512r1_sha512:rsa_pss_pss_sha256:rsa_pss_pss_sha384:rsa_pss_pss_sha512:RSA-PSS+SHA256:RSA-PSS+SHA384:RSA-PSS+SHA512:RSA+SHA256:RSA+SHA384:RSA+SHA512\\nPeer certificate: CN=localhost\\nHash used: SHA256\\nSignature type: rsa_pss_rsae_sha256\\nVerification: OK\\nVerified peername: localhost\\nNegotiated TLS1.3 group: X25519MLKEM768\\n4057667D3C780000:error:0A000418:SSL routines:ssl3_read_bytes:tlsv1 alert unknown ca:../ssl/record/rec_layer_s3.c:918:SSL alert number 48\\n'}, 'server': {'exit_code': 2, 'stdout': '{\"status\": \"rejected\", \"error_type\": \"SSLCertVerificationError\", \"error\": \"[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)\"}\\n', 'stderr': ''}}"
+    }
+  },
+  "error": {
+    "type": "RuntimeError",
+    "message": "probe assertions failed; inspect preserved result"
+  },
+  "cleanup_verified": true,
+  "cleanup_errors": []
+}

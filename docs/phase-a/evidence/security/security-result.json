@@ -1,0 +1,284 @@
+{
+  "schema": "phase-a-security-evidence/v1",
+  "utc": "2026-10-16T06:57:24.067684+00:00",
+  "claim": "risk reproduction, not remediation or deployment acceptance",
+  "isolation": "fresh process env, fresh in-memory keys, owned 127.0.0.1 port-0 listeners; no existing state",
+  "source_sha256": "d7ba4c9671b3d1e7a84361590f0ef17a49472b3293ae77e8c425bb385ea2ae6f",
+  "runtime": {
+    "python": "3.12.0",
+    "cryptography": "50.0.1"
+  },
+  "checks": {
+    "valid_control_stored": true,
+    "captured_auth_replayed_new_kem_stored": true,
+    "legitimate_lower_sequence_suppressed": true,
+    "replacement_stored": true,
+    "bad_tag_rejected_before_public_key": true,
+    "unknown_id_rejected_before_public_key": true,
+    "cloud_acknowledges_wrong_shared_secret": true,
+    "wrong_shared_secret_payload_rejected": true,
+    "sessions_evicted_after_each_disconnect": true,
+    "gateway_accepts_public_key_only_responder": true,
+    "fake_cloud_receives_encrypted_payload": true,
+    "wrong_session_ack_rejected": true,
+    "recorded_sessions_recovered_with_private_key": true,
+    "wrong_private_key_cannot_decrypt": true
+  },
+  "all_observations_reproduced": true,
+  "network_cases": [
+    {
+      "case": "valid_control",
+      "client": {
+        "public_key_received": true,
+        "established": true,
+        "session_id_matched": true
+      },
+      "cloud": {
+        "index": 0,
+        "store_count": 1,
+        "stored_sequences": [
+          1
+        ],
+        "active_sessions": 0,
+        "metrics": {
+          "counters": {
+            "mlkem_sessions_established": 1,
+            "messages_received": 1,
+            "messages_processed": 1
+          },
+          "timings": {
+            "mlkem_decapsulate_s": {
+              "count": 1,
+              "avg": 0.000396,
+              "min": 0.000396,
+              "max": 0.000396,
+              "unit": "s"
+            }
+          }
+        }
+      }
+    },
+    {
+      "case": "captured_auth_new_kem_sequence_poison",
+      "client": {
+        "public_key_received": true,
+        "established": true,
+        "session_id_matched": true
+      },
+      "cloud": {
+        "index": 1,
+        "store_count": 2,
+        "stored_sequences": [
+          1,
+          99999
+        ],
+        "active_sessions": 0,
+        "metrics": {
+          "counters": {
+            "mlkem_sessions_established": 2,
+            "messages_received": 2,
+            "messages_processed": 2
+          },
+          "timings": {
+            "mlkem_decapsulate_s": {
+              "count": 2,
+              "avg": 0.00027,
+              "min": 0.000144,
+              "max": 0.000396,
+              "unit": "s"
+            }
+          }
+        }
+      }
+    },
+    {
+      "case": "legitimate_lower_sequence_suppressed",
+      "client": {
+        "public_key_received": true,
+        "established": true,
+        "session_id_matched": true
+      },
+      "cloud": {
+        "index": 2,
+        "store_count": 2,
+        "stored_sequences": [
+          1,
+          99999
+        ],
+        "active_sessions": 0,
+        "metrics": {
+          "counters": {
+            "mlkem_sessions_established": 3,
+            "messages_received": 3,
+            "messages_processed": 2,
+            "messages_rejected": 1
+          },
+          "timings": {
+            "mlkem_decapsulate_s": {
+              "count": 3,
+              "avg": 0.000224,
+              "min": 0.000133,
+              "max": 0.000396,
+              "unit": "s"
+            }
+          }
+        }
+      }
+    },
+    {
+      "case": "captured_auth_plausible_replacement",
+      "client": {
+        "public_key_received": true,
+        "established": true,
+        "session_id_matched": true
+      },
+      "cloud": {
+        "index": 3,
+        "store_count": 3,
+        "stored_sequences": [
+          1,
+          99999,
+          100000
+        ],
+        "active_sessions": 0,
+        "metrics": {
+          "counters": {
+            "mlkem_sessions_established": 4,
+            "messages_received": 4,
+            "messages_processed": 3,
+            "messages_rejected": 1
+          },
+          "timings": {
+            "mlkem_decapsulate_s": {
+              "count": 4,
+              "avg": 0.000205,
+              "min": 0.000133,
+              "max": 0.000396,
+              "unit": "s"
+            }
+          }
+        }
+      }
+    },
+    {
+      "case": "bad_tag_control",
+      "client": {
+        "public_key_received": false,
+        "established": false,
+        "connection_closed": true
+      },
+      "cloud": {
+        "index": 4,
+        "store_count": 3,
+        "stored_sequences": [
+          1,
+          99999,
+          100000
+        ],
+        "active_sessions": 0,
+        "metrics": {
+          "counters": {
+            "mlkem_sessions_established": 4,
+            "messages_received": 4,
+            "messages_processed": 3,
+            "messages_rejected": 2
+          },
+          "timings": {
+            "mlkem_decapsulate_s": {
+              "count": 4,
+              "avg": 0.000205,
+              "min": 0.000133,
+              "max": 0.000396,
+              "unit": "s"
+            }
+          }
+        }
+      }
+    },
+    {
+      "case": "unknown_gateway_control",
+      "client": {
+        "public_key_received": false,
+        "established": false,
+        "connection_closed": true
+      },
+      "cloud": {
+        "index": 5,
+        "store_count": 3,
+        "stored_sequences": [
+          1,
+          99999,
+          100000
+        ],
+        "active_sessions": 0,
+        "metrics": {
+          "counters": {
+            "mlkem_sessions_established": 4,
+            "messages_received": 4,
+            "messages_processed": 3,
+            "messages_rejected": 3
+          },
+          "timings": {
+            "mlkem_decapsulate_s": {
+              "count": 4,
+              "avg": 0.000205,
+              "min": 0.000133,
+              "max": 0.000396,
+              "unit": "s"
+            }
+          }
+        }
+      }
+    },
+    {
+      "case": "wrong_kem_shared_secret",
+      "client": {
+        "public_key_received": true,
+        "established": true,
+        "session_id_matched": true
+      },
+      "cloud": {
+        "index": 6,
+        "store_count": 3,
+        "stored_sequences": [
+          1,
+          99999,
+          100000
+        ],
+        "active_sessions": 0,
+        "metrics": {
+          "counters": {
+            "mlkem_sessions_established": 5,
+            "messages_received": 5,
+            "messages_processed": 3,
+            "messages_rejected": 4
+          },
+          "timings": {
+            "mlkem_decapsulate_s": {
+              "count": 5,
+              "avg": 0.000195,
+              "min": 0.000133,
+              "max": 0.000396,
+              "unit": "s"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "gateway_key_confirmation": {
+    "decapsulation_performed": false,
+    "gateway_reports_established": true,
+    "protected_payload_received": true
+  },
+  "gateway_key_confirmation_negative_control": {
+    "decapsulation_performed": false,
+    "gateway_reports_established": false
+  },
+  "long_term_key_compromise": {
+    "synthetic_recorded_sessions": 2,
+    "recovered_after_private_key_disclosure": 2,
+    "wrong_private_key_rejected": 2,
+    "network_capture": false
+  }
+}

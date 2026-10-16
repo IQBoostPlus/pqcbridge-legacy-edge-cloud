@@ -1,0 +1,263 @@
+{
+  "status": "passed",
+  "runtime_root": "D:\\Code\\pqcbridge-phase-a-artifacts\\linux-tls-96d59bc2acc44c7d82414e8dabcff9a4",
+  "container": "pqc-linux-tls-96d59bc2acc44c7d",
+  "owner": "96d59bc2acc44c7d82414e8dabcff9a4",
+  "image": "sha256:2f17fc044b579bab302c2e8054d3a686e2cb9a83de48e70534b94cd8ebbe06a9",
+  "commands": [
+    {
+      "arguments": [
+        "context",
+        "inspect",
+        "desktop-linux"
+      ],
+      "exit_code": 0,
+      "stdout": "[\n    {\n        \"Name\": \"desktop-linux\",\n        \"Metadata\": {\n            \"Description\": \"Docker Desktop\",\n            \"GODEBUG\": \"x509negativeserial=1\",\n            \"otel\": {\n                \"OTEL_EXPORTER_OTLP_ENDPOINT\": \"unix:////./c:/Users/taccz/AppData/Local/Docker/run/userAnalyticsOtlpHttp.sock\"\n            }\n        },\n        \"Endpoints\": {\n            \"docker\": {\n                \"Host\": \"npipe:////./pipe/dockerDesktopLinuxEngine\",\n                \"SkipTLSVerify\": false\n            }\n        },\n        \"TLSMaterial\": {},\n        \"Storage\": {\n            \"MetadataPath\": \"C:\\\\Users\\\\taccz\\\\.docker\\\\contexts\\\\meta\\\\fe9c6bd7a66301f49ca9b6a70b217107cd1284598bfc254700c989b916da791e\",\n            \"TLSPath\": \"C:\\\\Users\\\\taccz\\\\.docker\\\\contexts\\\\tls\\\\fe9c6bd7a66301f49ca9b6a70b217107cd1284598bfc254700c989b916da791e\"\n        }\n    }\n]\n",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "info",
+        "--format",
+        "{{json .ServerVersion}}"
+      ],
+      "exit_code": 0,
+      "stdout": "\"29.8.0\"\n",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "image",
+        "inspect",
+        "sha256:2f17fc044b579bab302c2e8054d3a686e2cb9a83de48e70534b94cd8ebbe06a9",
+        "--format",
+        "{{.Id}}"
+      ],
+      "exit_code": 0,
+      "stdout": "sha256:2f17fc044b579bab302c2e8054d3a686e2cb9a83de48e70534b94cd8ebbe06a9\n",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "run",
+        "--rm",
+        "--pull",
+        "never",
+        "--name",
+        "pqc-linux-tls-96d59bc2acc44c7d",
+        "--label",
+        "pqc.phase_a.owner=96d59bc2acc44c7d82414e8dabcff9a4",
+        "--network",
+        "none",
+        "--read-only",
+        "--tmpfs",
+        "/tmp:rw,noexec,nosuid,size=33554432",
+        "--cap-drop",
+        "ALL",
+        "--security-opt",
+        "no-new-privileges",
+        "--pids-limit",
+        "64",
+        "--memory",
+        "256m",
+        "--cpus",
+        "1",
+        "--user",
+        "65534:65534",
+        "-i",
+        "sha256:2f17fc044b579bab302c2e8054d3a686e2cb9a83de48e70534b94cd8ebbe06a9",
+        "python",
+        "-I",
+        "-",
+        "--minimal"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"status\": \"passed\",\n  \"mode\": \"minimal\",\n  \"runtime\": {\n    \"python\": \"3.12.14\",\n    \"python_ssl\": \"OpenSSL 3.5.7 9 Jun 2026\",\n    \"openssl_cli\": {\n      \"exit_code\": 0,\n      \"stdout\": \"OpenSSL 3.5.7 9 Jun 2026 (Library: OpenSSL 3.5.7 9 Jun 2026)\\n\",\n      \"stderr\": \"\"\n    }\n  },\n  \"config\": \"config_diagnostics = 1\\nopenssl_conf = openssl_init\\n[openssl_init]\\nssl_conf = ssl_section\\n[ssl_section]\\nsystem_default = tls_defaults\\n[tls_defaults]\\nMinProtocol = TLSv1.3\\nMaxProtocol = TLSv1.3\\nGroups = X25519MLKEM768\\n\",\n  \"results\": [\n    {\n      \"case\": \"python_server_X25519MLKEM768\",\n      \"client\": {\n        \"exit_code\": 0,\n        \"stdout\": \"phase-a-ack\\n\",\n        \"stderr\": \"Connecting to 127.0.0.1\\nCONNECTION ESTABLISHED\\nProtocol version: TLSv1.3\\nCiphersuite: TLS_AES_256_GCM_SHA384\\nRequested Signature Algorithms: id-ml-dsa-65:id-ml-dsa-87:id-ml-dsa-44:ECDSA+SHA256:ECDSA+SHA384:ECDSA+SHA512:ed25519:ed448:ecdsa_brainpoolP256r1_sha256:ecdsa_brainpoolP384r1_sha384:ecdsa_brainpoolP512r1_sha512:rsa_pss_pss_sha256:rsa_pss_pss_sha384:rsa_pss_pss_sha512:RSA-PSS+SHA256:RSA-PSS+SHA384:RSA-PSS+SHA512:RSA+SHA256:RSA+SHA384:RSA+SHA512\\nPeer certificate: CN=localhost\\nHash used: SHA256\\nSignature type: rsa_pss_rsae_sha256\\nVerification: OK\\nVerified peername: localhost\\nNegotiated TLS1.3 group: X25519MLKEM768\\n\"\n      },\n      \"server_exit\": 0,\n      \"server_stdout\": \"{\\\"status\\\": \\\"accepted\\\", \\\"protocol\\\": \\\"TLSv1.3\\\", \\\"peer_certificate\\\": true, \\\"received\\\": \\\"phase-a-linux\\\\n\\\"}\\n\",\n      \"server_stderr\": \"\"\n    },\n    {\n      \"case\": \"python_server_X25519\",\n      \"client\": {\n        \"exit_code\": 1,\n        \"stdout\": \"\",\n        \"stderr\": \"Connecting to 127.0.0.1\\n401798B5FD740000:error:0A000410:SSL routines:ssl3_read_bytes:ssl/tls alert handshake failure:../ssl/record/rec_layer_s3.c:918:SSL alert number 40\\n\"\n      },\n      \"server_exit\": 2,\n      \"server_stdout\": \"{\\\"status\\\": \\\"rejected\\\", \\\"error_type\\\": \\\"SSLError\\\", \\\"error\\\": \\\"[SSL: NO_SUITABLE_KEY_SHARE] no suitable key share (_ssl.c:1010)\\\"}\\n\",\n      \"server_stderr\": \"\"\n    },\n    {\n      \"case\": \"config_missing\",\n      \"exit_code\": 3,\n      \"stdout\": \"{\\\"status\\\": \\\"config-rejected\\\", \\\"reason\\\": \\\"missing policy file\\\"}\\n\",\n      \"stderr\": \"\"\n    },\n    {\n      \"case\": \"config_wrong\",\n      \"exit_code\": 3,\n      \"stdout\": \"{\\\"status\\\": \\\"config-rejected\\\", \\\"reason\\\": \\\"unexpected policy bytes\\\"}\\n\",\n      \"stderr\": \"\"\n    }\n  ],\n  \"provisioning\": [\n    {\n      \"arguments\": [\n        \"req\",\n        \"-x509\",\n        \"-newkey\",\n        \"rsa:2048\",\n        \"-nodes\",\n        \"-keyout\",\n        \"/tmp/pqc-linux-tls-4nb3pqy5/ca.key\",\n        \"-out\",\n        \"/tmp/pqc-linux-tls-4nb3pqy5/ca.crt\",\n        \"-days\",\n        \"1\",\n        \"-subj\",\n        \"/CN=Phase A synthetic CA\",\n        \"-addext\",\n        \"basicConstraints=critical,CA:TRUE\"\n      ],\n      \"exit_code\": 0,\n      \"stdout\": \"\",\n      \"stderr\": \".+.+...+..+.+........+......+.+++++++++++++++++++++++++++++++++++++++*..+..+...+....+......+..+....+...+...+........+.+.....+...+..........+...+.....+...+.+++++++++++++++++++++++++++++++++++++++*..+...+...++++++\\n..+..+...+++++++++++++++++++++++++++++++++++++++*..+...+......................+..............+......+.......+.....+++++++++++++++++++++++++++++++++++++++*.........+...........+..........+........+.......+.........+..+...+..........+..+....+.........+............+..+......+.....................+.+..+...+....+...+...+..+......+....+...........+....+...+..+...+....+...........+.............+......+...+..+.+...+...........+.........+....+..+.+.....+...+.......+...+.............................+...+..................+....+.....+.+.....+.+.........+......+...+..+.+..+.......+...+....................+...+.........+....+.....+....++++++\\n-----\\n\"\n    },\n    {\n      \"arguments\": [\n        \"req\",\n        \"-new\",\n        \"-newkey\",\n        \"rsa:2048\",\n        \"-nodes\",\n        \"-keyout\",\n        \"/tmp/pqc-linux-tls-4nb3pqy5/server.key\",\n        \"-out\",\n        \"/tmp/pqc-linux-tls-4nb3pqy5/server.csr\",\n        \"-subj\",\n        \"/CN=localhost\"\n      ],\n      \"exit_code\": 0,\n      \"stdout\": \"\",\n      \"stderr\": \".+...+..+...+......+...+......................+........+.+.....+....+...........+.+........+......+....+++++++++++++++++++++++++++++++++++++++*...........+.....+.........+.+++++++++++++++++++++++++++++++++++++++*......+..+...+..........+...+.................+.........+...+................+...............+......+.....+.+...+..+....+........+...+...+....+...........+....+...+...+.................+...+....+.....+.+.........+..+..........+.....+.+..+.+..+...+.+........+.......+.........+..+...+....+.....+...+............+.+..+...+.+......+..+.......+...+...+...+.....+......+....+.................+..........+...+..+...+.......+...+...........++++++\\n.......+..+++++++++++++++++++++++++++++++++++++++*..+......+...........+.+...+..+....+.....................+++++++++++++++++++++++++++++++++++++++*.............+...+.......+......+..............+....+......+.........+..+............+.+.....+.+.....+...+......+...............+....+..+.+..+...+.........+.+...+.....+....+..+.+.................+......+.+...+...+.....+...+......+..........+..................+.....+...+...+.+...+......+............+.....+.......+.....+.+.........+...+..+.+.....+.+.....................+...+..............+.......+....................+....+.........+.....+...+...+............+...+....+..+.+..............+...+.......+...+...+..+...+...+....+......+..+...+....+.................+....+..+.......+...+..+...............+.+......+.....+...+..........+..+.+..+.......+...........+.......+......+......+..........................+....+.....+....+.....+...............+......+.+........+....+...........+....+...+.........+...........+.......+.....+...+...+......+.....................+...+.+...+..+...+.......+...+......+..+..........+..+.+..+....+...+..+...................+..+...+.......+..............+.+.....+.........+........................+....+..+....+..+............+..........+.....+..........+...+..+.......+.....+....+.....+.+...............+.....+.+........+......+...+............+...+......+.......+..+.+......+......+.........+.....+...+.......+.....+.+..+...+...+............++++++\\n-----\\n\"\n    },\n    {\n      \"arguments\": [\n        \"x509\",\n        \"-req\",\n        \"-in\",\n        \"/tmp/pqc-linux-tls-4nb3pqy5/server.csr\",\n        \"-CA\",\n        \"/tmp/pqc-linux-tls-4nb3pqy5/ca.crt\",\n        \"-CAkey\",\n        \"/tmp/pqc-linux-tls-4nb3pqy5/ca.key\",\n        \"-CAcreateserial\",\n        \"-out\",\n        \"/tmp/pqc-linux-tls-4nb3pqy5/server.crt\",\n        \"-days\",\n        \"1\",\n        \"-extfile\",\n        \"/tmp/pqc-linux-tls-4nb3pqy5/server.ext\"\n      ],\n      \"exit_code\": 0,\n      \"stdout\": \"\",\n      \"stderr\": \"Certificate request self-signature ok\\nsubject=CN=localhost\\n\"\n    },\n    {\n      \"arguments\": [\n        \"req\",\n        \"-new\",\n        \"-newkey\",\n        \"rsa:2048\",\n        \"-nodes\",\n        \"-keyout\",\n        \"/tmp/pqc-linux-tls-4nb3pqy5/client.key\",\n        \"-out\",\n        \"/tmp/pqc-linux-tls-4nb3pqy5/client.csr\",\n        \"-subj\",\n        \"/CN=phase-a-client\"\n      ],\n      \"exit_code\": 0,\n      \"stdout\": \"\",\n      \"stderr\": \".....+......+.+..+.+............+++++++++++++++++++++++++++++++++++++++*....+.+..+...+....+......+++++++++++++++++++++++++++++++++++++++*...+..+...+.........+...................+............+.....+..................+....+...+...+......+.....+.+...+............+...+...........+...+.......+.........+..+...+....+...+............+..................+.....+....+.....+.+...+.....+......+....+.....+....+.....+.............+.....+.........+.+..+.+......+...+.....+.......+........+.......+...............+.....+...+.......+......+..+......+....+..+....+..+.......+......+..+....+...+.....+.....................+.......+........+......+.+..+.......+.....+...+......+......+....+.........+........+............+......+....+......+......+......+...+.....+.+......+........+............+...+....+...............+.....+...+.........+...+.++++++\\n.....+++++++++++++++++++++++++++++++++++++++*......+...+..+.........+.+......+..+.+..+..........+.....+.............+..+.......+...+...+..+....+...+..+..................+.+.....+.......+...+......+.........+...........+.+.....+....+...+..+.+........+....+.....+.+++++++++++++++++++++++++++++++++++++++*..+......+.....++++++\\n-----\\n\"\n    },\n    {\n      \"arguments\": [\n        \"x509\",\n        \"-req\",\n        \"-in\",\n        \"/tmp/pqc-linux-tls-4nb3pqy5/client.csr\",\n        \"-CA\",\n        \"/tmp/pqc-linux-tls-4nb3pqy5/ca.crt\",\n        \"-CAkey\",\n        \"/tmp/pqc-linux-tls-4nb3pqy5/ca.key\",\n        \"-CAcreateserial\",\n        \"-out\",\n        \"/tmp/pqc-linux-tls-4nb3pqy5/client.crt\",\n        \"-days\",\n        \"1\",\n        \"-extfile\",\n        \"/tmp/pqc-linux-tls-4nb3pqy5/client.ext\"\n      ],\n      \"exit_code\": 0,\n      \"stdout\": \"\",\n      \"stderr\": \"Certificate request self-signature ok\\nsubject=CN=phase-a-client\\n\"\n    }\n  ]\n}\n",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "ps",
+        "-a",
+        "--filter",
+        "name=^/pqc-linux-tls-96d59bc2acc44c7d$",
+        "--filter",
+        "label=pqc.phase_a.owner=96d59bc2acc44c7d82414e8dabcff9a4",
+        "--format",
+        "{{.ID}}"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "ps",
+        "-a",
+        "--filter",
+        "name=^/pqc-linux-tls-96d59bc2acc44c7d$",
+        "--format",
+        "{{.ID}}"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "source_sha256": "8e8f7f36adf7e5441eb785d158e1be7ad549d49d065a6c09baa7e0317c8ed4e5",
+  "probe": {
+    "status": "passed",
+    "mode": "minimal",
+    "runtime": {
+      "python": "3.12.14",
+      "python_ssl": "OpenSSL 3.5.7 9 Jun 2026",
+      "openssl_cli": {
+        "exit_code": 0,
+        "stdout": "OpenSSL 3.5.7 9 Jun 2026 (Library: OpenSSL 3.5.7 9 Jun 2026)\n",
+        "stderr": ""
+      }
+    },
+    "config": "config_diagnostics = 1\nopenssl_conf = openssl_init\n[openssl_init]\nssl_conf = ssl_section\n[ssl_section]\nsystem_default = tls_defaults\n[tls_defaults]\nMinProtocol = TLSv1.3\nMaxProtocol = TLSv1.3\nGroups = X25519MLKEM768\n",
+    "results": [
+      {
+        "case": "python_server_X25519MLKEM768",
+        "client": {
+          "exit_code": 0,
+          "stdout": "phase-a-ack\n",
+          "stderr": "Connecting to 127.0.0.1\nCONNECTION ESTABLISHED\nProtocol version: TLSv1.3\nCiphersuite: TLS_AES_256_GCM_SHA384\nRequested Signature Algorithms: id-ml-dsa-65:id-ml-dsa-87:id-ml-dsa-44:ECDSA+SHA256:ECDSA+SHA384:ECDSA+SHA512:ed25519:ed448:ecdsa_brainpoolP256r1_sha256:ecdsa_brainpoolP384r1_sha384:ecdsa_brainpoolP512r1_sha512:rsa_pss_pss_sha256:rsa_pss_pss_sha384:rsa_pss_pss_sha512:RSA-PSS+SHA256:RSA-PSS+SHA384:RSA-PSS+SHA512:RSA+SHA256:RSA+SHA384:RSA+SHA512\nPeer certificate: CN=localhost\nHash used: SHA256\nSignature type: rsa_pss_rsae_sha256\nVerification: OK\nVerified peername: localhost\nNegotiated TLS1.3 group: X25519MLKEM768\n"
+        },
+        "server_exit": 0,
+        "server_stdout": "{\"status\": \"accepted\", \"protocol\": \"TLSv1.3\", \"peer_certificate\": true, \"received\": \"phase-a-linux\\n\"}\n",
+        "server_stderr": ""
+      },
+      {
+        "case": "python_server_X25519",
+        "client": {
+          "exit_code": 1,
+          "stdout": "",
+          "stderr": "Connecting to 127.0.0.1\n401798B5FD740000:error:0A000410:SSL routines:ssl3_read_bytes:ssl/tls alert handshake failure:../ssl/record/rec_layer_s3.c:918:SSL alert number 40\n"
+        },
+        "server_exit": 2,
+        "server_stdout": "{\"status\": \"rejected\", \"error_type\": \"SSLError\", \"error\": \"[SSL: NO_SUITABLE_KEY_SHARE] no suitable key share (_ssl.c:1010)\"}\n",
+        "server_stderr": ""
+      },
+      {
+        "case": "config_missing",
+        "exit_code": 3,
+        "stdout": "{\"status\": \"config-rejected\", \"reason\": \"missing policy file\"}\n",
+        "stderr": ""
+      },
+      {
+        "case": "config_wrong",
+        "exit_code": 3,
+        "stdout": "{\"status\": \"config-rejected\", \"reason\": \"unexpected policy bytes\"}\n",
+        "stderr": ""
+      }
+    ],
+    "provisioning": [
+      {
+        "arguments": [
+          "req",
+          "-x509",
+          "-newkey",
+          "rsa:2048",
+          "-nodes",
+          "-keyout",
+          "/tmp/pqc-linux-tls-4nb3pqy5/ca.key",
+          "-out",
+          "/tmp/pqc-linux-tls-4nb3pqy5/ca.crt",
+          "-days",
+          "1",
+          "-subj",
+          "/CN=Phase A synthetic CA",
+          "-addext",
+          "basicConstraints=critical,CA:TRUE"
+        ],
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": ".+.+...+..+.+........+......+.+++++++++++++++++++++++++++++++++++++++*..+..+...+....+......+..+....+...+...+........+.+.....+...+..........+...+.....+...+.+++++++++++++++++++++++++++++++++++++++*..+...+...++++++\n..+..+...+++++++++++++++++++++++++++++++++++++++*..+...+......................+..............+......+.......+.....+++++++++++++++++++++++++++++++++++++++*.........+...........+..........+........+.......+.........+..+...+..........+..+....+.........+............+..+......+.....................+.+..+...+....+...+...+..+......+....+...........+....+...+..+...+....+...........+.............+......+...+..+.+...+...........+.........+....+..+.+.....+...+.......+...+.............................+...+..................+....+.....+.+.....+.+.........+......+...+..+.+..+.......+...+....................+...+.........+....+.....+....++++++\n-----\n"
+      },
+      {
+        "arguments": [
+          "req",
+          "-new",
+          "-newkey",
+          "rsa:2048",
+          "-nodes",
+          "-keyout",
+          "/tmp/pqc-linux-tls-4nb3pqy5/server.key",
+          "-out",
+          "/tmp/pqc-linux-tls-4nb3pqy5/server.csr",
+          "-subj",
+          "/CN=localhost"
+        ],
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": ".+...+..+...+......+...+......................+........+.+.....+....+...........+.+........+......+....+++++++++++++++++++++++++++++++++++++++*...........+.....+.........+.+++++++++++++++++++++++++++++++++++++++*......+..+...+..........+...+.................+.........+...+................+...............+......+.....+.+...+..+....+........+...+...+....+...........+....+...+...+.................+...+....+.....+.+.........+..+..........+.....+.+..+.+..+...+.+........+.......+.........+..+...+....+.....+...+............+.+..+...+.+......+..+.......+...+...+...+.....+......+....+.................+..........+...+..+...+.......+...+...........++++++\n.......+..+++++++++++++++++++++++++++++++++++++++*..+......+...........+.+...+..+....+.....................+++++++++++++++++++++++++++++++++++++++*.............+...+.......+......+..............+....+......+.........+..+............+.+.....+.+.....+...+......+...............+....+..+.+..+...+.........+.+...+.....+....+..+.+.................+......+.+...+...+.....+...+......+..........+..................+.....+...+...+.+...+......+............+.....+.......+.....+.+.........+...+..+.+.....+.+.....................+...+..............+.......+....................+....+.........+.....+...+...+............+...+....+..+.+..............+...+.......+...+...+..+...+...+....+......+..+...+....+.................+....+..+.......+...+..+...............+.+......+.....+...+..........+..+.+..+.......+...........+.......+......+......+..........................+....+.....+....+.....+...............+......+.+........+....+...........+....+...+.........+...........+.......+.....+...+...+......+.....................+...+.+...+..+...+.......+...+......+..+..........+..+.+..+....+...+..+...................+..+...+.......+..............+.+.....+.........+........................+....+..+....+..+............+..........+.....+..........+...+..+.......+.....+....+.....+.+...............+.....+.+........+......+...+............+...+......+.......+..+.+......+......+.........+.....+...+.......+.....+.+..+...+...+............++++++\n-----\n"
+      },
+      {
+        "arguments": [
+          "x509",
+          "-req",
+          "-in",
+          "/tmp/pqc-linux-tls-4nb3pqy5/server.csr",
+          "-CA",
+          "/tmp/pqc-linux-tls-4nb3pqy5/ca.crt",
+          "-CAkey",
+          "/tmp/pqc-linux-tls-4nb3pqy5/ca.key",
+          "-CAcreateserial",
+          "-out",
+          "/tmp/pqc-linux-tls-4nb3pqy5/server.crt",
+          "-days",
+          "1",
+          "-extfile",
+          "/tmp/pqc-linux-tls-4nb3pqy5/server.ext"
+        ],
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": "Certificate request self-signature ok\nsubject=CN=localhost\n"
+      },
+      {
+        "arguments": [
+          "req",
+          "-new",
+          "-newkey",
+          "rsa:2048",
+          "-nodes",
+          "-keyout",
+          "/tmp/pqc-linux-tls-4nb3pqy5/client.key",
+          "-out",
+          "/tmp/pqc-linux-tls-4nb3pqy5/client.csr",
+          "-subj",
+          "/CN=phase-a-client"
+        ],
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": ".....+......+.+..+.+............+++++++++++++++++++++++++++++++++++++++*....+.+..+...+....+......+++++++++++++++++++++++++++++++++++++++*...+..+...+.........+...................+............+.....+..................+....+...+...+......+.....+.+...+............+...+...........+...+.......+.........+..+...+....+...+............+..................+.....+....+.....+.+...+.....+......+....+.....+....+.....+.............+.....+.........+.+..+.+......+...+.....+.......+........+.......+...............+.....+...+.......+......+..+......+....+..+....+..+.......+......+..+....+...+.....+.....................+.......+........+......+.+..+.......+.....+...+......+......+....+.........+........+............+......+....+......+......+......+...+.....+.+......+........+............+...+....+...............+.....+...+.........+...+.++++++\n.....+++++++++++++++++++++++++++++++++++++++*......+...+..+.........+.+......+..+.+..+..........+.....+.............+..+.......+...+...+..+....+...+..+..................+.+.....+.......+...+......+.........+...........+.+.....+....+...+..+.+........+....+.....+.+++++++++++++++++++++++++++++++++++++++*..+......+.....++++++\n-----\n"
+      },
+      {
+        "arguments": [
+          "x509",
+          "-req",
+          "-in",
+          "/tmp/pqc-linux-tls-4nb3pqy5/client.csr",
+          "-CA",
+          "/tmp/pqc-linux-tls-4nb3pqy5/ca.crt",
+          "-CAkey",
+          "/tmp/pqc-linux-tls-4nb3pqy5/ca.key",
+          "-CAcreateserial",
+          "-out",
+          "/tmp/pqc-linux-tls-4nb3pqy5/client.crt",
+          "-days",
+          "1",
+          "-extfile",
+          "/tmp/pqc-linux-tls-4nb3pqy5/client.ext"
+        ],
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": "Certificate request self-signature ok\nsubject=CN=phase-a-client\n"
+      }
+    ]
+  },
+  "cleanup_verified": true
+}

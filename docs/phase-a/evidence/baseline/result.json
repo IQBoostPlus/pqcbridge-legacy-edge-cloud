@@ -1,0 +1,267 @@
+{
+  "captured_utc": "2026-10-16T06:58:50.060582+00:00",
+  "repository": "D:\\Code\\pqcbridge-legacy-edge-cloud",
+  "runtime_root": "D:\\Code\\pqcbridge-phase-a-artifacts\\20261016T065351Z\\baseline-runtime-02",
+  "head": "681986bc0119d51913140575f98720c90fb378ac",
+  "branch": "codex/phase-a-validation",
+  "status": "M CLAUDE.md\n M README.md\n?? docs/\n?? scripts/phase_a/",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "interpreter": "D:\\Code\\pqcbridge-legacy-edge-cloud\\.venv\\Scripts\\python.exe",
+  "inherited_environment_names": [
+    "ANTHROPIC_AUTH_TOKEN",
+    "ANTHROPIC_BASE_URL",
+    "ANTHROPIC_DEFAULT_HAIKU_MODEL",
+    "ANTHROPIC_DEFAULT_OPUS_MODEL",
+    "ANTHROPIC_DEFAULT_SONNET_MODEL",
+    "ANTHROPIC_MODEL",
+    "APPDATA",
+    "BASELINE_CONTRACT_RUNTIME",
+    "BASELINE_RUN_INTEGRATION",
+    "CLAUDE_CODE_EFFORT_LEVEL",
+    "CLAUDE_CODE_SUBAGENT_MODEL",
+    "CODEX_APPLY_PATCH_PRESERVE_LINE_ENDINGS",
+    "CODEX_CI",
+    "CODEX_PERMISSION_PROFILE",
+    "CODEX_SESSION_ID",
+    "CODEX_THREAD_ID",
+    "CODEX_TOOL_CALL_ID",
+    "CODEX_VERSION",
+    "COLORTERM",
+    "COMSPEC",
+    "GH_PAGER",
+    "GIT_PAGER",
+    "HOMEDRIVE",
+    "HOMEPATH",
+    "LANG",
+    "LC_ALL",
+    "LC_CTYPE",
+    "LOCALAPPDATA",
+    "NO_COLOR",
+    "PAGER",
+    "PATH",
+    "PATHEXT",
+    "PROGRAMDATA",
+    "PROGRAMFILES",
+    "PROGRAMFILES(X86)",
+    "PROGRAMW6432",
+    "PSMODULEPATH",
+    "SHELL",
+    "SYSTEMDRIVE",
+    "SYSTEMROOT",
+    "TEMP",
+    "TERM",
+    "TMP",
+    "USERDOMAIN",
+    "USERNAME",
+    "USERPROFILE",
+    "WINDIR"
+  ],
+  "tests": {
+    "status": "passed",
+    "returncode": 0,
+    "command": [
+      "D:\\Code\\pqcbridge-legacy-edge-cloud\\.venv\\Scripts\\python.exe",
+      "-B",
+      "D:\\Code\\pqcbridge-legacy-edge-cloud\\scripts\\phase_a\\baseline_child.py",
+      "D:\\Code\\pqcbridge-phase-a-artifacts\\20261016T065351Z\\baseline-runtime-02",
+      "pytest",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "--basetemp",
+      "D:\\Code\\pqcbridge-phase-a-artifacts\\20261016T065351Z\\baseline-runtime-02\\pytest-tmp",
+      "--log-file",
+      "D:\\Code\\pqcbridge-phase-a-artifacts\\20261016T065351Z\\baseline-runtime-02\\pytest-internal.log",
+      "--junitxml",
+      "D:\\Code\\pqcbridge-phase-a-artifacts\\20261016T065351Z\\baseline-runtime-02\\pytest.xml"
+    ],
+    "duration_seconds": 9.437,
+    "tests": 136,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "summary": "136 passed in 8.27s"
+  },
+  "smoke": {
+    "status": "passed",
+    "cloud_reading_count": 3,
+    "readings": [
+      {
+        "device_id": "dev-baseline",
+        "timestamp": "2026-10-16T06:59:03.411747+00:00",
+        "temperature_c": 19.71,
+        "unit": "celsius",
+        "sequence": 1
+      },
+      {
+        "device_id": "dev-baseline",
+        "timestamp": "2026-10-16T06:59:03.621486+00:00",
+        "temperature_c": 33.22,
+        "unit": "celsius",
+        "sequence": 2
+      },
+      {
+        "device_id": "dev-baseline",
+        "timestamp": "2026-10-16T06:59:03.825200+00:00",
+        "temperature_c": 27.15,
+        "unit": "celsius",
+        "sequence": 3
+      }
+    ],
+    "cloud_health": {
+      "status": "ok",
+      "service": "cloud",
+      "mlkem_ready": true,
+      "stored_readings": 3,
+      "active_sessions": 1,
+      "counters": {
+        "gateway_connections": 1,
+        "mlkem_sessions_established": 1,
+        "messages_received": 3,
+        "messages_processed": 3
+      },
+      "timings": {
+        "mlkem_decapsulate_s": {
+          "count": 1,
+          "avg": 0.000422,
+          "min": 0.000422,
+          "max": 0.000422,
+          "unit": "s"
+        }
+      }
+    },
+    "gateway_health": {
+      "status": "ok",
+      "service": "gateway",
+      "cloud_session_id": "b8599a2a04b51330",
+      "cloud_connected": true,
+      "cloud_state": "established",
+      "counters": {
+        "mlkem_sessions_established": 1,
+        "device_connections": 2,
+        "fallback_activations": 1,
+        "legacy_devices_detected": 1,
+        "messages_received": 3,
+        "messages_processed": 3,
+        "messages_forwarded": 3,
+        "errors": 1
+      },
+      "timings": {
+        "mlkem_establish_s": {
+          "count": 1,
+          "avg": 0.015429,
+          "min": 0.015429,
+          "max": 0.015429,
+          "unit": "s"
+        },
+        "forward_s": {
+          "count": 3,
+          "avg": 0.000159,
+          "min": 0.000126,
+          "max": 0.000188,
+          "unit": "s"
+        },
+        "payload_bytes": {
+          "count": 3,
+          "avg": 127.0,
+          "min": 127,
+          "max": 127,
+          "unit": "bytes"
+        }
+      }
+    },
+    "bind_host": "127.0.0.1",
+    "ports": {
+      "cloud": 54142,
+      "gateway": 54143,
+      "cloud_health": 54144,
+      "gateway_health": 54145
+    },
+    "health_launch_adapter": "child-only loopback bind override",
+    "trust_anchor_source": "fresh locally generated cloud.key; not logs",
+    "data_store": "existing in-memory ReadingStore; no durability claim",
+    "all_children_stopped": true,
+    "observed_bind_addresses": [
+      [
+        "127.0.0.1",
+        54142
+      ],
+      [
+        "127.0.0.1",
+        54144
+      ],
+      [
+        "127.0.0.1",
+        54145
+      ],
+      [
+        "127.0.0.1",
+        54143
+      ]
+    ],
+    "all_observed_binds_loopback": true
+  },
+  "versions": {
+    "python": "3.12.0 (tags/v3.12.0:0fb18b0, Oct  2 2023, 13:03:39) [MSC v.1935 64 bit (AMD64)]",
+    "cryptography": "50.0.1",
+    "pytest": "9.1.1",
+    "python_ssl": "OpenSSL 3.0.11 19 Sep 2023",
+    "cryptography_openssl": "OpenSSL 4.0.2 25 Aug 2026"
+  },
+  "preservation": {
+    "before": {
+      ".env": "215bea8c6ce1494af5b3aef9c2bc383e6dfd881ec3335e64370f9b009c174667",
+      "CLAUDE.md": "30ba54e6373139033cb4a43a408b552423fb47974c322777cd9ae3d387dac03f",
+      "cloud_state\\cloud.key": "66f7fa03c7a98c42c105e82269ee98a5d884e3206ea8fdec916a370c057b9080",
+      "device_state\\dev-01.seq": "4ec9599fc203d176a301536c2e091a19bc852759b255bd6818810a42c5fed14a",
+      "docs\\agents\\domain.md": "6db07095189d212cad0d7e992d22ead603adc997aded2c239676fa0458c19d91",
+      "docs\\agents\\issue-tracker.md": "ce76d68a637e4430de45c8d1487f07329a19730e7002449d8a1bdf1176bc026c",
+      "docs\\agents\\triage-labels.md": "12de2fb436775761f3e11ff1bc74dc7efb39ba19727d9d080a7d40e8f8e4391c",
+      "docs\\ENGINEERING_ROADMAP.md": "768e6e46e9f30474f15fa0760526d88c050d4c53df159ca2d74f35be77ecbfa0",
+      "docs\\SHORT_TERM_PLAN.md": "1761ce506adf57657ae4b2d6f900e6a15122de4019650e867d3e12cb48c747dd",
+      "README.md": "8d85ce573830b77bc423d4093c36c7235c5de264972d8a56e7fdb1278afde3cc"
+    },
+    "after": {
+      ".env": "215bea8c6ce1494af5b3aef9c2bc383e6dfd881ec3335e64370f9b009c174667",
+      "CLAUDE.md": "30ba54e6373139033cb4a43a408b552423fb47974c322777cd9ae3d387dac03f",
+      "cloud_state\\cloud.key": "66f7fa03c7a98c42c105e82269ee98a5d884e3206ea8fdec916a370c057b9080",
+      "device_state\\dev-01.seq": "4ec9599fc203d176a301536c2e091a19bc852759b255bd6818810a42c5fed14a",
+      "docs\\agents\\domain.md": "6db07095189d212cad0d7e992d22ead603adc997aded2c239676fa0458c19d91",
+      "docs\\agents\\issue-tracker.md": "ce76d68a637e4430de45c8d1487f07329a19730e7002449d8a1bdf1176bc026c",
+      "docs\\agents\\triage-labels.md": "12de2fb436775761f3e11ff1bc74dc7efb39ba19727d9d080a7d40e8f8e4391c",
+      "docs\\ENGINEERING_ROADMAP.md": "768e6e46e9f30474f15fa0760526d88c050d4c53df159ca2d74f35be77ecbfa0",
+      "docs\\SHORT_TERM_PLAN.md": "1761ce506adf57657ae4b2d6f900e6a15122de4019650e867d3e12cb48c747dd",
+      "README.md": "8d85ce573830b77bc423d4093c36c7235c5de264972d8a56e7fdb1278afde3cc"
+    },
+    "changed": []
+  },
+  "docker": {
+    "version": {
+      "returncode": 1,
+      "stdout": "{\"Client\":{\"Version\":\"29.8.0\",\"ApiVersion\":\"1.56\",\"DefaultAPIVersion\":\"1.56\",\"GitCommit\":\"88096ef\",\"GoVersion\":\"go1.26.8\",\"Os\":\"windows\",\"Arch\":\"amd64\",\"BuildTime\":\"Thu Sep  3 21:53:38 2026\",\"Context\":\"desktop-linux\"},\"Server\":null}",
+      "stderr": "failed to connect to the docker API at npipe:////./pipe/dockerDesktopLinuxEngine; check if the path is correct and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified."
+    },
+    "compose_version": {
+      "returncode": 0,
+      "stdout": "5.5.1",
+      "stderr": ""
+    },
+    "runtime_validation": "not_run: no builds, containers, volumes or original .env touched",
+    "isolated_compose_config": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    "isolated_compose_config_initial_attempt": {
+      "returncode": 125,
+      "stdout": "",
+      "stderr": "unknown flag: --env-file\n\nUsage:  docker [OPTIONS] COMMAND [ARG...]\n\nRun 'docker --help' for more information"
+    },
+    "config_env_note": "Windows profile/program path variables retained for read-only CLI plugin discovery; application child env stays scrubbed"
+  },
+  "original_snapshot_verification": {
+    "manifest": "D:\\Code\\pqcbridge-phase-a-artifacts\\20261016T065351Z\\baseline-manifest.json",
+    "checked_files": 70,
+    "changed": []
+  }
+}

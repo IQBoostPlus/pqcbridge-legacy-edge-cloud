@@ -1,0 +1,9 @@
+{
+  "kind": "captured tool result",
+  "tool_chunk_id": "aad1a7",
+  "command": ".venv\\Scripts\\python.exe -B scripts\\phase_a\\linux_tls_host_test.py",
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.061s\n\nOK\n",
+  "test_source_sha256": "c0dd0c2f10a502bb54a64c2e5d40b7a4800b91724bc4a71f8b4fd810812de50b"
+}

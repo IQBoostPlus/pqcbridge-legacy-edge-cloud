@@ -1,0 +1,19 @@
+{
+  "status": "blocked",
+  "deployment_accepted": false,
+  "started_utc": "2026-10-16T08:13:19.199906+00:00",
+  "project": "pqc-a-61498c64a521ead4",
+  "runtime_root": "D:\\Code\\pqcbridge-phase-a-artifacts\\docker-00db3f40e5e74f629fc27290d936d64e",
+  "hybrid_tls": "not run; application remains original custom transport",
+  "error": "[WinError 193] %1 \u4e0d\u662f\u6709\u6548\u7684 Win32 \u5e94\u7528\u7a0b\u5e8f\u3002",
+  "cleanup": {
+    "status": "no resources created"
+  },
+  "preservation": {
+    "tracked_inputs": 30,
+    "changed": [],
+    "added": []
+  },
+  "completed_utc": "2026-10-16T08:13:19.215479+00:00",
+  "probe_sha256": "98be3cdfbfaa07e131f6a6943cdbef1cdb5ea125fc1817bb6ef2cfd8311bc281"
+}

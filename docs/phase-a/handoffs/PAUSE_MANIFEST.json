@@ -1,0 +1,171 @@
+{
+  "saved_at": "2026-10-16T16:28:21.1428272+08:00",
+  "state": "PAUSED",
+  "files": [
+    {
+      "path": "scripts\\phase_a\\baseline_child.py",
+      "sha256": "3DAD3149B85D19FB0B0C67856595B82DADCFBD5C96039544731A578063433919",
+      "bytes": 2575
+    },
+    {
+      "path": "scripts\\phase_a\\baseline_contract_test.py",
+      "sha256": "B7D3538C5090118FC9694A00B3853798DC24FD6A241D8FCAAFAECCA57C43EC25",
+      "bytes": 2055
+    },
+    {
+      "path": "scripts\\phase_a\\baseline.py",
+      "sha256": "A31B9DA52AF5A27BFCA56C3A5A16D8AF24595112B334BF99C9CA2CB1D301405A",
+      "bytes": 17526
+    },
+    {
+      "path": "scripts\\phase_a\\docker_contract_test.py",
+      "sha256": "19CA39597DA8820AD415ABDE5B7970CD621BE61989B6B036891C9B116281863B",
+      "bytes": 7723
+    },
+    {
+      "path": "scripts\\phase_a\\docker_probe.py",
+      "sha256": "56A86BD28E45215259EC2130C3CC2FC764ED2570BCC8F02E6A12A39C64DBD17A",
+      "bytes": 15369
+    },
+    {
+      "path": "scripts\\phase_a\\legacy_probe.py",
+      "sha256": "5AB57E74ACC1C37FB5242555FF19630922CCF1EC34ABD9E5BCCA0D94B3076200",
+      "bytes": 12150
+    },
+    {
+      "path": "scripts\\phase_a\\linux_tls_probe.py",
+      "sha256": "462F4ED744440A20BB05F4F510D27EDD2A42A8796774E86B45712A5BFD33A80F",
+      "bytes": 6806
+    },
+    {
+      "path": "scripts\\phase_a\\security_probe.py",
+      "sha256": "0B83E3A0EDAE60CD0F3EC174A95D90F59E78F01AC13B54C7590D026DB99FE9DD",
+      "bytes": 14742
+    },
+    {
+      "path": "scripts\\phase_a\\tls_probe.py",
+      "sha256": "7805F97DCD2DC905E8FB0DAFF9B9C0F0562DC10A8823284E826E722F9C0C5A18",
+      "bytes": 14624
+    },
+    {
+      "path": "docs\\phase-a\\A01_BASELINE.md",
+      "sha256": "6009FB25E11C079CE06B39ADAA26FD751336D2256E8EA855CE596E4D48F894F4",
+      "bytes": 9497
+    },
+    {
+      "path": "docs\\phase-a\\A02_SCENARIO.md",
+      "sha256": "B4D10A1DF04AA384CA958D0B1200130C34A2E42898D822F7ADE6F9BA12EC2A6C",
+      "bytes": 5711
+    },
+    {
+      "path": "docs\\phase-a\\A03_RISK_EVIDENCE.md",
+      "sha256": "365624237100F4A3DFC226154E7D3EDDFFF3F1DF9B7FF779CF177B9513431B12",
+      "bytes": 22701
+    },
+    {
+      "path": "docs\\phase-a\\A04_TRANSPORT_VALIDATION.md",
+      "sha256": "3E197C751BB1B931392DD67D636EF56DBDE5A0B7344D58228E5E552D4ADB188E",
+      "bytes": 12624
+    },
+    {
+      "path": "docs\\phase-a\\A05_LEGACY_AND_DELIVERY.md",
+      "sha256": "76E940F08AE5F980395551C98D54B213400D747273B66B88341279BDE7FEAB6D",
+      "bytes": 6229
+    },
+    {
+      "path": "docs\\phase-a\\A06_DOCKER_SIMULATION.md",
+      "sha256": "78CD082FF829CB76A613BC5944BEAFCE00DCE3AA3C3083BAE001E85823369824",
+      "bytes": 8326
+    },
+    {
+      "path": "docs\\phase-a\\DELIVERY_CONTRACT.md",
+      "sha256": "2DD52D686E6D5CF286152E6E6FAF06979AA1B04DB69DB29A589177839E12254F",
+      "bytes": 13186
+    },
+    {
+      "path": "docs\\phase-a\\EXECUTION_SPEC.md",
+      "sha256": "6F86D35A8E5DA7C35612EEBE64A671007EB44529574B2BC8F9390FC9E1A2C749",
+      "bytes": 4867
+    },
+    {
+      "path": "docs\\phase-a\\RESUME_PROMPT.md",
+      "sha256": "201CA954BD26C9ED9FEFC575E2FA7159E5E4BED41ED8B2355D396260C7A9C100",
+      "bytes": 3082
+    },
+    {
+      "path": "docs\\phase-a\\STATUS.md",
+      "sha256": "DE77EEC976407BA64B502EBD71F64F2C4626CCA90C5286E48E4E302A52D90B31",
+      "bytes": 4178
+    },
+    {
+      "path": "docs\\phase-a\\evidence\\baseline\\result.json",
+      "sha256": "875D35A81DC3DBD5E8B6B20B4B1C6E11EF36F57E84AD4245211D592CF19889B5",
+      "bytes": 9388
+    },
+    {
+      "path": "docs\\phase-a\\evidence\\docker\\cli-contract-tests-after-cli-fix.txt",
+      "sha256": "5C9CEAB836490BC8256D2D8C98BF7318140799A5592A6444ED626FFF1034E7EF",
+      "bytes": 109
+    },
+    {
+      "path": "docs\\phase-a\\evidence\\docker\\cli-contract-tests.txt",
+      "sha256": "F0200D7E7B731DA71F7582C36CE5A59D4C46979A07A12FB2B283983DD6FBAA49",
+      "bytes": 108
+    },
+    {
+      "path": "docs\\phase-a\\evidence\\docker\\desktop-startup-observation.json",
+      "sha256": "7620534AF647320F37A5602B8572366365C34992936E7C8CAE5947C97659899C",
+      "bytes": 974
+    },
+    {
+      "path": "docs\\phase-a\\evidence\\docker\\docker-result-after-manual-start.json",
+      "sha256": "0B49658D037FDF0C05781532B48F9C6AE3B363F9C5D035844543C3515E32846A",
+      "bytes": 727
+    },
+    {
+      "path": "docs\\phase-a\\evidence\\docker\\docker-result-native-cli.json",
+      "sha256": "D1FA2D43FBD4B47620EF0AB2BA6F09995DC6BB201110F9700C6BE7FC5E9EAE33",
+      "bytes": 5626
+    },
+    {
+      "path": "docs\\phase-a\\evidence\\docker\\docker-result.json",
+      "sha256": "4D37C7018F4A57253DBC1C84777C9C0434D5CF1EDB6168C40375EBD5DFFCEF81",
+      "bytes": 727
+    },
+    {
+      "path": "docs\\phase-a\\evidence\\legacy\\legacy-result.json",
+      "sha256": "E8CF0E0056D164942D6861AA0F96CD7F5EA659BCE241E8BC5300401E1210EA55",
+      "bytes": 4778
+    },
+    {
+      "path": "docs\\phase-a\\evidence\\security\\security-result.json",
+      "sha256": "7353DAC20543312EBBDFE73087D453B6B4290F13A0054E17DF1FF1AED57BADC4",
+      "bytes": 7591
+    },
+    {
+      "path": "docs\\phase-a\\evidence\\transport\\windows-cross-openssl.json",
+      "sha256": "B4AC9EFC8E295050F484486824FD27623F5B30644630B5235026A3DE28C6D4D3",
+      "bytes": 24800
+    },
+    {
+      "path": "docs\\phase-a\\evidence\\transport\\windows-git-openssl.json",
+      "sha256": "5E70F8858C4AC28921A1D95C55D13289BF24A81E3FD6DE066DCBC0EA216338B2",
+      "bytes": 24694
+    },
+    {
+      "path": "docs\\phase-a\\evidence\\transport\\windows-reverse-cross-openssl.json",
+      "sha256": "1A3C1D55B0A70B7B863D1291B06C69ACB233388D52FCB06C960FBD37A309D5DF",
+      "bytes": 24795
+    },
+    {
+      "path": "docs\\phase-a\\handoffs\\PREVIOUS_RESUME_STATE.md",
+      "sha256": "8EE591DA37AE1039EF5A1B0BDE0FA5685B9C3C9F523146DD886E622BC6049590",
+      "bytes": 11284
+    },
+    {
+      "path": "PROJECT_STATE.md",
+      "sha256": "F2C4E2187FA2B24D507DD5A84F4BB2E82AF0BD469C85BB5D955500CFF952E562",
+      "bytes": 8058
+    }
+  ]
+}

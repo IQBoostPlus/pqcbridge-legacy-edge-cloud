@@ -1,0 +1,181 @@
+{
+  "status": "passed",
+  "deployment_accepted": true,
+  "started_utc": "2026-10-16T08:20:42.273514+00:00",
+  "project": "pqc-a-f464a7c89a57ba9a",
+  "runtime_root": "D:\\Code\\pqcbridge-phase-a-artifacts\\docker-ad91c651551244cd81f91f150719c24c",
+  "hybrid_tls": "not run; application remains original custom transport",
+  "docker_cli": "C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe",
+  "docker_version": {
+    "Client": {
+      "Version": "29.8.0",
+      "ApiVersion": "1.56",
+      "DefaultAPIVersion": "1.56",
+      "GitCommit": "88096ef",
+      "GoVersion": "go1.26.8",
+      "Os": "windows",
+      "Arch": "amd64",
+      "BuildTime": "Thu Sep  3 21:53:38 2026",
+      "Context": "desktop-linux"
+    },
+    "Server": {
+      "Platform": {
+        "Name": "Docker Desktop 4.91.0 (239619)"
+      },
+      "Version": "29.8.0",
+      "ApiVersion": "1.56",
+      "MinAPIVersion": "1.40",
+      "Os": "linux",
+      "Arch": "amd64",
+      "Components": [
+        {
+          "Name": "Engine",
+          "Version": "29.8.0",
+          "Details": {
+            "ApiVersion": "1.56",
+            "Arch": "amd64",
+            "BuildTime": "Thu Sep  3 21:51:20 2026",
+            "Experimental": "false",
+            "GitCommit": "3ce5872",
+            "GoVersion": "go1.26.8",
+            "KernelVersion": "6.6.87.2-microsoft-standard-WSL2",
+            "MinAPIVersion": "1.40",
+            "Module": "github.com/moby/moby/v2",
+            "ModuleVersion": "v2.0.0+unknown",
+            "Os": "linux"
+          }
+        },
+        {
+          "Name": "containerd",
+          "Version": "v2.3.4",
+          "Details": {
+            "GitCommit": "db8809540e1a7a9da5d518876894933ff55692ab"
+          }
+        },
+        {
+          "Name": "runc",
+          "Version": "1.4.3",
+          "Details": {
+            "GitCommit": "v1.4.3-0-gbb14dabe"
+          }
+        },
+        {
+          "Name": "docker-init",
+          "Version": "0.19.0",
+          "Details": {
+            "GitCommit": "de40ad0"
+          }
+        }
+      ],
+      "GitCommit": "3ce5872",
+      "GoVersion": "go1.26.8",
+      "KernelVersion": "6.6.87.2-microsoft-standard-WSL2",
+      "BuildTime": "2026-09-03T21:51:20.000000000+00:00"
+    }
+  },
+  "smoke": {
+    "status": "passed",
+    "exact_readings": [
+      {
+        "device_id": "dev-docker",
+        "sequence": 1,
+        "temperature_c": 20.61,
+        "timestamp": "2026-10-16T08:20:52.644428+00:00",
+        "unit": "celsius"
+      },
+      {
+        "device_id": "dev-docker",
+        "sequence": 2,
+        "temperature_c": 16.44,
+        "timestamp": "2026-10-16T08:20:53.644944+00:00",
+        "unit": "celsius"
+      },
+      {
+        "device_id": "dev-docker",
+        "sequence": 3,
+        "temperature_c": 30.42,
+        "timestamp": "2026-10-16T08:20:54.645911+00:00",
+        "unit": "celsius"
+      }
+    ],
+    "cloud_reading_count": 3,
+    "instrumentation": "device serialization observer; unchanged source bytes"
+  },
+  "runtimes": {
+    "cloud": {
+      "os": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.41",
+      "python": "3.12.14",
+      "cryptography": "50.0.1",
+      "python_ssl": "OpenSSL 3.5.7 9 Jun 2026",
+      "cryptography_openssl": "OpenSSL 4.0.2 25 Aug 2026",
+      "image_id": "sha256:4e035850aea9c37da8aa58a80d65e074120bd7f5e4810b43ae05af5a2c34be87",
+      "repo_digests": [
+        "pqc-a-f464a7c89a57ba9a-cloud@sha256:4e035850aea9c37da8aa58a80d65e074120bd7f5e4810b43ae05af5a2c34be87"
+      ]
+    },
+    "gateway": {
+      "os": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.41",
+      "python": "3.12.14",
+      "cryptography": "50.0.1",
+      "python_ssl": "OpenSSL 3.5.7 9 Jun 2026",
+      "cryptography_openssl": "OpenSSL 4.0.2 25 Aug 2026",
+      "image_id": "sha256:b23cfa27684e7af4be489c0d3683e184c72e3440bc45a408bbcbd5762b42b0f4",
+      "repo_digests": [
+        "pqc-a-f464a7c89a57ba9a-gateway@sha256:b23cfa27684e7af4be489c0d3683e184c72e3440bc45a408bbcbd5762b42b0f4"
+      ]
+    },
+    "device": {
+      "os": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.41",
+      "python": "3.12.14",
+      "cryptography": "50.0.1",
+      "python_ssl": "OpenSSL 3.5.7 9 Jun 2026",
+      "cryptography_openssl": "OpenSSL 4.0.2 25 Aug 2026",
+      "image_id": "sha256:91d86465857c6256a64e603852f0c9cb1cfa6d1e9eae20c84e4d6ae6b67ad828",
+      "repo_digests": [
+        "pqc-a-f464a7c89a57ba9a-device@sha256:91d86465857c6256a64e603852f0c9cb1cfa6d1e9eae20c84e4d6ae6b67ad828"
+      ]
+    }
+  },
+  "cleanup": {
+    "status": "passed",
+    "owned_resources_removed": [
+      {
+        "kind": "container",
+        "id": "ac1f08087d5e"
+      },
+      {
+        "kind": "container",
+        "id": "2240af305a71"
+      },
+      {
+        "kind": "container",
+        "id": "441866c5d735"
+      },
+      {
+        "kind": "network",
+        "id": "9e9a38ed8775"
+      },
+      {
+        "kind": "volume",
+        "id": "pqc-a-f464a7c89a57ba9a_cloud_state"
+      },
+      {
+        "kind": "volume",
+        "id": "pqc-a-f464a7c89a57ba9a_device_state"
+      }
+    ],
+    "remaining": {
+      "containers": [],
+      "networks": [],
+      "volumes": []
+    },
+    "images": "retained under unique run tags"
+  },
+  "preservation": {
+    "tracked_inputs": 30,
+    "changed": [],
+    "added": []
+  },
+  "completed_utc": "2026-10-16T08:21:11.062563+00:00",
+  "probe_sha256": "56a86bd28e45215259ec2130c3cc2fc764ed2570bcc8f02e6a12a39c64dbd17a"
+}
