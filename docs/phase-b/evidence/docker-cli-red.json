@@ -1,0 +1,54 @@
+{
+  "status": "failed",
+  "runtime_root": "D:\\Code\\pqcbridge-phase-b-artifacts\\docker-red-b99d8e5b7c854651ac3d1dae898da60f",
+  "cases": [],
+  "started_utc": "2026-10-16T14:04:09.998417+00:00",
+  "project": "pqc-b-16f37d26e486d51d",
+  "image": "",
+  "certificate_fingerprints": {
+    "cloud": "34b07c8d539ff55e38cfb6eed29631dad2cdccbb6ece40989022dbc016b2b43d",
+    "gateway": "6f4baa3a3a84183ff03126faa038250213e2f0d839c1d74dfcec7ea2f451244f",
+    "unauthorized": "aadaa989e27272d9308ce8bae39e91e91313f7869eb1fe878dd939c309342bd1",
+    "untrusted": "46ec9ab1738a094b44a2ad27c68dddc1740d201a91363e60dba340389655aabf"
+  },
+  "error": {
+    "type": "TimeoutError",
+    "message": "bounded wait expired; last error=RuntimeError"
+  },
+  "cleanup": {
+    "verified": true,
+    "errors": [],
+    "remaining": {
+      "containers": [],
+      "networks": [],
+      "volumes": []
+    },
+    "removed": [
+      {
+        "kind": "container",
+        "id": "7d25d28ec89d"
+      },
+      {
+        "kind": "container",
+        "id": "920435cc5991"
+      },
+      {
+        "kind": "container",
+        "id": "83131d3cb200"
+      },
+      {
+        "kind": "network",
+        "id": "24821ec47c4e"
+      },
+      {
+        "kind": "volume",
+        "id": "pqc-b-16f37d26e486d51d_cloud_state"
+      },
+      {
+        "kind": "volume",
+        "id": "pqc-b-16f37d26e486d51d_gateway_state"
+      }
+    ],
+    "image_policy": "unique acceptance image retained; cached bases unchanged"
+  }
+}

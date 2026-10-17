@@ -1,0 +1,173 @@
+{
+  "recorded_utc": "2026-10-16T06:59:21.585809+00:00",
+  "python": "3.12.0",
+  "outcome": "completed_with_open_findings",
+  "scope": "independently encoded peer for repository simulated protocol",
+  "real_legacy_protocol_acceptance": false,
+  "nominal_profile": {
+    "active_devices": 1,
+    "interval_seconds": 5,
+    "samples": [
+      {
+        "sequence": 1,
+        "send_monotonic_s": 96023.8866759,
+        "observed_monotonic_s": 96023.9758343,
+        "readback_latency_upper_bound_ms": 89.15840000554454
+      },
+      {
+        "sequence": 2,
+        "send_monotonic_s": 96028.8870268,
+        "observed_monotonic_s": 96028.9673341,
+        "readback_latency_upper_bound_ms": 80.30729999882169
+      },
+      {
+        "sequence": 3,
+        "send_monotonic_s": 96033.8872001,
+        "observed_monotonic_s": 96033.9893314,
+        "readback_latency_upper_bound_ms": 102.13129999465309
+      }
+    ],
+    "readback_latency_upper_bound_p50_ms": 89.15840000554454,
+    "readback_latency_upper_bound_p95_ms": 102.13129999465309,
+    "wire_sizes": [
+      {
+        "plaintext_bytes": 126,
+        "wire_bytes": 296
+      },
+      {
+        "plaintext_bytes": 126,
+        "wire_bytes": 296
+      },
+      {
+        "plaintext_bytes": 126,
+        "wire_bytes": 296
+      }
+    ],
+    "hello_wire_bytes": 151,
+    "poll_interval_seconds": 0.02
+  },
+  "burst_diagnostic": {
+    "active_devices": 1,
+    "messages": 100,
+    "elapsed_seconds": 0.09012550000625197,
+    "observed_delivery_rate_messages_per_second": 1109.5638858376713,
+    "last_sequences": [
+      95,
+      96,
+      97,
+      98,
+      99,
+      100,
+      101,
+      102,
+      103,
+      104
+    ]
+  },
+  "negative_controls": [
+    {
+      "case": "exact_reading_replay",
+      "outcome": "rejected"
+    },
+    {
+      "case": "outer_sequence_tampering",
+      "outcome": "rejected; valid next sequence delivered"
+    },
+    {
+      "case": "wrong_device_key",
+      "outcome": "rejected_and_closed"
+    },
+    {
+      "case": "unknown_device",
+      "outcome": "rejected_and_closed"
+    },
+    {
+      "case": "malformed_json_hello",
+      "outcome": "closed; controlled error counter increased"
+    }
+  ],
+  "pre_attack_cloud_stored_readings": 104,
+  "final_cloud_stored_readings": 106,
+  "gateway_health": {
+    "status": "ok",
+    "service": "gateway",
+    "cloud_session_id": "6b653f36ab6fe8c7",
+    "cloud_connected": true,
+    "cloud_state": "established",
+    "counters": {
+      "mlkem_sessions_established": 1,
+      "device_connections": 5,
+      "fallback_activations": 1,
+      "legacy_devices_detected": 1,
+      "messages_received": 109,
+      "messages_processed": 107,
+      "messages_forwarded": 107,
+      "messages_rejected": 4,
+      "errors": 1
+    },
+    "timings": {
+      "mlkem_establish_s": {
+        "count": 1,
+        "avg": 0.043876,
+        "min": 0.043876,
+        "max": 0.043876,
+        "unit": "s"
+      },
+      "forward_s": {
+        "count": 107,
+        "avg": 7.6e-05,
+        "min": 5.1e-05,
+        "max": 0.000302,
+        "unit": "s"
+      },
+      "payload_bytes": {
+        "count": 107,
+        "avg": 127.121495,
+        "min": 126,
+        "max": 139,
+        "unit": "bytes"
+      }
+    }
+  },
+  "cloud_health": {
+    "status": "ok",
+    "service": "cloud",
+    "mlkem_ready": true,
+    "stored_readings": 106,
+    "active_sessions": 1,
+    "counters": {
+      "gateway_connections": 1,
+      "mlkem_sessions_established": 1,
+      "messages_received": 107,
+      "messages_processed": 106,
+      "messages_rejected": 1
+    },
+    "timings": {
+      "mlkem_decapsulate_s": {
+        "count": 1,
+        "avg": 0.000455,
+        "min": 0.000455,
+        "max": 0.000455,
+        "unit": "s"
+      }
+    }
+  },
+  "open_security_findings": [
+    {
+      "id": "A03-05",
+      "outcome": "reproduced with an enrolled device credential",
+      "foreign_inner_device_stored": true,
+      "outer_sequence_106_inner_sequence_999999_stored": true,
+      "following_valid_sequence_107_rejected_by_cloud": true,
+      "scope": "device-side identity/sequence binding; cloud authorization inference separate"
+    }
+  ],
+  "limitations": [
+    "No real device, standard legacy protocol, WAN or Linux Docker run.",
+    "No durable acceptance, cloud ACK or crash recovery is provided.",
+    "Readback timings include HTTP observation and polling overhead.",
+    "Three nominal samples do not establish a performance guarantee.",
+    "Burst diagnostic does not measure a sustainable capacity limit.",
+    "Child-only loopback health adaptation excludes unmodified deployment acceptance."
+  ]
+}

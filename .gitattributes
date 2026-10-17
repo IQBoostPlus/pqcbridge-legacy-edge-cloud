@@ -1,0 +1,2 @@
+# Bootstrap validates the exact policy bytes, including line endings.
+deploy/phase_b/tls-policy.cnf text eol=lf

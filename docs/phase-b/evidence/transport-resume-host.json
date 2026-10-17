@@ -1,0 +1,28 @@
+{
+  "status": "host_tests_passed_linux_probe_passed",
+  "date": "2026-10-17",
+  "scope": "Actual public framing APIs on host and fresh-process startup refusal tests; not full application acceptance.",
+  "host_tests": {
+    "command": "python -B -m pytest tests/test_secure_transport.py -q",
+    "passed": 16,
+    "seconds": 2.33,
+    "exit_code": 0
+  },
+  "source_sha256": {
+    "common/secure_transport.py": "3df8f208202ce6b2271c44a50387d06d643a4d3ec2214c6b3ee18b3ec417f7a7",
+    "common/secure_bootstrap.py": "46fc6cf17ddfd8041b8055a113aacbaae2369b7d5f4f9e5da81b89cd1f88aad1",
+    "tests/test_secure_transport.py": "e81c29b8860789bfb0a83bd38780674d6c237b377a7155d585954e54cf20eebd",
+    "scripts/phase_b/transport_probe.py": "f6f4881d02837fc4eab84f4cfa2acf7e6e7be3d66739ab8d74500ba8f80161eb",
+    "deploy/phase_b/tls-policy.cnf": "68375cb30d9284888675f12a658f8980795170ca205cca7e227038f525b18bd2"
+  },
+  "linux_probe": {
+    "status": "passed",
+    "evidence": "transport-resume.json",
+    "passed_count": 9,
+    "cleanup_verified": true
+  },
+  "runtime_gaps": [
+    "Actual source coalesced frames",
+    "Actual cloud/gateway TLS frame deadlines clipped to lease and peer certificate validity"
+  ]
+}

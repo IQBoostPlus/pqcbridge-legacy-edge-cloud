@@ -1,0 +1,463 @@
+{
+  "status": "passed",
+  "runtime_root": "D:\\Code\\pqcbridge-phase-b-artifacts\\docker-resume-fc1f99f37470459a925bd00778cac261",
+  "cases": [
+    {
+      "name": "health_and_readings_require_local_bearer",
+      "passed": true
+    },
+    {
+      "name": "legacy_device_to_hybrid_cloud",
+      "passed": true,
+      "readings": 3
+    },
+    {
+      "name": "source_plaintext_matches_cloud_payload",
+      "passed": true
+    },
+    {
+      "name": "plaintext_cloud_rejected",
+      "passed": true,
+      "result": {
+        "rejected": true,
+        "reason": "ConnectionResetError",
+        "application_bytes": 0
+      }
+    },
+    {
+      "name": "classical_cloud_rejected",
+      "passed": true,
+      "result": {
+        "rejected": true,
+        "reason": "Connecting to 172.19.0.2\n40276787A9700000:error:0A000410:SSL routines:ssl3_read_bytes:ssl/tls alert handshake failure:../ssl/record/rec_layer_s3.c:918:SSL alert number 40\n",
+        "application_bytes": 0
+      }
+    },
+    {
+      "name": "no_certificate_cloud_rejected",
+      "passed": true,
+      "result": {
+        "rejected": true,
+        "reason": "SSLError",
+        "application_bytes": 0
+      }
+    },
+    {
+      "name": "untrusted_cloud_rejected",
+      "passed": true,
+      "result": {
+        "rejected": true,
+        "reason": "SSLError",
+        "application_bytes": 0
+      }
+    },
+    {
+      "name": "unauthorized_cloud_rejected",
+      "passed": true,
+      "result": {
+        "rejected": true,
+        "reason": null,
+        "application_bytes": 0
+      }
+    },
+    {
+      "name": "upload_duplicate",
+      "passed": true,
+      "result": {
+        "mode": "duplicate",
+        "ack": {
+          "digest": "8c0b7c4cafcc4b716409c66f1f0c0e378efb205d26fd505c13f566fa5c1cb253",
+          "event_id": "23c60b8d-7b96-4a02-b5cd-7cc9a431fc95",
+          "gateway_id": "gw-lab",
+          "schema_version": 1,
+          "status": "committed",
+          "type": "ack"
+        },
+        "reason": null
+      }
+    },
+    {
+      "name": "upload_duplicate",
+      "passed": true,
+      "result": {
+        "mode": "duplicate",
+        "ack": {
+          "digest": "8c0b7c4cafcc4b716409c66f1f0c0e378efb205d26fd505c13f566fa5c1cb253",
+          "event_id": "23c60b8d-7b96-4a02-b5cd-7cc9a431fc95",
+          "gateway_id": "gw-lab",
+          "schema_version": 1,
+          "status": "committed",
+          "type": "ack"
+        },
+        "reason": null
+      }
+    },
+    {
+      "name": "upload_conflict",
+      "passed": true,
+      "result": {
+        "mode": "conflict",
+        "ack": {
+          "reason": "conflict",
+          "type": "error"
+        },
+        "reason": null
+      }
+    },
+    {
+      "name": "upload_unauthorized_device",
+      "passed": true,
+      "result": {
+        "mode": "unauthorized_device",
+        "ack": {
+          "reason": "unauthorized",
+          "type": "error"
+        },
+        "reason": null
+      }
+    },
+    {
+      "name": "duplicate_conflict_and_unauthorized_no_extra_commit",
+      "passed": true
+    },
+    {
+      "name": "outage_queue_survives_gateway_restart",
+      "passed": true,
+      "pending_before": 3,
+      "pending_after": 7
+    },
+    {
+      "name": "outage_restart_recovery_without_duplicate_business_rows",
+      "passed": true,
+      "outage_seconds": 10.75,
+      "drain_seconds": 3.547,
+      "committed_after": 14
+    },
+    {
+      "name": "bounded_queue_refuses_without_acceptance",
+      "passed": true,
+      "pending": 3,
+      "refused": 1
+    },
+    {
+      "name": "accepted_queue_preserved_through_capacity_recovery",
+      "passed": true
+    },
+    {
+      "name": "coalesced_hello_two_readings_one_write_no_followup",
+      "passed": true,
+      "source_readings": [
+        {
+          "device_id": "dev-lab",
+          "timestamp": "2026-10-17T11:40:43.586434+00:00",
+          "temperature_c": 22.51,
+          "unit": "celsius",
+          "sequence": 21
+        },
+        {
+          "device_id": "dev-lab",
+          "timestamp": "2026-10-17T11:40:43.586534+00:00",
+          "temperature_c": 22.52,
+          "unit": "celsius",
+          "sequence": 22
+        }
+      ],
+      "socket_writes": 1,
+      "silent_seconds": 2,
+      "accepted_before": 17,
+      "accepted_while_open": 19
+    },
+    {
+      "name": "business_delivery_and_reasoned_refusal_are_observable",
+      "passed": true,
+      "capacity_health": {
+        "live": true,
+        "service": "gateway",
+        "ready": false,
+        "policy_valid": true,
+        "cloud_connected": false,
+        "storage": {
+          "accepted_total": 17,
+          "acknowledged_total": 14,
+          "pending": 3,
+          "quarantined": 0,
+          "refused": 1,
+          "source_gap": 0,
+          "clock_uncertain": false
+        },
+        "metrics": {
+          "delivery_retry": 3,
+          "delivery_error_gaierror": 3,
+          "durably_accepted": 3,
+          "source_refused": 1,
+          "source_refused_queue_row_quota": 1,
+          "source_error_DeliveryError": 1
+        },
+        "business_delivery": "backlog",
+        "last_matching_ack_at": null,
+        "state_bytes": 61440,
+        "loss_count_unknown": true
+      },
+      "recovered_health": {
+        "live": true,
+        "service": "gateway",
+        "ready": true,
+        "policy_valid": true,
+        "cloud_connected": true,
+        "storage": {
+          "accepted_total": 19,
+          "acknowledged_total": 19,
+          "pending": 0,
+          "quarantined": 0,
+          "refused": 1,
+          "source_gap": 3,
+          "clock_uncertain": false
+        },
+        "metrics": {
+          "delivery_retry": 4,
+          "delivery_error_gaierror": 4,
+          "durably_accepted": 5,
+          "source_refused": 1,
+          "source_refused_queue_row_quota": 1,
+          "source_error_DeliveryError": 1,
+          "cloud_sessions": 1,
+          "matching_acks": 5,
+          "source_connection_closed": 1,
+          "source_error_TransportError": 1
+        },
+        "business_delivery": "delivered",
+        "last_matching_ack_at": "2026-10-17T11:40:43.734190+00:00",
+        "state_bytes": 61440,
+        "loss_count_unknown": true
+      }
+    }
+  ],
+  "started_utc": "2026-10-17T11:39:36.132032+00:00",
+  "project": "pqc-b-4957a4ad461688d2",
+  "image": "",
+  "source_sha256": {
+    "cloud\\__init__.py": "e10e46d659b4748502284bf77ae76e9123f1764a88232ae49f1eda8b8cbf4099",
+    "cloud\\cloud.py": "3f3c8ca18c2efc1a6e73372052561a397f82622e456162f2cb7cb84e75970b2d",
+    "cloud\\processing.py": "e25326df0aaef1c785713757ddf1515a01e605c68446ec4fbf6cfa00c9d77b07",
+    "cloud\\secure.py": "6b126f168382fc9103c789fd3e88f2ea3ea61be0ffa0268d1bc070a74924825e",
+    "cloud\\store.py": "e84f9c4bffa3c34b2f4e0be5eaf2978e57dceccd21b0b1ec3f4ad0406df66ddf",
+    "common\\__init__.py": "192f70232468a4b37d0e8adbde62746093552162958c94e3db945f73ca9cd72b",
+    "common\\config.py": "0c6196d2b0480ac17d84d7f2b92ee309bbaf0659d4e5f1e731cc817c130072a7",
+    "common\\crypto.py": "d2bc38964ac746004839318a22ca1140e32a700de01cd1e723c2cc4ec3acb33f",
+    "common\\delivery.py": "0001f4e852cff08082f3193040ad99b5f819b21c2e4d1485433642b7655bce4c",
+    "common\\demo_device_keys.json": "323e3bf19a2849371cc64a71ce02d5e24594e616dd7e14e09493186a27fbda9a",
+    "common\\demo_gateway_keys.json": "5efd8901cdcef6d66faa57ec1e50ecb4ac20830f97dc48aaf0e592a4987824e5",
+    "common\\health.py": "19b731b674887a6b9c615c5d905c7b088e6d43d9233788eff9d0239584587db2",
+    "common\\logging_setup.py": "8bd9a5be029165ac75d2d0dc5723041c72abf5886a462314c03c3881cc5c01ca",
+    "common\\metrics.py": "fb79dcbedaa2ad3c130b1ff7eac3d83664fc438a59d24d520c16434d690a0f8b",
+    "common\\protocol.py": "4d4584fbf1222eb8569ee8c85e3fa4e8c61603b53c06a94c978de064399914c5",
+    "common\\replay.py": "0e402d8ae82424535f8160977d634d420ae2b5fe8a295577dbeac4c08f718908",
+    "common\\secure_bootstrap.py": "46fc6cf17ddfd8041b8055a113aacbaae2369b7d5f4f9e5da81b89cd1f88aad1",
+    "common\\secure_runtime.py": "da849c61a61e74df5ceb1839f3613ee94fd9b8f710f40aeca78b94745be45828",
+    "common\\secure_transport.py": "3df8f208202ce6b2271c44a50387d06d643a4d3ec2214c6b3ee18b3ec417f7a7",
+    "deploy\\phase_b\\Dockerfile": "c08af733dbac5337b7b3a233a436312f9f7d59bc9d8740cc12188ee0d4aea6ec",
+    "deploy\\phase_b\\tls-policy.cnf": "68375cb30d9284888675f12a658f8980795170ca205cca7e227038f525b18bd2",
+    "device\\__init__.py": "30551a4dd7816ed9565997c6f1fb2c578299e410934c6f54c5eb13a1829c6054",
+    "device\\device.py": "39d827f6e9220c92c9ad9ed805c28bc9e7a130c8dd433051c866f5320db6504c",
+    "device\\sensor.py": "f68d9e488d1537386dabffd0736ddc18f73302e9111e76d623333fb027574817",
+    "device\\state.py": "18fbe20a8faa2c5b077d43d16b939123c91f46f7093e5ccabbe3360041bbb147",
+    "gateway\\__init__.py": "5965a97028bda129c350a3fbf74e8e15c9977abffebf1ccbd45121198ee9b78f",
+    "gateway\\cloud_channel.py": "aff7aebb9e45b2393a064c202376f5f859ead5d592db964cb291aaa730c5c670",
+    "gateway\\gateway.py": "74eb3945306a1938a13ec774ad3cbdc8c32f3231b025bfeced471174eec55c69",
+    "gateway\\processing.py": "2fee497bd98434ce695de1bdd87ae4052a6e2e8c6dd96ed66b7dbb6ad86cdc05",
+    "gateway\\secure.py": "56e16ef38e6d4d72a318d6072c725cc7f8ffa96b44d92e96a810cee37c79255f"
+  },
+  "harness_sha256": "cf9f9a18eee0d1e96ee3f59cdc21d5458ed8279a5590632c78be1d0df893a88e",
+  "certificate_fingerprints": {
+    "cloud": "c5b5844ee5179b015b619a28542c4387a9a31a32f4b1d7847985468f17e2250e",
+    "gateway": "cd4d259383df03c4f39e55830e981dedbc0bf3c91f0e1021a4af89bf04cfb9ac",
+    "unauthorized": "5d2390a33116b895603c38ec9245fcc3d3bf9a4e3a5357c3f649a2c539ce1751",
+    "untrusted": "6d9877981d58cc00b0e7791b4c984b2902acb3a8e0dc4919a4e9dfafd0cd152c"
+  },
+  "cloud_initial_health": {
+    "live": true,
+    "service": "cloud",
+    "ready": true,
+    "policy_valid": true,
+    "cloud_connected": false,
+    "storage": {
+      "committed_total": 0,
+      "refused": 0
+    },
+    "metrics": {
+      "authenticated_connections": 1
+    },
+    "business_delivery": "not_yet_committed",
+    "last_matching_ack_at": null,
+    "state_bytes": 73976,
+    "loss_count_unknown": false
+  },
+  "gateway_initial_health": {
+    "live": true,
+    "service": "gateway",
+    "ready": true,
+    "policy_valid": true,
+    "cloud_connected": true,
+    "storage": {
+      "accepted_total": 0,
+      "acknowledged_total": 0,
+      "pending": 0,
+      "quarantined": 0,
+      "refused": 0,
+      "source_gap": 0,
+      "clock_uncertain": false
+    },
+    "metrics": {
+      "cloud_sessions": 1
+    },
+    "business_delivery": "not_yet_delivered",
+    "last_matching_ack_at": null,
+    "state_bytes": 61440,
+    "loss_count_unknown": false
+  },
+  "runtime": {
+    "python": "3.12.14 (main, Sep 19 2026, 01:04:57) [GCC 14.2.0]",
+    "ssl": "OpenSSL 3.5.7 9 Jun 2026",
+    "cryptography": "50.0.1",
+    "platform": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.41"
+  },
+  "first_readings": [
+    {
+      "accepted_at": "2026-10-17T11:39:49.997924Z",
+      "device_id": "dev-lab",
+      "event_id": "23c60b8d-7b96-4a02-b5cd-7cc9a431fc95",
+      "gateway_id": "gw-lab",
+      "payload": {
+        "temperature_c": 28.59,
+        "unit": "celsius"
+      },
+      "schema_version": 1,
+      "source_incarnation": "d841e042-7c19-4203-b472-3caceae45cd6",
+      "source_sequence": 3,
+      "source_timestamp": "2026-10-17T11:39:49.997199Z"
+    },
+    {
+      "accepted_at": "2026-10-17T11:39:48.997016Z",
+      "device_id": "dev-lab",
+      "event_id": "d1bc05fd-4627-4e94-9c3c-eb3a31058dc3",
+      "gateway_id": "gw-lab",
+      "payload": {
+        "temperature_c": 24.19,
+        "unit": "celsius"
+      },
+      "schema_version": 1,
+      "source_incarnation": "d841e042-7c19-4203-b472-3caceae45cd6",
+      "source_sequence": 2,
+      "source_timestamp": "2026-10-17T11:39:48.996498Z"
+    },
+    {
+      "accepted_at": "2026-10-17T11:39:47.996797Z",
+      "device_id": "dev-lab",
+      "event_id": "c54d696c-04d2-42c3-b4d5-b49699b64e97",
+      "gateway_id": "gw-lab",
+      "payload": {
+        "temperature_c": 17.56,
+        "unit": "celsius"
+      },
+      "schema_version": 1,
+      "source_incarnation": "d841e042-7c19-4203-b472-3caceae45cd6",
+      "source_sequence": 1,
+      "source_timestamp": "2026-10-17T11:39:47.996055Z"
+    }
+  ],
+  "final_cloud_health": {
+    "live": true,
+    "service": "cloud",
+    "ready": true,
+    "policy_valid": true,
+    "cloud_connected": false,
+    "storage": {
+      "committed_total": 19,
+      "refused": 0
+    },
+    "metrics": {
+      "authenticated_connections": 1,
+      "committed_acks_sent": 5
+    },
+    "business_delivery": "committed",
+    "last_matching_ack_at": null,
+    "state_bytes": 69632,
+    "loss_count_unknown": false
+  },
+  "final_gateway_health": {
+    "live": true,
+    "service": "gateway",
+    "ready": true,
+    "policy_valid": true,
+    "cloud_connected": true,
+    "storage": {
+      "accepted_total": 19,
+      "acknowledged_total": 19,
+      "pending": 0,
+      "quarantined": 0,
+      "refused": 1,
+      "source_gap": 3,
+      "clock_uncertain": false
+    },
+    "metrics": {
+      "delivery_retry": 4,
+      "delivery_error_gaierror": 4,
+      "durably_accepted": 5,
+      "source_refused": 1,
+      "source_refused_queue_row_quota": 1,
+      "source_error_DeliveryError": 1,
+      "cloud_sessions": 1,
+      "matching_acks": 5,
+      "source_connection_closed": 1,
+      "source_error_TransportError": 1
+    },
+    "business_delivery": "delivered",
+    "last_matching_ack_at": "2026-10-17T11:40:43.734190+00:00",
+    "state_bytes": 61440,
+    "loss_count_unknown": true
+  },
+  "cleanup": {
+    "verified": true,
+    "errors": [],
+    "remaining": {
+      "containers": [],
+      "networks": [],
+      "volumes": []
+    },
+    "removed": [
+      {
+        "kind": "container",
+        "id": "c31aa39ba7af"
+      },
+      {
+        "kind": "container",
+        "id": "2519929b92c3"
+      },
+      {
+        "kind": "container",
+        "id": "0caeb158e92b"
+      },
+      {
+        "kind": "container",
+        "id": "bc1f26b5548a"
+      },
+      {
+        "kind": "network",
+        "id": "2f11450a49b0"
+      },
+      {
+        "kind": "volume",
+        "id": "pqc-b-4957a4ad461688d2_gateway_state"
+      },
+      {
+        "kind": "volume",
+        "id": "pqc-b-4957a4ad461688d2_cloud_state"
+      },
+      {
+        "kind": "volume",
+        "id": "pqc-b-4957a4ad461688d2_device_state"
+      }
+    ],
+    "image_policy": "unique acceptance image retained; cached bases unchanged"
+  }
+}

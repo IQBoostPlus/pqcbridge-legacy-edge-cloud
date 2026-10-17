@@ -1,0 +1,157 @@
+{
+  "state": "PAUSED; Phase B not accepted complete",
+  "saved_at": "2026-10-16T22:19:29.699135+08:00",
+  "branch": "codex/phase-b-secure-path",
+  "head": "6e4a48ffc0ec465d6d5d1c29f2272314cff6a601",
+  "automatic_publication_task": {
+    "id": "pqc-bridge-github",
+    "status": "PAUSED"
+  },
+  "preserved_inputs": {
+    "count": 9,
+    "changed": [],
+    "missing": []
+  },
+  "pause_audit": {
+    "matching_phase_b_processes": [],
+    "containers_with_phase_b_owner_label": [],
+    "boundary": "read-only host queries at pause; no OS-wide guarantee"
+  },
+  "files": [
+    {
+      "path": "cloud/secure.py",
+      "sha256": "6b126f168382fc9103c789fd3e88f2ea3ea61be0ffa0268d1bc070a74924825e",
+      "bytes": 436
+    },
+    {
+      "path": "common/delivery.py",
+      "sha256": "0001f4e852cff08082f3193040ad99b5f819b21c2e4d1485433642b7655bce4c",
+      "bytes": 20913
+    },
+    {
+      "path": "common/secure_bootstrap.py",
+      "sha256": "46fc6cf17ddfd8041b8055a113aacbaae2369b7d5f4f9e5da81b89cd1f88aad1",
+      "bytes": 941
+    },
+    {
+      "path": "common/secure_runtime.py",
+      "sha256": "da849c61a61e74df5ceb1839f3613ee94fd9b8f710f40aeca78b94745be45828",
+      "bytes": 25263
+    },
+    {
+      "path": "common/secure_transport.py",
+      "sha256": "3df8f208202ce6b2271c44a50387d06d643a4d3ec2214c6b3ee18b3ec417f7a7",
+      "bytes": 11383
+    },
+    {
+      "path": "deploy/phase_b/Dockerfile",
+      "sha256": "c08af733dbac5337b7b3a233a436312f9f7d59bc9d8740cc12188ee0d4aea6ec",
+      "bytes": 421
+    },
+    {
+      "path": "deploy/phase_b/tls-policy.cnf",
+      "sha256": "68375cb30d9284888675f12a658f8980795170ca205cca7e227038f525b18bd2",
+      "bytes": 216
+    },
+    {
+      "path": "docs/phase-b/evidence/docker-cli-red.json",
+      "sha256": "98ae49899f3867724f4ac7109e3e70c8c30aa764257f27d6b17738284850b334",
+      "bytes": 1527
+    },
+    {
+      "path": "docs/phase-b/evidence/docker-first-green.json",
+      "sha256": "ec687477d18fa657d4fb68ccb6567a38e810fd9500d701a6480d46a4b71a1d93",
+      "bytes": 4575
+    },
+    {
+      "path": "docs/phase-b/evidence/docker-initial-red.json",
+      "sha256": "0a4d1788ebc47d63b339ed8bfa857d623d903753b1ea337c241b3add68bf9394",
+      "bytes": 693
+    },
+    {
+      "path": "docs/phase-b/evidence/docker-integration-second.json",
+      "sha256": "cd58e7e4f057704709b3762a913058dad7f21cd9a877800a41db9aba0978569b",
+      "bytes": 8722
+    },
+    {
+      "path": "docs/phase-b/evidence/docker-integration-third.json",
+      "sha256": "773e838d8644d297c7fe957947e3cc2f62041f96ad6ac0f802182f009f5c5723",
+      "bytes": 11850
+    },
+    {
+      "path": "docs/phase-b/evidence/transport-api.json",
+      "sha256": "320ad944b85f065d9ffa59d415b2b4f3f8116f561ccff7cd082994c59e4f1efe",
+      "bytes": 6938
+    },
+    {
+      "path": "docs/phase-b/evidence/transport-host-tests.txt",
+      "sha256": "6e9d8c0f93580a7037121c6333b512da550120349c5548719517cbd306ddcb94",
+      "bytes": 101
+    },
+    {
+      "path": "docs/phase-b/EXECUTION_SPEC.md",
+      "sha256": "7ef61054cfb703953af8d21f7b4dd6ac5ddc8f950ba6c8101f3f32d39ae70018",
+      "bytes": 3393
+    },
+    {
+      "path": "docs/phase-b/PAUSE_HANDOFF.md",
+      "sha256": "8296294e5cbc981468e20d151f697c3af6dada2adc3ac3c78836534c1b4c4957",
+      "bytes": 9982
+    },
+    {
+      "path": "docs/phase-b/RESUME_PROMPT.md",
+      "sha256": "96342d0796432747ac5f77a5053eec2b4471cb460810c52d90713ed36c17aca0",
+      "bytes": 3536
+    },
+    {
+      "path": "docs/phase-b/STATUS.md",
+      "sha256": "69f608ae20be49e642d6550d9f62e793ef7d2c3a899908fae8ce6c1fe4682712",
+      "bytes": 4131
+    },
+    {
+      "path": "gateway/secure.py",
+      "sha256": "56e16ef38e6d4d72a318d6072c725cc7f8ffa96b44d92e96a810cee37c79255f",
+      "bytes": 439
+    },
+    {
+      "path": "PROJECT_STATE.md",
+      "sha256": "e5a544eb1886b6086c8f7f8bf9459a5ffe3a5b97f02cf5832803810156d2cf99",
+      "bytes": 3738
+    },
+    {
+      "path": "scripts/phase_b/docker_probe.py",
+      "sha256": "4f6f6254a9d3f0bf9220af734ca6c5a0bf151665ffe8fe31d37a07beddad69f5",
+      "bytes": 26079
+    },
+    {
+      "path": "scripts/phase_b/fault_probe.py",
+      "sha256": "5193e276b42478149aa8f2f9bd721cf79c5eddaadc56bc6d70b5ff2248d40bbe",
+      "bytes": 10105
+    },
+    {
+      "path": "scripts/phase_b/transport_probe.py",
+      "sha256": "ed0c42f8f03b48e78d12da2952045dc2223b83529653354351255cd47d9018ec",
+      "bytes": 14389
+    },
+    {
+      "path": "tests/test_delivery.py",
+      "sha256": "cd5ab969f9956ea6ef3e5930d4b7e3bed33281ff1206b684530b6b8997aa584a",
+      "bytes": 8741
+    },
+    {
+      "path": "tests/test_secure_integration.py",
+      "sha256": "45afd39403b382c30e8b336e85782e055305a98c8bc7612a7907ca8a435f2014",
+      "bytes": 1610
+    },
+    {
+      "path": "tests/test_secure_services.py",
+      "sha256": "bffc86824f5717835ff550aca01c55990f816f90aa9cd902f0698ee090e1fb4a",
+      "bytes": 620
+    },
+    {
+      "path": "tests/test_secure_transport.py",
+      "sha256": "e81c29b8860789bfb0a83bd38780674d6c237b377a7155d585954e54cf20eebd",
+      "bytes": 6220
+    }
+  ]
+}

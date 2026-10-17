@@ -1,0 +1,14 @@
+{
+  "observed_date": "2026-10-16",
+  "timezone": "Asia/Singapore",
+  "desktop_start_command": ["docker", "desktop", "start", "--timeout", "30"],
+  "desktop_start_result": "Failed to start Docker Desktop; Docker Desktop is still starting: context deadline exceeded",
+  "backend_log": "C:/Users/taccz/AppData/Local/Docker/log/host/com.docker.backend.exe.log",
+  "error_timestamp_utc": "2026-10-16T08:04:40.462087800Z",
+  "error": "starting services: initializing Ingest server: listening on unix://C:/Users/taccz/AppData/Local/Docker/run/sailor-ingest.sock: rename C:/Users/taccz/AppData/Local/Docker/run/sailor-ingest.sock C:/Users/taccz/AppData/Local/Docker/run/sailor-ingest.sock.stale: The file cannot be accessed by the system. (listener: The file cannot be accessed by the system.)",
+  "cause_of_socket_access_failure": "not established",
+  "docker_server": null,
+  "actual_container_execution": false,
+  "linux_tls_execution": false,
+  "host_repair_attempted": false
+}

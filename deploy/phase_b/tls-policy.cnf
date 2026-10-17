@@ -1,0 +1,10 @@
+config_diagnostics = 1
+openssl_conf = openssl_init
+[openssl_init]
+ssl_conf = ssl_section
+[ssl_section]
+system_default = tls_defaults
+[tls_defaults]
+MinProtocol = TLSv1.3
+MaxProtocol = TLSv1.3
+Groups = X25519MLKEM768

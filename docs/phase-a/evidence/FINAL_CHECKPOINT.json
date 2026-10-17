@@ -1,0 +1,121 @@
+{
+  "state": "Phase A technical selection complete; Phase B not started",
+  "recorded_local": "2026-10-16T21:39:53.988060+08:00",
+  "original_preservation": {
+    "files": 70,
+    "missing": [],
+    "changed": [
+      "docs/SHORT_TERM_PLAN.md"
+    ],
+    "meaning": "intentional plan status/scope edits only"
+  },
+  "owned_container_audit": {
+    "command": "docker.exe --context desktop-linux ps -a --filter label=pqc.phase_a.owner --format {{json .}}",
+    "exit_code": 0,
+    "stdout": "",
+    "meaning": "no owned Phase A containers remain at final read-only check"
+  },
+  "final_linux_result": "docs/phase-a/evidence/transport/linux-full-e3864eb459b7.json",
+  "final_tls_policy_cases_passed": 22,
+  "focused_host_cleanup_regression_passed": 1,
+  "standards": "no remaining actionable finding",
+  "spec": "revised simulation technical selection gate met",
+  "files": [
+    {
+      "path": "docs/phase-a/A01_BASELINE.md",
+      "sha256": "6009fb25e11c079ce06b39adaa26fd751336d2256e8ea855ce596e4d48f894f4"
+    },
+    {
+      "path": "docs/phase-a/A02_SCENARIO.md",
+      "sha256": "383d5734a5a95a2c0322797e0443e9d8fe55cb52c0cedf4bbbd3a69791ef79ae"
+    },
+    {
+      "path": "docs/phase-a/A03_RISK_EVIDENCE.md",
+      "sha256": "365624237100f4a3dfc226154e7d3eddfff3f1df9b7ff779cf177b9513431b12"
+    },
+    {
+      "path": "docs/phase-a/A04_TRANSPORT_VALIDATION.md",
+      "sha256": "3d55ce5a41b28383778ba89fcebd08a01e82495ea594b381003a0dc56e4d3be6"
+    },
+    {
+      "path": "docs/phase-a/A05_LEGACY_AND_DELIVERY.md",
+      "sha256": "76e940f08ae5f980395551c98d54b213400d747273b66b88341279bde7feab6d"
+    },
+    {
+      "path": "docs/phase-a/A06_DOCKER_SIMULATION.md",
+      "sha256": "527a2fda710201cfb6b3183047b9c53a5e58f52506d61bbaafd06865748b6454"
+    },
+    {
+      "path": "docs/phase-a/DELIVERY_CONTRACT.md",
+      "sha256": "bcdc8af155f1389dde74a3ac93cd95955949a2aa240078238db1232c0dee1d1a"
+    },
+    {
+      "path": "docs/phase-a/EXECUTION_SPEC.md",
+      "sha256": "bcb1b4d1b55dae9ce8feb100c1478ab84364b5745fdfe64086e3ce7454612722"
+    },
+    {
+      "path": "docs/phase-a/RESUME_PROMPT.md",
+      "sha256": "5dbadc3aa1d51d95cb3264fb05cd2f5a9523b3b01a7dcc3e08f8747d55a86bf0"
+    },
+    {
+      "path": "docs/phase-a/REVIEW.md",
+      "sha256": "52fec19e405af5e66a5305b645f7c4d912b01b64c79554887d1f196f54a14ca8"
+    },
+    {
+      "path": "docs/phase-a/STATUS.md",
+      "sha256": "a45c84285c87c505f3b7b516045bc2dd3a9abb4f0a4fe79a40b9dd86938a41d2"
+    },
+    {
+      "path": "docs/SHORT_TERM_PLAN.md",
+      "sha256": "77abf96a36841c92e8cd8cdd6a75b7ba61250dd0bf308e2fb7a7edd2c9437b13"
+    },
+    {
+      "path": "PROJECT_STATE.md",
+      "sha256": "3cc2012c0de902bffe25cac6be1f489bdf2ec06080aa57cabae80a31a7d875fe"
+    },
+    {
+      "path": "scripts/phase_a/baseline.py",
+      "sha256": "a31b9da52af5a27bfca56c3a5a16d8af24595112b334bf99c9ca2cb1d301405a"
+    },
+    {
+      "path": "scripts/phase_a/baseline_child.py",
+      "sha256": "3dad3149b85d19fb0b0c67856595b82dadcfbd5c96039544731a578063433919"
+    },
+    {
+      "path": "scripts/phase_a/baseline_contract_test.py",
+      "sha256": "b7d3538c5090118fc9694a00b3853798dc24fd6a241d8fcaafaecca57c43ec25"
+    },
+    {
+      "path": "scripts/phase_a/docker_contract_test.py",
+      "sha256": "19ca39597da8820ad415abde5b7970cd621be61989b6b036891c9b116281863b"
+    },
+    {
+      "path": "scripts/phase_a/docker_probe.py",
+      "sha256": "56a86bd28e45215259ec2130c3cc2fc764ed2570bcc8f02e6a12a39c64dbd17a"
+    },
+    {
+      "path": "scripts/phase_a/legacy_probe.py",
+      "sha256": "5ab57e74acc1c37fb5242555ff19630922ccf1ec34abd9e5bcca0d94b3076200"
+    },
+    {
+      "path": "scripts/phase_a/linux_tls_host.py",
+      "sha256": "5ffa2737652222008a07571a45dde9bd960f02597c0f5ea3fe6f5ea1e6c6bec0"
+    },
+    {
+      "path": "scripts/phase_a/linux_tls_host_test.py",
+      "sha256": "c0dd0c2f10a502bb54a64c2e5d40b7a4800b91724bc4a71f8b4fd810812de50b"
+    },
+    {
+      "path": "scripts/phase_a/linux_tls_probe.py",
+      "sha256": "459781ad12597fbd5a273a0bb96d15deaeeec3841d7e91613a676ab0ad1da201"
+    },
+    {
+      "path": "scripts/phase_a/security_probe.py",
+      "sha256": "0b83e3a0edae60cd0f3ec174a95d90f59e78f01ac13b54c7590d026db99fe9dd"
+    },
+    {
+      "path": "scripts/phase_a/tls_probe.py",
+      "sha256": "7805f97dcd2dc905e8fb0daff9b9c0f0562dc10a8823284e826e722f9c0c5a18"
+    }
+  ]
+}

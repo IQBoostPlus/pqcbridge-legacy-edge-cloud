@@ -1,0 +1,103 @@
+{
+  "observed_at": "2026-10-17T11:53:10.145720+00:00",
+  "records": {
+    "docker-resume-current.json": {
+      "status": "passed",
+      "cases": 19,
+      "evidence_sha256": "a945b067cd5a2df56f4d687861e5123e38377872db66669288afded96aa7393f",
+      "copied_source_drift": [],
+      "cleanup_verified": true,
+      "observed_app_image_id": "sha256:60927c3aab63e9bc1d13847c6434e0611699658231f005d00a9a9357a8e2efac"
+    },
+    "fault-resume-current.json": {
+      "status": "passed",
+      "cases": 9,
+      "evidence_sha256": "a7918bd8e2b6360b808fff136cf92b2029335506ef1e173441c847eec3f9d664",
+      "copied_source_drift": [],
+      "cleanup_verified": true,
+      "observed_app_image_id": "sha256:2ba97ba4cfa51c124d47402952311c203cd0da34d3495649b32a20374564d5e7"
+    },
+    "fault-before-send-current.json": {
+      "status": "passed",
+      "cases": 1,
+      "evidence_sha256": "1f90c4324584a43e24fefdf518e9b01aea5fb003743a1ac1c723bdda48d3b77d",
+      "copied_source_drift": [],
+      "cleanup_verified": true,
+      "observed_app_image_id": "sha256:a2747dd586874116db2374fd257f7364e1970c08441fdc425320aedb03e0e89b"
+    },
+    "runtime-final.json": {
+      "status": "passed",
+      "cases": 7,
+      "evidence_sha256": "986b1dc5f9ccda816b1d1ba164696c58d615c45273529ad2e63ddb64e1f84ccf",
+      "copied_source_drift": [],
+      "cleanup_verified": true,
+      "observed_app_image_id": "sha256:367496796c7648e6cd43f66dbfdc4e4b5ef4ca02ca46f5201d57f91232953887"
+    },
+    "boundary-delayed_commit-green.json": {
+      "status": "passed",
+      "cases": 1,
+      "evidence_sha256": "dc52a9362f2f26ca6f686bbe35c21775b83d389f055488c6c64b7b52013e1b5b",
+      "copied_source_drift": [],
+      "cleanup_verified": true,
+      "observed_app_image_id": "sha256:b13e45197efe542d307de17e62333601ef1c51a7691b34bdbaea02e7f4d593ca"
+    },
+    "boundary-health_shutdown-green.json": {
+      "status": "passed",
+      "cases": 1,
+      "evidence_sha256": "b3f347e168934d819a41f259f003072d443b2862fe43275dfc9a9e2ba78c8daa",
+      "copied_source_drift": [],
+      "cleanup_verified": true,
+      "observed_app_image_id": "sha256:aa7544790507384288657d1031f063ac86d2405be5331b675d4b80aa1015d1cb"
+    },
+    "boundary-worker_limit-green.json": {
+      "status": "passed",
+      "cases": 1,
+      "evidence_sha256": "48d2c47b8731e6a07149d008062fdcc00b9271095074049dabe0a988a8789279",
+      "copied_source_drift": [],
+      "cleanup_verified": true,
+      "observed_app_image_id": "sha256:0f240df4c808a82b7204781e854ba8afef460ef3146ae3db91680ef0a94cfcaf"
+    },
+    "transport-resume.json": {
+      "status": "passed",
+      "cases": 9,
+      "evidence_sha256": "807d98358c6cdb7e0555c8af679da02bdb4c157697d08eda41ffeaaf9d74defd",
+      "copied_source_drift": [],
+      "cleanup_verified": true
+    }
+  },
+  "full_regression": {
+    "command": "python -m pytest -q",
+    "passed": 179,
+    "seconds": 7.69,
+    "boundary": "reviewed native host; final application source; not Docker endurance"
+  },
+  "source_sha256": {
+    "common\\secure_bootstrap.py": "46fc6cf17ddfd8041b8055a113aacbaae2369b7d5f4f9e5da81b89cd1f88aad1",
+    "common\\secure_runtime.py": "51cd4b46c8692b504a3b42318756874031a9bc5843e68d238388aef255b88401",
+    "common\\secure_transport.py": "3df8f208202ce6b2271c44a50387d06d643a4d3ec2214c6b3ee18b3ec417f7a7",
+    "common\\delivery.py": "0001f4e852cff08082f3193040ad99b5f819b21c2e4d1485433642b7655bce4c",
+    "cloud\\secure.py": "6b126f168382fc9103c789fd3e88f2ea3ea61be0ffa0268d1bc070a74924825e",
+    "gateway\\secure.py": "56e16ef38e6d4d72a318d6072c725cc7f8ffa96b44d92e96a810cee37c79255f",
+    "scripts\\phase_b\\boundary_probe.py": "7cc5d9e44fef107b0a33bc0f8b59f5cf204329d444527462e9f93cc5b2be2feb",
+    "scripts\\phase_b\\docker_probe.py": "cf9f9a18eee0d1e96ee3f59cdc21d5458ed8279a5590632c78be1d0df893a88e",
+    "scripts\\phase_b\\fault_probe.py": "10a42f0647da9c512d8890b0bd13464c4ac256de5b87166ed646570b82a59ae5",
+    "scripts\\phase_b\\runtime_probe.py": "f1552453ec74c073dd01a4c9fb450782108766af7cb080f220570286242d2dca",
+    "scripts\\phase_b\\transport_probe.py": "f6f4881d02837fc4eab84f4cfa2acf7e6e7be3d66739ab8d74500ba8f80161eb",
+    "tests\\test_delivery.py": "cd5ab969f9956ea6ef3e5930d4b7e3bed33281ff1206b684530b6b8997aa584a",
+    "tests\\test_secure_integration.py": "064f10c99e70ae3c7b4898614fdf6e5f025e7ad2d562523b8d4dbac91b2edd4a",
+    "tests\\test_secure_services.py": "bffc86824f5717835ff550aca01c55990f816f90aa9cd902f0698ee090e1fb4a",
+    "tests\\test_secure_transport.py": "e81c29b8860789bfb0a83bd38780674d6c237b377a7155d585954e54cf20eebd",
+    "deploy\\phase_b\\Dockerfile": "c08af733dbac5337b7b3a233a436312f9f7d59bc9d8740cc12188ee0d4aea6ec",
+    "deploy\\phase_b\\tls-policy.cnf": "68375cb30d9284888675f12a658f8980795170ca205cca7e227038f525b18bd2"
+  },
+  "preserved_inputs": {
+    "count": 9,
+    "changed_or_missing": []
+  },
+  "remaining_phase_b_owner_resources": {
+    "containers": [],
+    "networks": [],
+    "volumes": []
+  },
+  "boundary": "current matching source and owned-resource audit; synthetic local simulation only"
+}

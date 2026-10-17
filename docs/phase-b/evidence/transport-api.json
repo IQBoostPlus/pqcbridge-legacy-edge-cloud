@@ -1,0 +1,119 @@
+{
+  "status": "passed",
+  "scope": "actual secure_transport APIs; fresh local synthetic peers",
+  "runtime": {
+    "python": "3.12.14",
+    "platform": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.41",
+    "openssl": "OpenSSL 3.5.7 9 Jun 2026 (Library: OpenSSL 3.5.7 9 Jun 2026)"
+  },
+  "source_sha256": {
+    "common/secure_transport.py": "c53bde710bc6c6edc3a91bf8aefce8fec35a9e7cb8930d8f7dbbf4902584636a",
+    "deploy/phase_b/tls-policy.cnf": "68375cb30d9284888675f12a658f8980795170ca205cca7e227038f525b18bd2",
+    "scripts/phase_b/transport_probe.py": "3073372662479a8df0b24086114b3c9f8e42df257b3d14e5340227cf61cb5ca3"
+  },
+  "cases": [
+    {
+      "case": "actual_api_server_hybrid",
+      "expected": "accept",
+      "client": {
+        "exit_code": 0,
+        "stdout": "{\"marker\":\"phase-b-ack\"}\n",
+        "stderr": "Connecting to 127.0.0.1\nCONNECTION ESTABLISHED\nProtocol version: TLSv1.3\nCiphersuite: TLS_AES_256_GCM_SHA384\nRequested Signature Algorithms: id-ml-dsa-65:id-ml-dsa-87:id-ml-dsa-44:ECDSA+SHA256:ECDSA+SHA384:ECDSA+SHA512:ed25519:ed448:ecdsa_brainpoolP256r1_sha256:ecdsa_brainpoolP384r1_sha384:ecdsa_brainpoolP512r1_sha512:rsa_pss_pss_sha256:rsa_pss_pss_sha384:rsa_pss_pss_sha512:RSA-PSS+SHA256:RSA-PSS+SHA384:RSA-PSS+SHA512:RSA+SHA256:RSA+SHA384:RSA+SHA512\nPeer certificate: CN=server\nHash used: SHA256\nSignature type: rsa_pss_rsae_sha256\nVerification: OK\nVerified peername: localhost\nNegotiated TLS1.3 group: X25519MLKEM768\n"
+      },
+      "server": {
+        "exit_code": 0,
+        "stdout": "{\"status\": \"accepted\", \"protocol\": \"TLSv1.3\", \"peer_sha256\": \"efd474ebb32ce7dfa116f64f220fa1541176bb8f18ab4a97c8d0d7c968764af5\", \"session_reused\": false, \"received\": {\"marker\": \"phase-b-request\"}}\n",
+        "stderr": ""
+      },
+      "negotiated_group": "X25519MLKEM768",
+      "passed": true
+    },
+    {
+      "case": "actual_api_server_classical_rejected",
+      "expected": "reject",
+      "client": {
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "Connecting to 127.0.0.1\n40E77AC853730000:error:0A000410:SSL routines:ssl3_read_bytes:ssl/tls alert handshake failure:../ssl/record/rec_layer_s3.c:918:SSL alert number 40\n"
+      },
+      "server": {
+        "exit_code": 2,
+        "stdout": "{\"status\": \"rejected\", \"error_type\": \"SSLError\", \"error\": \"[SSL: NO_SUITABLE_KEY_SHARE] no suitable key share (_ssl.c:1010)\", \"verify_code\": null}\n",
+        "stderr": ""
+      },
+      "passed": true
+    },
+    {
+      "case": "actual_api_missing_client_certificate",
+      "expected": "reject",
+      "client": {
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "Connecting to 127.0.0.1\nCONNECTION ESTABLISHED\nProtocol version: TLSv1.3\nCiphersuite: TLS_AES_256_GCM_SHA384\nRequested Signature Algorithms: id-ml-dsa-65:id-ml-dsa-87:id-ml-dsa-44:ECDSA+SHA256:ECDSA+SHA384:ECDSA+SHA512:ed25519:ed448:ecdsa_brainpoolP256r1_sha256:ecdsa_brainpoolP384r1_sha384:ecdsa_brainpoolP512r1_sha512:rsa_pss_pss_sha256:rsa_pss_pss_sha384:rsa_pss_pss_sha512:RSA-PSS+SHA256:RSA-PSS+SHA384:RSA-PSS+SHA512:RSA+SHA256:RSA+SHA384:RSA+SHA512\nPeer certificate: CN=server\nHash used: SHA256\nSignature type: rsa_pss_rsae_sha256\nVerification: OK\nVerified peername: localhost\nNegotiated TLS1.3 group: X25519MLKEM768\n4077A16173740000:error:0A00045C:SSL routines:ssl3_read_bytes:tlsv13 alert certificate required:../ssl/record/rec_layer_s3.c:918:SSL alert number 116\n"
+      },
+      "server": {
+        "exit_code": 2,
+        "stdout": "{\"status\": \"rejected\", \"error_type\": \"SSLError\", \"error\": \"[SSL: PEER_DID_NOT_RETURN_A_CERTIFICATE] peer did not return a certificate (_ssl.c:1010)\", \"verify_code\": null}\n",
+        "stderr": ""
+      },
+      "passed": true
+    },
+    {
+      "case": "actual_api_untrusted_client",
+      "expected": "reject",
+      "client": {
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "Connecting to 127.0.0.1\nCONNECTION ESTABLISHED\nProtocol version: TLSv1.3\nCiphersuite: TLS_AES_256_GCM_SHA384\nRequested Signature Algorithms: id-ml-dsa-65:id-ml-dsa-87:id-ml-dsa-44:ECDSA+SHA256:ECDSA+SHA384:ECDSA+SHA512:ed25519:ed448:ecdsa_brainpoolP256r1_sha256:ecdsa_brainpoolP384r1_sha384:ecdsa_brainpoolP512r1_sha512:rsa_pss_pss_sha256:rsa_pss_pss_sha384:rsa_pss_pss_sha512:RSA-PSS+SHA256:RSA-PSS+SHA384:RSA-PSS+SHA512:RSA+SHA256:RSA+SHA384:RSA+SHA512\nPeer certificate: CN=server\nHash used: SHA256\nSignature type: rsa_pss_rsae_sha256\nVerification: OK\nVerified peername: localhost\nNegotiated TLS1.3 group: X25519MLKEM768\n4007C06A5A750000:error:0A000418:SSL routines:ssl3_read_bytes:tlsv1 alert unknown ca:../ssl/record/rec_layer_s3.c:918:SSL alert number 48\n"
+      },
+      "server": {
+        "exit_code": 2,
+        "stdout": "{\"status\": \"rejected\", \"error_type\": \"SSLCertVerificationError\", \"error\": \"[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)\", \"verify_code\": 20}\n",
+        "stderr": ""
+      },
+      "passed": true
+    },
+    {
+      "case": "actual_api_python_roundtrip",
+      "expected": "accept",
+      "client": {
+        "exit_code": 0,
+        "stdout": "{\"status\": \"accepted\", \"protocol\": \"TLSv1.3\", \"peer_sha256\": \"5d5d33c2e3d2ed2104e05e74db0d163e3c07bd63487647b8704874ef496855a0\", \"session_reused\": false, \"received\": {\"marker\": \"phase-b-ack\"}}\n",
+        "stderr": ""
+      },
+      "server": {
+        "exit_code": 0,
+        "stdout": "{\"status\": \"accepted\", \"protocol\": \"TLSv1.3\", \"peer_sha256\": \"efd474ebb32ce7dfa116f64f220fa1541176bb8f18ab4a97c8d0d7c968764af5\", \"session_reused\": false, \"received\": {\"marker\": \"phase-b-request\"}}\n",
+        "stderr": ""
+      },
+      "passed": true
+    },
+    {
+      "case": "actual_api_wrong_hostname",
+      "expected": "reject",
+      "client": {
+        "exit_code": 2,
+        "stdout": "{\"status\": \"rejected\", \"error_type\": \"SSLCertVerificationError\", \"error\": \"[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'wrong.invalid'. (_ssl.c:1010)\", \"verify_code\": 62}\n",
+        "stderr": ""
+      },
+      "server": {
+        "exit_code": 2,
+        "stdout": "{\"status\": \"rejected\", \"error_type\": \"SSLError\", \"error\": \"[SSL: SSLV3_ALERT_BAD_CERTIFICATE] ssl/tls alert bad certificate (_ssl.c:1010)\", \"verify_code\": null}\n",
+        "stderr": ""
+      },
+      "passed": true
+    },
+    {
+      "case": "actual_api_plaintext_rejected",
+      "expected": "reject",
+      "received_hex": "",
+      "server": {
+        "exit_code": 2,
+        "stdout": "{\"status\": \"rejected\", \"error_type\": \"SSLError\", \"error\": \"[SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:1010)\", \"verify_code\": null}\n",
+        "stderr": ""
+      },
+      "passed": true
+    }
+  ],
+  "passed_count": 7
+}
