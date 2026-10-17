@@ -1,6 +1,6 @@
 # PQC Bridge Short-Term Implementation Plan
 
-Updated: 2026-10-16. Planning targets below are not measured results. Phase A technical selection is complete for the revised Docker/simulation scope; current status and evidence are maintained in the [Phase A execution status](phase-a/STATUS.md).
+Updated: 2026-10-17. Planning targets below are not measured results. Phases A and B are complete for the revised Docker/simulation scope; measured evidence and boundaries are recorded in the [Phase A status](phase-a/STATUS.md) and [Phase B status](phase-b/STATUS.md).
 
 Execution scope clarification: the user selected Docker deployment with simulated devices for this iteration. This supersedes the physical-device/real-legacy prerequisite in A-02/A-05 for the current lab scope; simulator results must still never be presented as real-device compatibility. Actual target-runtime transport validation and delivery-contract gates remain required.
 
@@ -14,7 +14,7 @@ The provisional estimate is 6–10 effective working weeks for one primary devel
 
 Pass the Phase A selection gate before committing to the main Phase B implementation. Use minimal registration and authorization contracts in B, then add their management lifecycle in C. Deployment checks, performance baselines, and observability begin in A/B rather than waiting for D.
 
-Task IDs are planning identifiers within this document, not existing GitHub Issues. They were initially Not started; use the linked execution status for current progress. Phases B-D have not started.
+Task IDs are planning identifiers within this document, not existing GitHub Issues. They were initially Not started; use the linked execution status for current progress. Phases A/B are accepted for the selected lab scope; C/D have not started.
 
 ## 2. Phase A: Define the Use Case and Validate the Technical Approach (1–2 Weeks)
 

@@ -1,0 +1,43 @@
+{
+  "status": "failed",
+  "runtime_root": "D:\\Code\\pqcbridge-phase-b-artifacts\\docker-resume-027854ff9cb641d4857323faaf499fe0",
+  "cases": [],
+  "started_utc": "2026-10-17T11:36:23.790882+00:00",
+  "project": "pqc-b-409a84ef54fab483",
+  "error": {
+    "type": "RuntimeError",
+    "message": "Docker command failed: command-002.json"
+  },
+  "cleanup": {
+    "verified": false,
+    "errors": [
+      {
+        "kind": "container",
+        "error": "RuntimeError: Docker command failed: command-004.json"
+      },
+      {
+        "kind": "network",
+        "error": "RuntimeError: Docker command failed: command-005.json"
+      },
+      {
+        "kind": "volume",
+        "error": "RuntimeError: Docker command failed: command-006.json"
+      },
+      {
+        "kind": "containers",
+        "error": "Docker command failed: command-007.json"
+      },
+      {
+        "kind": "networks",
+        "error": "Docker command failed: command-008.json"
+      },
+      {
+        "kind": "volumes",
+        "error": "Docker command failed: command-009.json"
+      }
+    ],
+    "remaining": {},
+    "removed": [],
+    "image_policy": "unique acceptance image retained; cached bases unchanged"
+  }
+}

@@ -1,0 +1,241 @@
+{
+  "status": "failed",
+  "runtime_root": "D:\\Code\\pqcbridge-phase-b-artifacts\\docker-integration-f2614052edb8412fa445d87fd9b8cc7b",
+  "cases": [
+    {
+      "name": "health_and_readings_require_local_bearer",
+      "passed": true
+    },
+    {
+      "name": "legacy_device_to_hybrid_cloud",
+      "passed": true,
+      "readings": 3
+    },
+    {
+      "name": "source_plaintext_matches_cloud_payload",
+      "passed": true
+    },
+    {
+      "name": "plaintext_cloud_rejected",
+      "passed": true,
+      "result": {
+        "rejected": true,
+        "reason": "ConnectionResetError",
+        "application_bytes": 0
+      }
+    },
+    {
+      "name": "classical_cloud_rejected",
+      "passed": true,
+      "result": {
+        "rejected": true,
+        "reason": "Connecting to 172.19.0.2\n40376ACC6D740000:error:0A000410:SSL routines:ssl3_read_bytes:ssl/tls alert handshake failure:../ssl/record/rec_layer_s3.c:918:SSL alert number 40\n",
+        "application_bytes": 0
+      }
+    },
+    {
+      "name": "no_certificate_cloud_rejected",
+      "passed": true,
+      "result": {
+        "rejected": true,
+        "reason": "SSLError",
+        "application_bytes": 0
+      }
+    },
+    {
+      "name": "untrusted_cloud_rejected",
+      "passed": true,
+      "result": {
+        "rejected": true,
+        "reason": "SSLError",
+        "application_bytes": 0
+      }
+    },
+    {
+      "name": "unauthorized_cloud_rejected",
+      "passed": true,
+      "result": {
+        "rejected": true,
+        "reason": null,
+        "application_bytes": 0
+      }
+    }
+  ],
+  "started_utc": "2026-10-16T14:09:52.370774+00:00",
+  "project": "pqc-b-464b2690485f83da",
+  "image": "",
+  "source_sha256": {
+    "cloud\\__init__.py": "e10e46d659b4748502284bf77ae76e9123f1764a88232ae49f1eda8b8cbf4099",
+    "cloud\\cloud.py": "3f3c8ca18c2efc1a6e73372052561a397f82622e456162f2cb7cb84e75970b2d",
+    "cloud\\processing.py": "e25326df0aaef1c785713757ddf1515a01e605c68446ec4fbf6cfa00c9d77b07",
+    "cloud\\secure.py": "6b126f168382fc9103c789fd3e88f2ea3ea61be0ffa0268d1bc070a74924825e",
+    "cloud\\store.py": "e84f9c4bffa3c34b2f4e0be5eaf2978e57dceccd21b0b1ec3f4ad0406df66ddf",
+    "common\\__init__.py": "192f70232468a4b37d0e8adbde62746093552162958c94e3db945f73ca9cd72b",
+    "common\\config.py": "0c6196d2b0480ac17d84d7f2b92ee309bbaf0659d4e5f1e731cc817c130072a7",
+    "common\\crypto.py": "d2bc38964ac746004839318a22ca1140e32a700de01cd1e723c2cc4ec3acb33f",
+    "common\\delivery.py": "0001f4e852cff08082f3193040ad99b5f819b21c2e4d1485433642b7655bce4c",
+    "common\\demo_device_keys.json": "323e3bf19a2849371cc64a71ce02d5e24594e616dd7e14e09493186a27fbda9a",
+    "common\\demo_gateway_keys.json": "5efd8901cdcef6d66faa57ec1e50ecb4ac20830f97dc48aaf0e592a4987824e5",
+    "common\\health.py": "19b731b674887a6b9c615c5d905c7b088e6d43d9233788eff9d0239584587db2",
+    "common\\logging_setup.py": "8bd9a5be029165ac75d2d0dc5723041c72abf5886a462314c03c3881cc5c01ca",
+    "common\\metrics.py": "fb79dcbedaa2ad3c130b1ff7eac3d83664fc438a59d24d520c16434d690a0f8b",
+    "common\\protocol.py": "4d4584fbf1222eb8569ee8c85e3fa4e8c61603b53c06a94c978de064399914c5",
+    "common\\replay.py": "0e402d8ae82424535f8160977d634d420ae2b5fe8a295577dbeac4c08f718908",
+    "common\\secure_bootstrap.py": "46fc6cf17ddfd8041b8055a113aacbaae2369b7d5f4f9e5da81b89cd1f88aad1",
+    "common\\secure_runtime.py": "aca48150cc8cc180ad8439241a3279fcb4db266db207e85ab073627583d7aef9",
+    "common\\secure_transport.py": "c53bde710bc6c6edc3a91bf8aefce8fec35a9e7cb8930d8f7dbbf4902584636a",
+    "deploy\\phase_b\\Dockerfile": "c08af733dbac5337b7b3a233a436312f9f7d59bc9d8740cc12188ee0d4aea6ec",
+    "deploy\\phase_b\\tls-policy.cnf": "68375cb30d9284888675f12a658f8980795170ca205cca7e227038f525b18bd2",
+    "device\\__init__.py": "30551a4dd7816ed9565997c6f1fb2c578299e410934c6f54c5eb13a1829c6054",
+    "device\\device.py": "39d827f6e9220c92c9ad9ed805c28bc9e7a130c8dd433051c866f5320db6504c",
+    "device\\sensor.py": "f68d9e488d1537386dabffd0736ddc18f73302e9111e76d623333fb027574817",
+    "device\\state.py": "18fbe20a8faa2c5b077d43d16b939123c91f46f7093e5ccabbe3360041bbb147",
+    "gateway\\__init__.py": "5965a97028bda129c350a3fbf74e8e15c9977abffebf1ccbd45121198ee9b78f",
+    "gateway\\cloud_channel.py": "aff7aebb9e45b2393a064c202376f5f859ead5d592db964cb291aaa730c5c670",
+    "gateway\\gateway.py": "74eb3945306a1938a13ec774ad3cbdc8c32f3231b025bfeced471174eec55c69",
+    "gateway\\processing.py": "2fee497bd98434ce695de1bdd87ae4052a6e2e8c6dd96ed66b7dbb6ad86cdc05",
+    "gateway\\secure.py": "56e16ef38e6d4d72a318d6072c725cc7f8ffa96b44d92e96a810cee37c79255f"
+  },
+  "harness_sha256": "4d3d9add7184ec1490dcc8452dd03c25e30054ccf5ab434844ae028a95506aed",
+  "certificate_fingerprints": {
+    "cloud": "3381d68b1514d9051a2643d9121bdaa7b89d1d1c5c11097879e3fd81874dff2d",
+    "gateway": "46a9da180064f9d2a1bcd8a3ab59665382ae227693b154da582477ffaca5ce07",
+    "unauthorized": "82f6d038d18dcf0a169f5865b7c5d64ab6614800e96fdfa1af9750010acc7ac5",
+    "untrusted": "506faab8c0f9af8c61b88c2799120cbf58d87865e0663bf18d7bb61ccf56431c"
+  },
+  "cloud_initial_health": {
+    "live": true,
+    "service": "cloud",
+    "ready": true,
+    "policy_valid": true,
+    "cloud_connected": false,
+    "storage": {
+      "committed_total": 0,
+      "refused": 0
+    },
+    "metrics": {
+      "authenticated_connections": 1
+    },
+    "state_bytes": 73976,
+    "loss_count_unknown": false
+  },
+  "gateway_initial_health": {
+    "live": true,
+    "service": "gateway",
+    "ready": true,
+    "policy_valid": true,
+    "cloud_connected": true,
+    "storage": {
+      "accepted_total": 0,
+      "acknowledged_total": 0,
+      "pending": 0,
+      "quarantined": 0,
+      "refused": 0,
+      "source_gap": 0,
+      "clock_uncertain": false
+    },
+    "metrics": {
+      "cloud_sessions": 1
+    },
+    "state_bytes": 61440,
+    "loss_count_unknown": false
+  },
+  "runtime": {
+    "python": "3.12.14 (main, Sep 19 2026, 01:04:57) [GCC 14.2.0]",
+    "ssl": "OpenSSL 3.5.7 9 Jun 2026",
+    "cryptography": "50.0.1",
+    "platform": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.41"
+  },
+  "first_readings": [
+    {
+      "accepted_at": "2026-10-16T14:10:05.495538Z",
+      "device_id": "dev-lab",
+      "event_id": "b098a9ee-0c73-4681-955b-b030e563744e",
+      "gateway_id": "gw-lab",
+      "payload": {
+        "temperature_c": 21.81,
+        "unit": "celsius"
+      },
+      "schema_version": 1,
+      "source_incarnation": "5629ed23-f34d-4827-a3a4-8eef5f57b20a",
+      "source_sequence": 3,
+      "source_timestamp": "2026-10-16T14:10:05.494980Z"
+    },
+    {
+      "accepted_at": "2026-10-16T14:10:04.494681Z",
+      "device_id": "dev-lab",
+      "event_id": "ec087a61-9e9d-4e10-85a4-00cbf2d2f7a3",
+      "gateway_id": "gw-lab",
+      "payload": {
+        "temperature_c": 33.35,
+        "unit": "celsius"
+      },
+      "schema_version": 1,
+      "source_incarnation": "5629ed23-f34d-4827-a3a4-8eef5f57b20a",
+      "source_sequence": 2,
+      "source_timestamp": "2026-10-16T14:10:04.494028Z"
+    },
+    {
+      "accepted_at": "2026-10-16T14:10:03.494398Z",
+      "device_id": "dev-lab",
+      "event_id": "5bdf85f0-6813-4315-b6a4-f076868aa1c4",
+      "gateway_id": "gw-lab",
+      "payload": {
+        "temperature_c": 33.36,
+        "unit": "celsius"
+      },
+      "schema_version": 1,
+      "source_incarnation": "5629ed23-f34d-4827-a3a4-8eef5f57b20a",
+      "source_sequence": 1,
+      "source_timestamp": "2026-10-16T14:10:03.493616Z"
+    }
+  ],
+  "error": {
+    "type": "RuntimeError",
+    "message": "Docker command failed: command-031.json"
+  },
+  "cleanup": {
+    "verified": true,
+    "errors": [],
+    "remaining": {
+      "containers": [],
+      "networks": [],
+      "volumes": []
+    },
+    "removed": [
+      {
+        "kind": "container",
+        "id": "f3117186fbc4"
+      },
+      {
+        "kind": "container",
+        "id": "081b30511a38"
+      },
+      {
+        "kind": "container",
+        "id": "95f9a55cd195"
+      },
+      {
+        "kind": "container",
+        "id": "d127c6105f15"
+      },
+      {
+        "kind": "network",
+        "id": "7bb53b4dcbee"
+      },
+      {
+        "kind": "volume",
+        "id": "pqc-b-464b2690485f83da_cloud_state"
+      },
+      {
+        "kind": "volume",
+        "id": "pqc-b-464b2690485f83da_device_state"
+      },
+      {
+        "kind": "volume",
+        "id": "pqc-b-464b2690485f83da_gateway_state"
+      }
+    ],
+    "image_policy": "unique acceptance image retained; cached bases unchanged"
+  }
+}

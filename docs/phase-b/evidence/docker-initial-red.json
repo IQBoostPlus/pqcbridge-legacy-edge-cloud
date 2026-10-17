@@ -1,0 +1,27 @@
+{
+  "status": "failed",
+  "runtime_root": "D:\\Code\\pqcbridge-phase-b-artifacts\\docker-red-15c7b1f3ddee4d51b3b26572dfff8d27",
+  "cases": [],
+  "started_utc": "2026-10-16T14:03:06.596557+00:00",
+  "project": "pqc-b-f2c7d5c177fbe46d",
+  "error": {
+    "type": "RuntimeError",
+    "message": "Docker command failed: command-006.json"
+  },
+  "cleanup": {
+    "verified": true,
+    "errors": [],
+    "remaining": {
+      "containers": [],
+      "networks": [],
+      "volumes": []
+    },
+    "removed": [
+      {
+        "kind": "container",
+        "id": "99a86b595286"
+      }
+    ],
+    "image_policy": "unique acceptance image retained; cached bases unchanged"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "status": "failed",
+  "runtime_root": "D:\\Code\\pqcbridge-phase-b-artifacts\\fault-resume-20261017-aac08951",
+  "cases": [],
+  "instrumentation": "bounded wrapper pauses real public storage methods; actual role SIGKILL and restart",
+  "started_utc": "2026-10-17T11:36:08.294937+00:00",
+  "error": {
+    "type": "RuntimeError",
+    "message": "Docker command failed: command-002.json"
+  },
+  "cleanup": {
+    "verified": false,
+    "errors": [
+      {
+        "kind": "container",
+        "error": "RuntimeError: Docker command failed: command-005.json"
+      },
+      {
+        "kind": "network",
+        "error": "RuntimeError: Docker command failed: command-006.json"
+      },
+      {
+        "kind": "volume",
+        "error": "RuntimeError: Docker command failed: command-007.json"
+      },
+      {
+        "kind": "containers",
+        "error": "Docker command failed: command-008.json"
+      },
+      {
+        "kind": "networks",
+        "error": "Docker command failed: command-009.json"
+      },
+      {
+        "kind": "volumes",
+        "error": "Docker command failed: command-010.json"
+      }
+    ],
+    "remaining": {},
+    "removed": [],
+    "image_policy": "unique acceptance image retained; cached bases unchanged"
+  }
+}
