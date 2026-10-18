@@ -1,20 +1,15 @@
-# P07 - Final Project Evaluation & Evidence Consolidation
+# P07 — Evaluation and Evidence Consolidation
 
-> **AI-generated final evaluation report.** This document was
-> produced by an AI assistant executing `prompt/P07 - Final Project
-> Evaluation & Evidence Consolidation.md`. P07 is NOT an
-> implementation phase: no security feature was added, no finding
-> was re-fixed, and no defect was hidden. Its purpose is to verify
-> the final project state against the P01–P06 evidence, consolidate
-> that evidence, and prepare the project for the student team's
-> final report and presentation. The only files changed in P07 are
-> documentation (`README.md`, `CLAUDE.md`) and this report —
-> disclosed in section 16.
->
+> Initial Development Record. Evaluation and consolidation of P01–P06 evidence. This phase changed documentation, not security features.
+> Historical scope: the initial software simulation, not current engineering or production acceptance.
+> Editorial update: 2026-10-18. Technical findings, results, decision status, and remaining risks are preserved.
+
+[Record index](README.md) · [Historical requirements](P07-REQUIREMENTS.md)
+
 > Date: 2026-09-08. Environment: Windows 11 (10.0.26200),
 > Python 3.12.0, cryptography 50.0.1, pytest 9.1.1.
 
----
+The original development used AI assistance; the provenance and review boundaries are documented in the record index. Pending human review entries below remain pending. References to the course, original documentation, or unavailable tools describe the historical phase, not current project requirements.
 
 ## 1. Executive Summary
 
@@ -49,7 +44,7 @@ limitations.
 | Source code | READY — final tree verified, no unreported changes |
 | Tests | READY — 120 passed, 0 failed, 0 skipped, no skipped tests anywhere |
 | Documentation | READY — README/CLAUDE.md audited and brought in line with the final code (P07) |
-| Review evidence | READY — `review/P02`–`review/P06` present and internally consistent |
+| Review evidence | READY — `docs/development/initial/P02-Baseline-Technical-Review.md`–`docs/development/initial/P06-Nonce-Validation-and-Security-Verification.md` present and internally consistent |
 | Docker | NOT VERIFIED — Docker unavailable on this machine |
 | CI | NOT VERIFIED — not a git repository |
 | Student sign-off | PENDING — all P03 decisions were documented as proposals; the student team's formal ACCEPTED/MODIFIED/REJECTED record is still to be completed (course requirement) |
@@ -58,13 +53,13 @@ limitations.
 
 | Phase | What happened | Key artifact |
 | --- | --- | --- |
-| P01 | AI-generated baseline (39 tests) | `prompt/P01`, initial code |
-| P02 | Technical review: 15 findings; live demos of replay acceptance, gateway/cloud crashes, unauthenticated key establishment | `review/P02` |
-| P03 | Student-facing design proposals: fingerprint pinning (F-01), authenticated hello + fallback table (F-02/F-06), monotonic seq + AAD (F-05), handshake validation (F-03/F-04), session lifecycle (F-07), metric/health models; TLS/signatures/replay-windows explicitly rejected for scope | `review/P03` |
-| P04 | Implementation with fail-first evidence (53 failed / 29 passed / 2 collection errors pre-fix); attack re-tests; 101 tests | `review/P04` |
-| P05 | Independent verification: every P04 claim re-tested with external attacker tooling over real TCP — all PASS; **NEW-1 discovered** (wrong-length AEAD nonce → unhandled ValueError → thread crash + metric bypass); NEW-2/NEW-3 recorded; verdict PARTIAL PASS | `review/P05` |
-| P06 | NEW-1 fixed with fail-first reproduction (18 of 19 new tests failed pre-fix); minimal nonce validation in `common/crypto.py`; 120 tests; independent TCP re-attack clean; all prior controls re-verified; verdict PASS with documented residual risks | `review/P06` |
-| P07 | Final evaluation: state verified, documentation consolidated, evidence matrix produced (this report) | `review/P07` |
+| P01 | AI-generated baseline (39 tests) | `docs/development/initial/P01-REQUIREMENTS.md`, initial code |
+| P02 | Technical review: 15 findings; live demos of replay acceptance, gateway/cloud crashes, unauthenticated key establishment | `docs/development/initial/P02-Baseline-Technical-Review.md` |
+| P03 | Student-facing design proposals: fingerprint pinning (F-01), authenticated hello + fallback table (F-02/F-06), monotonic seq + AAD (F-05), handshake validation (F-03/F-04), session lifecycle (F-07), metric/health models; TLS/signatures/replay-windows explicitly rejected for scope | `docs/development/initial/P03-Security-Evaluation-and-Design-Decisions.md` |
+| P04 | Implementation with fail-first evidence (53 failed / 29 passed / 2 collection errors pre-fix); attack re-tests; 101 tests | `docs/development/initial/P04-Security-Implementation-and-Verification.md` |
+| P05 | Independent verification: every P04 claim re-tested with external attacker tooling over real TCP — all PASS; **NEW-1 discovered** (wrong-length AEAD nonce → unhandled ValueError → thread crash + metric bypass); NEW-2/NEW-3 recorded; verdict PARTIAL PASS | `docs/development/initial/P05-Independent-Security-Verification.md` |
+| P06 | NEW-1 fixed with fail-first reproduction (18 of 19 new tests failed pre-fix); minimal nonce validation in `common/crypto.py`; 120 tests; independent TCP re-attack clean; all prior controls re-verified; verdict PASS with documented residual risks | `docs/development/initial/P06-Nonce-Validation-and-Security-Verification.md` |
+| P07 | Final evaluation: state verified, documentation consolidated, evidence matrix produced (this report) | `docs/development/initial/P07-Evaluation-and-Evidence-Consolidation.md` |
 
 The chain the course requires is fully preserved:
 AI-generated baseline → AI review → student-visible design
@@ -154,9 +149,9 @@ Docker compose: NOT VERIFIED (Docker not installed). GitHub Actions
 CI: NOT VERIFIED (not a git repository). Both documented in every
 report from P02 onward and never simulated.
 
-## 7. Student Security Decisions
+## 7. Security Design Decisions
 
-Recorded from `review/P03` (all decisions are documented as
+Recorded from `docs/development/initial/P03-Security-Evaluation-and-Design-Decisions.md` (all decisions are documented as
 **proposals prepared for the student team**; formal student
 confirmation is still pending — see section 2):
 
@@ -174,7 +169,7 @@ confirmation is still pending — see section 2):
 These are explicitly **not** production-grade architectural
 decisions: they were selected for the project's scope and
 educational objectives, and the alternatives rejected are documented
-in `review/P03` (§4/§16).
+in `docs/development/initial/P03-Security-Evaluation-and-Design-Decisions.md` (§4/§16).
 
 ## 8. Final Architecture Verification
 
@@ -258,14 +253,14 @@ match. The README does not claim compatibility with future
 All P07 documentation changes are listed in section 16 and were
 documentation-only (no code, test, Docker, CI changes).
 
-## 11. AI-Assisted Development Evidence
+## 11. Development and Verification History
 
 The project documentation clearly separates AI-generated proposals
 from student-owned decisions and shows the full critical-use chain:
 
 - **P01:** the initial ML-KEM API assumption (`ml_kem`) was wrong
   for the installed library and was corrected after live testing
-  (`mlkem`, cryptography 50.0.1) — recorded in `review/P02` §12.
+  (`mlkem`, cryptography 50.0.1) — recorded in `docs/development/initial/P02-Baseline-Technical-Review.md` §12.
 - **P02:** the AI review's findings were validated by live
   demonstrations (replay accepted, crashes reproduced) — appendix
   evidence preserved.
@@ -364,14 +359,14 @@ NEW-2 and NEW-3 remain documented. The P03/P04 accepted
 limitations remain. Student formal sign-off remains pending.
 ```
 
-## 16. Submission Readiness
+## 16. Delivery Readiness
 
 | Item | Status |
 | --- | --- |
 | Source code | **READY** |
 | Tests | **READY** (120 passed, 0 failed, 0 skipped) |
 | README | **READY** (audited and updated in P07) |
-| Review evidence | **READY** (`review/P02`–`review/P07`) |
+| Review evidence | **READY** (`docs/development/initial/P02-Baseline-Technical-Review.md`–`docs/development/initial/P07-Evaluation-and-Evidence-Consolidation.md`) |
 | Docker | **NOT VERIFIED** |
 | CI | **NOT VERIFIED** |
 | Final report | **READY** (this document; the student team writes their own submission report) |
@@ -384,11 +379,11 @@ limitations remain. Student formal sign-off remains pending.
   NEW-3), corrected test-gap list, AI-chain table extended.
 - `CLAUDE.md` — documentation-only: phase-history sentence updated;
   "not secure / not production-ready" warning preserved.
-- `review/P07 - Final Project Evaluation & Evidence Consolidation.md`
+- `docs/development/initial/P07-Evaluation-and-Evidence-Consolidation.md`
   — created (this report).
 - **No source code, test, Docker, CI, or requirements changes.**
 - No hidden changes: tree checksums confirm the source is otherwise
-  byte-identical to the P06 end state; `review/P05` is intact and
+  byte-identical to the P06 end state; `docs/development/initial/P05-Independent-Security-Verification.md` is intact and
   unaltered; no security test was deleted; no test is skipped; no
   unsupported claim was added; no unrelated feature was added.
 

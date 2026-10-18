@@ -1,27 +1,12 @@
-# P05 — Independent Verification & Security Re-Test
+# P05 Historical Requirements and Acceptance Criteria
 
-## 0. Role
+Status: historical specification, not implementation evidence or instructions to resume work.
 
-You are an independent security verification assistant for the university project:
+This companion to [P05](P05-Independent-Security-Verification.md) preserves the technical requirements, constraints, test cases, and acceptance criteria from its initial task specification. Original section numbers and technical wording are retained for traceability. Role setup and response-format instructions are omitted; see the [coverage ledger](REQUIREMENTS_COVERAGE.md).
 
-**PQCBridge Legacy Edge-Cloud — Post-Quantum Security Migration Simulation**
+Imperative wording describes what the historical phase was asked to do, not what it achieved. References to student review remain historical ownership requirements, not proof that review occurred. Later engineering decisions may supersede these prototype constraints.
 
-The project has completed:
-
-* P01 — Baseline Generation
-* P02 — Baseline Technical Review
-* P03 — Student Security Evaluation & Design Decisions
-* P04 — Security Implementation & Verification
-
-P04 reports that the approved security decisions have been implemented.
-
-Your role in P05 is NOT to trust the P04 report.
-
-Your role is to independently verify whether the implemented security controls actually work.
-
----
-
-# 1. Critical Independence Rule
+## 1. Critical Independence Rule
 
 Treat the P04 report as a claim that must be tested.
 
@@ -44,7 +29,7 @@ Do not change the code merely to make P05 pass.
 
 ---
 
-# 2. No Code Modification at the Beginning
+## 2. No Code Modification at the Beginning
 
 For the first part of P05:
 
@@ -81,7 +66,7 @@ Do not immediately fix it.
 
 ---
 
-# 3. Read Before Testing
+## 3. Read Before Testing
 
 Read:
 
@@ -117,7 +102,7 @@ Compare the actual implementation against the P03 design.
 
 ---
 
-# 4. Environment Record
+## 4. Environment Record
 
 Record:
 
@@ -133,7 +118,7 @@ Do not claim Docker or CI verification if they cannot actually be executed.
 
 ---
 
-# 5. Baseline Regression Check
+## 5. Baseline Regression Check
 
 Run:
 
@@ -160,13 +145,13 @@ If the result differs:
 
 ---
 
-# 6. Independent Security Verification
+## 6. Independent Security Verification
 
 Perform the following security tests independently of the P04 demonstrations.
 
 ---
 
-# 7. F-01 — ML-KEM Public-Key Substitution
+## 7. F-01 — ML-KEM Public-Key Substitution
 
 Objective:
 
@@ -206,13 +191,13 @@ Record actual evidence.
 
 ---
 
-# 8. F-02 — Downgrade / Capability Manipulation
+## 8. F-02 — Downgrade / Capability Manipulation
 
 Independently test the fallback policy.
 
 Test at least:
 
-### Case 1
+#### Case 1
 
 Known authenticated legacy device.
 
@@ -222,7 +207,7 @@ Expected:
 legacy fallback accepted
 ```
 
-### Case 2
+#### Case 2
 
 Known device claiming modern capability.
 
@@ -234,7 +219,7 @@ REJECT
 
 if this is the P03 policy.
 
-### Case 3
+#### Case 3
 
 Unknown device.
 
@@ -244,7 +229,7 @@ Expected:
 REJECT
 ```
 
-### Case 4
+#### Case 4
 
 Malformed capability list.
 
@@ -254,7 +239,7 @@ Expected:
 REJECT
 ```
 
-### Case 5
+#### Case 5
 
 Capability modification/tampering.
 
@@ -276,7 +261,7 @@ Record:
 
 ---
 
-# 9. F-03 — Malformed Gateway Handshake
+## 9. F-03 — Malformed Gateway Handshake
 
 Independently reproduce the P02 crash case.
 
@@ -325,7 +310,7 @@ Also test:
 
 ---
 
-# 10. F-04 — Malformed Cloud Encapsulation
+## 10. F-04 — Malformed Cloud Encapsulation
 
 Send malformed encapsulation input:
 
@@ -373,7 +358,7 @@ service availability after attack
 
 ---
 
-# 11. F-05 — Replay Protection
+## 11. F-05 — Replay Protection
 
 This is one of the most important independent tests.
 
@@ -417,7 +402,7 @@ sequence 3 → ACCEPT
 
 Also test:
 
-### Modified sequence
+#### Modified sequence
 
 Take a valid encrypted message and change the sequence number.
 
@@ -427,7 +412,7 @@ Expected:
 authentication failure / REJECT
 ```
 
-### Modified device ID
+#### Modified device ID
 
 Change the device ID.
 
@@ -437,7 +422,7 @@ Expected:
 authentication failure / REJECT
 ```
 
-### Modified session ID
+#### Modified session ID
 
 If session ID is part of AAD, modify it.
 
@@ -447,7 +432,7 @@ Expected:
 authentication failure / REJECT
 ```
 
-### Large jump
+#### Large jump
 
 Test the documented no-jump-window behavior.
 
@@ -463,32 +448,32 @@ Do NOT hide the limitation.
 
 ---
 
-# 12. F-06 — Per-Device Key Isolation
+## 12. F-06 — Per-Device Key Isolation
 
 Test:
 
-### Valid device
+#### Valid device
 
 ```text
 dev-01 + correct key
 → ACCEPT
 ```
 
-### Wrong key
+#### Wrong key
 
 ```text
 dev-01 + dev-02 key
 → REJECT
 ```
 
-### Impersonation
+#### Impersonation
 
 ```text
 dev-02 claims to be dev-01
 → REJECT
 ```
 
-### Unknown device
+#### Unknown device
 
 ```text
 dev-999
@@ -501,7 +486,7 @@ Do not expose the actual secret values in the report.
 
 ---
 
-# 13. F-07 — Session Failure and Reconnect
+## 13. F-07 — Session Failure and Reconnect
 
 Independently reproduce cloud failure.
 
@@ -544,7 +529,7 @@ Verify:
 
 ---
 
-# 14. F-08 — Metrics
+## 14. F-08 — Metrics
 
 Independently inspect several metrics.
 
@@ -561,11 +546,11 @@ Trigger actual events and compare the metric before/after.
 
 ---
 
-# 15. F-13 — Health
+## 15. F-13 — Health
 
 Test health under:
 
-### Normal state
+#### Normal state
 
 Expected:
 
@@ -573,7 +558,7 @@ Expected:
 OK
 ```
 
-### Cloud disconnected
+#### Cloud disconnected
 
 Expected:
 
@@ -583,7 +568,7 @@ degraded / disconnected
 
 according to P03/P04.
 
-### After reconnect
+#### After reconnect
 
 Expected:
 
@@ -595,7 +580,7 @@ Verify that health reflects the actual session state rather than merely whether 
 
 ---
 
-# 16. Protocol Robustness
+## 16. Protocol Robustness
 
 Perform a small malformed-input test set.
 
@@ -623,7 +608,7 @@ Record whether each input results in:
 
 ---
 
-# 17. Cryptographic Verification
+## 17. Cryptographic Verification
 
 Do NOT implement cryptography yourself.
 
@@ -651,7 +636,7 @@ The goal is to verify correct API usage and protocol integration.
 
 ---
 
-# 18. Secret Leakage Verification
+## 18. Secret Leakage Verification
 
 Search source code, logs, and generated output for:
 
@@ -671,7 +656,7 @@ Fingerprints and identifiers are acceptable if they do not reveal key material.
 
 ---
 
-# 19. Regression After Security Tests
+## 19. Regression After Security Tests
 
 After independent security testing:
 
@@ -689,7 +674,7 @@ If the project uses temporary state files:
 
 ---
 
-# 20. Docker
+## 20. Docker
 
 Check whether Docker is available.
 
@@ -711,7 +696,7 @@ Do not simulate Docker results.
 
 ---
 
-# 21. CI
+## 21. CI
 
 Check the repository status.
 
@@ -727,7 +712,7 @@ Do not claim CI success.
 
 ---
 
-# 22. Independent Attack Matrix
+## 22. Independent Attack Matrix
 
 Create:
 
@@ -747,23 +732,23 @@ Do not mark PASS unless independently verified.
 
 ---
 
-# 23. Evidence Classification
+## 23. Evidence Classification
 
 For every important claim classify the evidence as:
 
-### PASS
+#### PASS
 
 Independently reproduced and expected behavior observed.
 
-### PARTIAL
+#### PARTIAL
 
 Some aspects work, but the complete security property was not demonstrated.
 
-### FAIL
+#### FAIL
 
 The P04 claim could not be reproduced or the vulnerability remains.
 
-### NOT VERIFIED
+#### NOT VERIFIED
 
 The required environment/test could not be executed.
 
@@ -771,7 +756,7 @@ This distinction is mandatory.
 
 ---
 
-# 24. Residual Risk Verification
+## 24. Residual Risk Verification
 
 P04 documented remaining risks.
 
@@ -805,7 +790,7 @@ Deferred security improvement
 
 ---
 
-# 25. Do Not Fix Problems in P05
+## 25. Do Not Fix Problems in P05
 
 If an independent test discovers a defect:
 
@@ -842,109 +827,7 @@ Only after the complete verification report has been produced should a separate 
 
 ---
 
-# 26. P05 Report
-
-Create:
-
-`review/P05 - Independent Security Verification & Re-test.md`
-
-The report must contain:
-
-## 1. Executive Summary
-
-State whether the P04 security claims were independently verified.
-
-## 2. Environment
-
-Exact versions and available tools.
-
-## 3. Baseline Regression Result
-
-Exact pytest result.
-
-## 4. P04 Claims Under Verification
-
-Summarize what P04 claimed.
-
-## 5. Independent Test Method
-
-Explain how each security property was tested.
-
-## 6. F-01 Verification
-
-Key substitution.
-
-## 7. F-02 Verification
-
-Downgrade/capability manipulation.
-
-## 8. F-03 Verification
-
-Malformed gateway handshake.
-
-## 9. F-04 Verification
-
-Malformed cloud encapsulation.
-
-## 10. F-05 Verification
-
-Replay.
-
-## 11. F-06 Verification
-
-Per-device authentication/isolation.
-
-## 12. F-07 Verification
-
-Session failure/reconnect.
-
-## 13. F-08 Verification
-
-Metrics.
-
-## 14. F-13 Verification
-
-Health.
-
-## 15. Protocol Robustness
-
-Malformed-input results.
-
-## 16. Cryptographic Integration Verification
-
-ML-KEM/HKDF/AEAD behavior.
-
-## 17. Secret Leakage Verification
-
-Logs and repository inspection.
-
-## 18. Regression Testing
-
-Final pytest result.
-
-## 19. Docker / CI
-
-Actual status.
-
-## 20. Independent Attack Matrix
-
-Complete table.
-
-## 21. Failed or Partially Verified Claims
-
-Do not hide failures.
-
-## 22. Remaining Risks
-
-Updated based on actual evidence.
-
-## 23. Recommendations for P06
-
-Only if further work is necessary.
-
----
-
-# 27. Required Final Verdict
+## 27. Required Final Verdict
 
 At the end of the report provide:
 
@@ -981,7 +864,7 @@ Do not force a PASS.
 
 ---
 
-# 28. Important Reporting Principle
+## 28. Important Reporting Principle
 
 The purpose of P05 is not to prove:
 
@@ -1013,63 +896,7 @@ Do not hide limitations to make the project appear stronger.
 
 ---
 
-# 29. Final Output Rules
-
-At the end of execution report:
-
-### Tests
-
-Exact pytest result.
-
-### Independent attacks
-
-Exact result for every attack.
-
-### Security verdict
-
-PASS / PARTIAL PASS / FAIL.
-
-### Files created
-
-At minimum:
-
-```text
-review/P05 - Independent Security Verification & Re-test.md
-```
-
-### Files modified
-
-During the initial P05 verification:
-
-```text
-Expected: none
-```
-
-If any file was modified accidentally or necessarily, disclose it explicitly.
-
-### Docker
-
-Actual status.
-
-### CI
-
-Actual status.
-
-### New findings
-
-List every new defect.
-
-### Remaining risks
-
-List unresolved limitations.
-
-### P06 recommendation
-
-Explain whether another implementation phase is required.
-
----
-
-# 30. Definition of Done
+## 30. Definition of Done
 
 P05 is complete only when:
 

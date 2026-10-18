@@ -1,32 +1,12 @@
-# P06 — NEW-1 Fix and Final Security Verification
+# P06 Historical Requirements and Acceptance Criteria
 
-## 0. Role
+Status: historical specification, not implementation evidence or instructions to resume work.
 
-You are the implementation and verification assistant for the university project:
+This companion to [P06](P06-Nonce-Validation-and-Security-Verification.md) preserves the technical requirements, constraints, test cases, and acceptance criteria from its initial task specification. Original section numbers and technical wording are retained for traceability. Role setup and response-format instructions are omitted; see the [coverage ledger](REQUIREMENTS_COVERAGE.md).
 
-**PQCBridge Legacy Edge-Cloud — Post-Quantum Security Migration Simulation**
+Imperative wording describes what the historical phase was asked to do, not what it achieved. References to student review remain historical ownership requirements, not proof that review occurred. Later engineering decisions may supersede these prototype constraints.
 
-Project phases completed:
-
-* P01 — Baseline Generation
-* P02 — Baseline Technical Review
-* P03 — Student Security Evaluation & Design
-* P04 — Security Implementation & Verification
-* P05 — Independent Security Verification & Re-test
-
-P05 independently verified all major P04 security claims but discovered one new defect:
-
-> **NEW-1 — Invalid AEAD nonce length can cause an unhandled ValueError, uncontrolled traceback, handler-thread termination, and missing error-metric increment.**
-
-P05 classified the overall result as:
-
-> PARTIAL PASS
-
-P06 exists specifically to address NEW-1.
-
----
-
-# 1. P06 Scope
+## 1. P06 Scope
 
 The ONLY mandatory implementation target is:
 
@@ -54,7 +34,7 @@ NEW-2 and NEW-3 remain documented limitations unless a separate future phase is 
 
 ---
 
-# 2. Read Existing Evidence First
+## 2. Read Existing Evidence First
 
 Before changing anything, read:
 
@@ -86,7 +66,7 @@ Do not assume the P05 description is correct without inspecting the code.
 
 ---
 
-# 3. Preserve P05 Evidence
+## 3. Preserve P05 Evidence
 
 Do not modify or delete the P05 report.
 
@@ -114,7 +94,7 @@ Do NOT rewrite P05 to make it appear that NEW-1 never existed.
 
 ---
 
-# 4. Record Baseline Before Modification
+## 4. Record Baseline Before Modification
 
 Before modifying source code:
 
@@ -148,7 +128,7 @@ Do not modify code simply to restore the expected number.
 
 ---
 
-# 5. Fail-First Test — Mandatory
+## 5. Fail-First Test — Mandatory
 
 Before fixing NEW-1, create or run a test that demonstrates the current vulnerability.
 
@@ -192,7 +172,7 @@ Record the actual failure.
 
 ---
 
-# 6. Root Cause Analysis
+## 6. Root Cause Analysis
 
 Determine exactly where NEW-1 originates.
 
@@ -220,7 +200,7 @@ Instead validate attacker-controlled input at the appropriate boundary.
 
 ---
 
-# 7. Nonce Validation
+## 7. Nonce Validation
 
 ChaCha20-Poly1305 in this project expects a 12-byte nonce.
 
@@ -247,7 +227,7 @@ Use the existing `cryptography` implementation.
 
 ---
 
-# 8. Error Handling
+## 8. Error Handling
 
 An invalid nonce is malformed protocol/security input.
 
@@ -285,7 +265,7 @@ The service must remain operational.
 
 ---
 
-# 9. Error Metric
+## 9. Error Metric
 
 P05 specifically observed that NEW-1 bypassed the error metric.
 
@@ -311,7 +291,7 @@ Avoid double-counting.
 
 ---
 
-# 10. Gateway Verification
+## 10. Gateway Verification
 
 P05 found NEW-1 on gateway paths.
 
@@ -319,7 +299,7 @@ Independently verify the gateway.
 
 Test at least:
 
-### 8-byte nonce
+#### 8-byte nonce
 
 Expected:
 
@@ -331,7 +311,7 @@ gateway remains alive
 errors increment
 ```
 
-### 11-byte nonce
+#### 11-byte nonce
 
 Expected:
 
@@ -339,7 +319,7 @@ Expected:
 REJECT
 ```
 
-### 13-byte nonce
+#### 13-byte nonce
 
 Expected:
 
@@ -347,7 +327,7 @@ Expected:
 REJECT
 ```
 
-### 12-byte nonce
+#### 12-byte nonce
 
 Expected:
 
@@ -361,7 +341,7 @@ At least one test must exercise the actual gateway message-processing path.
 
 ---
 
-# 11. Cloud Verification
+## 11. Cloud Verification
 
 P05 found NEW-1 on a cloud path.
 
@@ -381,34 +361,34 @@ Again, test the actual message-processing path, not only the crypto helper.
 
 ---
 
-# 12. Regression Tests
+## 12. Regression Tests
 
 Add focused regression tests.
 
 At minimum:
 
-### Unit-level
+#### Unit-level
 
 ```text
 12-byte nonce → accepted
 wrong nonce length → rejected
 ```
 
-### Gateway integration
+#### Gateway integration
 
 ```text
 invalid nonce → controlled error
 gateway remains alive
 ```
 
-### Cloud integration
+#### Cloud integration
 
 ```text
 invalid nonce → controlled error
 cloud remains available
 ```
 
-### Metrics
+#### Metrics
 
 ```text
 invalid nonce → error counter changes correctly
@@ -420,7 +400,7 @@ Do not weaken assertions simply to obtain green tests.
 
 ---
 
-# 13. Regression Suite
+## 13. Regression Suite
 
 After implementation:
 
@@ -448,7 +428,7 @@ Do not claim "all tests pass" without executing the test suite.
 
 ---
 
-# 14. Independent TCP Re-test
+## 14. Independent TCP Re-test
 
 After unit/integration tests pass, perform a fresh TCP-level attack.
 
@@ -483,7 +463,7 @@ This is required because P04 previously had a real integration bug that unit tes
 
 ---
 
-# 15. Regression After Attack
+## 15. Regression After Attack
 
 After all live attacks:
 
@@ -499,29 +479,29 @@ Do not modify production/test state merely to make the result pass.
 
 ---
 
-# 16. Re-Test Previously Verified Security Controls
+## 16. Re-Test Previously Verified Security Controls
 
 Because P06 modifies shared cryptographic/error-handling code, perform a lightweight regression of previously verified controls.
 
 At minimum verify:
 
-### F-01
+#### F-01
 
 Key substitution still rejected.
 
-### F-02
+#### F-02
 
 Downgrade manipulation still rejected.
 
-### F-05
+#### F-05
 
 Replay still rejected.
 
-### F-06
+#### F-06
 
 Wrong-device key still rejected.
 
-### F-07
+#### F-07
 
 Cloud failure/reconnect still works.
 
@@ -531,7 +511,7 @@ If a previous security property is affected by the NEW-1 change, perform the ful
 
 ---
 
-# 17. Cryptographic Safety Check
+## 17. Cryptographic Safety Check
 
 Verify that the fix did not alter:
 
@@ -546,7 +526,7 @@ The fix should add input validation, not replace cryptographic primitives.
 
 ---
 
-# 18. Secret Handling
+## 18. Secret Handling
 
 Repeat the secret-handling check.
 
@@ -568,7 +548,7 @@ rather than logging the raw nonce.
 
 ---
 
-# 19. NEW-2 — Health During Initial Retry
+## 19. NEW-2 — Health During Initial Retry
 
 Do NOT fix NEW-2 in P06.
 
@@ -590,7 +570,7 @@ Outside mandatory P06 scope and not required to resolve the security defect NEW-
 
 ---
 
-# 20. NEW-3 — No Cloud Keepalive
+## 20. NEW-3 — No Cloud Keepalive
 
 Do NOT fix NEW-3 in P06.
 
@@ -614,7 +594,7 @@ Do not add heartbeat infrastructure.
 
 ---
 
-# 21. P06 Scope Control
+## 21. P06 Scope Control
 
 At the end, verify that the implementation stayed within scope.
 
@@ -639,96 +619,7 @@ Do not make unrelated cleanup changes.
 
 ---
 
-# 22. P06 Report
-
-Create:
-
-```text
-review/P06 - NEW-1 Fix & Final Security Verification.md
-```
-
-The report must contain:
-
-## 1. Executive Summary
-
-Explain:
-
-* NEW-1 discovered in P05;
-* why it mattered;
-* how it was fixed;
-* final verification result.
-
-## 2. P05 Finding
-
-Quote/paraphrase the relevant technical finding.
-
-## 3. Root Cause
-
-Explain the exact failure path.
-
-## 4. Fail-First Evidence
-
-Show:
-
-```text
-Before fix:
-invalid nonce
-→ unhandled ValueError
-→ traceback
-→ metric bypass
-```
-
-## 5. Implementation
-
-Describe the minimal code change.
-
-## 6. Regression Tests
-
-List new tests.
-
-## 7. Gateway Verification
-
-Results.
-
-## 8. Cloud Verification
-
-Results.
-
-## 9. Metrics Verification
-
-Results.
-
-## 10. Independent TCP Attack
-
-Results.
-
-## 11. Regression Suite
-
-Exact pytest result.
-
-## 12. Previously Verified Controls
-
-Brief re-test results for F-01/F-02/F-05/F-06/F-07.
-
-## 13. NEW-2 / NEW-3
-
-Explicitly document why they remain unresolved.
-
-## 14. Remaining Risks
-
-Updated list.
-
-## 15. Files Modified
-
-Exact list.
-
-## 16. Final Security Verdict
-
-PASS / PARTIAL PASS / FAIL.
-
----
-
-# 23. Required Before/After Table
+## 23. Required Before/After Table
 
 Create:
 
@@ -744,7 +635,7 @@ Create:
 
 ---
 
-# 24. Final Security Status
+## 24. Final Security Status
 
 If NEW-1 is completely fixed and independently verified, the overall project may be reported as:
 
@@ -770,7 +661,7 @@ Do not force a PASS.
 
 ---
 
-# 25. Final Verification Matrix
+## 25. Final Verification Matrix
 
 Create:
 
@@ -791,69 +682,7 @@ Create:
 
 ---
 
-# 26. Final Output Rules
-
-At the end report:
-
-### Implementation
-
-What changed.
-
-### Files modified
-
-Exact list.
-
-### Tests
-
-Exact pytest result.
-
-### Fail-first
-
-Exact baseline failure.
-
-### NEW-1 attack
-
-Exact result.
-
-### Previous security controls
-
-Exact re-test result.
-
-### Docker
-
-Actual status.
-
-If unavailable:
-
-```text
-NOT VERIFIED — Docker unavailable
-```
-
-### CI
-
-Actual status.
-
-If unavailable:
-
-```text
-NOT VERIFIED — CI environment unavailable
-```
-
-### Remaining risks
-
-List all remaining limitations.
-
-### Final verdict
-
-PASS / PARTIAL PASS / FAIL.
-
-### P06 scope compliance
-
-Confirm whether unrelated code was modified.
-
----
-
-# 27. Definition of Done
+## 27. Definition of Done
 
 P06 is complete only when:
 

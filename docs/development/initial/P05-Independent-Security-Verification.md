@@ -1,19 +1,15 @@
-# P05 — Independent Security Verification & Re-Test
+# P05 — Independent Security Verification
 
-> **AI-generated independent verification report.** This document was
-> produced by an AI assistant executing `prompt/P05`. It does NOT
-> trust the P04 report: every major P04 claim below was re-tested
-> independently with external attack tooling (raw TCP sockets, direct
-> `cryptography`-library message construction, subprocess supervision
-> and log capture). **No project source, test, Docker, CI or README
-> file was modified during this verification** (checksum-verified,
-> section 18). One new defect was discovered and is recorded, not
-> fixed (P05 section 25).
->
+> Initial Development Record. Independent re-testing of the P04 claims using external TCP tools. No project implementation was changed; NEW-1 was discovered and left for P06.
+> Historical scope: the initial software simulation, not current engineering or production acceptance.
+> Editorial update: 2026-10-18. Technical findings, results, decision status, and remaining risks are preserved.
+
+[Record index](README.md) · [Historical requirements](P05-REQUIREMENTS.md)
+
 > Verification date: 2026-09-08. Environment: Windows 11
 > (10.0.26200), Python 3.12.0, cryptography 50.0.1, pytest 9.1.1.
 
----
+The original development used AI assistance; the provenance and review boundaries are documented in the record index. Pending human review entries below remain pending. References to the course, original documentation, or unavailable tools describe the historical phase, not current project requirements.
 
 ## 1. Executive Summary
 
@@ -82,7 +78,7 @@ the end of P05: `101 passed in 0.58s` (section 18).
 
 ## 4. P04 Claims Under Verification
 
-P04 claims (review/P04): fingerprint-pinned ML-KEM establishment
+P04 claims (docs/development/initial/P04-Security-Implementation-and-Verification.md): fingerprint-pinned ML-KEM establishment
 (F-01); authenticated hellos + reject-based fallback policy (F-02);
 uniform handshake validation ending the process/thread crashes
 (F-03/F-04); monotonic per-device sequences bound into AEAD AAD with
@@ -602,7 +598,7 @@ Recommended next phase:
 - **Independent attacks:** exact results in sections 6–16 and the
   matrix in section 20; every cell independently reproduced.
 - **Security verdict:** **PARTIAL PASS** (section 23).
-- **Files created:** `review/P05 - Independent Security Verification
+- **Files created:** `docs/development/initial/P05-Independent-Security-Verification.md - Independent Security Verification
   & Re-test.md` (this report). External temporary attack harness
   outside the project tree: `D:\Code\Claude\p05-verify\`
   (p05lib.py, p05_attacks.py, evidence/, logs/, state/) — permitted

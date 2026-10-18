@@ -1,16 +1,15 @@
-# P02 Baseline Technical Review
+# P02 — Baseline Technical Review
 
-> **AI-generated review draft.** This review was produced by an AI
-> assistant from `prompt/P02 - Baseline Testing & Technical Review.md`.
-> The student team must verify every finding, make their own decisions,
-> and record them (ACCEPTED / MODIFIED / REJECTED) in the project's
-> technical documentation. **No project code was modified during this
-> review.**
->
+> Initial Development Record. Baseline technical review. No implementation changes were made in this phase.
+> Historical scope: the initial software simulation, not current engineering or production acceptance.
+> Editorial update: 2026-10-18. Technical findings, results, decision status, and remaining risks are preserved.
+
+[Record index](README.md) · [Historical requirements](P02-REQUIREMENTS.md)
+
 > Review environment: Windows 11, Python 3.12.0, cryptography 50.0.1,
 > pytest 9.1.1. Review date: 2026-09-07.
 
----
+The original development used AI assistance; the provenance and review boundaries are documented in the record index. Pending human review entries below remain pending. References to the course, original documentation, or unavailable tools describe the historical phase, not current project requirements.
 
 ## 1. Executive Summary
 
@@ -688,7 +687,7 @@ fix F-08 and define the comparison protocol.
 
 ---
 
-## 13. Recommended Student Actions
+## 13. Recommended Engineering Actions
 
 ### P0 — Must review before modifying anything
 
@@ -814,7 +813,7 @@ preserved in all documentation.
 
 ---
 
-# Suggested Student Evaluation Record
+# Proposed Decision and Verification Record
 
 The students must make all final decisions. This table suggests the
 documentation entries; nothing below has been decided by the AI.

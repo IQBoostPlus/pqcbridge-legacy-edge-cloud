@@ -1,35 +1,12 @@
-# P04 — Security Implementation & Fail-First Testing
+# P04 Historical Requirements and Acceptance Criteria
 
-## 0. Role
+Status: historical specification, not implementation evidence or instructions to resume work.
 
-You are an AI software-engineering assistant working on the university project:
+This companion to [P04](P04-Security-Implementation-and-Verification.md) preserves the technical requirements, constraints, test cases, and acceptance criteria from its initial task specification. Original section numbers and technical wording are retained for traceability. Role setup and response-format instructions are omitted; see the [coverage ledger](REQUIREMENTS_COVERAGE.md).
 
-**PQCBridge Legacy Edge-Cloud — Post-Quantum Security Migration Simulation**
+Imperative wording describes what the historical phase was asked to do, not what it achieved. References to student review remain historical ownership requirements, not proof that review occurred. Later engineering decisions may supersede these prototype constraints.
 
-The project is an educational edge-cloud simulation involving:
-
-* legacy IoT devices;
-* an edge gateway;
-* a cloud service;
-* ML-KEM-768;
-* HKDF;
-* ChaCha20-Poly1305;
-* legacy fallback;
-* security migration;
-* replay protection;
-* session management.
-
-P01 created the baseline.
-
-P02 performed a technical security review.
-
-P03 performed student evaluation of the P02 findings and selected the security design.
-
-**P04 is the implementation phase.**
-
----
-
-# 1. Critical Rule — Follow P03, Not Your Own Design
+## 1. Critical Rule — Follow P03, Not Your Own Design
 
 P03 is the approved design authority for this phase.
 
@@ -53,7 +30,7 @@ Do not silently redesign the system.
 
 ---
 
-# 2. Mandatory Evidence Chain
+## 2. Mandatory Evidence Chain
 
 For every significant security change, preserve:
 
@@ -87,7 +64,7 @@ The goal is:
 
 ---
 
-# 3. No Big-Bang Rewrite
+## 3. No Big-Bang Rewrite
 
 Do NOT rewrite the project.
 
@@ -111,7 +88,7 @@ The project must remain understandable to university students.
 
 ---
 
-# 4. Implementation Order
+## 4. Implementation Order
 
 Implement in the following order unless P03 explicitly states otherwise:
 
@@ -143,7 +120,7 @@ Do not skip directly to the final implementation.
 
 ---
 
-# 5. P04.1 — Dependency Reproducibility
+## 5. P04.1 — Dependency Reproducibility
 
 Review:
 
@@ -175,7 +152,7 @@ Do not upgrade unrelated packages without justification.
 
 ---
 
-# 6. P04.2 — Protocol Validation
+## 6. P04.2 — Protocol Validation
 
 Fix:
 
@@ -185,7 +162,7 @@ Fix:
 
 Required behavior:
 
-## Gateway
+### Gateway
 
 Malformed ML-KEM handshake messages must NOT terminate the gateway process.
 
@@ -200,7 +177,7 @@ For example:
 
 without `public_key` must result in controlled protocol handling.
 
-## Cloud
+### Cloud
 
 Malformed encapsulation messages such as:
 
@@ -235,7 +212,7 @@ Do not hide programming errors.
 
 ---
 
-# 7. P04.3 — AEAD / AAD Support
+## 7. P04.3 — AEAD / AAD Support
 
 P03 approved binding security-relevant context to authenticated data.
 
@@ -267,7 +244,7 @@ Add focused unit tests demonstrating:
 
 ---
 
-# 8. P04.4 — Metrics Correction
+## 8. P04.4 — Metrics Correction
 
 Correct the P02/P03 metric issues.
 
@@ -287,7 +264,7 @@ Add tests for the important metric behavior.
 
 ---
 
-# 9. P04.5 — Per-Device Key Model
+## 9. P04.5 — Per-Device Key Model
 
 Implement only the simple model approved in P03.
 
@@ -332,7 +309,7 @@ Document the prototype limitation:
 
 ---
 
-# 10. P04.6 — Authenticated Hello and Fallback Policy
+## 10. P04.6 — Authenticated Hello and Fallback Policy
 
 Implement the P03 fallback decision.
 
@@ -369,7 +346,7 @@ Make the reason for every decision visible in logs without exposing secrets.
 
 ---
 
-# 11. P04.7 — Replay Protection
+## 11. P04.7 — Replay Protection
 
 Implement the P03-selected replay design:
 
@@ -407,7 +384,7 @@ Do not silently solve this limitation by adding a database.
 
 ---
 
-# 12. P04.8 — Cloud ML-KEM Key Pinning
+## 12. P04.8 — Cloud ML-KEM Key Pinning
 
 Implement the P03-selected authentication strategy.
 
@@ -444,7 +421,7 @@ This remains an educational simulation, not a complete PKI.
 
 ---
 
-# 13. P04.9 — Session Lifecycle
+## 13. P04.9 — Session Lifecycle
 
 Implement the P03-approved session lifecycle.
 
@@ -490,7 +467,7 @@ Test:
 
 ---
 
-# 14. P04.10 — Fail-First Tests
+## 14. P04.10 — Fail-First Tests
 
 This section is mandatory.
 
@@ -500,7 +477,7 @@ For selected findings, demonstrate that the baseline fails the security requirem
 
 At minimum produce evidence for:
 
-### F-03
+#### F-03
 
 Baseline:
 
@@ -517,7 +494,7 @@ Malformed handshake
 → gateway remains alive
 ```
 
-### F-04
+#### F-04
 
 Baseline:
 
@@ -534,7 +511,7 @@ Malformed encapsulation
 → service continues
 ```
 
-### F-05
+#### F-05
 
 Baseline:
 
@@ -556,7 +533,7 @@ Same captured message
 → REJECT
 ```
 
-### F-01
+#### F-01
 
 Baseline:
 
@@ -572,7 +549,7 @@ different ML-KEM public key
 → rejected
 ```
 
-### F-02
+#### F-02
 
 Baseline:
 
@@ -592,7 +569,7 @@ Only make claims that are actually demonstrated.
 
 ---
 
-# 15. Preserve Baseline Evidence
+## 15. Preserve Baseline Evidence
 
 Do not delete or overwrite the P02 evidence.
 
@@ -609,7 +586,7 @@ Do not rewrite history to make it appear that the baseline was already secure.
 
 ---
 
-# 16. Regression Testing
+## 16. Regression Testing
 
 After each major implementation step:
 
@@ -644,7 +621,7 @@ If an old test encodes behavior intentionally changed by P03:
 
 ---
 
-# 17. Integration Testing
+## 17. Integration Testing
 
 After unit tests pass, run end-to-end tests.
 
@@ -668,7 +645,7 @@ Stored reading
 
 Also verify:
 
-### Legacy path
+#### Legacy path
 
 ```text
 known legacy device
@@ -677,14 +654,14 @@ known legacy device
 → protected forwarding
 ```
 
-### Invalid device
+#### Invalid device
 
 ```text
 unknown device
 → rejected
 ```
 
-### Replay
+#### Replay
 
 ```text
 valid message
@@ -694,7 +671,7 @@ same message
 → rejected
 ```
 
-### Cloud failure
+#### Cloud failure
 
 ```text
 established session
@@ -708,7 +685,7 @@ established session
 
 ---
 
-# 18. Security Verification
+## 18. Security Verification
 
 Do not only rely on pytest.
 
@@ -716,7 +693,7 @@ Perform targeted demonstrations.
 
 At minimum:
 
-### Authentication / pinning
+#### Authentication / pinning
 
 Try a substituted cloud public key.
 
@@ -726,7 +703,7 @@ Expected:
 REJECT
 ```
 
-### Downgrade
+#### Downgrade
 
 Modify capability information.
 
@@ -738,7 +715,7 @@ REJECT
 
 or the exact behavior defined in P03.
 
-### Replay
+#### Replay
 
 Send an already accepted encrypted message again.
 
@@ -748,7 +725,7 @@ Expected:
 REJECT
 ```
 
-### Malformed handshake
+#### Malformed handshake
 
 Send incomplete handshake data.
 
@@ -760,7 +737,7 @@ controlled error
 
 and the service remains operational.
 
-### Session failure
+#### Session failure
 
 Terminate the cloud connection after establishment.
 
@@ -772,7 +749,7 @@ session no longer reported as healthy
 
 ---
 
-# 19. Secret Handling
+## 19. Secret Handling
 
 During implementation:
 
@@ -800,7 +777,7 @@ If no secret scan exists, perform a targeted repository search before completion
 
 ---
 
-# 20. Docker and CI
+## 20. Docker and CI
 
 If Docker is unavailable, do not pretend it was tested.
 
@@ -826,11 +803,11 @@ CI execution not verified.
 
 ---
 
-# 21. Documentation Updates
+## 21. Documentation Updates
 
 After implementation, update:
 
-## README.md
+### README.md
 
 Add:
 
@@ -860,93 +837,7 @@ Future improvement:
 
 ---
 
-# 22. Create P04 Report
-
-Create:
-
-`review/P04 - Security Implementation & Verification.md`
-
-The report must contain:
-
-## 1. Implementation Summary
-
-What was changed and why.
-
-## 2. P03 Decision Mapping
-
-| P03 Decision | Implementation | Files | Status |
-| ------------ | -------------- | ----- | ------ |
-
-## 3. Fail-First Evidence
-
-| Finding | Baseline behavior | Test | Initial result |
-| ------- | ----------------- | ---- | -------------- |
-
-## 4. Implementation Details
-
-For each major security control.
-
-## 5. Security Tests
-
-List all new tests.
-
-## 6. Regression Tests
-
-Report the complete pytest result.
-
-## 7. Integration Tests
-
-Report end-to-end results.
-
-## 8. Security Attack Re-tests
-
-Include:
-
-* malformed handshake;
-* replay;
-* key substitution;
-* downgrade;
-* session failure.
-
-## 9. Metrics
-
-Report corrected metric semantics and example results.
-
-## 10. Remaining Risks
-
-Do NOT claim complete security.
-
-Explicitly list unresolved risks.
-
-## 11. Deferred Findings
-
-List findings intentionally not implemented.
-
-## 12. Docker / CI Status
-
-Clearly distinguish:
-
-* tested;
-* not tested;
-* unavailable.
-
-## 13. P04 Student/AI Development Record
-
-For every major implementation:
-
-```text
-P03 decision
-→ AI implementation approach
-→ student review
-→ code change
-→ test
-→ verification
-→ remaining risk
-```
-
----
-
-# 23. Final Verification Table
+## 23. Final Verification Table
 
 Create:
 
@@ -970,82 +861,7 @@ Create:
 
 ---
 
-# 24. Required Final Output
-
-At the end of the task report:
-
-### Files modified
-
-List every modified source/config/test/documentation file.
-
-### Files created
-
-At minimum:
-
-```text
-review/P04 - Security Implementation & Verification.md
-```
-
-### Tests
-
-Report exact results.
-
-Example:
-
-```text
-pytest:
-XX passed
-X failed
-X skipped
-```
-
-### Security demonstrations
-
-Report exact results for:
-
-* F-01;
-* F-02;
-* F-03;
-* F-04;
-* F-05;
-* F-07.
-
-### Docker
-
-State:
-
-```text
-Verified
-```
-
-or:
-
-```text
-Not verified — Docker unavailable
-```
-
-### CI
-
-State actual status.
-
-### Remaining risks
-
-List unresolved security limitations.
-
-### Unexpected problems
-
-If implementation deviated from P03, explain:
-
-1. what changed;
-2. why;
-3. who/what caused the change;
-4. how it was verified.
-
-Never hide deviations.
-
----
-
-# 25. Absolute Prohibitions
+## 25. Absolute Prohibitions
 
 Do NOT:
 
@@ -1070,7 +886,7 @@ The objective is:
 
 ---
 
-# 26. Definition of Done
+## 26. Definition of Done
 
 P04 is complete only when:
 

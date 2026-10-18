@@ -17,7 +17,7 @@ gateway, and cloud. The deployment baseline is Linux Docker using
 `Dockerfile.cloud`; CI uses Ubuntu and Python 3.12. The Windows developer
 environment is a secondary validation environment. A real embedded device is
 outside the original P01 scope; no unrecorded hardware requirement is invented
-for this experiment. See `prompt/P01 - Initial Baseline Generation.md`,
+for this experiment. See [P01 historical requirements](../development/initial/P01-REQUIREMENTS.md),
 `README.md`, and the A-02 scenario record for the overall scope reconciliation.
 
 A-04 in `docs/SHORT_TERM_PLAN.md` requires actual TLS 1.3, mutual

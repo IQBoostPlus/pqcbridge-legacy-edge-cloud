@@ -1,20 +1,23 @@
 # PQC Bridge Engineering Roadmap
 
-Updated: 2026-10-16. Status: the engineering direction has been accepted. The milestones, effort estimates, and technology choices below are plans, not delivered capabilities.
+Updated: 2026-10-18. Status: the engineering direction has been accepted. The milestones, effort estimates, and technology choices below are plans, not delivered capabilities.
 
-This roadmap reflects the accepted review of the proposed refactoring plan. It extends the project from a course demonstration toward an engineering system suitable for a controlled pilot. The P01–P08 records remain intact as evidence of existing implementations, verification results, and scope decisions made at the time.
+This roadmap reflects the accepted review of the proposed refactoring plan. It extends the project from a course demonstration toward an engineering system suitable for a controlled pilot. The [Initial Development Records](development/initial/README.md) retain P01–P08 technical findings, verification results, and historical decision states.
 
 ## 1. Objective and First Deliverable
 
 The near-term deliverable is a deployable, recoverable, and auditable PQC migration gateway. Without modifying the firmware of the selected legacy devices, it will ingest telemetry through one existing protocol and upload it through an authenticated hybrid post-quantum channel. It will provide bounded buffering, acknowledged delivery and retry, credential management, and migration in small groups.
 
-The long-term objective is a migration management product for legacy edge-to-cloud communication, developed after sufficient integration and operational experience. Its value will be measured through integration cost, data continuity, migration risk, and verifiable protection outcomes.
+The long-term objective is a competition-ready cybersecurity and post-quantum software engineering project with a verifiable migration mechanism, reproducible experiments, and application evidence. Network security is the primary track; post-quantum migration is the technical focus; AI diagnostics are a conditional research extension. Engineering quality remains the foundation, while broad platform development depends on demonstrated demand.
 
 The first release covers one organization, one site, one legacy protocol, one active gateway instance, one cloud receiver, and one-way telemetry. Preserve Python, the existing component boundaries, Docker, tests, and security review assets where practical. Industrial control commands, device firmware updates, multi-tenancy, and high-availability clusters are outside this release.
 
 Execution details: [Short-Term Implementation Plan](SHORT_TERM_PLAN.md).
 
 ## 2. Current Baseline and Verification Boundaries
+
+As of 2026-10-18, Phases A and B have recorded acceptance for the owned Docker/simulated-device lab; see [A](phase-a/STATUS.md) and [B](phase-b/STATUS.md). Phase C is paused and not accepted; D is future work. The table below describes the original planning baseline, not the full current engineering path. This documentation update did not rerun runtime checks.
+
 
 The planning baseline is commit `681986b`. When planning began, the workspace already contained changes to `CLAUDE.md` and files under `docs/agents/`. Those existing changes were preserved.
 
@@ -81,27 +84,56 @@ Planning assumption: one primary developer familiar with the repository, with ac
 
 Advance through dependency and acceptance gates, not calendar deadlines. Development may overlap, but shared contracts for ingestion, persistence, identity, and messaging must be defined before concurrent changes.
 
-## 6. Long-Term Roadmap: Expansion Based on Pilot Evidence
+## 6. Long-Term Roadmap: Engineering Evidence for Competitions
 
-The following windows assume completion of short-term milestones and sustained staffing. They are planning ranges rather than feature release dates.
+Use milestone gates and the selected event deadline to plan delivery. The former broad platform timeline is replaced by the sequence below. No specific event, eligibility, award outcome, or submission date is assumed.
 
-| Window | Objective | Entry conditions | Deliverables and exit conditions |
+| Milestone | Contribution | Required evidence | Gate |
 | --- | --- | --- | --- |
-| Approximately months 3–6 | Controlled pilot for one real use case | A–D accepted; site owner, data responsibilities, and incident response defined | Recommended observation period of at least 30 days; complete upgrade, rotation, and recovery exercises; establish integration cost, performance, and user feedback |
-| Approximately months 6–12 | Repeatable migration product | First pilot demonstrates value; a second concrete integration need exists | Support a second protocol or device category; establish a compatibility matrix, bulk enrollment, grouped rollouts, audit exports, and version-support rules |
-| Approximately month 12 onward | Platform capabilities driven by demand | Demonstrated multi-site, multi-team, or scale requirements and a maintenance budget | Selectively add multi-site control, role separation, automated credential management, high availability, or multi-tenancy; accept each capability separately |
+| Engineering foundation | Secure, recoverable gateway with controlled migration | A–D evidence, explicit lab/field boundaries, recovery and credential tests | Preserve security and delivery acceptance; control the first-release scope |
+| Research validation | A testable method for migration without silent downgrade or data loss after durable acceptance | Defined research question, comparison baselines, automated experiments, raw results, and limitations | Identify what the project contributes beyond its TLS and storage dependencies |
+| Competition release | Stable demonstration of the contribution | Reproducible package, English technical report, architecture diagram, short demonstration, video, and claim-to-evidence matrix | Select event and deadline; freeze features before submission and rehearse the complete demonstration |
+| Conditional AI study | Evidence-grounded migration diagnosis and recommendations | Held-out cases, rule/manual baselines, ablation results, safety tests, latency, and cost | Add AI to the core contribution only when it demonstrates a measurable benefit |
+| Pilot and further iteration | Real integration and operational feedback | Compatibility results, operator feedback, integration effort, and maintenance cost | Expand protocols or platform functions only in response to demonstrated requirements |
 
-Long-term priorities:
+### Research Question and Core Contributions
 
-1. **Repeatable deployment:** installation, configuration diagnostics, backup, upgrades, rollback, and operational guides that reduce manual integration effort.
-2. **Protocol coverage:** choose adapters for a specific next user and reuse stable ingestion and delivery contracts.
-3. **Migration governance:** asset and cryptographic-use inventories, evidence of effective policy, time-limited exceptions, bulk rotation, and auditing.
-4. **Capacity and availability:** use pilot bottlenecks to decide whether clustering is necessary. Resolve shared state, consistency, message ownership, and deduplication before promising high availability.
-5. **Cryptographic evolution:** evaluate post-quantum authentication, algorithm retirement, and new configuration profiles against customer threat models and runtime support.
+Evaluate how legacy telemetry can migrate to an authenticated hybrid channel while preserving firmware compatibility, durable delivery, credential lifecycle control, and a security floor during failure and rollback. Separate three contributions: compatibility integration, controlled migration, and reproducible verification tooling.
 
-AI, a generic algorithm plugin marketplace, attack demonstration dashboards, and Kubernetes are not required deliverables. Add them only when there is a concrete need, measurable benefit, and a maintenance owner.
+Using ML-KEM or TLS is an enabling dependency, not a claim of a new cryptographic algorithm. Compare with existing solutions and state the project's original mechanism or integration contribution precisely.
 
-If the first pilot does not demonstrate reduced integration or migration cost, revisit the use case and delivery approach before expanding the platform. Where an established tunnel or proxy already meets the requirements, prioritize integration, deployment, and migration management instead of duplicating existing capabilities.
+### Track Positioning
+
+- Cybersecurity: emphasize threat models, identity authorization, adversarial testing, recovery, and security-preserving migration.
+- Post-quantum security/software engineering: emphasize compatibility, hybrid interoperability, migration overhead, and reproducible engineering evidence.
+- AI: require a substantive, evaluated diagnostic capability; code written with AI assistance is not itself an AI product feature.
+- Quantum computing: PQC runs on classical computers. Check whether the event accepts post-quantum security; do not imply quantum circuits, quantum hardware execution, or a real quantum attack.
+
+### AI Diagnostic Experiment
+
+The proposed assistant reads redacted capabilities, configuration, handshake outcomes, and failure logs; explains policy mismatches with cited evidence; and produces structured migration or repair suggestions. It must distinguish missing evidence from a valid diagnosis.
+
+AI recommendations pass through deterministic constraint checks and administrator approval before changes. The model receives no private keys and cannot independently change device authorization or lower cryptographic requirements. AI availability must not be required for telemetry delivery.
+
+Compare fixed rules, manual log analysis, and AI with deterministic validation. Measure diagnosis accuracy, evidence-reference accuracy, unsafe recommendation rate, abstention behavior, time, and cost. Split evaluation by scenario or device family to avoid template leakage between development and held-out cases. Include malicious log instructions, missing context, contradictory evidence, and out-of-scope inputs. Report failures as well as improvements; omit AI from the core contribution if benefits are not demonstrated.
+
+### Reproducible Security and Failure Experiments
+
+Automate identity/authorization rejection, replay and tamper cases, policy downgrade attempts, rotation/revocation/expiry, controller disconnection, process exits, lost acknowledgements, queue limits, and disk limits. Distinguish logical storage quotas from physical disk exhaustion and laboratory attacks from real-world deployment evidence.
+
+Each run records configuration, versions, expectations, observed results, and redacted evidence. A dashboard may control and visualize these real runs; it must not display scripted success as a measured result. An offline demonstration recording must be labeled as a recording.
+
+### Comparison and Attribution
+
+Use V1 as a historical baseline, an established conventional TLS configuration, an established hybrid TLS configuration or equivalent transport setup, and the complete PQC Bridge path. Keep hardware, authentication, workload, network, and measurement methods comparable. Use component-removal experiments to distinguish benefits from the transport, delivery mechanism, migration controls, and AI assistant.
+
+### Competition Deliverables and Scope Control
+
+Maintain an English technical report covering the problem, related work, design, method, results, and limitations; a versioned reproducible package; architecture diagrams; a short live demonstration; a complete video; and a contribution inventory separating standards, third-party components, team implementation, and material AI assistance.
+
+After selecting an event, verify eligibility, scoring, permitted prior work, open-source requirements, data licenses, AI-use disclosures, and repeat-submission rules against that event's current rules. Do not claim novelty or compliance solely from this roadmap.
+
+A 30-day field pilot remains useful evidence but is not a universal prerequisite for a competition release. If field access is unavailable, submit an honestly bounded laboratory evaluation where event rules allow it. Second protocols, multi-site operation, multi-tenancy, high availability, generic algorithm plugins, and Kubernetes remain demand-driven extensions. Prefer deeper validation of one protocol over unsupported breadth.
 
 ## 7. Success Metrics and Evidence Rules
 
@@ -118,7 +150,7 @@ Each phase report must identify the commit, dependency and image versions, envir
 
 ## 8. Delivery and Change Governance
 
-- The planning request covers documentation and README navigation. It does not authorize executing the entire roadmap, deployment, or pushing changes.
+- This roadmap does not authorize execution or publication by itself. When publication is explicitly authorized, use a scoped English commit and direct non-forced push; do not create a pull request unless the user requests a change to that preference.
 - Before implementation, record HEAD, branch, existing changes, and state data. Use isolated environments and preserve existing configurations, real credentials, and original data.
 - Deliver small, reviewable changes. Define contracts before modifying shared interfaces, persistent formats, or security policies.
 - Track phases as Not started / In progress / Awaiting verification / Accepted / Blocked. Completion requires evidence.
@@ -138,3 +170,5 @@ These references inform technology selection but do not replace target-environme
 2026-10-16: The user accepted the engineering review direction and requested short- and long-term plans. This roadmap and the implementation task list were produced without code refactoring. Planning now uses the P08 baseline, actual channel evidence, and staged engineering acceptance instead of the early 39-test baseline, device-label migration counts, and late deployment validation.
 
 2026-10-16: Both planning documents were rewritten in English at the user's request. All project documentation is to be written in English; communication with the user remains in Chinese. Scope, task IDs, estimates, and acceptance requirements were retained.
+
+2026-10-18: The accepted competition direction was incorporated: cybersecurity as the primary track, verifiable post-quantum migration as the focus, and an evidence-gated AI diagnostic study. Initial development records were reorganized, and direct GitHub pushes became the publication preference. No paused Phase C implementation was resumed by this documentation update.

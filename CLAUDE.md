@@ -1,18 +1,28 @@
 # CLAUDE.md
 
-This repository contains an **AI-generated baseline** for the course
-project "Legacy System Modernization for PQC & LLM-Assisted
-Development" (Software Development, Maintenance & Operations).
+PQC Bridge is an engineering prototype for verifiable post-quantum migration of
+legacy edge-to-cloud telemetry. Initial development history is in
+`docs/development/initial/README.md`; current engineering evidence is in
+`docs/phase-a/` and `docs/phase-b/`. Consult `PROJECT_STATE.md` for local recovery
+and pause instructions before implementation.
 
-- The generating prompt is `prompt/P01 - Initial Baseline Generation.md`.
-- All code is AI-assisted output awaiting final student review; it
-  has been through the P02 review, P04 implementation, P05
-  independent verification, P06 remediation, P07 consolidation and
-  P08 adversarial testing/remediation, but must NOT be presented as
-  secure or production-ready (see README.md §7 limitations and the
-  `review/P02`–`review/P08` reports).
-- Every significant AI interaction must be documented by the student
-  team (README.md §9).
+Phase A/B acceptance is limited to the owned Docker/simulated-device lab. Do not
+claim physical-device compatibility or production security from these results.
+The commands below describe the initial V1 path; the opt-in engineering path is
+documented in `docs/phase-b/OPERATIONS.md`.
+
+## Documentation and Publication
+
+Write all project documentation in English. Communicate with the user in Chinese.
+For new or revised development records, follow `docs/development/README.md` and
+`docs/development/RECORD_TEMPLATE.md`, using the initial P01–P08 records as the
+evidence-first style reference. Preserve historical findings and review status.
+
+When GitHub publication is authorized, commit the intended changes and push
+directly to the intended branch. Do not create a pull request unless the user
+explicitly changes this preference. Use ordinary non-forced pushes and verify
+the remote commit. This preference does not authorize unrelated or incomplete
+work to be published automatically.
 
 ## Commands
 
@@ -31,7 +41,7 @@ credentials (P08 BF-03A) are enabled by default using the committed
 `GATEWAY_KEYS_FILE` / `GATEWAY_KEYS_JSON`, `GATEWAY_KEY_HEX`,
 `DEVICE_KEYS_FILE` / `DEVICE_KEYS_JSON` and `DEVICE_KEY_HEX`.
 
-## Architecture
+## Initial V1 Architecture
 
 Legacy device (ChaCha20-Poly1305, no ML-KEM) → Edge gateway
 (ML-KEM-768 + fallback) → Cloud (ML-KEM-768 decapsulation, in-memory

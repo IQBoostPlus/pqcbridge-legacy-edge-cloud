@@ -1,45 +1,12 @@
-# P03 — Student Evaluation & Security Design
+# P03 Historical Requirements and Acceptance Criteria
 
-## 0. Role
+Status: historical specification, not implementation evidence or instructions to resume work.
 
-You are an AI software-security assistant working on the university project:
+This companion to [P03](P03-Security-Evaluation-and-Design-Decisions.md) preserves the technical requirements, constraints, test cases, and acceptance criteria from its initial task specification. Original section numbers and technical wording are retained for traceability. Role setup and response-format instructions are omitted; see the [coverage ledger](REQUIREMENTS_COVERAGE.md).
 
-**PQCBridge Legacy Edge-Cloud — Post-Quantum Security Migration Simulation**
+Imperative wording describes what the historical phase was asked to do, not what it achieved. References to student review remain historical ownership requirements, not proof that review occurred. Later engineering decisions may supersede these prototype constraints.
 
-The project is a small educational edge-cloud simulation involving:
-
-* a legacy IoT device,
-* an edge gateway,
-* a cloud service,
-* ChaCha20-Poly1305,
-* ML-KEM-768,
-* HKDF,
-* legacy fallback,
-* security migration from legacy devices toward post-quantum protection.
-
-The project was initially generated as an AI-assisted baseline in **P01**.
-
-A separate technical review was performed in **P02**.
-
-The P02 review found 15 findings (F-01 to F-15), including:
-
-* unauthenticated ML-KEM key establishment,
-* downgrade/fallback weaknesses,
-* malformed handshake crashes,
-* replay attacks,
-* static PSK,
-* broken session lifecycle,
-* metric inconsistencies,
-* dependency drift,
-* and several maintainability/operational issues.
-
-The P02 review was explicitly marked as an **AI-generated review draft**.
-
-The students must now evaluate those findings and make their own engineering decisions.
-
----
-
-# 1. Most Important Rule
+## 1. Most Important Rule
 
 **DO NOT MODIFY PROJECT CODE IN P03.**
 
@@ -77,31 +44,7 @@ If a temporary experiment is required, clearly identify it as a temporary experi
 
 ---
 
-# 2. Project Documentation Requirement
-
-This project is an AI-assisted university project.
-
-The documentation must preserve the complete development chain:
-
-> **Prompt → AI Output → Student Evaluation → Decision → Verification → Change → Remaining Risk**
-
-P03 must therefore NOT pretend that AI recommendations are automatically correct.
-
-For every finding:
-
-* verify the technical claim;
-* explain whether the finding is valid;
-* evaluate the AI recommendation;
-* identify possible alternative solutions;
-* make a student-facing decision;
-* explain why the decision was made;
-* define how the decision will later be verified.
-
-The final decision belongs to the student team, not the AI.
-
----
-
-# 3. Required Inputs
+## 3. Required Inputs
 
 Before beginning:
 
@@ -111,7 +54,7 @@ Before beginning:
    * `README.md`
    * `CLAUDE.md`
    * P01 documentation
-   * `review/P02 - Baseline Technical Review.md`
+   * `docs/development/initial/P02-Baseline-Technical-Review.md`
    * relevant source files
    * relevant existing tests
 3. Inspect the actual implementation corresponding to every P02 finding.
@@ -131,7 +74,7 @@ Do not claim that something was tested if it was only inspected.
 
 ---
 
-# 4. P02 Findings to Evaluate
+## 4. P02 Findings to Evaluate
 
 Evaluate all findings F-01 through F-15.
 
@@ -148,7 +91,7 @@ Use the following findings as the starting point.
 
 ---
 
-## F-01 — Unauthenticated ML-KEM Key Establishment
+### F-01 — Unauthenticated ML-KEM Key Establishment
 
 P02 claims:
 
@@ -175,7 +118,7 @@ Do not implement the solution yet.
 
 ---
 
-## F-02 — Capability Spoofing / Downgrade
+### F-02 — Capability Spoofing / Downgrade
 
 Evaluate:
 
@@ -205,7 +148,7 @@ Example structure:
 
 ---
 
-## F-03 — Gateway Crash from Malformed Handshake
+### F-03 — Gateway Crash from Malformed Handshake
 
 Evaluate:
 
@@ -224,7 +167,7 @@ Propose the smallest safe fix.
 
 ---
 
-## F-04 — Cloud Thread Crash from Malformed Encapsulation
+### F-04 — Cloud Thread Crash from Malformed Encapsulation
 
 Evaluate:
 
@@ -238,7 +181,7 @@ The gateway and cloud should use a consistent protocol-validation policy unless 
 
 ---
 
-## F-05 — Replay Attack
+### F-05 — Replay Attack
 
 P02 demonstrated:
 
@@ -246,21 +189,21 @@ P02 demonstrated:
 
 Evaluate possible mechanisms:
 
-### Option A — Monotonic sequence number
+#### Option A — Monotonic sequence number
 
 Reject:
 
 `sequence <= last_sequence`
 
-### Option B — Replay window
+#### Option B — Replay window
 
 Allow limited out-of-order messages while rejecting old values.
 
-### Option C — Session-bound counters
+#### Option C — Session-bound counters
 
 Bind freshness to a specific established session.
 
-### Option D — Combination
+#### Option D — Combination
 
 Use sequence numbers plus session identity.
 
@@ -293,7 +236,7 @@ Do not implement yet.
 
 ---
 
-## F-06 — Static Shared PSK
+### F-06 — Static Shared PSK
 
 Evaluate:
 
@@ -317,7 +260,7 @@ Do not over-engineer the prototype.
 
 ---
 
-## F-07 — Broken Session Lifecycle
+### F-07 — Broken Session Lifecycle
 
 Evaluate:
 
@@ -351,7 +294,7 @@ Modify the diagram if a simpler lifecycle is more appropriate.
 
 ---
 
-## F-08 — Metrics Problems
+### F-08 — Metrics Problems
 
 Evaluate:
 
@@ -372,7 +315,7 @@ Create a small proposed metrics table:
 
 ---
 
-## F-09 — Duplicated AEAD Code
+### F-09 — Duplicated AEAD Code
 
 Evaluate whether duplication is actually harmful at this project size.
 
@@ -394,7 +337,7 @@ If modification is recommended, describe the smallest refactoring.
 
 ---
 
-## F-10 — Configuration Duplication
+### F-10 — Configuration Duplication
 
 Evaluate the two sources of configuration:
 
@@ -409,7 +352,7 @@ Do not implement it yet.
 
 ---
 
-## F-11 — Key Lifecycle
+### F-11 — Key Lifecycle
 
 Evaluate:
 
@@ -424,7 +367,7 @@ Define a practical prototype policy.
 
 ---
 
-## F-12 — Threads / Timeouts / Rate Limiting
+### F-12 — Threads / Timeouts / Rate Limiting
 
 Evaluate whether this is important enough for the course project.
 
@@ -440,7 +383,7 @@ A finding may reasonably be deferred if the decision is clearly justified.
 
 ---
 
-## F-13 — Health Endpoint
+### F-13 — Health Endpoint
 
 Define what `"healthy"` means.
 
@@ -461,7 +404,7 @@ Propose a simple status model.
 
 ---
 
-## F-14 — Dependency Drift
+### F-14 — Dependency Drift
 
 Evaluate:
 
@@ -480,7 +423,7 @@ Recommend an appropriate dependency policy.
 
 ---
 
-## F-15 — Truncated Message Error
+### F-15 — Truncated Message Error
 
 Evaluate the distinction between:
 
@@ -493,7 +436,7 @@ Recommend whether this should be fixed now or deferred.
 
 ---
 
-# 5. Student Decision Framework
+## 5. Student Decision Framework
 
 For every finding, use this structure:
 
@@ -545,23 +488,23 @@ Do not leave the decision unexplained.
 
 ---
 
-# 6. Priority Classification
+## 6. Priority Classification
 
 After evaluating all findings, create four groups:
 
-## P0 — Must Fix Before Further Development
+### P0 — Must Fix Before Further Development
 
 Security or correctness issues that could invalidate the next phase.
 
-## P1 — Important
+### P1 — Important
 
 Should be addressed if feasible and directly improves the system.
 
-## P2 — Useful
+### P2 — Useful
 
 Quality, maintainability, metrics, and documentation improvements.
 
-## P3 — Deferred
+### P3 — Deferred
 
 Reasonable future work or outside the scope of this course prototype.
 
@@ -569,47 +512,47 @@ Explain why every finding belongs to its selected priority.
 
 ---
 
-# 7. Security Design Decisions
+## 7. Security Design Decisions
 
 Produce explicit decisions for at least:
 
-### 7.1 Authentication
+#### 7.1 Authentication
 
 Answer:
 
 > Who is authenticating whom?
 
-### 7.2 Confidentiality
+#### 7.2 Confidentiality
 
 Answer:
 
 > What traffic is protected, and from which attacker?
 
-### 7.3 Integrity
+#### 7.3 Integrity
 
 Answer:
 
 > How are modified messages detected?
 
-### 7.4 Freshness
+#### 7.4 Freshness
 
 Answer:
 
 > How are replayed messages detected?
 
-### 7.5 Downgrade Resistance
+#### 7.5 Downgrade Resistance
 
 Answer:
 
 > How does the system prevent or detect forced legacy fallback?
 
-### 7.6 Key Lifecycle
+#### 7.6 Key Lifecycle
 
 Answer:
 
 > When are keys created, used, expired, and removed?
 
-### 7.7 Legacy Compatibility
+#### 7.7 Legacy Compatibility
 
 Answer:
 
@@ -619,7 +562,7 @@ These decisions must be simple enough to implement and demonstrate within a univ
 
 ---
 
-# 8. Proposed Target Architecture
+## 8. Proposed Target Architecture
 
 Based on the student decisions, describe the proposed architecture for P04.
 
@@ -651,13 +594,13 @@ Clearly mark what remains intentionally insecure or simulated.
 
 ---
 
-# 9. Test-First Planning
+## 9. Test-First Planning
 
 Before P04 implementation, define tests that should fail against the current baseline and pass after the selected modifications.
 
 At minimum consider:
 
-### Handshake
+#### Handshake
 
 * missing `public_key`;
 * missing `ciphertext`;
@@ -665,27 +608,27 @@ At minimum consider:
 * invalid key length;
 * unexpected message type.
 
-### Replay
+#### Replay
 
 * duplicate sequence;
 * older sequence;
 * valid next sequence;
 * reconnect behavior.
 
-### Downgrade
+#### Downgrade
 
 * stripped `ml-kem-768`;
 * forged capability;
 * unsupported capability combination.
 
-### Session
+#### Session
 
 * cloud failure;
 * reconnect;
 * stale session;
 * new session ID.
 
-### Metrics
+#### Metrics
 
 * correct units;
 * correct error counters;
@@ -697,7 +640,7 @@ Only produce the test plan.
 
 ---
 
-# 10. Verification Matrix
+## 10. Verification Matrix
 
 Create:
 
@@ -712,7 +655,7 @@ Create:
 
 ---
 
-# 11. Risk and Scope Control
+## 11. Risk and Scope Control
 
 This is a university prototype, NOT a production IoT security platform.
 
@@ -734,7 +677,7 @@ Every recommendation must answer:
 
 ---
 
-# 12. AI Recommendation Quality Review
+## 12. AI Recommendation Quality Review
 
 Explicitly identify recommendations from P02 that should NOT be followed blindly.
 
@@ -750,35 +693,7 @@ This section is important because P03 demonstrates **student evaluation of AI ou
 
 ---
 
-# 13. Required Deliverable
-
-Create:
-
-`review/P03 - Student Security Evaluation & Design Decisions.md`
-
-The document must contain:
-
-1. Executive Summary
-2. Environment and Verification Scope
-3. P02 Findings Review
-4. F-01 through F-15 Evaluation
-5. Student Decision Table
-6. P0/P1/P2/P3 Priorities
-7. Security Design Decisions
-8. Fallback Policy
-9. Replay Protection Design
-10. Session Lifecycle Design
-11. Proposed Target Architecture
-12. Test-First Plan
-13. Verification Matrix
-14. Remaining Risks
-15. Deferred / Rejected Findings
-16. AI Recommendation Quality Review
-17. P04 Implementation Plan
-
----
-
-# 14. Required Student Decision Table
+## 14. Required Student Decision Table
 
 Create a concise final table:
 
@@ -802,7 +717,7 @@ Create a concise final table:
 
 ---
 
-# 15. P04 Boundary
+## 15. P04 Boundary
 
 Do NOT implement anything in P03.
 
@@ -820,50 +735,3 @@ P03 ends when:
 P04 will implement only the decisions explicitly approved in P03.
 
 ---
-
-# 16. Final Output Rules
-
-At the end of the task, report:
-
-### Repository inspected
-
-List important files inspected.
-
-### Verification performed
-
-Separate:
-
-* tested;
-* manually reproduced;
-* code inspection;
-* not verified.
-
-### Student decisions required
-
-Clearly identify decisions that still require human approval.
-
-### Proposed P04 scope
-
-List only approved/proposed implementation tasks.
-
-### Files created
-
-Only:
-
-`review/P03 - Student Security Evaluation & Design Decisions.md`
-
-No source code should be modified.
-
-### Important
-
-Never claim:
-
-* a vulnerability is fixed;
-* a test passes after a fix;
-* authentication exists;
-* replay protection exists;
-* downgrade resistance exists;
-
-unless this was actually implemented and verified in a later phase.
-
-P03 is a **design and evaluation phase**, not an implementation phase.

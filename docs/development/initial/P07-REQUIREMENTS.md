@@ -1,40 +1,14 @@
-# P07 — Final Project Evaluation & Evidence Consolidation
+# P07 Historical Requirements and Acceptance Criteria
 
-## 0. Role
+Status: historical specification, not implementation evidence or instructions to resume work.
 
-You are the final project evaluation and evidence-consolidation assistant for the university group project:
+This companion to [P07](P07-Evaluation-and-Evidence-Consolidation.md) preserves the technical requirements, constraints, test cases, and acceptance criteria from its initial task specification. Original section numbers and technical wording are retained for traceability. Role setup and response-format instructions are omitted; see the [coverage ledger](REQUIREMENTS_COVERAGE.md).
 
-**PQCBridge Legacy Edge-Cloud — Post-Quantum Security Migration Simulation**
+Imperative wording describes what the historical phase was asked to do, not what it achieved. References to student review remain historical ownership requirements, not proof that review occurred. Later engineering decisions may supersede these prototype constraints.
 
-Completed engineering phases:
+## 1. Critical Scope Rule
 
-```text
-P01 — Baseline Generation
-P02 — Baseline Technical Review
-P03 — Student Security Evaluation & Design Decisions
-P04 — Security Implementation & Fail-First Testing
-P05 — Independent Security Verification & Re-test
-P06 — Targeted NEW-1 Remediation & Final Verification
-```
-
-P07 is the final engineering review before project submission.
-
-This phase is NOT a new implementation phase.
-
-The primary objectives are:
-
-1. verify the final project state;
-2. verify that the documentation matches the final code;
-3. consolidate the evidence from P01–P06;
-4. identify contradictions or unsupported claims;
-5. produce a final verification matrix;
-6. prepare the project for the final report and presentation.
-
----
-
-# 1. Critical Scope Rule
-
-## DO NOT add new security features.
+### DO NOT add new security features.
 
 Do NOT implement:
 
@@ -76,7 +50,7 @@ If a code change becomes necessary, STOP before making it and explain why it is 
 
 ---
 
-# 2. Read All Project Evidence
+## 2. Read All Project Evidence
 
 Read:
 
@@ -119,7 +93,7 @@ P07 must verify important final claims against the actual final code.
 
 ---
 
-# 3. Establish the Final Baseline
+## 3. Establish the Final Baseline
 
 Run:
 
@@ -151,7 +125,7 @@ If the result differs, investigate before continuing.
 
 ---
 
-# 4. Verify P06 Final State
+## 4. Verify P06 Final State
 
 Confirm that:
 
@@ -163,7 +137,7 @@ contains the NEW-1 fix.
 
 Verify:
 
-### AEAD decrypt
+#### AEAD decrypt
 
 Invalid nonce length must be rejected before calling the AEAD library.
 
@@ -174,7 +148,7 @@ invalid nonce
 → ProtocolError
 ```
 
-### Hello authentication
+#### Hello authentication
 
 Invalid nonce length must follow the existing authentication rejection path.
 
@@ -196,7 +170,7 @@ Confirm:
 
 ---
 
-# 5. Check File Integrity
+## 5. Check File Integrity
 
 Compare the current project state against P06's documented modified files.
 
@@ -226,7 +200,7 @@ Report exactly what was checked.
 
 ---
 
-# 6. Final Security Finding Matrix
+## 6. Final Security Finding Matrix
 
 Create a complete table for:
 
@@ -248,7 +222,7 @@ Do not invent new evidence.
 
 ---
 
-# 7. Required Final Status Categories
+## 7. Required Final Status Categories
 
 Use clear statuses such as:
 
@@ -271,11 +245,11 @@ only when supported by test or independent verification evidence.
 
 ---
 
-# 8. Expected Important Final Findings
+## 8. Expected Important Final Findings
 
 Pay particular attention to:
 
-### F-01
+#### F-01
 
 ML-KEM public-key fingerprint pinning.
 
@@ -291,7 +265,7 @@ Security depends on trusted pre-provisioned fingerprint material.
 
 ---
 
-### F-02
+#### F-02
 
 Authenticated capability/fallback policy.
 
@@ -306,7 +280,7 @@ Do NOT claim universal downgrade protection.
 
 ---
 
-### F-03
+#### F-03
 
 Malformed gateway handshake.
 
@@ -316,7 +290,7 @@ Status should reflect P05 independent verification.
 
 ---
 
-### F-04
+#### F-04
 
 Malformed cloud encapsulation.
 
@@ -324,7 +298,7 @@ Verify controlled rejection and correct error handling.
 
 ---
 
-### F-05
+#### F-05
 
 Replay protection.
 
@@ -345,7 +319,7 @@ Do NOT claim perfect replay protection.
 
 ---
 
-### F-06
+#### F-06
 
 Per-device key model.
 
@@ -353,7 +327,7 @@ Document that this is an educational/simple registry model rather than productio
 
 ---
 
-### F-07
+#### F-07
 
 Session lifecycle.
 
@@ -371,7 +345,7 @@ Retain session cleanup evidence.
 
 ---
 
-### F-08
+#### F-08
 
 Metrics.
 
@@ -383,7 +357,7 @@ Use correct units.
 
 ---
 
-### F-13
+#### F-13
 
 Health.
 
@@ -393,7 +367,7 @@ Do not claim that health provides perfect real-time liveness detection.
 
 ---
 
-### NEW-1
+#### NEW-1
 
 Final status:
 
@@ -422,7 +396,7 @@ valid traffic succeeded afterward.
 
 ---
 
-### NEW-2
+#### NEW-2
 
 Final status:
 
@@ -434,7 +408,7 @@ Do not fix it.
 
 ---
 
-### NEW-3
+#### NEW-3
 
 Final status:
 
@@ -446,7 +420,7 @@ Do not fix it.
 
 ---
 
-# 9. Final Test Inventory
+## 9. Final Test Inventory
 
 Create a test summary showing the project evolution:
 
@@ -468,11 +442,11 @@ Do NOT imply that the project became safer simply because the number increased.
 
 ---
 
-# 10. Security Evidence Classification
+## 10. Security Evidence Classification
 
 Separate evidence into:
 
-### A. Code inspection
+#### A. Code inspection
 
 Examples:
 
@@ -481,7 +455,7 @@ Examples:
 * protocol structure;
 * session lifecycle.
 
-### B. Automated tests
+#### B. Automated tests
 
 Examples:
 
@@ -489,14 +463,14 @@ Examples:
 * unit tests;
 * integration tests.
 
-### C. Independent live verification
+#### C. Independent live verification
 
 Examples:
 
 * P05 TCP attacks;
 * P06 independent NEW-1 attack.
 
-### D. Environment-limited verification
+#### D. Environment-limited verification
 
 Examples:
 
@@ -507,7 +481,7 @@ Do not mix these categories.
 
 ---
 
-# 11. Docker and CI
+## 11. Docker and CI
 
 Verify the final documented status.
 
@@ -535,7 +509,7 @@ unless actually executed.
 
 ---
 
-# 12. Requirements and Dependency Review
+## 12. Requirements and Dependency Review
 
 Inspect:
 
@@ -553,21 +527,21 @@ Do not modify dependency versions during P07 unless there is a demonstrated fina
 
 ---
 
-# 13. README Consistency Audit
+## 13. README Consistency Audit
 
 Read the final README carefully.
 
 Check:
 
-### Architecture
+#### Architecture
 
 Does it match the actual system?
 
-### Security controls
+#### Security controls
 
 Does it describe what the final code really implements?
 
-### Limitations
+#### Limitations
 
 Does it include:
 
@@ -581,7 +555,7 @@ Does it include:
 * Docker/CI limitations where appropriate;
 * other P03/P04 accepted limitations?
 
-### Testing
+#### Testing
 
 Does it report the final test result correctly?
 
@@ -593,11 +567,11 @@ Expected:
 
 if unchanged.
 
-### P06
+#### P06
 
 Does README mention NEW-1 resolution where appropriate?
 
-### Security claims
+#### Security claims
 
 Remove or flag unsupported phrases such as:
 
@@ -613,59 +587,7 @@ Replace with evidence-based wording.
 
 ---
 
-# 14. AI-Assisted Development Evidence
-
-Verify that the project documentation clearly distinguishes:
-
-```text
-AI-generated proposal
-        ↓
-Student evaluation
-        ↓
-Student-selected design
-        ↓
-Implementation
-        ↓
-Testing
-        ↓
-Independent verification
-        ↓
-Correction
-```
-
-The project must NOT present AI output as automatically correct.
-
-Important examples to preserve:
-
-### P01
-
-The initial ML-KEM API assumption was corrected after testing against the installed `cryptography` version.
-
-### P02
-
-AI review identified several risks, but live tests confirmed some of them.
-
-### P03
-
-Students evaluated alternatives and selected specific designs.
-
-### P04
-
-Fail-first testing found implementation and test-harness issues.
-
-### P05
-
-Independent verification discovered NEW-1.
-
-### P06
-
-Fail-first testing reproduced NEW-1 before fixing it.
-
-This evidence is valuable for demonstrating critical use of AI.
-
----
-
-# 15. Student Decision Evidence
+## 15. Student Decision Evidence
 
 Create a concise table:
 
@@ -684,7 +606,7 @@ Explain that they were selected according to project scope and educational objec
 
 ---
 
-# 16. Final Architecture Verification
+## 16. Final Architecture Verification
 
 Confirm the actual final architecture:
 
@@ -698,14 +620,14 @@ Cloud
 
 Verify:
 
-### Device
+#### Device
 
 * generates readings;
 * legacy capability model;
 * device-side counter/state;
 * no unnecessary cryptographic implementation.
 
-### Gateway
+#### Gateway
 
 * receives device messages;
 * validates/authenticates hello;
@@ -715,7 +637,7 @@ Verify:
 * handles replay/session failures;
 * reports health.
 
-### Cloud
+#### Cloud
 
 * ML-KEM decapsulation;
 * session registry;
@@ -727,7 +649,7 @@ Do not rewrite architecture merely for presentation purposes.
 
 ---
 
-# 17. Final End-to-End Smoke Test
+## 17. Final End-to-End Smoke Test
 
 If the environment permits, perform one final end-to-end run:
 
@@ -756,7 +678,7 @@ Do not invent timings.
 
 ---
 
-# 18. Final Security Regression
+## 18. Final Security Regression
 
 Run a compact final security regression covering at least:
 
@@ -787,7 +709,7 @@ Re-tested during P07
 
 ---
 
-# 19. Final Code Quality Review
+## 19. Final Code Quality Review
 
 Inspect for:
 
@@ -809,7 +731,7 @@ Only report issues that affect correctness, security evidence, or submission qua
 
 ---
 
-# 20. Final Security Claim
+## 20. Final Security Claim
 
 The final report must use careful wording.
 
@@ -831,7 +753,7 @@ Avoid:
 
 ---
 
-# 21. Final Verdict
+## 21. Final Verdict
 
 If all P03-selected/P04-implemented controls remain valid, NEW-1 is fixed, and no critical inconsistency is found, use:
 
@@ -862,95 +784,45 @@ Do not force PASS.
 
 ---
 
-# 22. Create Final P07 Report
-
-Create:
-
-```text
-review/P07 - Final Project Evaluation & Evidence Consolidation.md
-```
-
-Structure:
-
-```text
-# P07 - Final Project Evaluation & Evidence Consolidation
-
-## 1. Executive Summary
-
-## 2. Project Status
-
-## 3. P01-P06 Development and Verification History
-
-## 4. Final Test Results
-
-## 5. Final Security Finding Matrix
-
-## 6. Security Evidence Classification
-
-## 7. Student Security Decisions
-
-## 8. Final Architecture Verification
-
-## 9. P06 NEW-1 Final Verification
-
-## 10. README and Documentation Audit
-
-## 11. AI-Assisted Development Evidence
-
-## 12. Docker and CI Status
-
-## 13. Remaining Risks and Limitations
-
-## 14. Final Security Claims
-
-## 15. Final Verdict
-
-## 16. Submission Readiness
-
-## 17. Recommended Final Deliverables
-```
-
----
-
-# 23. Submission Readiness
+## 23. Submission Readiness
 
 Evaluate:
 
-### Source code
+#### Source code
 
 READY / NOT READY
 
-### Tests
+#### Tests
 
 READY / NOT READY
 
-### README
+#### README
 
 READY / NEEDS UPDATE
 
-### Review evidence
+#### Review evidence
 
 READY / NEEDS UPDATE
 
-### Docker
+#### Docker
 
 VERIFIED / NOT VERIFIED
 
-### CI
+#### CI
 
 VERIFIED / NOT VERIFIED
 
-### Final report
+#### Final report
 
 READY / NEEDS UPDATE
 
-### Presentation/demo
+#### Presentation/demo
 
 READY / NEEDS PREPARATION
 
 ---
 
-# 24. Final Deliverable Inventory
+## 24. Final Deliverable Inventory
 
 Produce a final recommended submission list.
 
@@ -998,7 +870,7 @@ Temporary verification files
 
 ---
 
-# 25. No Hidden Changes
+## 25. No Hidden Changes
 
 At the end, verify:
 
@@ -1015,7 +887,7 @@ Report any violation.
 
 ---
 
-# 26. Definition of Done
+## 26. Definition of Done
 
 P07 is complete only when:
 
@@ -1040,19 +912,3 @@ P07 is complete only when:
 * no unnecessary code changes are introduced.
 
 ---
-
-# 27. Important Final Instruction
-
-P07 is the FINAL EVALUATION phase.
-
-Do not keep expanding the technical scope.
-
-The goal is not:
-
-> "Make the system perfect."
-
-The goal is:
-
-> "Prove clearly what was implemented, what was tested, what was independently verified, what remains limited, and what can honestly be claimed."
-
-The final project should be evaluated as an educational security engineering prototype, not as a production security system.

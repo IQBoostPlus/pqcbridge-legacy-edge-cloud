@@ -1,37 +1,12 @@
-You have just generated the Initial Baseline for the project:
+# P02 Historical Requirements and Acceptance Criteria
 
-"PQCBridge: Legacy System Modernization for PQC & LLM-Assisted Development"
+Status: historical specification, not implementation evidence or instructions to resume work.
 
-Project directory:
+This companion to [P02](P02-Baseline-Technical-Review.md) preserves the technical requirements, constraints, test cases, and acceptance criteria from its initial task specification. Original section numbers and technical wording are retained for traceability. Role setup and response-format instructions are omitted; see the [coverage ledger](REQUIREMENTS_COVERAGE.md).
 
-D:\Code\pqcbridge-legacy-edge-cloud\
+Imperative wording describes what the historical phase was asked to do, not what it achieved. References to student review remain historical ownership requirements, not proof that review occurred. Later engineering decisions may supersede these prototype constraints.
 
-The current baseline has reportedly been verified with:
-
-* pytest: 39/39 passed
-* end-to-end smoke test: passed
-* ML-KEM-768 session establishment: working
-* legacy fallback path: working
-* 12 readings stored during the smoke test
-* health endpoints: working
-* secret scan: no cryptographic secrets found in logs
-
-IMPORTANT:
-
-Do NOT assume that because the tests pass, the implementation is correct or secure.
-
-This task is a TECHNICAL REVIEW of the existing AI-generated baseline.
-
-Do NOT immediately rewrite the project.
-
-First inspect the existing files and understand the implementation.
-
-The goal is to identify weaknesses, incorrect assumptions, missing tests, maintainability problems, security risks, and operational issues.
-
-============================================================
-
-1. REVIEW OBJECTIVE
-   ============================================================
+## 1. REVIEW OBJECTIVE
 
 Perform a structured review of the current baseline.
 
@@ -57,9 +32,7 @@ Do NOT treat this as a production security audit.
 
 This is a university prototype review.
 
-============================================================
-2. IMPORTANT CRYPTOGRAPHIC REVIEW
-=================================
+## 2. IMPORTANT CRYPTOGRAPHIC REVIEW
 
 Pay particular attention to:
 
@@ -103,9 +76,7 @@ Review whether the application correctly handles this behavior.
 
 Do not claim that a decapsulation result is automatically authenticated merely because it succeeds.
 
-============================================================
-3. AUTHENTICATION REVIEW
-========================
+## 3. AUTHENTICATION REVIEW
 
 Pay special attention to the current architecture's lack of strong authentication.
 
@@ -134,9 +105,7 @@ Do NOT automatically implement a complete authentication system.
 
 The purpose is to identify the limitation for student review.
 
-============================================================
-4. DOWNGRADE / FALLBACK REVIEW
-==============================
+## 4. DOWNGRADE / FALLBACK REVIEW
 
 Inspect how the gateway decides:
 
@@ -159,9 +128,7 @@ Do not pretend that the existing fallback policy is production-ready.
 
 Identify concrete weaknesses.
 
-============================================================
-5. REPLAY REVIEW
-================
+## 5. REPLAY REVIEW
 
 Inspect whether the protocol provides:
 
@@ -178,9 +145,7 @@ Do not add a complete replay-protection framework yet.
 
 Instead identify what is missing and why it matters.
 
-============================================================
-6. PROTOCOL REVIEW
-==================
+## 6. PROTOCOL REVIEW
 
 Review:
 
@@ -198,9 +163,7 @@ Review:
 
 Identify concrete failure scenarios.
 
-============================================================
-7. TEST REVIEW
-==============
+## 7. TEST REVIEW
 
 Inspect all 39 existing pytest tests.
 
@@ -249,9 +212,7 @@ Do not implement all missing tests automatically.
 
 First provide the review findings.
 
-============================================================
-8. MAINTAINABILITY REVIEW
-=========================
+## 8. MAINTAINABILITY REVIEW
 
 Review:
 
@@ -271,9 +232,7 @@ Identify code that is unnecessarily complicated.
 
 Also identify code that is too simplistic and could cause maintenance problems.
 
-============================================================
-9. DOCKER REVIEW
-================
+## 9. DOCKER REVIEW
 
 Inspect:
 
@@ -297,9 +256,7 @@ Do not claim Docker works unless you actually verify it.
 
 Identify production limitations, but keep the review focused on this university prototype.
 
-============================================================
-10. CI/CD REVIEW
-================
+## 10. CI/CD REVIEW
 
 Inspect:
 
@@ -322,9 +279,7 @@ This is particularly important because ML-KEM support may depend on:
 
 Identify any reproducibility risks.
 
-============================================================
-11. LOGGING REVIEW
-==================
+## 11. LOGGING REVIEW
 
 Inspect all logging statements.
 
@@ -347,9 +302,7 @@ Check whether logs provide enough information for:
 
 Identify excessive or insufficient logging.
 
-============================================================
-12. METRICS REVIEW
-==================
+## 12. METRICS REVIEW
 
 Inspect the metrics implementation.
 
@@ -363,9 +316,7 @@ Determine whether:
 
 Identify whether the current metrics are sufficient for a simple baseline experiment.
 
-============================================================
-13. PERFORMANCE REVIEW
-======================
+## 13. PERFORMANCE REVIEW
 
 Do not build a sophisticated benchmark framework.
 
@@ -387,9 +338,7 @@ Identify measurement limitations such as:
 * network variability
 * lack of repeated trials
 
-============================================================
-14. DOCUMENTATION REVIEW
-========================
+## 14. DOCUMENTATION REVIEW
 
 Inspect README.md and CLAUDE.md.
 
@@ -405,115 +354,7 @@ Check whether the security limitations match the actual implementation.
 
 Do not allow the README to claim stronger security than the implementation provides.
 
-============================================================
-15. REQUIRED OUTPUT
-===================
-
-DO NOT modify the project yet.
-
-Produce a structured review report first.
-
-Use the following format:
-
-# P02 Baseline Technical Review
-
-## 1. Executive Summary
-
-Briefly summarize the overall state of the baseline.
-
-## 2. What Currently Works
-
-List verified functionality.
-
-Separate:
-
-* tested
-* manually verified
-* not verified
-
-Do not invent verification.
-
-## 3. Critical Findings
-
-For each finding provide:
-
-ID:
-Category:
-Severity:
-Location:
-Problem:
-Why it matters:
-Evidence:
-Recommended action:
-
-Severity should use:
-
-CRITICAL
-HIGH
-MEDIUM
-LOW
-INFO
-
-Do not exaggerate severity.
-
-## 4. Cryptography Review
-
-Discuss:
-
-* ML-KEM
-* HKDF
-* AEAD
-* nonce handling
-* key lifecycle
-* authentication
-
-## 5. Protocol Review
-
-Discuss protocol weaknesses and robustness.
-
-## 6. Fallback / Downgrade Review
-
-Discuss legacy compatibility and downgrade risks.
-
-## 7. Testing Gap Analysis
-
-Create a table:
-
-| Area | Existing Coverage | Missing Tests | Priority |
-| ---- | ----------------- | ------------- | -------- |
-
-## 8. Maintainability Review
-
-Identify code-quality and maintenance concerns.
-
-## 9. Docker / Operations Review
-
-Identify deployment and operational concerns.
-
-## 10. CI/CD Review
-
-Identify reproducibility and CI concerns.
-
-## 11. Metrics / Performance Review
-
-Evaluate whether current measurements are suitable as a baseline.
-
-## 12. Documentation Review
-
-Identify inaccurate, incomplete, or ambiguous documentation.
-
-## 13. Recommended Student Actions
-
-Prioritize the actions:
-
-P0 - Must review before modifying anything
-P1 - Important improvement
-P2 - Useful improvement
-P3 - Future enhancement
-
-============================================================
-16. DO NOT MODIFY CODE YET
-==========================
+## 16. DO NOT MODIFY CODE YET
 
 This is extremely important.
 
@@ -537,30 +378,7 @@ REJECTED
 
 in the next development stage.
 
-============================================================
-17. STUDENT DOCUMENTATION SUPPORT
-=================================
-
-At the end, provide a section:
-
-# Suggested Student Evaluation Record
-
-For each major finding, provide a suggested documentation entry containing:
-
-* AI-generated decision/recommendation
-* Student evaluation required
-* Possible decision: ACCEPTED / MODIFIED / REJECTED
-* Verification method
-* Student change
-* Remaining risk
-
-Do NOT fill in the student decision as if it has already happened.
-
-The students must make the final decision themselves.
-
-============================================================
-18. FINAL WARNING
-=================
+## 18. FINAL WARNING
 
 Passing 39/39 pytest tests does NOT prove:
 

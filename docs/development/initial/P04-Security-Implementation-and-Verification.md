@@ -1,17 +1,16 @@
-# P04 — Security Implementation & Verification
+# P04 — Security Implementation and Verification
 
-> **AI-implemented phase — student verification required.** This
-> document was produced by an AI assistant executing the P03-approved
-> design (`prompt/P04`, `review/P03`). Every claim below is backed by
-> a recorded test run or live demonstration; where a claim could not
-> be verified, that is stated explicitly. Nothing here means the
-> project is production-secure.
->
+> Initial Development Record. Implementation and fail-first verification of the selected P03 design. Unverified claims and remaining risks remain explicitly identified.
+> Historical scope: the initial software simulation, not current engineering or production acceptance.
+> Editorial update: 2026-10-18. Technical findings, results, decision status, and remaining risks are preserved.
+
+[Record index](README.md) · [Historical requirements](P04-REQUIREMENTS.md)
+
 > Environment: Windows 11 (10.0.26200), Python 3.12.0,
 > cryptography 50.0.1, pytest 9.1.1, Docker **not installed**,
 > not a git repository.
 
----
+The original development used AI assistance; the provenance and review boundaries are documented in the record index. Pending human review entries below remain pending. References to the course, original documentation, or unavailable tools describe the historical phase, not current project requirements.
 
 ## 1. Implementation Summary
 
@@ -80,7 +79,7 @@ order, with fail-first tests written before the fixes:
 
 All baseline failures were reproduced in P04 **before** the fixes were
 implemented (recorded 2026-09-07 ~22:01–22:02; preserved in the
-session logs and `review/P02` appendix).
+session logs and `docs/development/initial/P02-Baseline-Technical-Review.md` appendix).
 
 | Finding | Baseline behavior | Test | Initial result |
 | --- | --- | --- | --- |
@@ -218,7 +217,7 @@ run; three test-harness bugs found during implementation were fixed
 in the tests themselves (documented in section 13) and two tests
 were intentionally updated for the P03-approved design change
 (`determine_path` "both"; readings require `sequence`) — both
-documented in `review/P03` and in the test files.
+documented in `docs/development/initial/P03-Security-Evaluation-and-Design-Decisions.md` and in the test files.
 
 ## 7. Integration Tests
 
@@ -329,7 +328,7 @@ documented in README section 7 with status/deferred/reason):
   pytest — will fail on test failure by construction). Recorded as
   "CI execution not verified."
 
-## 13. P04 Student/AI Development Record
+## 13. P04 Decision, Implementation and Verification Record
 
 For every major implementation (students must complete the review
 column with their own verification):
@@ -402,7 +401,7 @@ column with their own verification):
 `tests/test_hello_policy.py`, `tests/test_replay.py`,
 `tests/test_pinning.py`, `tests/test_session.py`,
 `tests/test_device_keys.py`,
-`review/P04 - Security Implementation & Verification.md`.
+`docs/development/initial/P04-Security-Implementation-and-Verification.md`.
 
 **Tests:** `pytest`: **101 passed, 0 failed, 0 skipped** (0.53 s).
 Baseline before P04: 39 passed; fail-first run: 53 failed / 29

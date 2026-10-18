@@ -1,18 +1,15 @@
-# P08 - Additional Adversarial Testing, Attack-Chain Analysis & Targeted Remediation
+# P08 — Adversarial Testing and Remediation
 
-> **AI-generated final report.** This document was produced by an AI
-> assistant executing `prompt/P08 - Additional Adversarial Testing,
-> Attack-Chain Analysis & Targeted Remediation.md`. P08 is an additive
-> maintenance/evolution phase: P02–P07 were NOT rewritten, deleted, or
-> retroactively altered. Its purpose is to reproduce the new BF
-> findings, distinguish root vulnerabilities from compound attack
-> effects, remediate only the approved scope (BF-01, BF-03A), and
-> document the rest honestly. The central result is that the
-> unauthenticated-fake-Gateway attack changed from **YES before P08** to
-> **NO after P08**.
->
+> Initial Development Record. Additional adversarial testing, attack-chain analysis, and targeted remediation of BF-01 and BF-03A. Historical before/after results and residual risks remain recorded below.
+> Historical scope: the initial software simulation, not current engineering or production acceptance.
+> Editorial update: 2026-10-18. Technical findings, results, decision status, and remaining risks are preserved.
+
+[Record index](README.md) · [Historical requirements](P08-REQUIREMENTS.md)
+
 > Date: 2026-09-08. Environment: Windows 11 (10.0.26200), verification
 > Python 3.12.10 (win_amd64), cryptography 50.0.1, pytest 9.1.1.
+
+The original development used AI assistance; the provenance and review boundaries are documented in the record index. Pending human review entries below remain pending. References to the course, original documentation, or unavailable tools describe the historical phase, not current project requirements.
 
 ## 1. Purpose
 

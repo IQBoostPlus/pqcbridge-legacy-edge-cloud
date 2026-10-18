@@ -183,13 +183,13 @@ gateway-to-device authorization policy passes its own allow/deny controls.
 Each entry states the historical disposition, current mechanism, and the
 boundary of this run. Historical “fixed/verified” labels below describe the
 specified historical check, not blanket engineering closure. Review sources:
-[P02](../../review/P02%20-%20Baseline%20Technical%20Review.md),
-[P03](../../review/P03%20-%20Student%20Security%20Evaluation%20%26%20Design%20Decisions.md),
-[P04](../../review/P04%20-%20Security%20Implementation%20%26%20Verification.md),
-[P05](../../review/P05%20-%20Independent%20Security%20Verification%20%26%20Re-test.md),
-[P06](../../review/P06%20-%20NEW-1%20Fix%20%26%20Final%20Security%20Verification.md),
-[P07](../../review/P07%20-%20Final%20Project%20Evaluation%20%26%20Evidence%20Consolidation.md),
-[P08](../../review/P08%20-%20Additional%20Adversarial%20Testing,%20Attack-Chain%20Analysis%20%26%20Targeted%20Remediation.md).
+[P02](../development/initial/P02-Baseline-Technical-Review.md),
+[P03](../development/initial/P03-Security-Evaluation-and-Design-Decisions.md),
+[P04](../development/initial/P04-Security-Implementation-and-Verification.md),
+[P05](../development/initial/P05-Independent-Security-Verification.md),
+[P06](../development/initial/P06-Nonce-Validation-and-Security-Verification.md),
+[P07](../development/initial/P07-Evaluation-and-Evidence-Consolidation.md),
+[P08](../development/initial/P08-Adversarial-Testing-and-Remediation.md).
 
 - **F-01, unauthenticated ML-KEM key establishment:** P03 chose fingerprint
   pinning; P04 implemented; P05/P06 independently rejected key substitution;

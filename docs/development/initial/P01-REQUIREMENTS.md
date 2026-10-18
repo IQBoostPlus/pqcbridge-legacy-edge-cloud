@@ -1,21 +1,12 @@
-You are assisting a university group project for the course
-"Software Development, Maintenance & Operations".
+# P01 Historical Requirements and Acceptance Criteria
 
-IMPORTANT:
-You are an AI coding assistant, not an authority. Your output will be
-treated as an untrusted AI-generated draft.
+Status: historical specification, not implementation evidence or instructions to resume work.
 
-The student team will manually review, test, audit, modify, improve,
-or reject your code and design decisions. Do not assume that code that
-runs successfully is automatically correct, secure, maintainable,
-testable, or suitable for operations.
+This companion to [P01](P01-Baseline-Design.md) preserves the technical requirements, constraints, test cases, and acceptance criteria from its initial task specification. Original section numbers and technical wording are retained for traceability. Role setup and response-format instructions are omitted; see the [coverage ledger](REQUIREMENTS_COVERAGE.md).
 
-The team will record this prompt, your relevant output, and the changes
-made by students as part of the project's technical documentation.
+Imperative wording describes what the historical phase was asked to do, not what it achieved. References to student review remain historical ownership requirements, not proof that review occurred. Later engineering decisions may supersede these prototype constraints.
 
-============================================================
-1. PROJECT CONTEXT
-============================================================
+## 1. PROJECT CONTEXT
 
 The project is about:
 
@@ -40,9 +31,7 @@ The system contains three components:
 The project should remain small and manageable. Do NOT unnecessarily
 turn this into a production-grade distributed system.
 
-============================================================
-2. LEGACY DEVICE
-============================================================
+## 2. LEGACY DEVICE
 
 Implement a simulated legacy IoT sensor.
 
@@ -67,9 +56,7 @@ The legacy device should be intentionally simple.
 Assume that legacy devices may continue to exist during a migration
 period.
 
-============================================================
-3. EDGE GATEWAY
-============================================================
+## 3. EDGE GATEWAY
 
 The Edge Gateway is the central component of the system.
 
@@ -119,9 +106,7 @@ The TODO areas should include questions such as:
 
 Do not pretend that the fallback design is production-ready.
 
-============================================================
-4. CLOUD SERVICE
-============================================================
+## 4. CLOUD SERVICE
 
 Implement a simulated Cloud Service.
 
@@ -146,9 +131,7 @@ Do not expose:
 - symmetric encryption keys
 - other sensitive key material
 
-============================================================
-5. COMMUNICATION
-============================================================
+## 5. COMMUNICATION
 
 Use a simple communication mechanism such as:
 
@@ -170,9 +153,7 @@ Clearly separate:
 
 Do not build a complicated message broker or microservice architecture.
 
-============================================================
-6. CRYPTOGRAPHY REQUIREMENTS
-============================================================
+## 6. CRYPTOGRAPHY REQUIREMENTS
 
 Use existing, reputable Python cryptographic libraries.
 
@@ -199,9 +180,7 @@ existing cryptographic functionality into a legacy software system.
 
 Clearly comment where cryptographic library APIs are being used.
 
-============================================================
-7. LOGGING
-============================================================
+## 7. LOGGING
 
 Add basic application logging.
 
@@ -222,9 +201,7 @@ Avoid logging sensitive plaintext unnecessarily.
 
 Use safe placeholders or identifiers instead of secret values.
 
-============================================================
-8. HEALTH CHECKS
-============================================================
+## 8. HEALTH CHECKS
 
 Add simple health-check functionality.
 
@@ -238,9 +215,7 @@ Do NOT create a complicated monitoring system.
 
 Leave TODO comments for improvements that the student team may consider.
 
-============================================================
-9. METRICS
-============================================================
+## 9. METRICS
 
 Add simple metrics counters/placeholders.
 
@@ -257,9 +232,7 @@ The metrics are intended for later baseline analysis and evaluation.
 
 Do not create a full observability platform.
 
-============================================================
-10. TESTING
-============================================================
+## 10. TESTING
 
 Provide a minimal pytest test suite.
 
@@ -285,9 +258,7 @@ Clearly indicate areas where the student team should add:
 
 Use TODO markers where appropriate.
 
-============================================================
-11. DOCKER / DEPLOYMENT
-============================================================
+## 11. DOCKER / DEPLOYMENT
 
 Provide simple Dockerfiles for:
 
@@ -302,9 +273,7 @@ The deployment should be suitable for a university test environment.
 
 Do NOT claim that the Docker configuration is production-ready.
 
-============================================================
-12. CI/CD BASELINE
-============================================================
+## 12. CI/CD BASELINE
 
 Provide a minimal CI configuration, preferably GitHub Actions.
 
@@ -326,9 +295,7 @@ Leave TODO markers for possible future improvements such as:
 - Docker image building
 - integration tests
 
-============================================================
-13. PROJECT STRUCTURE
-============================================================
+## 13. PROJECT STRUCTURE
 
 Provide a clean and understandable project structure.
 
@@ -351,9 +318,7 @@ You may modify this structure if there is a clear reason.
 
 Explain the purpose of each major module.
 
-============================================================
-14. BASELINE MEASUREMENTS
-============================================================
+## 14. BASELINE MEASUREMENTS
 
 Provide simple placeholders or basic measurements that can later be
 used by the student team for baseline analysis.
@@ -372,9 +337,7 @@ Do NOT create a sophisticated benchmarking framework.
 The purpose is to give the students a starting point for later
 performance and operational evaluation.
 
-============================================================
-15. SECURITY AND LIMITATIONS
-============================================================
+## 15. SECURITY AND LIMITATIONS
 
 This is a university prototype.
 
@@ -399,70 +362,7 @@ However, do not simply list generic security warnings.
 Identify limitations that are actually relevant to the generated
 architecture and implementation.
 
-============================================================
-16. AI-GENERATED CODE REVIEW SUPPORT
-============================================================
-
-Because this project specifically evaluates LLM-assisted software
-development, structure the generated code so that students can
-critically review it.
-
-Use clear comments such as:
-
-    TODO: Student review required.
-
-for design decisions that should not be accepted without verification.
-
-For potentially risky implementation decisions, explain briefly why
-they may require manual review.
-
-Do NOT hide uncertainty.
-
-If there are multiple reasonable design choices, state the assumption
-and explain the trade-off instead of pretending there is only one
-correct solution.
-
-============================================================
-17. OUTPUT FORMAT
-============================================================
-
-Provide the following:
-
-1. Project directory structure.
-
-2. requirements.txt
-
-3. Source code for:
-   - Legacy Device
-   - Edge Gateway
-   - Cloud Service
-   - shared cryptographic utilities
-   - shared protocol utilities
-
-4. pytest baseline tests.
-
-5. Dockerfile for each component.
-
-6. docker-compose.yml.
-
-7. Minimal CI/CD workflow.
-
-8. README.md containing:
-   - architecture overview
-   - how to install dependencies
-   - how to run locally
-   - how to run tests
-   - how to run with Docker
-   - basic security limitations
-   - known TODOs
-   - areas requiring student review
-
-9. A short "AI-generated artifact review checklist" identifying
-   important parts that the student team should manually verify.
-
-============================================================
-18. IMPORTANT SCOPE LIMIT
-============================================================
+## 18. IMPORTANT SCOPE LIMIT
 
 Keep the implementation minimal.
 
@@ -495,124 +395,3 @@ small runnable baseline that can subsequently be:
 
 The student team must remain responsible for all final technical and
 security decisions.
-
-============================================================
-19. FINAL RESPONSE REQUIREMENT
-============================================================
-
-After providing the code, include a concise section called:
-
-"Potential Student Review Points"
-
-List the most important parts of the generated artifact that should
-be manually reviewed and tested by the group.
-
-Do NOT claim that the generated implementation is secure merely because
-the tests pass.
-
-============================================================
-20. AI PROMPT AND ARTIFACT DOCUMENTATION REQUIREMENT
-============================================================
-
-This project requires transparent documentation of AI-assisted
-development.
-
-Every significant prompt used to generate, modify, review, test,
-refactor, or evaluate a project artifact must be recorded by the
-student team.
-
-For EACH significant AI interaction, the project documentation should
-record:
-
-1. Prompt
-   - Record the complete prompt submitted to the LLM.
-   - Do not record only a shortened summary.
-   - Preserve the original wording where possible.
-
-2. Purpose / Requirement
-   - Explain what task the prompt was intended to accomplish.
-   - Identify which project requirement it addresses.
-
-3. Context
-   - Record the relevant project context or information provided to
-     the LLM.
-   - Include relevant existing code, architecture, constraints, or
-     previous decisions when applicable.
-
-4. AI Output
-   - Preserve the relevant generated output.
-   - For very large outputs, the team may retain the complete output
-     separately and include a representative selection in the main
-     technical documentation.
-
-5. Student Evaluation
-   - Explain what the students checked.
-   - Record functional, security, maintainability, testability,
-     performance, and operational concerns where relevant.
-
-6. Student Decision
-   Clearly classify the generated artifact or suggestion as:
-
-       ACCEPTED
-       MODIFIED
-       REJECTED
-
-7. Reason for Decision
-   - Explain why the team accepted, modified, or rejected it.
-   - Do not simply state that the code "worked".
-
-8. Verification
-   - Explain how the decision was verified.
-   - Examples include:
-       - pytest results
-       - integration testing
-       - manual testing
-       - code review
-       - static analysis
-       - security testing
-       - performance measurements
-       - failure testing
-
-9. Student Changes
-   - Clearly describe what the students changed after receiving
-     the AI-generated output.
-
-10. Remaining Risks / Uncertainty
-    - Record known limitations, unresolved problems, assumptions,
-      technical debt, or security risks that remain after modification.
-
-The documentation should allow a reviewer to understand the complete
-development chain:
-
-    Prompt
-       ↓
-    AI-generated artifact
-       ↓
-    Student testing and review
-       ↓
-    Problems identified
-       ↓
-    Student modification/rejection
-       ↓
-    Verification
-       ↓
-    Final artifact
-       ↓
-    Remaining risks
-
-IMPORTANT:
-
-Do not present the AI-generated output as if it was written or
-validated by the students.
-
-Clearly distinguish between:
-
-    AI-generated content
-
-and
-
-    Student-reviewed / student-modified content.
-
-The purpose of this documentation is to demonstrate that the group
-can critically evaluate, validate, improve, and take responsibility
-for AI-assisted software development.

@@ -1,20 +1,46 @@
 # PQC Bridge — Legacy Edge-Cloud
 
-> ⚠️ **AI-assisted project, student-owned.** The P01 baseline was
-> AI-generated; P02 reviewed it; P03 defined the security design; P04
-> implemented the approved fixes; P05 independently re-tested every
-> security claim and discovered NEW-1; P06 fixed NEW-1; P07
-> consolidated the evidence; P08 added adversarial testing, reproduced
-> the BF-01..BF-07 findings, and remediated BF-01 (gateway
-> authentication) and BF-03A (configuration-driven credentials). Every
-> phase is documented in `prompt/` and `review/`. This is a university
-> prototype — **not** production-grade secure software. Passing tests
-> never means secure.
+PQC Bridge explores verifiable post-quantum migration for legacy edge-to-cloud
+telemetry: authenticated hybrid transport, durable delivery, bounded recovery,
+and evidence of the policy actually in effect.
 
-Project: **Legacy System Modernization for PQC & LLM-Assisted Development**
-Course: Software Development, Maintenance & Operations
+> **Engineering prototype with bounded lab acceptance.** Phase A transport
+> selection and Phase B secure delivery are accepted for owned Docker services
+> and simulated devices. Physical-device compatibility and production security
+> have not been established. Passing tests does not prove a system secure.
 
-## 1. Architecture overview
+## Current Engineering Status
+
+- [Phase A](docs/phase-a/STATUS.md): target-runtime hybrid TLS feasibility and the
+  simulation delivery contract were verified.
+- [Phase B](docs/phase-b/STATUS.md): an opt-in TLS 1.3/mTLS path with mandatory
+  hybrid key exchange, identity authorization, durable queues, cloud deduplication
+  and acknowledgements, recovery, and resource limits was accepted in the lab.
+- Phase C management work is paused and not accepted; incomplete local work is
+  excluded from this documentation publication. Phase D remains future work.
+- [Engineering operations](docs/phase-b/OPERATIONS.md) documents the opt-in path.
+  The V1 commands and architecture below remain available as the initial baseline.
+
+These are recorded phase outcomes, not tests rerun during this documentation
+update. Consult each phase's evidence and limitations before making a claim.
+
+## Roadmap and Development Records
+
+- [Engineering and competition roadmap](docs/ENGINEERING_ROADMAP.md)
+- [Short-term implementation plan](docs/SHORT_TERM_PLAN.md)
+- [Initial Development Records: P01–P08](docs/development/initial/README.md)
+- [Development documentation guide](docs/development/README.md)
+
+The long-term aim is a reproducible cybersecurity and post-quantum migration
+project with a clearly evaluated contribution. AI-assisted migration diagnostics
+are a conditional research track, subject to measured benefit over rule-based
+and manual baselines. These roadmap capabilities are not completion claims.
+
+The following sections document the initial V1 path and its historical controls.
+They do not replace the separate Phase B operational instructions or imply that
+the opt-in engineering path has the same transport and persistence limitations.
+
+## 1. Initial V1 Architecture
 
 Three components, pure software simulation, plain TCP with a tiny
 JSON-lines protocol (no TLS — see section 7):
@@ -253,10 +279,10 @@ end-to-end Device → Gateway → Cloud, pin enforcement, restart
 behavior) was verified on 2026-09-21 with Docker Desktop 29.8.0 —
 see the verification status above.
 
-## 7. Security limitations (final state, P08)
+## 7. Initial V1 Security Limitations (P08)
 
-**Fixed in P04, P06 and P08 (evidence in `review/P04`, `review/P06`
-and `review/P08`):**
+**Fixed in P04, P06 and P08 (evidence in `docs/development/initial/P04`, `docs/development/initial/P06`
+and `docs/development/initial/P08`):**
 - unauthenticated ML-KEM key establishment (now fingerprint-pinned),
 - downgrade via unauthenticated capability claims (now AEAD-tagged
   hellos + explicit reject policy),
@@ -295,7 +321,7 @@ and `review/P08`):**
 | 7 | No rate limiting / thread caps (accepted at 1–3 device demo scale) | Deferred | P03 F-12 decision |
 | 8 | Key material lives in Python bytes for the process lifetime (no zeroization) | Deferred | Python limitation; C-level secure memory out of scope |
 | 9 | Pins and device keys are provisioned via env/config (simulated provisioning) | Accepted | The registry simulates provisioning; it is not a production provisioning system |
-| 10 | In-memory storage/metrics only; health endpoint unauthenticated | Accepted | By design (prompt section 4/8) |
+| 10 | In-memory storage/metrics only; health endpoint unauthenticated | Accepted | By design (P01 historical requirements sections 4/8) |
 | 11 | Docker compose runtime deployment | Resolved (2026-09-21) | Previously unverifiable on the dev machine (no Docker Engine); now verified end-to-end with Docker Desktop 29.8.0 — see section 6 |
 | 12 | Gateway `/health` is only available after the first successful cloud session; during the initial establishment retry loop there is no health endpoint (NEW-2, found in P05) | Deferred | Not required for the NEW-1 fix; P06 scope decision |
 | 13 | No keepalive/heartbeat: a dead cloud connection is detected only when the next forwarding operation fails (NEW-3, found in P05) | Accepted | P03 send-failure-detection design; educational prototype |
@@ -303,7 +329,7 @@ and `review/P08`):**
 | 15 | No sequence jump window: replay state can be poisoned by a large accepted sequence number (BF-03B, P08) | Accepted | P03 design; a jump window may weaken replay protection |
 | 16 | Unauthenticated `/health` and `/readings`, bound to `0.0.0.0` (BF-05, P08) | Accepted | Educational deployment; do not expose to an untrusted network |
 
-## 8. Known TODOs
+## 8. Historical V1 Follow-ups
 
 - Modern device path (direct device↔gateway ML-KEM) — rejected by
   policy until implemented (`gateway/processing.py`).
@@ -319,20 +345,18 @@ and `review/P08`):**
 - CI improvements: linting, static analysis, security scanning
   (`.github/workflows/ci.yml`).
 
-## 9. AI development chain (course documentation)
+## 9. Development History and Continuing Records
 
-| Phase | Artifact |
-| --- | --- |
-| P01 | `prompt/P01`, baseline code (AI-generated) |
-| P02 | `review/P02 - Baseline Technical Review.md` (15 findings, attack evidence) |
-| P03 | `review/P03 - Student Security Evaluation & Design Decisions.md` (decisions are student-owned proposals) |
-| P04 | `review/P04 - Security Implementation & Verification.md` (fail-first evidence, attack re-tests) |
-| P05 | `review/P05 - Independent Security Verification & Re-test.md` (independent TCP attacks; NEW-1 discovered) |
-| P06 | `review/P06 - NEW-1 Fix & Final Security Verification.md` (NEW-1 fail-first fix + re-verification) |
-| P07 | `review/P07 - Final Project Evaluation & Evidence Consolidation.md` (final evidence matrix + verdict) |
-| P08 | `review/P08 - Additional Adversarial Testing, Attack-Chain Analysis & Targeted Remediation.md` (BF-01..BF-07 reproduction; BF-01 + BF-03A remediation) |
+The [Initial Development Records](docs/development/initial/README.md) cover
+baseline design (P01), technical review (P02), proposed security decisions (P03),
+implementation (P04), independent verification (P05), targeted correction (P06),
+evidence consolidation (P07), and additional adversarial testing (P08).
 
-Every significant AI interaction must be recorded by the student team
-with the full chain: prompt → output → evaluation → decision →
-verification → change → remaining risk. AI-generated content and
-student-reviewed content must stay clearly separated.
+Technical requirements formerly held separately are retained beside each record.
+Historical findings, test outcomes, proposal status, and residual risks remain
+attached to their original phases. Later progress does not retroactively change
+those results.
+
+New milestones follow the [development record template](docs/development/RECORD_TEMPLATE.md):
+background and scope, findings and evidence, design decisions, implementation,
+verification results, and remaining risks. All project documents are in English.

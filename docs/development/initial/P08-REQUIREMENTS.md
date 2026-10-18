@@ -1,35 +1,12 @@
-# P08 – Additional Adversarial Testing, Attack-Chain Analysis & Targeted Remediation
+# P08 Historical Requirements and Acceptance Criteria
 
-## 0. Role
+Status: historical specification, not implementation evidence or instructions to resume work.
 
-You are acting as a senior software security engineer and software maintenance reviewer working on the existing university project:
+This companion to [P08](P08-Adversarial-Testing-and-Remediation.md) preserves the technical requirements, constraints, test cases, and acceptance criteria from its initial task specification. Original section numbers and technical wording are retained for traceability. Role setup and response-format instructions are omitted; see the [coverage ledger](REQUIREMENTS_COVERAGE.md).
 
-**PQCBridge Legacy Edge-Cloud — Post-Quantum Security Migration Simulation**
+Imperative wording describes what the historical phase was asked to do, not what it achieved. References to student review remain historical ownership requirements, not proof that review occurred. Later engineering decisions may supersede these prototype constraints.
 
-Repository:
-
-`D:\Code\pqcbridge-legacy-edge-cloud`
-
-Remote repository:
-
-`https://github.com/IQBoostPlus/pqcbridge-legacy-edge-cloud`
-
-This is **P08**, following the existing project phases:
-
-* P01 – Baseline Generation
-* P02 – Baseline Technical Review
-* P03 – Student Evaluation & Security Design Decisions
-* P04 – Security Implementation & Verification
-* P05 – Independent Security Verification & Re-test
-* P06 – NEW-1 Fix & Final Security Verification
-* P07 – Final Project Evaluation & Evidence Consolidation
-* **P08 – Additional Adversarial Testing, Attack-Chain Analysis & Targeted Remediation**
-
-P08 must preserve the existing engineering history. **Do not rewrite or silently alter P02–P07.**
-
----
-
-# 1. Project Context
+## 1. Project Context
 
 The project is a small educational legacy edge-cloud simulation:
 
@@ -80,11 +57,11 @@ The goal is to:
 
 ---
 
-# 2. Critical Rules
+## 2. Critical Rules
 
 Follow these rules strictly.
 
-## Rule 1 – Do not blindly trust previous AI-generated conclusions
+### Rule 1 – Do not blindly trust previous AI-generated conclusions
 
 Treat the current source code, tests, configuration, logs, and reproducible behavior as the source of truth.
 
@@ -94,7 +71,7 @@ Do not assume the new BF findings are correct without reproducing them.
 
 ---
 
-## Rule 2 – Do not modify P02–P07 reports
+### Rule 2 – Do not modify P02–P07 reports
 
 Do NOT rewrite, delete, or retroactively alter:
 
@@ -111,26 +88,26 @@ If P07 said something was true at the time of P07, preserve that historical reco
 
 ---
 
-## Rule 3 – Do not expand the scope without explicit approval
+### Rule 3 – Do not expand the scope without explicit approval
 
 The approved P08 remediation scope is initially:
 
-### MUST investigate and, if reproducible, remediate
+#### MUST investigate and, if reproducible, remediate
 
 * BF-01 – Cloud does not authenticate Gateway
 * BF-03A – insecure/hard-coded device credential management
 
-### MUST investigate but do NOT automatically remediate
+#### MUST investigate but do NOT automatically remediate
 
 * BF-02 – connection flooding / one-thread-per-connection DoS
 * BF-03B – unbounded sequence advancement / sequence-jump desynchronization
 * BF-05 – unauthenticated `/health` and `/readings`
 
-### MUST document as a negative result
+#### MUST document as a negative result
 
 * BF-04 – device ID timing side channel
 
-### Compound findings to analyse and re-test
+#### Compound findings to analyse and re-test
 
 * BF-06 – targeted cloud-side data blindness through sequence-state poisoning
 * BF-07 – plausible-data replacement / false data continuity
@@ -139,7 +116,7 @@ Do not introduce TLS, OAuth, JWT, a complete PKI, a new identity-management syst
 
 ---
 
-# 3. Initial Repository Inspection
+## 3. Initial Repository Inspection
 
 Before changing any source code:
 
@@ -153,7 +130,7 @@ Before changing any source code:
 8. inspect `gateway/`;
 9. inspect `cloud/`;
 10. inspect `tests/`;
-11. inspect `review/P02*` through `review/P07*`;
+11. inspect `docs/development/initial/P02-Baseline-Technical-Review.md*` through `docs/development/initial/P07-Evaluation-and-Evidence-Consolidation.md*`;
 12. inspect existing CI configuration;
 13. inspect current git status and commit;
 14. verify that the working tree is clean or explicitly report any pre-existing changes.
@@ -171,7 +148,7 @@ Report:
 
 ---
 
-# 4. Existing Baseline Must Be Re-established
+## 4. Existing Baseline Must Be Re-established
 
 Before implementing anything:
 
@@ -199,13 +176,13 @@ Do not delete tests to make the suite green.
 
 ---
 
-# 5. New BF Findings
+## 5. New BF Findings
 
 Use the following findings as hypotheses to investigate.
 
-## BF-01 – Cloud does not authenticate Gateway
+### BF-01 – Cloud does not authenticate Gateway
 
-### Description
+#### Description
 
 The cloud verifies its own ML-KEM public-key identity through fingerprint pinning, but the cloud does not authenticate the identity of the connecting Gateway.
 
@@ -252,9 +229,9 @@ Do not log or expose real secret material.
 
 ---
 
-# 6. BF-02 – Connection Flooding / Resource Exhaustion
+## 6. BF-02 – Connection Flooding / Resource Exhaustion
 
-### Description
+#### Description
 
 The current design may use approximately:
 
@@ -305,13 +282,13 @@ Treat this as a deferred/residual operational risk unless the user explicitly ch
 
 ---
 
-# 7. BF-03 – Device Credential Management + Sequence Jump
+## 7. BF-03 – Device Credential Management + Sequence Jump
 
 BF-03 contains TWO different root issues.
 
 Do not merge them into one technical mechanism.
 
-## BF-03A – Hard-coded / insecure device credential management
+### BF-03A – Hard-coded / insecure device credential management
 
 Investigate whether device credentials are embedded directly in source code or otherwise exposed through tracked source/configuration.
 
@@ -346,7 +323,7 @@ Add regression tests where appropriate.
 
 ---
 
-## BF-03B – Unbounded Sequence Advancement
+### BF-03B – Unbounded Sequence Advancement
 
 Investigate:
 
@@ -402,7 +379,7 @@ The preferred P08 conclusion is likely:
 
 ---
 
-# 8. BF-04 – Device ID Timing Side Channel
+## 8. BF-04 – Device ID Timing Side Channel
 
 Test the hypothesis that device ID enumeration can be distinguished through response timing.
 
@@ -438,7 +415,7 @@ Do not artificially create a fix just to eliminate the finding.
 
 ---
 
-# 9. BF-05 – Unauthenticated `/health` and `/readings`
+## 9. BF-05 – Unauthenticated `/health` and `/readings`
 
 Investigate:
 
@@ -470,7 +447,7 @@ data authenticity
 
 ---
 
-# 10. BF-06 – Targeted Cloud Data Blindness
+## 10. BF-06 – Targeted Cloud Data Blindness
 
 Treat BF-06 as a **compound attack effect**, not as an independent root vulnerability.
 
@@ -511,7 +488,7 @@ Do not overclaim.
 
 ---
 
-# 11. BF-07 – False Data Continuity / Data Sovereignty Impact
+## 11. BF-07 – False Data Continuity / Data Sovereignty Impact
 
 Treat BF-07 as a **compound impact**, not necessarily a separate root vulnerability.
 
@@ -558,11 +535,11 @@ or:
 
 ---
 
-# 12. Combined Attack Chains
+## 12. Combined Attack Chains
 
 P08 must analyse the findings as attack chains.
 
-## Attack Chain 1 – Data Blindness + Replacement
+### Attack Chain 1 – Data Blindness + Replacement
 
 ```text
 BF-05
@@ -588,7 +565,7 @@ This should be treated as the primary security scenario.
 
 ---
 
-## Attack Chain 2 – DoS + Data Replacement
+### Attack Chain 2 – DoS + Data Replacement
 
 ```text
 BF-02
@@ -610,7 +587,7 @@ This is an additional attack scenario.
 
 ---
 
-## Attack Chain 3 – Persistent Device Impersonation
+### Attack Chain 3 – Persistent Device Impersonation
 
 ```text
 BF-03A
@@ -632,7 +609,7 @@ It must NOT be described as a zero-credential attack.
 
 ---
 
-## Attack Chain 4 – Single-message Silent Blindness
+### Attack Chain 4 – Single-message Silent Blindness
 
 Demonstrate the minimum attack:
 
@@ -654,18 +631,18 @@ If claiming "one round trip", provide evidence from logs or packet/message timin
 
 ---
 
-# 13. Root Cause Analysis
+## 13. Root Cause Analysis
 
 Do not claim that all findings have exactly two root causes.
 
 The analysis should distinguish:
 
-### Major interacting root causes
+#### Major interacting root causes
 
 1. **Cloud authenticates itself to Gateway but does not authenticate Gateway identity.**
 2. **Replay protection only checks monotonic increase (`seq > last`) without preventing extreme sequence-state advancement.**
 
-### Additional independent weaknesses
+#### Additional independent weaknesses
 
 3. unbounded connection/thread handling;
 4. insecure credential storage/configuration;
@@ -677,7 +654,7 @@ BF-04 is a negative result.
 
 ---
 
-# 14. Remediation Decision Matrix
+## 14. Remediation Decision Matrix
 
 Before modifying code, create and record this decision matrix:
 
@@ -698,7 +675,7 @@ If evidence requires a different decision, explain why before changing it.
 
 ---
 
-# 15. BF-01 Remediation
+## 15. BF-01 Remediation
 
 Implement a minimal Gateway-to-Cloud authentication mechanism compatible with the existing architecture.
 
@@ -738,7 +715,7 @@ If the existing code already contains a suitable authentication primitive, reuse
 
 ---
 
-# 16. BF-03A Remediation
+## 16. BF-03A Remediation
 
 Move device credentials out of source code.
 
@@ -760,7 +737,7 @@ Do not break the educational local-run workflow.
 
 ---
 
-# 17. Fail-First Testing
+## 17. Fail-First Testing
 
 For every remediation:
 
@@ -789,7 +766,7 @@ Do not delete existing tests.
 
 ---
 
-# 18. Regression Testing
+## 18. Regression Testing
 
 After remediation:
 
@@ -812,47 +789,47 @@ Do not invent a test count.
 
 ---
 
-# 19. Regression Security Checks
+## 19. Regression Security Checks
 
 After BF-01/BF-03A remediation, re-test all important existing controls from P05/P06/P07:
 
-### F-01
+#### F-01
 
 Cloud key substitution remains rejected.
 
-### F-02
+#### F-02
 
 Downgrade/capability manipulation remains rejected.
 
-### F-03
+#### F-03
 
 Malformed handshake remains controlled.
 
-### F-04
+#### F-04
 
 Malformed encaps remains controlled.
 
-### F-05
+#### F-05
 
 Replay remains rejected.
 
-### F-06
+#### F-06
 
 Per-device credential isolation remains intact.
 
-### F-07
+#### F-07
 
 Cloud session recovery remains functional.
 
-### F-08
+#### F-08
 
 Metrics remain correct.
 
-### F-13
+#### F-13
 
 Health remains truthful with respect to service/session state.
 
-### NEW-1
+#### NEW-1
 
 Wrong-length nonce remains controlled.
 
@@ -860,7 +837,7 @@ Do not claim a previous finding remains fixed without testing it where practical
 
 ---
 
-# 20. Re-test the Compound Attack
+## 20. Re-test the Compound Attack
 
 This is a critical P08 requirement.
 
@@ -902,7 +879,7 @@ Do not claim that BF-06/BF-07 are fixed unless the actual attack is re-tested.
 
 ---
 
-# 21. Security Logging Requirements
+## 21. Security Logging Requirements
 
 Logs may be used as evidence, but:
 
@@ -929,7 +906,7 @@ If sequence numbers are used in evidence, ensure the evidence does not expose se
 
 ---
 
-# 22. Scope and Safety
+## 22. Scope and Safety
 
 All attack tests must target only the local educational project environment.
 
@@ -947,76 +924,7 @@ For BF-02 use bounded local testing only.
 
 ---
 
-# 23. Documentation Requirements
-
-Create:
-
-`review/P08 - Additional Adversarial Testing, Attack-Chain Analysis & Targeted Remediation.md`
-
-The report must follow the same style and evidence-oriented structure as P02–P07.
-
-Suggested structure:
-
-```text
-# P08 - Additional Adversarial Testing, Attack-Chain Analysis & Targeted Remediation
-
-## 1. Purpose
-
-## 2. Scope and Environment
-
-## 3. Pre-P08 Baseline
-
-## 4. New Findings
-
-### 4.1 BF-01
-### 4.2 BF-02
-### 4.3 BF-03A
-### 4.4 BF-03B
-### 4.5 BF-04
-### 4.6 BF-05
-
-## 5. Compound Findings
-
-### 5.1 BF-06
-### 5.2 BF-07
-
-## 6. Attack Chains
-
-### 6.1 Chain 1 – Data Blindness + Replacement
-### 6.2 Chain 2 – DoS + Data Replacement
-### 6.3 Chain 3 – Persistent Device Impersonation
-### 6.4 Chain 4 – Single-message Silent Blindness
-
-## 7. Root Cause Analysis
-
-## 8. Remediation Decision Matrix
-
-## 9. BF-01 Remediation
-
-## 10. BF-03A Credential Remediation
-
-## 11. Fail-First Verification
-
-## 12. Regression Verification
-
-## 13. Compound Attack Re-test
-
-## 14. Evidence Summary
-
-## 15. Residual Risks
-
-## 16. Deviations / Limitations
-
-## 17. Final P08 Assessment
-
-## 18. Files Changed
-
-## 19. Test Inventory
-```
-
----
-
-# 24. Evidence Standard
+## 24. Evidence Standard
 
 For every significant finding provide:
 
@@ -1058,7 +966,7 @@ Do not convert a hypothesis into a confirmed vulnerability.
 
 ---
 
-# 25. Before/After Security Matrix
+## 25. Before/After Security Matrix
 
 P08 must include a concise matrix:
 
@@ -1077,7 +985,7 @@ Use actual evidence, not assumptions.
 
 ---
 
-# 26. Final Verdict
+## 26. Final Verdict
 
 Do NOT automatically use "PASS".
 
@@ -1098,7 +1006,7 @@ But this is only acceptable if the actual verification evidence supports it.
 
 ---
 
-# 27. README / CLAUDE Updates
+## 27. README / CLAUDE Updates
 
 If P08 is successfully completed:
 
@@ -1121,7 +1029,7 @@ Do not claim that all vulnerabilities have been eliminated.
 
 ---
 
-# 28. Git Safety
+## 28. Git Safety
 
 Before finishing:
 
@@ -1137,55 +1045,7 @@ Do NOT commit or push unless explicitly instructed.
 
 ---
 
-# 29. Final P08 Output
-
-At the end, provide a concise engineering summary containing:
-
-### Repository state
-
-* branch;
-* commit;
-* clean/dirty state;
-* files changed.
-
-### Findings
-
-* BF-01 result;
-* BF-02 result;
-* BF-03A result;
-* BF-03B result;
-* BF-04 result;
-* BF-05 result;
-* BF-06 result;
-* BF-07 result.
-
-### Remediation
-
-* exact source files changed;
-* exact security behavior changed;
-* tests added;
-* tests modified, if any;
-* tests not removed.
-
-### Verification
-
-* fail-first result;
-* final pytest result;
-* live attack re-test result;
-* regression security result;
-* compound attack result.
-
-### Residual risks
-
-Clearly list what remains unresolved.
-
-### P08 verdict
-
-Use an evidence-based verdict.
-
----
-
-# 30. Important Engineering Principle
+## 30. Important Engineering Principle
 
 The purpose of P08 is not to make the report look perfect.
 
@@ -1243,7 +1103,7 @@ Never claim stronger security than the evidence supports.
 
 ---
 
-# 31. Do Not Stop at Unit Tests
+## 31. Do Not Stop at Unit Tests
 
 A successful P08 is NOT:
 

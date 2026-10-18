@@ -1,19 +1,16 @@
-# P03 — Student Security Evaluation & Design Decisions
+# P03 — Security Evaluation and Design Decisions
 
-> **AI-generated evaluation draft — decisions proposed, NOT made.**
-> This document was produced by an AI assistant from
-> `prompt/P03 - Student Evaluation & Security Design.md`. Every
-> "decision" below is a **proposal** prepared for the student team's
-> review; the students own the final decisions and must record them
-> (ACCEPTED / MODIFIED / REJECTED) per the course documentation rules.
-> **No project code was modified in P03.** The only file created is
-> this document.
->
+> Initial Development Record. Security evaluation and proposed design decisions. Decisions in this record remain proposals at the P03 point in history; later implementation evidence is recorded in P04.
+> Historical scope: the initial software simulation, not current engineering or production acceptance.
+> Editorial update: 2026-10-18. Technical findings, results, decision status, and remaining risks are preserved.
+
+[Record index](README.md) · [Historical requirements](P03-REQUIREMENTS.md)
+
 > Environment: Windows 11 (10.0.26200), Python 3.12.0,
 > cryptography 50.0.1, pytest 9.1.1, Docker **not installed**,
 > directory is **not a git repository**.
 
----
+The original development used AI assistance; the provenance and review boundaries are documented in the record index. Pending human review entries below remain pending. References to the course, original documentation, or unavailable tools describe the historical phase, not current project requirements.
 
 ## 1. Executive Summary
 
@@ -1055,7 +1052,7 @@ Remaining risk:
 
 ---
 
-## 5. Student Decision Table
+## 5. Proposed Decision Table
 
 | ID | Finding | Valid? | Student Decision (proposed) | Priority | P04 Action |
 | --- | --- | --- | --- | --- | --- |
@@ -1424,7 +1421,7 @@ modified in scope or severity as recorded in §4/§5.
 
 ---
 
-## 16. AI Recommendation Quality Review
+## 16. Recommendation Quality Review
 
 P02 recommendations that should NOT be followed blindly:
 
@@ -1508,7 +1505,7 @@ Each task's acceptance criterion is its row in §13.
 ## Final output notes
 
 - **Repository inspected:** README.md, CLAUDE.md,
-  prompt/P01+P02+P03, review/P02, common/* (config, protocol,
+  docs/development/initial/P01-REQUIREMENTS.md+P02+P03, docs/development/initial/P02-Baseline-Technical-Review.md, common/* (config, protocol,
   crypto, metrics, health, logging_setup), device/*, gateway/*
   (gateway, processing, cloud_channel), cloud/* (cloud, processing,
   store), tests/*, Dockerfile.*, docker-compose.yml,
@@ -1526,7 +1523,7 @@ Each task's acceptance criterion is its row in §13.
   (F-07), (6) whether deferred items (F-11 remainder, F-12, device
   reconnect) stay deferred.
 - **Proposed P04 scope:** the 11 tasks in §17, only as approved.
-- **Files created:** `review/P03 - Student Security Evaluation &
+- **Files created:** `docs/development/initial/P03-Security-Evaluation-and-Design-Decisions.md - Student Security Evaluation &
   Design Decisions.md` only. No source code, tests, config, Docker,
   CI, or README files were modified.
 - **No claims of fixes:** nothing in P03 fixes, tests-after-fix, or
