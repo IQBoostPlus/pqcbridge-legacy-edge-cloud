@@ -3,9 +3,12 @@
 Updated: 2026-10-19, Asia/Singapore. C completed after explicit user continuation.
 The strengthened live rollback changes standard to conservative profile while
 retaining current valid credentials and proving a fresh ACK. D has not started.
-Root is finalizing
-the authorized scoped C publication; automatic publication must defer while this
-turn is active. Existing pqc-bridge-github is ACTIVE with unchanged cadence.
+C completion4b70e0d4d6f2e71be9cd592e777b4936663314a5 is published on the C
+branch. Linux GitHub CI then found a test-fixture portability defect; its repair
+has passed247 tests on both native Windows and offline Linux. Main publication
+requires successful GitHub Linux CI for the exact repaired commit. Root is
+performing that gate; automation must defer while work is active. Existing
+pqc-bridge-github is ACTIVE with the latest main/no-PR rule and unchanged cadence.
 
 ## 1. Recovery Authority
 
@@ -43,15 +46,20 @@ unique validation images remain cached.
 
 Standing human authorization permits one scoped C completion commit and normal
 push to origin https://github.com/IQBoostPlus/pqcbridge-legacy-edge-cloud.git on
-codex/phase-c-management. Use an explicit reviewed allowlist and Phase-Completion:
-C trailer; exclude unrelated work/secrets/raw state. No PR. A local commit is not
-publication: verify exact remote SHA and consult the conversation result. If
-necessary use existing127.0.0.1:7897 proxy per command, without persistent changes.
+main under the latest explicit human instruction, superseding earlier phase-branch
+publication restrictions. Use the existing C branch only to obtain pre-main CI
+for the repaired commit; do not create or merge a PR. Fetch origin/main and require
+a normal fast-forward preserving remote commits. Use an explicit reviewed
+allowlist, excluding unrelated work/secrets/raw state. Do not duplicate the C
+completion trailer. Verify exact remote SHA. The existing proxy127.0.0.1:10808
+works per command; do not change persistent proxy settings.
 
 ## 4. Next Safe Step
 
-If C publication was interrupted, inspect Git status, completion trailer and
-origin ref; do not duplicate a completion commit, retry only an outstanding normal
-push. Otherwise report C complete and wait for the next bounded human request.
+If the CI repair publication was interrupted, inspect Git status and CI for the
+latest fix commit on codex/phase-c-management. After its Linux checks pass, push
+that same commit normally to main and verify the remote SHA. See
+docs/phase-c/CI_FIX.md for the local red/green record. Do not duplicate commits.
+After verified main publication, wait for the next bounded human request.
 RESUME_PROMPT.md documents recovery. Do not start D automatically. A later explicit
 pause always takes precedence over publication.

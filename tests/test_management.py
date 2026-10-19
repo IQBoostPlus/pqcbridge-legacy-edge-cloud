@@ -166,6 +166,9 @@ def test_stale_wrong_target_and_reused_ack_do_not_change_effectiveness(tmp_path)
     store.create_version('gw-1', 'hybrid-standard-v1', 'a' * 64, 'alice')
     old = observation(1)
     store.begin_apply('gw-1', 1, 'alice')
+    # Observe after begin_apply while retaining the old ACK/channel timestamps.
+    # A pre-apply observation is rejected earlier with a different valid reason.
+    old['observed_at'] = observation(1)['observed_at']
     with pytest.raises(ManagementError, match='ack_not_post_apply_or_reused'):
         store.observe('gw-1', 1, old, 'alice')
     with pytest.raises(ManagementError, match='invalid_observation'):
