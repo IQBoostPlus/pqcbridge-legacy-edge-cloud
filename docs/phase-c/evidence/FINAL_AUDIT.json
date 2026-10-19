@@ -1,0 +1,87 @@
+{
+  "status": "passed",
+  "checked_at": "2026-10-19T12:48:10.643041+00:00",
+  "baseline_commit": "5c12f8644d35ae85422318bbad934379067affa1",
+  "branch": "codex/phase-c-management",
+  "verification_records": {
+    "full-regression.json": {
+      "status": "passed",
+      "passed": 247,
+      "cases": 0,
+      "sha256": "bed941fc1d47cea97ce474c918709ba19a5c7afc561e8adc2cc3aeb135c2e2bb",
+      "source_drift": [],
+      "cleanup_verified": null,
+      "runtime_root": "D:\\Code\\pqcbridge-phase-c-artifacts\\full-regression-99928847b45143ff99eee04dcd4cfa02",
+      "image": null,
+      "runtime": null
+    },
+    "b-compatibility.json": {
+      "status": "passed",
+      "passed": null,
+      "cases": 19,
+      "sha256": "9941178d18d4a93c4fa1371e24223146cd1681742e32bcf7d070d0d258d3c29a",
+      "source_drift": [],
+      "cleanup_verified": true,
+      "runtime_root": "D:\\Code\\pqcbridge-phase-c-artifacts\\b-compatibility-final-f6f8e502850f4d45be81eaf1f634c3d5",
+      "image": "",
+      "runtime": {
+        "python": "3.12.14 (main, Sep 19 2026, 01:04:57) [GCC 14.2.0]",
+        "ssl": "OpenSSL 3.5.7 9 Jun 2026",
+        "cryptography": "50.0.1",
+        "platform": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.41"
+      },
+      "retained_image_tag": "pqc-b-d01a3ae629717a58:phase-b",
+      "retained_image_id": "sha256:ccaf79542e7a95f94e8ad4cc3bceba2de132aa63246f9e9c0116da50e48db8ac"
+    },
+    "observation-green.json": {
+      "status": "passed",
+      "passed": null,
+      "cases": 4,
+      "sha256": "c62905ee59c11bfc5ad045a50edf579f246dfc2052da192798f0c9f912174623",
+      "source_drift": [],
+      "cleanup_verified": true,
+      "runtime_root": "D:\\Code\\pqcbridge-phase-c-artifacts\\observation-final-5fad99cd015c474fa148b4a512957e4f",
+      "image": null,
+      "runtime": null,
+      "retained_image_tag": "pqc-c-377d40185f320990:phase-c",
+      "retained_image_id": "sha256:c2dc8934b02fe7a013231ada5665e1e351dce99f5169d2c8ac2b64f11e8b5d3a"
+    },
+    "docker-lifecycle-final.json": {
+      "status": "passed",
+      "passed": null,
+      "cases": 17,
+      "sha256": "42424da8bff1b9802ee5e2ab00dc7a60e36941310fa67b24778db5ff498b03fb",
+      "source_drift": [],
+      "cleanup_verified": true,
+      "runtime_root": "D:\\Code\\pqcbridge-phase-c-artifacts\\lifecycle-distinct-rollback-7d5f95cee5bf4063896cec35976c41ad",
+      "image": "sha256:28c86865a9e9feb9011c1db7d61af573b801328e9c3cb3f23869f23e11487cc2",
+      "runtime": {
+        "python": "3.12.14 (main, Sep 19 2026, 01:04:57) [GCC 14.2.0]",
+        "ssl": "OpenSSL 3.5.7 9 Jun 2026",
+        "cryptography": "50.0.1",
+        "platform": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.41"
+      },
+      "retained_image_tag": "pqc-c-a6d328bdbc457f13:phase-c",
+      "retained_image_id": "sha256:28c86865a9e9feb9011c1db7d61af573b801328e9c3cb3f23869f23e11487cc2"
+    }
+  },
+  "protected_input_baseline": "tmp\\phase-c-resume-latest-a36aba08aafa4aa0bcf38a10fc586a2a\\manifest.json",
+  "protected_input_count": 12,
+  "protected_changed_or_missing": [],
+  "owned_resources": {
+    "pqc.phase_c.owner": {
+      "containers": [],
+      "networks": [],
+      "volumes": []
+    },
+    "pqc.phase_b.owner": {
+      "containers": [],
+      "networks": [],
+      "volumes": []
+    }
+  },
+  "matching_validation_process_ids": [],
+  "scope": "Docker simulated-device C only; source/harness drift empty for completed final records; historical records retained separately",
+  "raw_artifact_policy": "synthetic credentials, state and logs outside checkout; no raw key/state files published; unique verification images retained",
+  "publication_line_endings": "Existing core.autocrlf normalizes staged text to LF; evidence hashes identify tested working-copy bytes. Staged publication verifies byte equality after CRLF-to-LF normalization; exact-byte TLS policy remains unchanged."
+}

@@ -1,0 +1,626 @@
+{
+  "status": "passed",
+  "runtime_root": "D:\\Code\\pqcbridge-phase-c-artifacts\\lifecycle-bdd2f79101354be3a8d04bc1235ccb91",
+  "cases": [
+    {
+      "name": "issuer_private_key_linux_permissions_and_role_mount_isolation",
+      "passed": true,
+      "permissions": "Linux tmpfs issuer+leaf directory0700/key0600; Windows bind artifacts have host ACL semantics"
+    },
+    {
+      "name": "gateway_real_source_delivery_post_apply_effective",
+      "passed": true,
+      "event": {
+        "accepted_at": "2026-10-18T08:49:56.102181Z",
+        "device_id": "dev-lab",
+        "event_id": "4ec39485-731b-456a-b5ae-576374513ee1",
+        "gateway_id": "gw-lab",
+        "payload": {
+          "temperature_c": 26.51,
+          "unit": "celsius"
+        },
+        "schema_version": 1,
+        "source_incarnation": "1dd4d7c4-196d-4923-adce-c4023f196ab6",
+        "source_sequence": 1,
+        "source_timestamp": "2026-10-18T08:49:56.090874Z"
+      },
+      "health": {
+        "live": true,
+        "service": "gateway",
+        "ready": true,
+        "policy_valid": true,
+        "cloud_connected": true,
+        "storage": {
+          "accepted_total": 1,
+          "acknowledged_total": 1,
+          "pending": 0,
+          "quarantined": 0,
+          "refused": 0,
+          "source_gap": 0,
+          "clock_uncertain": false
+        },
+        "metrics": {
+          "delivery_retry": 1,
+          "delivery_error_gaierror": 1,
+          "cloud_sessions": 1,
+          "durably_accepted": 1,
+          "matching_acks": 1,
+          "source_connection_closed": 1,
+          "source_error_TransportError": 1
+        },
+        "business_delivery": "delivered",
+        "last_matching_ack_at": "2026-10-18T08:49:56.266246+00:00",
+        "state_bytes": 135416,
+        "loss_count_unknown": false,
+        "management": {
+          "managed": true,
+          "valid": true,
+          "state": "Pending",
+          "sequence": 1,
+          "local_fingerprint": "cdd7dddab358fbdd81c4a228fcc0360333e5096058999040a7a710567aef783c",
+          "error": null,
+          "version": 1,
+          "desired_version": 1,
+          "profile": "hybrid-standard-v1",
+          "enabled": true
+        },
+        "gateway_id": "gw-lab",
+        "management_version": 1,
+        "management_desired_version": 1,
+        "management_applied_at": "2026-10-18T08:49:53.049684+00:00",
+        "management_state": "Effective"
+      },
+      "catalog_status": {
+        "active_credential": "cdd7dddab358fbdd81c4a228fcc0360333e5096058999040a7a710567aef783c",
+        "apply_at": "2026-10-18T08:49:50.634828Z",
+        "desired_version": 1,
+        "effective_version": 1,
+        "evidence": {
+          "business_delivery": "delivered",
+          "cloud_connected": true,
+          "gateway_id": "gw-lab",
+          "last_matching_ack_at": "2026-10-18T08:49:56.266246Z",
+          "management_version": 1,
+          "observed_at": "2026-10-18T08:49:58.342948Z"
+        },
+        "gateway_id": "gw-lab",
+        "last_ack_at": "2026-10-18T08:49:56.266246Z",
+        "profile": "hybrid-standard-v1",
+        "state": "Effective",
+        "updated_at": "2026-10-18T08:49:58.940820Z"
+      }
+    },
+    {
+      "name": "gateway_two_real_source_delivery_post_apply_effective",
+      "passed": true,
+      "event": {
+        "accepted_at": "2026-10-18T08:49:59.587024Z",
+        "device_id": "dev-two",
+        "event_id": "5177fdf2-14cd-475d-a359-6a09aafe7d7b",
+        "gateway_id": "gw-two",
+        "payload": {
+          "temperature_c": 25.79,
+          "unit": "celsius"
+        },
+        "schema_version": 1,
+        "source_incarnation": "13de3c0b-b27c-4c97-9470-6791ac701a49",
+        "source_sequence": 1,
+        "source_timestamp": "2026-10-18T08:49:59.577114Z"
+      },
+      "health": {
+        "live": true,
+        "service": "gateway",
+        "ready": true,
+        "policy_valid": true,
+        "cloud_connected": true,
+        "storage": {
+          "accepted_total": 1,
+          "acknowledged_total": 1,
+          "pending": 0,
+          "quarantined": 0,
+          "refused": 0,
+          "source_gap": 0,
+          "clock_uncertain": false
+        },
+        "metrics": {
+          "delivery_retry": 1,
+          "delivery_error_ConnectionRefusedError": 1,
+          "cloud_sessions": 1,
+          "durably_accepted": 1,
+          "matching_acks": 1,
+          "source_connection_closed": 1,
+          "source_error_TransportError": 1
+        },
+        "business_delivery": "delivered",
+        "last_matching_ack_at": "2026-10-18T08:49:59.758702+00:00",
+        "state_bytes": 143656,
+        "loss_count_unknown": false,
+        "management": {
+          "managed": true,
+          "valid": true,
+          "state": "Pending",
+          "sequence": 1,
+          "local_fingerprint": "b567dde12405ead9b654048bfb6333f2c1de8f3cbe681ae7c0cbcc6ce420bc3b",
+          "error": null,
+          "version": 1,
+          "desired_version": 1,
+          "profile": "hybrid-standard-v1",
+          "enabled": true
+        },
+        "gateway_id": "gw-two",
+        "management_version": 1,
+        "management_desired_version": 1,
+        "management_applied_at": "2026-10-18T08:49:53.218474+00:00",
+        "management_state": "Effective"
+      },
+      "catalog_status": {
+        "active_credential": "b567dde12405ead9b654048bfb6333f2c1de8f3cbe681ae7c0cbcc6ce420bc3b",
+        "apply_at": "2026-10-18T08:49:50.651591Z",
+        "desired_version": 1,
+        "effective_version": 1,
+        "evidence": {
+          "business_delivery": "delivered",
+          "cloud_connected": true,
+          "gateway_id": "gw-two",
+          "last_matching_ack_at": "2026-10-18T08:49:59.758702Z",
+          "management_version": 1,
+          "observed_at": "2026-10-18T08:50:01.827085Z"
+        },
+        "gateway_id": "gw-two",
+        "last_ack_at": "2026-10-18T08:49:59.758702Z",
+        "profile": "hybrid-standard-v1",
+        "state": "Effective",
+        "updated_at": "2026-10-18T08:50:02.398105Z"
+      }
+    },
+    {
+      "name": "live_canary_profile_post_apply_ack_and_unaffected_group",
+      "passed": true,
+      "status": {
+        "active_credential": "cdd7dddab358fbdd81c4a228fcc0360333e5096058999040a7a710567aef783c",
+        "apply_at": "2026-10-18T08:50:05.347476Z",
+        "desired_version": 2,
+        "effective_version": 2,
+        "evidence": {
+          "business_delivery": "delivered",
+          "cloud_connected": true,
+          "gateway_id": "gw-lab",
+          "last_matching_ack_at": "2026-10-18T08:50:09.034989Z",
+          "management_version": 2,
+          "observed_at": "2026-10-18T08:50:10.439032Z"
+        },
+        "gateway_id": "gw-lab",
+        "last_ack_at": "2026-10-18T08:50:09.034989Z",
+        "profile": "hybrid-conservative-v1",
+        "state": "Effective",
+        "updated_at": "2026-10-18T08:50:11.030990Z"
+      },
+      "unaffected_tcp_tuple": [
+        [
+          "030013AC:C1D0",
+          "040013AC:1543",
+          "01"
+        ]
+      ],
+      "unaffected_health": {
+        "live": true,
+        "service": "gateway",
+        "ready": true,
+        "policy_valid": true,
+        "cloud_connected": true,
+        "storage": {
+          "accepted_total": 2,
+          "acknowledged_total": 2,
+          "pending": 0,
+          "quarantined": 0,
+          "refused": 0,
+          "source_gap": 0,
+          "clock_uncertain": false
+        },
+        "metrics": {
+          "delivery_retry": 1,
+          "delivery_error_ConnectionRefusedError": 1,
+          "cloud_sessions": 1,
+          "durably_accepted": 2,
+          "matching_acks": 2,
+          "source_connection_closed": 2,
+          "source_error_TransportError": 2
+        },
+        "business_delivery": "delivered",
+        "last_matching_ack_at": "2026-10-18T08:50:12.565607+00:00",
+        "state_bytes": 167936,
+        "loss_count_unknown": false,
+        "management": {
+          "managed": true,
+          "valid": true,
+          "state": "Pending",
+          "sequence": 2,
+          "local_fingerprint": "b567dde12405ead9b654048bfb6333f2c1de8f3cbe681ae7c0cbcc6ce420bc3b",
+          "error": null,
+          "version": 1,
+          "desired_version": 1,
+          "profile": "hybrid-standard-v1",
+          "enabled": true
+        },
+        "gateway_id": "gw-two",
+        "management_version": 1,
+        "management_desired_version": 1,
+        "management_applied_at": "2026-10-18T08:49:53.218474+00:00",
+        "management_state": "Effective"
+      }
+    },
+    {
+      "name": "unknown_and_classical_profiles_refused_by_actual_cli",
+      "passed": true
+    },
+    {
+      "name": "missing_key_canary_fails_closed_without_disrupting_other_group",
+      "passed": true,
+      "health": {
+        "live": true,
+        "service": "gateway",
+        "ready": false,
+        "policy_valid": true,
+        "cloud_connected": false,
+        "storage": {
+          "accepted_total": 2,
+          "acknowledged_total": 2,
+          "pending": 0,
+          "quarantined": 0,
+          "refused": 0,
+          "source_gap": 0,
+          "clock_uncertain": false
+        },
+        "metrics": {
+          "delivery_retry": 3,
+          "delivery_error_gaierror": 1,
+          "cloud_sessions": 2,
+          "durably_accepted": 2,
+          "matching_acks": 2,
+          "source_connection_closed": 2,
+          "source_error_TransportError": 2,
+          "delivery_error_ServiceError": 2
+        },
+        "business_delivery": "delivered",
+        "last_matching_ack_at": "2026-10-18T08:50:09.034989+00:00",
+        "state_bytes": 167936,
+        "loss_count_unknown": false,
+        "management": {
+          "managed": true,
+          "valid": true,
+          "state": "Pending",
+          "sequence": 3,
+          "local_fingerprint": "9d18cf931c6ac3139de206bc1233efe0a826e7b14640c43671d9943aed885aa1",
+          "error": null,
+          "version": 3,
+          "desired_version": 3,
+          "profile": "hybrid-standard-v1",
+          "enabled": true
+        },
+        "gateway_id": "gw-lab",
+        "management_version": 2,
+        "management_desired_version": 3,
+        "management_applied_at": "2026-10-18T08:50:07.442871+00:00",
+        "management_state": "Applying"
+      },
+      "status": {
+        "active_credential": "9d18cf931c6ac3139de206bc1233efe0a826e7b14640c43671d9943aed885aa1",
+        "apply_at": "2026-10-18T08:50:18.772265Z",
+        "desired_version": 3,
+        "effective_version": 2,
+        "evidence": {
+          "business_delivery": "delivered",
+          "cloud_connected": false,
+          "gateway_id": "gw-lab",
+          "last_matching_ack_at": "2026-10-18T08:50:09.034989Z",
+          "management_version": 3,
+          "observed_at": "2026-10-18T08:50:23.849875Z"
+        },
+        "gateway_id": "gw-lab",
+        "last_ack_at": "2026-10-18T08:50:09.034989Z",
+        "profile": "hybrid-standard-v1",
+        "state": "Failed",
+        "updated_at": "2026-10-18T08:50:24.491155Z"
+      }
+    },
+    {
+      "name": "failed_rotation_recovers_with_same_already_issued_key_and_fingerprint",
+      "passed": true
+    },
+    {
+      "name": "profile_rollback_new_version_retains_current_valid_credential",
+      "passed": true,
+      "status": {
+        "active_credential": "9d18cf931c6ac3139de206bc1233efe0a826e7b14640c43671d9943aed885aa1",
+        "apply_at": null,
+        "desired_version": 4,
+        "effective_version": 3,
+        "evidence": null,
+        "gateway_id": "gw-lab",
+        "last_ack_at": "2026-10-18T08:50:26.778495Z",
+        "profile": "hybrid-standard-v1",
+        "state": "Rolled back",
+        "updated_at": "2026-10-18T08:50:29.882483Z"
+      }
+    },
+    {
+      "name": "stale_actual_observation_refused_and_public_status_projects_unknown",
+      "passed": true,
+      "boundary": "Public catalog supplied-time query; no five-minute runtime claim"
+    },
+    {
+      "name": "gateway_rotation_real_old_leaf_overlap_then_retirement",
+      "passed": true,
+      "overlap_seconds": 24,
+      "deadline": "2026-10-18T08:51:06.883755+00:00",
+      "old_before": {
+        "matching_committed_ack": true,
+        "reason": null
+      },
+      "old_after": {
+        "matching_committed_ack": false,
+        "reason": "TransportError"
+      }
+    },
+    {
+      "name": "emergency_revoke_disconnects_active_and_refuses_new_leaf",
+      "passed": true,
+      "elapsed_seconds": 1.062,
+      "revoked_health": {
+        "live": true,
+        "service": "gateway",
+        "ready": false,
+        "policy_valid": false,
+        "cloud_connected": false,
+        "storage": {
+          "accepted_total": 6,
+          "acknowledged_total": 6,
+          "pending": 0,
+          "quarantined": 0,
+          "refused": 0,
+          "source_gap": 0,
+          "clock_uncertain": false
+        },
+        "metrics": {
+          "cloud_sessions": 1,
+          "durably_accepted": 1,
+          "matching_acks": 1,
+          "source_connection_closed": 1,
+          "source_error_TransportError": 1,
+          "delivery_retry": 1,
+          "delivery_error_ServiceError": 1
+        },
+        "business_delivery": "delivered",
+        "last_matching_ack_at": "2026-10-18T08:51:10.454765+00:00",
+        "state_bytes": 135392,
+        "loss_count_unknown": false,
+        "management": {
+          "managed": true,
+          "valid": false,
+          "state": "Unknown",
+          "sequence": 6,
+          "local_fingerprint": "21ba5214c8c1121d15cbcc91c48b81f1df6a82e93ae20665766488b8af4f1197",
+          "error": null,
+          "version": 5,
+          "desired_version": 5,
+          "profile": "hybrid-standard-v1",
+          "enabled": true
+        },
+        "gateway_id": "gw-lab",
+        "management_version": 5,
+        "management_desired_version": 5,
+        "management_applied_at": "2026-10-18T08:51:10.018243+00:00",
+        "management_state": "Unknown"
+      },
+      "new_connection": {
+        "matching_committed_ack": false,
+        "reason": "TransportError"
+      }
+    },
+    {
+      "name": "old_control_snapshot_refused_after_real_role_restart",
+      "passed": true
+    },
+    {
+      "name": "fresh_nonrevoked_credential_recovers_without_namespace_reset",
+      "passed": true
+    },
+    {
+      "name": "device_disable_closes_existing_source_and_refuses_new_source",
+      "passed": true,
+      "held_source": {
+        "source": {
+          "device_id": "dev-lab",
+          "timestamp": "2026-10-18T08:51:42.474619+00:00",
+          "temperature_c": 24.15,
+          "unit": "celsius",
+          "sequence": 8
+        },
+        "closed": true,
+        "elapsed_seconds": 3.0529719929999715
+      },
+      "elapsed_seconds": 3.406,
+      "held_sequence": 8
+    },
+    {
+      "name": "gateway_disable_rejects_active_and_new_business_access",
+      "passed": true
+    },
+    {
+      "name": "offline_lease_expiry_buffers_then_renewal_drains_exact_same_event",
+      "passed": true,
+      "lease_seconds": 5,
+      "expired_manifest": 13,
+      "queued_event": {
+        "accepted_at": "2026-10-18T08:52:11.414555Z",
+        "device_id": "dev-lab",
+        "event_id": "030fee54-4639-4582-a449-68079a2fba81",
+        "gateway_id": "gw-lab",
+        "payload": {
+          "temperature_c": 15.93,
+          "unit": "celsius"
+        },
+        "schema_version": 1,
+        "source_incarnation": "1dd4d7c4-196d-4923-adce-c4023f196ab6",
+        "source_sequence": 12,
+        "source_timestamp": "2026-10-18T08:52:11.403567Z"
+      },
+      "cloud_event": {
+        "accepted_at": "2026-10-18T08:52:11.414555Z",
+        "device_id": "dev-lab",
+        "event_id": "030fee54-4639-4582-a449-68079a2fba81",
+        "gateway_id": "gw-lab",
+        "payload": {
+          "temperature_c": 15.93,
+          "unit": "celsius"
+        },
+        "schema_version": 1,
+        "source_incarnation": "1dd4d7c4-196d-4923-adce-c4023f196ab6",
+        "source_sequence": 12,
+        "source_timestamp": "2026-10-18T08:52:11.403567Z"
+      }
+    },
+    {
+      "name": "managed_leaf_expiry_closes_existing_and_refuses_new_channel",
+      "passed": true,
+      "lifetime_seconds": 45,
+      "not_after": "2026-10-18T08:53:02+00:00",
+      "detection_seconds": 2.593,
+      "health": {
+        "live": true,
+        "service": "gateway",
+        "ready": false,
+        "policy_valid": false,
+        "cloud_connected": false,
+        "storage": {
+          "accepted_total": 12,
+          "acknowledged_total": 12,
+          "pending": 0,
+          "quarantined": 0,
+          "refused": 0,
+          "source_gap": 1,
+          "clock_uncertain": false
+        },
+        "metrics": {
+          "delivery_retry": 14,
+          "delivery_error_ServiceError": 14,
+          "cloud_sessions": 6,
+          "durably_accepted": 6,
+          "matching_acks": 6,
+          "source_connection_closed": 7,
+          "source_error_TransportError": 5,
+          "source_error_ServiceError": 2
+        },
+        "business_delivery": "delivered",
+        "last_matching_ack_at": "2026-10-18T08:52:23.260825+00:00",
+        "state_bytes": 168352,
+        "loss_count_unknown": false,
+        "management": {
+          "managed": true,
+          "valid": false,
+          "state": "Unknown",
+          "sequence": 15,
+          "local_fingerprint": "87ed93832ce95ea13c28ad8f3cbb6a2f75cf0f9f75d02b04a29b561f634038fb",
+          "error": null,
+          "version": 7,
+          "desired_version": 7,
+          "profile": "hybrid-standard-v1",
+          "enabled": true
+        },
+        "gateway_id": "gw-lab",
+        "management_version": 7,
+        "management_desired_version": 7,
+        "management_applied_at": "2026-10-18T08:52:21.635674+00:00",
+        "management_state": "Unknown"
+      }
+    }
+  ],
+  "started_utc": "2026-10-18T08:49:46.146989+00:00",
+  "project": "pqc-c-2305f3502b298fd7",
+  "source_sha256": {
+    "cloud\\__init__.py": "e10e46d659b4748502284bf77ae76e9123f1764a88232ae49f1eda8b8cbf4099",
+    "cloud\\cloud.py": "3f3c8ca18c2efc1a6e73372052561a397f82622e456162f2cb7cb84e75970b2d",
+    "cloud\\processing.py": "e25326df0aaef1c785713757ddf1515a01e605c68446ec4fbf6cfa00c9d77b07",
+    "cloud\\secure.py": "6b126f168382fc9103c789fd3e88f2ea3ea61be0ffa0268d1bc070a74924825e",
+    "cloud\\store.py": "e84f9c4bffa3c34b2f4e0be5eaf2978e57dceccd21b0b1ec3f4ad0406df66ddf",
+    "common\\__init__.py": "192f70232468a4b37d0e8adbde62746093552162958c94e3db945f73ca9cd72b",
+    "common\\config.py": "0c6196d2b0480ac17d84d7f2b92ee309bbaf0659d4e5f1e731cc817c130072a7",
+    "common\\credentials.py": "fac1a9eb860e30c205abd28cb6a28708e0ca319951b46ede4d1096016c632ae0",
+    "common\\crypto.py": "d2bc38964ac746004839318a22ca1140e32a700de01cd1e723c2cc4ec3acb33f",
+    "common\\delivery.py": "0001f4e852cff08082f3193040ad99b5f819b21c2e4d1485433642b7655bce4c",
+    "common\\demo_device_keys.json": "323e3bf19a2849371cc64a71ce02d5e24594e616dd7e14e09493186a27fbda9a",
+    "common\\demo_gateway_keys.json": "5efd8901cdcef6d66faa57ec1e50ecb4ac20830f97dc48aaf0e592a4987824e5",
+    "common\\health.py": "19b731b674887a6b9c615c5d905c7b088e6d43d9233788eff9d0239584587db2",
+    "common\\logging_setup.py": "8bd9a5be029165ac75d2d0dc5723041c72abf5886a462314c03c3881cc5c01ca",
+    "common\\managed_bootstrap.py": "4873d41340f6c3c712d72617f09b25b860d2241aad22b89a60575f6a1be538ff",
+    "common\\managed_config.py": "d2ac626aa6571ffcb80582fe03b8b1e34b0c59cbf5c1311459bf133e7f8d4169",
+    "common\\management.py": "1756eb004f8256ae9060be0b083cdc447bd39a54fd8c7c1a4e86f73376d019d8",
+    "common\\metrics.py": "fb79dcbedaa2ad3c130b1ff7eac3d83664fc438a59d24d520c16434d690a0f8b",
+    "common\\protocol.py": "4d4584fbf1222eb8569ee8c85e3fa4e8c61603b53c06a94c978de064399914c5",
+    "common\\replay.py": "0e402d8ae82424535f8160977d634d420ae2b5fe8a295577dbeac4c08f718908",
+    "common\\secure_bootstrap.py": "46fc6cf17ddfd8041b8055a113aacbaae2369b7d5f4f9e5da81b89cd1f88aad1",
+    "common\\secure_runtime.py": "796968c7a627356dc335a02ea9115c28c62d9633e5678fd6909178eb9db12697",
+    "common\\secure_transport.py": "3df8f208202ce6b2271c44a50387d06d643a4d3ec2214c6b3ee18b3ec417f7a7",
+    "deploy\\phase_b\\Dockerfile": "c08af733dbac5337b7b3a233a436312f9f7d59bc9d8740cc12188ee0d4aea6ec",
+    "deploy\\phase_b\\tls-policy.cnf": "68375cb30d9284888675f12a658f8980795170ca205cca7e227038f525b18bd2",
+    "device\\__init__.py": "30551a4dd7816ed9565997c6f1fb2c578299e410934c6f54c5eb13a1829c6054",
+    "device\\device.py": "39d827f6e9220c92c9ad9ed805c28bc9e7a130c8dd433051c866f5320db6504c",
+    "device\\sensor.py": "f68d9e488d1537386dabffd0736ddc18f73302e9111e76d623333fb027574817",
+    "device\\state.py": "18fbe20a8faa2c5b077d43d16b939123c91f46f7093e5ccabbe3360041bbb147",
+    "gateway\\__init__.py": "5965a97028bda129c350a3fbf74e8e15c9977abffebf1ccbd45121198ee9b78f",
+    "gateway\\cloud_channel.py": "aff7aebb9e45b2393a064c202376f5f859ead5d592db964cb291aaa730c5c670",
+    "gateway\\gateway.py": "74eb3945306a1938a13ec774ad3cbdc8c32f3231b025bfeced471174eec55c69",
+    "gateway\\processing.py": "2fee497bd98434ce695de1bdd87ae4052a6e2e8c6dd96ed66b7dbb6ad86cdc05",
+    "gateway\\secure.py": "56e16ef38e6d4d72a318d6072c725cc7f8ffa96b44d92e96a810cee37c79255f"
+  },
+  "harness_sha256": "ae19e3a0afdd982c89f681b4295772d3aa58b1bd017a9f0dd4764eb22ff0f1c6",
+  "certificate_fingerprints": {
+    "cloud-a": "1ad2478fea6b1fc546b39991d6e462dec05112c4b25f08a93cbcdeb2776508c6",
+    "gw-a": "cdd7dddab358fbdd81c4a228fcc0360333e5096058999040a7a710567aef783c",
+    "gw-b": "21ba5214c8c1121d15cbcc91c48b81f1df6a82e93ae20665766488b8af4f1197",
+    "gw-missing": "9d18cf931c6ac3139de206bc1233efe0a826e7b14640c43671d9943aed885aa1",
+    "gw-two": "b567dde12405ead9b654048bfb6333f2c1de8f3cbe681ae7c0cbcc6ce420bc3b",
+    "gw-recovery": "5ba06a7c79a8535bc924e4577edfca85122fe62ade3965622d30b7bde0edc4fc",
+    "gw-short": "87ed93832ce95ea13c28ad8f3cbb6a2f75cf0f9f75d02b04a29b561f634038fb"
+  },
+  "cleanup": {
+    "verified": true,
+    "errors": [],
+    "remaining": {
+      "containers": [],
+      "networks": [],
+      "volumes": []
+    },
+    "removed": [
+      {
+        "kind": "container",
+        "id": "bd4444df5b6b"
+      },
+      {
+        "kind": "container",
+        "id": "3be43aaa4a83"
+      },
+      {
+        "kind": "container",
+        "id": "91354724ae6d"
+      },
+      {
+        "kind": "network",
+        "id": "dadc451d4e13"
+      },
+      {
+        "kind": "volume",
+        "id": "pqc-c-2305f3502b298fd7_gateway_two_state"
+      },
+      {
+        "kind": "volume",
+        "id": "pqc-c-2305f3502b298fd7_cloud_state"
+      },
+      {
+        "kind": "volume",
+        "id": "pqc-c-2305f3502b298fd7_gateway_state"
+      }
+    ],
+    "image_policy": "unique acceptance image retained; cached bases unchanged"
+  }
+}

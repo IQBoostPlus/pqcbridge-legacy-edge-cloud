@@ -1,0 +1,48 @@
+{
+  "status": "interrupted_by_user_pause",
+  "runtime_root": "D:\\Code\\pqcbridge-phase-c-artifacts\\lifecycle-final-0556dd3c4e844909be1848df6ad3a60e",
+  "project": "pqc-c-93954e99588545b4",
+  "runner_pid_stopped": 30156,
+  "complete_matrix_result_available": false,
+  "acceptance_boundary": "Final current-source lifecycle run interrupted; do not infer completion from partial progress. Previous 17-case pass is intermediate source.",
+  "cleanup": {
+    "verified": true,
+    "errors": [],
+    "remaining": {
+      "containers": [],
+      "networks": [],
+      "volumes": []
+    },
+    "removed": [
+      {
+        "kind": "container",
+        "id": "730dd01e70f2"
+      },
+      {
+        "kind": "container",
+        "id": "60e680c5594b"
+      },
+      {
+        "kind": "container",
+        "id": "6fcd3a3632de"
+      },
+      {
+        "kind": "network",
+        "id": "230acb34863f"
+      },
+      {
+        "kind": "volume",
+        "id": "pqc-c-93954e99588545b4_gateway_state"
+      },
+      {
+        "kind": "volume",
+        "id": "pqc-c-93954e99588545b4_gateway_two_state"
+      },
+      {
+        "kind": "volume",
+        "id": "pqc-c-93954e99588545b4_cloud_state"
+      }
+    ],
+    "image_policy": "unique acceptance image retained; cached bases unchanged"
+  }
+}

@@ -1,6 +1,6 @@
 # PQC Bridge Short-Term Implementation Plan
 
-Updated: 2026-10-18. Planning targets below are not measured results. Phases A and B are complete for the revised Docker/simulation scope; measured evidence and boundaries are recorded in the [Phase A status](phase-a/STATUS.md) and [Phase B status](phase-b/STATUS.md).
+Updated: 2026-10-19. Planning targets below are not measured results. Phases A, B and C are complete for the revised Docker/simulation scope; measured evidence and boundaries are recorded in the [Phase A status](phase-a/STATUS.md), [Phase B status](phase-b/STATUS.md) and [Phase C status](phase-c/STATUS.md).
 
 Execution scope clarification: the user selected Docker deployment with simulated devices for this iteration. This supersedes the physical-device/real-legacy prerequisite in A-02/A-05 for the current lab scope; simulator results must still never be presented as real-device compatibility. Actual target-runtime transport validation and delivery-contract gates remain required.
 
@@ -14,7 +14,7 @@ The provisional estimate is 6–10 effective working weeks for one primary devel
 
 Pass the Phase A selection gate before committing to the main Phase B implementation. Use minimal registration and authorization contracts in B, then add their management lifecycle in C. Deployment checks, performance baselines, and observability begin in A/B rather than waiting for D.
 
-Task IDs are planning identifiers within this document, not existing GitHub Issues. They were initially Not started; use the linked execution status for current progress. Phases A/B are accepted for the selected lab scope; Phase C has partial local work but is paused and not accepted; Phase D has not started. This documentation update does not resume C or publish its incomplete artifacts.
+Task IDs are planning identifiers within this document, not existing GitHub Issues. They were initially Not started; use the linked execution status for current progress. Phases A/B/C are accepted for the selected lab scope; Phase D has not started. C's [milestone record](phase-c/COMPLETION.md) distinguishes current matching evidence from historical incomplete runs. Completing C does not automatically start D.
 
 ## 2. Phase A: Define the Use Case and Validate the Technical Approach (1–2 Weeks)
 

@@ -1,0 +1,15 @@
+{
+  "status": "failed",
+  "command": "python -m pytest -q",
+  "passed": 229,
+  "failed": 1,
+  "seconds": 13.13,
+  "failed_test": "test_stale_wrong_target_and_reused_ack_do_not_change_effectiveness",
+  "boundary": "Windows native host; same wall-clock tick made positive ACK fixture equal apply_at",
+  "repair": "test observation helper now waits bounded real wall-clock advance; production strict ACK>apply remains unchanged",
+  "focused_after_repair": {
+    "passed": 14,
+    "seconds": 1.28
+  },
+  "not_final_C_acceptance": true
+}

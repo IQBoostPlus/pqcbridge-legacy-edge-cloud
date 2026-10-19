@@ -5,6 +5,7 @@ handshakes or expose a plaintext cloud ingestion backend. Synthetic lab scope.
 """
 import argparse
 from datetime import datetime, timezone
+import hashlib
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import io
 import json
@@ -162,6 +163,11 @@ class Service:
         self.slots = threading.BoundedSemaphore(4)
         self.cloud_connected = False
         self.last_matching_ack_at = None
+        self.channel_tokens = {}
+        self.management_applied_version = None
+        self.management_applied_at = None
+        self.management_ack_version = None
+        self.management_failure_reason = None
         limits = config.limits
         cls = delivery.GatewayQueue if config.role == 'gateway' else delivery.CloudStore
         self.store = cls(config.state_dir,
@@ -178,7 +184,46 @@ class Service:
         remaining = min(self.config.remaining(), certificate_remaining(connection))
         if remaining <= 0:
             raise ServiceError('identity or policy expired')
-        return min(5, remaining)
+        cap = 5
+        if getattr(self.config, 'dynamic_tls', False):
+            with self.lock:
+                binding = self.channel_tokens.get(connection)
+            if binding is None or not self.config.channel_current(binding[0], binding[1]):
+                raise ServiceError('managed channel authorization changed')
+            cap = self.config.operation_timeout(binding[0])
+        return min(cap, remaining)
+
+    @staticmethod
+    def local_fingerprint(tls):
+        certificate = x509.load_pem_x509_certificate(Path(tls['cert_file']).read_bytes())
+        from cryptography.hazmat.primitives import serialization
+        return hashlib.sha256(certificate.public_bytes(serialization.Encoding.DER)).hexdigest()
+
+    def bind_channel(self, connection, local_fingerprint):
+        if not getattr(self.config, 'dynamic_tls', False):
+            return
+        if not self.config.valid():
+            raise ServiceError('managed policy expired during handshake')
+        # Context identity is captured before handshake. Never label an old
+        # credential's channel with a newly published version/token.
+        if self.local_fingerprint(dict(self.config.tls)) != local_fingerprint:
+            raise ServiceError('local TLS credential changed during handshake')
+        peer = transport.peer_fingerprint(connection)
+        token = self.config.channel_token(peer, local_fingerprint=local_fingerprint)
+        if token is None or not self.config.channel_current(peer, token):
+            raise ServiceError('managed peer refused')
+        with self.lock:
+            self.channel_tokens[connection] = (peer, token)
+        self.channel_budget(connection)
+        if self.config.role == 'gateway':
+            status = self.config.management_status()
+            version = status.get('version', status.get('desired_version'))
+            with self.lock:
+                # Every new authenticated channel needs its own business proof,
+                # including a reconnect/leaf rotation with the same version.
+                self.management_applied_version = version
+                self.management_applied_at = datetime.now(timezone.utc).isoformat()
+                self.management_ack_version = None
 
     def send_frame(self, connection, message):
         connection.settimeout(self.channel_budget(connection))
@@ -195,6 +240,12 @@ class Service:
         else:
             quota_ok = quota_ok and state['committed_total'] < self.config.limits['cloud_rows']
         valid = self.config.valid()
+        managed = getattr(self.config, 'dynamic_tls', False)
+        if managed and self.config.role == 'gateway':
+            with self.lock:
+                bindings = list(self.channel_tokens.values())
+            connected = connected and any(self.config.channel_current(peer, token)
+                                           for peer, token in bindings)
         ready = valid and quota_ok and not state.get('clock_uncertain', False)
         if self.config.role == 'gateway':
             if state['quarantined']:
@@ -213,11 +264,33 @@ class Service:
             business = 'committed' if state['committed_total'] else 'not_yet_committed'
         if self.config.role == 'gateway':
             ready = ready and connected
-        return {'live': not self.stop.is_set(), 'service': self.config.role, 'ready': ready,
+        result = {'live': not self.stop.is_set(), 'service': self.config.role, 'ready': ready,
                 'policy_valid': valid, 'cloud_connected': connected,
                 'storage': state, 'metrics': metrics, 'business_delivery': business,
                 'last_matching_ack_at': self.last_matching_ack_at,
                 'state_bytes': used, 'loss_count_unknown': metrics.get('source_refused', 0) > 0}
+        if managed:
+            information = self.config.management_status()
+            result['management'] = information
+            if self.config.role == 'gateway':
+                desired = information.get('version', information.get('desired_version'))
+                with self.lock:
+                    applied, applied_at, ack_version = (self.management_applied_version,
+                        self.management_applied_at, self.management_ack_version)
+                fresh_ack = (self.last_matching_ack_at is not None and
+                             time.time() - timestamp(self.last_matching_ack_at) <= 300)
+                effective = (valid and connected and fresh_ack and desired == applied
+                             and ack_version == applied and applied_at is not None
+                             and timestamp(self.last_matching_ack_at) >= timestamp(applied_at))
+                result.update(gateway_id=self.config.value['gateway_id'],
+                              management_version=applied,
+                              management_desired_version=desired,
+                              management_applied_at=applied_at,
+                              management_failure_reason=self.management_failure_reason,
+                              management_state=('Unknown' if not valid or not connected or
+                                  (self.last_matching_ack_at is not None and not fresh_ack)
+                                  else 'Effective' if effective else 'Applying'))
+        return result
 
     def start_health(self):
         service = self
@@ -292,6 +365,7 @@ class Service:
     def untrack(self, connection):
         with self.lock:
             self.connections.discard(connection)
+            self.channel_tokens.pop(connection, None)
 
     def handle_device(self, connection):
         identity = None
@@ -310,6 +384,9 @@ class Service:
                     raise ServiceError('source connection already active')
                 claimed = True
                 while not self.stop.is_set():
+                    if (getattr(self.config, 'dynamic_tls', False)
+                            and not self.config.source_allowed(identity, spec)):
+                        raise ServiceError('managed source disabled or changed')
                     # Idle source intervals are not partial-frame operations.
                     if not stream.wait_readable(1):
                         continue
@@ -322,6 +399,9 @@ class Service:
                         raise ServiceError('authenticated metadata mismatch')
                     event = delivery.canonical_event(self.config.value['gateway_id'], identity,
                                                      spec['source_incarnation'], reading)
+                    if (getattr(self.config, 'dynamic_tls', False)
+                            and not self.config.source_allowed(identity, spec)):
+                        raise ServiceError('managed source authorization changed')
                     self.store.accept(event)
                     self.count('durably_accepted')
                     reading_inflight = False
@@ -346,9 +426,15 @@ class Service:
             remaining = self.config.remaining()
             if remaining <= 0:
                 raise ServiceError('policy expired')
+            local_identity = None
+            if getattr(self.config, 'dynamic_tls', False):
+                tls = dict(self.config.tls)
+                local_identity = self.local_fingerprint(tls)
+                context = transport.server_context(tls)
             raw_connection.settimeout(min(5, remaining))
             connection = context.wrap_socket(raw_connection, server_side=True)
             self.track(connection)
+            self.bind_channel(connection, local_identity)
             peer = self.config.value['gateway_peers'].get(transport.peer_fingerprint(connection))
             if peer is None:
                 raise ServiceError('gateway certificate not registered')
@@ -359,14 +445,10 @@ class Service:
             self.count('authenticated_connections')
             with connection, transport.SocketFrameReader(connection) as stream:
                 while not self.stop.is_set():
-                    remaining = min(self.config.remaining(), certificate_remaining(connection))
-                    if remaining <= 0:
-                        raise ServiceError('identity or policy expired')
+                    remaining = self.channel_budget(connection)
                     if not stream.wait_readable(min(1, remaining)):
                         continue
-                    remaining = min(self.config.remaining(), certificate_remaining(connection))
-                    if remaining <= 0:
-                        raise ServiceError('identity or policy expired')
+                    remaining = self.channel_budget(connection)
                     stream.set_deadline(min(5, remaining))
                     try:
                         frame = transport.read_frame(stream)
@@ -404,7 +486,9 @@ class Service:
                 self.store.expire()
                 if not self.config.valid():
                     raise ServiceError('identity or policy expired')
-                context = transport.client_context(self.config.tls)
+                tls = dict(self.config.tls)
+                local_identity = self.local_fingerprint(tls) if getattr(self.config, 'dynamic_tls', False) else None
+                context = transport.client_context(tls)
                 remaining = self.config.remaining()
                 connection = socket.create_connection((self.config.value['cloud_host'], self.config.value['cloud_port']), timeout=min(5, remaining))
                 self.track(connection)
@@ -412,18 +496,17 @@ class Service:
                 if remaining <= 0:
                     raise ServiceError('policy expired during connect')
                 connection.settimeout(min(5, remaining))
-                secured = context.wrap_socket(connection, server_hostname=self.config.tls['server_hostname'])
+                secured = context.wrap_socket(connection, server_hostname=tls['server_hostname'])
                 self.untrack(connection); connection = secured; self.track(connection)
-                connection.settimeout(min(5, self.config.remaining(), certificate_remaining(connection)))
+                self.bind_channel(connection, local_identity)
+                connection.settimeout(self.channel_budget(connection))
                 with self.lock:
                     self.cloud_connected = True
                 self.count('cloud_sessions')
                 with transport.SocketFrameReader(connection) as stream:
                     while not self.stop.is_set():
                         self.store.expire()
-                        remaining = min(self.config.remaining(), certificate_remaining(connection))
-                        if remaining <= 0:
-                            raise ServiceError('identity or policy expired')
+                        remaining = self.channel_budget(connection)
                         events = self.store.pending()
                         if not events:
                             if stream.wait_readable(0):
@@ -432,26 +515,38 @@ class Service:
                             continue
                         event = events[0]
                         self.send_frame(connection, delivery.event_upload(event))
-                        remaining = min(self.config.remaining(), certificate_remaining(connection))
-                        if remaining <= 0:
-                            raise ServiceError('identity or policy expired')
+                        remaining = self.channel_budget(connection)
                         stream.set_deadline(min(5, remaining))
                         ack = transport.read_frame(stream)
                         if ack.get('type') == 'error':
                             if ack.get('reason') in ('conflict', 'unauthorized'):
                                 self.store.quarantine(event, ack['reason'])
                             raise ServiceError('cloud refused event')
-                        if not self.config.valid():
-                            raise ServiceError('policy expired before ACK acceptance')
+                        self.channel_budget(connection)
                         if not delivery.matching_ack(event, ack):
                             raise delivery.DeliveryError('ack_mismatch')
                         self.store.acknowledge(event, ack)
                         self.last_matching_ack_at = datetime.now(timezone.utc).isoformat()
+                        if getattr(self.config, 'dynamic_tls', False):
+                            with self.lock:
+                                self.management_ack_version = self.management_applied_version
+                                self.management_failure_reason = None
                         self.count('matching_acks')
                         delay = 1
             except Exception as exc:
                 self.count('delivery_retry')
                 self.count('delivery_error_' + type(exc).__name__)
+                if getattr(self.config, 'dynamic_tls', False):
+                    reasons = {'TransportError': 'tls_configuration_refused',
+                               'SSLCertVerificationError': 'tls_identity_refused',
+                               'ServiceError': 'channel_or_policy_refused',
+                               'DeliveryError': 'delivery_state_refused',
+                               'FileNotFoundError': 'tls_configuration_refused',
+                               'ConnectionRefusedError': 'network_unavailable',
+                               'TimeoutError': 'network_unavailable',
+                               'gaierror': 'network_unavailable'}
+                    with self.lock:
+                        self.management_failure_reason = reasons.get(type(exc).__name__, 'delivery_unavailable')
             finally:
                 with self.lock:
                     self.cloud_connected = False
@@ -463,7 +558,8 @@ class Service:
 
     def serve(self):
         self.start_health()
-        context = transport.server_context(self.config.tls) if self.config.role == 'cloud' else None
+        context = (transport.server_context(self.config.tls)
+                   if self.config.role == 'cloud' and not getattr(self.config, 'dynamic_tls', False) else None)
         if self.config.role == 'gateway':
             worker = threading.Thread(target=self.deliver, daemon=True)
             worker.start(); self.threads.append(worker)
@@ -511,15 +607,17 @@ class Service:
         if any(worker.is_alive() for worker in self.threads):
             raise ServiceError('bounded shutdown did not finish')
         self.store.close()
+        if getattr(self.config, 'dynamic_tls', False):
+            self.config.close()
 
 
-def service_main(role):
+def service_main(role, configuration_class=Configuration):
     parser = argparse.ArgumentParser(description='Opt-in lab-v1 engineering ' + role)
     parser.add_argument('--config', required=True)
     arguments = parser.parse_args()
     service = None
     try:
-        config = Configuration(arguments.config, role)
+        config = configuration_class(arguments.config, role)
         service = Service(config)
         for signum in (signal.SIGTERM, signal.SIGINT):
             signal.signal(signum, lambda *_args: service.stop.set())
