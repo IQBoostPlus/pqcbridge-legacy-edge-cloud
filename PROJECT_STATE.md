@@ -3,12 +3,12 @@
 Updated: 2026-10-19, Asia/Singapore. C completed after explicit user continuation.
 The strengthened live rollback changes standard to conservative profile while
 retaining current valid credentials and proving a fresh ACK. D has not started.
-C completion4b70e0d4d6f2e71be9cd592e777b4936663314a5 is published on the C
-branch. Linux GitHub CI then found a test-fixture portability defect; its repair
-has passed247 tests on both native Windows and offline Linux. Main publication
-requires successful GitHub Linux CI for the exact repaired commit. Root is
-performing that gate; automation must defer while work is active. Existing
-pqc-bridge-github is ACTIVE with the latest main/no-PR rule and unchanged cadence.
+C completion4b70e0d4d6f2e71be9cd592e777b4936663314a5 and its test-only repair
+2cde91dfabdf4435e298243b2b52bb1dcb48723c are verified published to main. Pre-main
+Linux CI39259917002 and main CI39260202385 both passed; GitHub Linux tests247
+passed8.42s. No PR was created or merged. Existing pqc-bridge-github is ACTIVE
+with the main/no-PR rule and unchanged cadence, now including a required current-
+document consistency check at the end of each run. Defer while work is active.
 
 ## 1. Recovery Authority
 
@@ -56,10 +56,13 @@ works per command; do not change persistent proxy settings.
 
 ## 4. Next Safe Step
 
-If the CI repair publication was interrupted, inspect Git status and CI for the
-latest fix commit on codex/phase-c-management. After its Linux checks pass, push
-that same commit normally to main and verify the remote SHA. See
-docs/phase-c/CI_FIX.md for the local red/green record. Do not duplicate commits.
-After verified main publication, wait for the next bounded human request.
+C and the CI repair are already published; do not repeat either commit or the
+passed suites. Inspect actual origin/main before any later publication; a newer
+documentation commit may advance its tip while retaining the accepted release.
+See docs/phase-c/CI_FIX.md for the red/green and successful GitHub CI record.
+Before ending work, synchronize README, this state, the short-term plan, current
+phase status, operations/recovery instructions and navigation with verified facts.
+Preserve historical evidence and user-owned edits. If no drift exists, do not
+change files or create timestamp-only commits. Wait for the next human request.
 RESUME_PROMPT.md documents recovery. Do not start D automatically. A later explicit
 pause always takes precedence over publication.

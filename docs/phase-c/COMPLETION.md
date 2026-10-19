@@ -132,9 +132,10 @@ project/short-term status. User CLAUDE/docs-agent/quota changes, original `.env`
 keys, device/cloud state, Compose, V1 and documentation reorganization are
 preserved. [REVIEW.md](REVIEW.md) names the AI review method, findings and hashes.
 
-The user authorized ordinary scoped publication at completed major-phase gates.
-Publication will use an English `Phase-Completion: C` commit on
-`codex/phase-c-management`, normal push to origin
-`https://github.com/IQBoostPlus/pqcbridge-legacy-edge-cloud.git`, and exact remote
-SHA verification. No PR or D implementation is included. A local commit alone is
-not publication; the verified result belongs in the conversation after pushing.
+C completion4b70e0d and its test-only portability repair2cde91d are verified
+published to origin/main. The latest human instruction selects direct main
+publication after Linux CI, without creating or merging a PR.
+[CI_FIX.md](CI_FIX.md) records the later Linux failure/repair and successful
+pre-main/main CI; original evidence above retains its initial source identity.
+No Phase D implementation is included. Later documentation commits may advance
+main without changing this accepted application revision or rewriting history.

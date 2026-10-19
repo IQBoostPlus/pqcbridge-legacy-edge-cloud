@@ -1,7 +1,7 @@
 # Phase C Follow-up — Portable Old-ACK Regression Fixture
 
-Date: 2026-10-19. Status: Local repair verified; exact-commit GitHub Linux CI is
-required before direct main publication.
+Date: 2026-10-19. Status: Verified published to main after successful GitHub Linux CI.
+Accepted repair:2cde91dfabdf4435e298243b2b52bb1dcb48723c; application code unchanged.
 
 ## 1. Background and Scope
 
@@ -40,7 +40,8 @@ security floor is changed; no test is skipped or assertion broadened.
 | Unchanged Linux reproduction | Same expected/actual-error mismatch,1failed0.24s | Exact committed source; cached image; selected regression |
 | Complete Windows suite after repair | 247passed12.71s | Native host; fresh external temporary data |
 | Complete offline Linux suite after repair | 247passed9.51s; owned container removed | Python3.12.14/pytest9.1.1/OpenSSL3.5.7, cached image, no network |
-| GitHub Linux CI | Required on the fix commit before main | Ubuntu hosted runner uses Python3.12.15; local Linux is not substituted for this gate |
+| GitHub Linux CI before main | 247passed8.42s; test and Docker jobs pass, run39259917002 | Exact repair2cde91d; Ubuntu/Python3.12.15 |
+| Main CI after ordinary fast-forward push | Successful, run39260202385 | Same repair SHA; remote main ref independently verified |
 
 Local evidence: [ci-fixture-fix.json](evidence/ci-fixture-fix.json). Frozen source
 copies, raw stdout/stderr and result files remain outside the checkout under the
@@ -63,8 +64,10 @@ User-authored CLAUDE/docs-agent/quota work and protected original inputs remain
 excluded from the fix commit. No next-phase implementation is included.
 
 The latest explicit user instruction requires no PR and direct main publication
-after successful Linux CI. Push the fix to the existing C validation branch to
-obtain that CI result, then fast-forward the exact same commit to main. Check
-actual origin SHA and GitHub run outcome; a queued run or local commit is not
-success. The final verified run and main SHA belong in the conversation and local
-publication handoff, without a new timestamp-only commit.
+after successful Linux CI. The repair passed
+[pre-main CI](https://github.com/IQBoostPlus/pqcbridge-legacy-edge-cloud/actions/runs/39259917002),
+then the same commit was normally fast-forwarded to main and verified by its
+exact remote SHA. [Main CI](https://github.com/IQBoostPlus/pqcbridge-legacy-edge-cloud/actions/runs/39260202385)
+also passed. No PR was created or merged. Keep these verified outcomes as history
+when later documentation commits advance main; do not generate commits solely
+to refresh a publication timestamp or self-referential documentation SHA.

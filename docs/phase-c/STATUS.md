@@ -4,8 +4,9 @@ Updated: 2026-10-19 (Asia/Singapore).
 State: **COMPLETE and accepted for the owned Docker/simulated-device lab scope.**
 Separate Standards/Spec re-reviews have no remaining blocker. Branch:
 codex/phase-c-management; baseline5c12f8644d35ae85422318bbad934379067affa1.
-Publication is authorized at this gate; verify actual origin SHA before claiming
-it pushed. D remains unstarted.
+C completion and its test-only repair are verified published to main at
+2cde91dfabdf4435e298243b2b52bb1dcb48723c. Main CI39260202385 passed tests and
+Docker checks. Later documentation commits may advance main; D remains unstarted.
 
 ## 1. Implementation and Acceptance
 
@@ -21,7 +22,9 @@ it pushed. D remains unstarted.
 
 | Verification | Observed result |
 | --- | --- |
-| Complete existing/new native Windows suite | 247 passed in14.46s |
+| Original C native Windows suite (4b70e0d) | 247 passed in14.46s; historical source record |
+| After test portability repair: Windows / offline Linux | 247 passed12.71s /247 passed9.51s |
+| GitHub Linux CI for repair2cde91d | 247 passed8.42s; test and Docker jobs successful before and after main push |
 | Actual unmodified B applications on final shared runtime | 19/19, cleanup verified |
 | Real TLS/ACK/protected HTTP and catalog proof regressions | 4/4, cleanup verified |
 | Actual unmodified two-group C managed lifecycle | 17/17, cleanup verified |
@@ -46,7 +49,9 @@ endurance; actual TLS/storage/business ACKs are retained.
 [COMPLETION.md](COMPLETION.md) is the milestone record and
 [OPERATIONS.md](OPERATIONS.md) covers setup, CLI proof and recovery. Historical
 red, pre-fix, harness-defect and interrupted reports keep their original outcomes.
-October18 pause/next-step instructions are superseded.
+October18 pause/next-step instructions are superseded. [CI_FIX.md](CI_FIX.md)
+records the later Linux fixture failure, test-only repair and verified main CI.
+Original source hashes and audit outcomes remain historical and unchanged.
 
 Secrets/raw state are excluded; unrelated user work and original config/state
 are preserved. Catalog observations trust the local operator; status is a bounded

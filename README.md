@@ -5,7 +5,7 @@ telemetry: authenticated hybrid transport, durable delivery, bounded recovery,
 and evidence of the policy actually in effect.
 
 > **Engineering prototype with bounded lab acceptance.** Phase A transport
-> selection and Phase B secure delivery are accepted for owned Docker services
+> selection, Phase B secure delivery and Phase C migration management are accepted for owned Docker services
 > and simulated devices. Physical-device compatibility and production security
 > have not been established. Passing tests does not prove a system secure.
 
@@ -16,9 +16,17 @@ and evidence of the policy actually in effect.
 - [Phase B](docs/phase-b/STATUS.md): an opt-in TLS 1.3/mTLS path with mandatory
   hybrid key exchange, identity authorization, durable queues, cloud deduplication
   and acknowledgements, recovery, and resource limits was accepted in the lab.
-- Phase C management work is paused and not accepted; incomplete local work is
-  excluded from this documentation publication. Phase D remains future work.
-- [Engineering operations](docs/phase-b/OPERATIONS.md) documents the opt-in path.
+- [Phase C](docs/phase-c/STATUS.md): local enrollment, versioned hybrid policy
+  profiles, current-channel business proof, credential rotation/revocation, canary
+  rollout and safe rollback were accepted in the Docker/simulated-device lab.
+- C and its Linux test portability repair are published to `main` at
+  [2cde91d](https://github.com/IQBoostPlus/pqcbridge-legacy-edge-cloud/commit/2cde91dfabdf4435e298243b2b52bb1dcb48723c).
+  [Main CI](https://github.com/IQBoostPlus/pqcbridge-legacy-edge-cloud/actions/runs/39260202385)
+  passed all 247 tests and Docker checks. [CI follow-up](docs/phase-c/CI_FIX.md)
+  preserves the earlier Linux failure and its test-only repair. Phase D has not started.
+- [B engineering operations](docs/phase-b/OPERATIONS.md) documents the delivery path;
+  [C management operations](docs/phase-c/OPERATIONS.md) covers managed deployment
+  and migration recovery.
   The V1 commands and architecture below remain available as the initial baseline.
 
 These are recorded phase outcomes, not tests rerun during this documentation

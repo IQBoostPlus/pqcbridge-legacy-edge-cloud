@@ -1,27 +1,26 @@
-# Recovery after Phase C completion — 2026-10-19
+# Recovery after verified Phase C main publication — 2026-10-19
 
-Read PROJECT_STATE.md, docs/phase-c/STATUS.md, COMPLETION.md, REVIEW.md,
-OPERATIONS.md and evidence/FINAL_AUDIT.json in D:\Code\pqcbridge-legacy-edge-cloud.
-C is complete for owned Docker/simulated devices:247 full regression,19 B
-compatibility,4 observation and17 lifecycle checks pass on matching source;
-separate Standards/Spec final reviews have no blocker and owned cleanup passed.
-Do not replay October18 interrupted work or restore obsolete pause snapshots.
+Read PROJECT_STATE.md, README.md, docs/SHORT_TERM_PLAN.md and current C STATUS,
+COMPLETION, REVIEW, OPERATIONS and CI_FIX records. C and test repair2cde91d are
+verified published to main. GitHub Linux CI39259917002 and main CI39260202385
+passed; no PR was created or merged. Do not repeat C implementation, its completion
+commit, the repair or passed suites merely for context. D remains unstarted.
 
-Preserve codex/phase-c-management and newer user changes. Keep unrelated
-CLAUDE/docs-agent/quota work, original README/config/keys/state/Compose/V1 intact.
-Docs English, user Chinese. Follow current CLAUDE quota checks. No reset/clean/
-stash discard, force push, state migration or PR. D is unstarted; wait for explicit
-user instruction before implementing it.
+Preserve newer user changes and the current documentation organization. Keep
+unrelated CLAUDE/docs-agent/quota work, original config/keys/state/Compose/V1 intact.
+Docs English, user Chinese; follow current CLAUDE quota checks. Do not reset, clean,
+stash-discard, force-push, migrate original state, create or merge a PR.
 
-If publication remains outstanding, inspect status, origin and Phase-Completion:
-C trailer first. Human authorization covers scoped completed phases only. Never
-recommit an existing C completion commit: compare exact SHA to origin and retry
-only an outstanding normal push. Existing127.0.0.1:7897 per-command proxy worked
-previously; do not change persistent settings. Exclude unrelated work/secrets/raw
-state. A local commit alone is not publication.
+For later authorized publication, fetch origin/main, preserve all remote commits,
+require successful Linux CI for the exact candidate, then normally fast-forward
+main and verify its actual SHA. Existing127.0.0.1:10808 proxy works per command;
+do not change persistent configuration. Accepted commits already in main history
+remain published when later documentation commits advance the tip.
 
+Before ending a task or scheduled check, compare live documentation with verified
+implementation, acceptance, CI and publication facts: README, PROJECT_STATE,
+short-term plan, current status, operations/recovery and navigation. Correct actual
+drift, preserve historical evidence, and avoid timestamp-only or self-SHA loops.
 Existing pqc-bridge-github is ACTIVE on its unchanged15-minute cadence and defers
-active work or a later explicit pause. Do not duplicate it. No passed suite needs
-rerunning merely for context. The next normal step is a separately authorized D
-task, not more C feature work. The old prompt is retained as
-RESUME_PROMPT_PAUSED_2026-10-18.md for historical provenance only.
+active work or a later explicit pause. Do not duplicate it or start D automatically.
+Historical pause prompts and raw evidence are provenance, not current instructions.
