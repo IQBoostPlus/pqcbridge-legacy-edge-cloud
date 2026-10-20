@@ -1,3 +1,8 @@
+# Historical Runtime Candidate Checkpoint
+
+This pre-CI record is preserved provenance. Current accepted status is in
+[COMPLETION.md](COMPLETION.md); pending wording below describes the earlier checkpoint.
+
 # Phase D — Runtime-Reviewed Controlled Pilot Candidate
 
 Date:2026-10-20. Runtime and independent evidence review passed for the latest

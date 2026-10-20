@@ -1,39 +1,28 @@
-# Continue Phase D — Exact-Candidate CI and Publication
+# Recovery After Accepted Phase D
 
-The actual30-minute run and separate final Standards/Spec evidence reviews have
-passed; see CANDIDATE.md and FINAL_REVIEW.md. Do not repeat that experiment.
-Next complete exact-candidate GitHub Linux CI, then the authorized acceptance
-record/directmain publication. No phase-completion trailer exists yet.
+Read PROJECT_STATE.md, COMPLETION.md, STATUS.md, FINAL_REVIEW.md, RISKS.md,
+OPERATIONS.md and SCOPE_AMENDMENT.md. The human-amended30-minute scope passed
+actual runtime, separate Standards/Spec reviews and GitHub Linux validation
+candidate 4a9431d23b8af834eceae1a85a9fd4a261034612, run39393876501. Do not repeat implementation,
+the endurance experiment, passed suites or an existing completion commit.
 
-Latest explicit human instruction:30minutes is sufficient; continue D from the
-handoff. Fresh root quota Check2026-10-20T07:52:25Z returned safe/exit0; the earlier
-quota pause is superseded. Re-check quota per CLAUDE every10minutes. Read
-PROJECT_STATE.md, SCOPE_AMENDMENT.md, EXECUTION_SPEC.md, STATUS.md, REVIEW.md,
-RISKS.md and OPERATIONS.md. Docs English/user Chinese. Later pauses always win.
+Before any publication retry inspect actual origin/main and branch ancestry,
+the conversation and local tmp/d-publication.json receipt. A matching completion
+commit in main history remains published when later commits advance its tip.
+Require the exact final commit's successful Linux CI, ordinary fast-forward
+directmain and exact remoteSHA verification. No PR/merge/forcepush/reset/clean/
+stashdiscard. A local commit or successful push launch alone is not publication.
+Do not create a commit merely to chase this document's own latest SHA.
 
-Branch codex/phase-d-pilot, HEAD caffc697e4975ab46266e9cb011542408b4bdfb8. Preserve
-all uncommitted D files and unrelated CLAUDE/docs-agent/quota changes, original
-config/keys/state/Compose/V1. No reset/clean/stashdiscard/forcepush/PR.
+Preserve unrelated user CLAUDE/docs-agent/quota changes, initial V1 and original
+config/keys/state, external private raw artifacts and old inconclusive projects.
+Current run owned cleanup passed; one older network/four state volumes remain
+retained intentionally. This accepts no real-device/production/one-hour/24-hour
+or current-vulnerability-clearance claim. No new roadmap implementation starts
+without human instruction. Docs English/user Chinese, quota rules still apply.
 
-Inspect actual fresh experiment at
-D:\Code\pqcbridge-phase-d-artifacts\endurance-30min-20261020-01; launcher PID32840,
-15:54:08Singapore, tmp/d-30min-active.json. Do not duplicate it. Must measure at
-least1,800real seconds/360sent/no missedschedule,150-secondrenewal, at least three
-450-secondboth-role rotations, resource bounds, final durable gatewayaccepted/ACK/
-uniquecloudcommitted reconciliation, p95<=1second, coldcheckpoint and ownedcleanup.
-Do not claim one-hour/24-hour/production acceptance. Old one-hour attempt has no
-final result despite34-minute observations; do not promote it or sum its time.
-Its current state volumes/unfinishedvault remain private and preserved.
-
-Existing app evidence Windows265/offlineLinux265 B19/C17 formalD9/9 remains
-hash-matched; one-hour-resume-proof.json proves original formal-runner SHA from
-only2report-status edits. Five current harness refusal tests pass. Do not rerun
-old passed suites merely for context. Independently review the latest candidate
-under separate Standards and Spec axes and examine actual30-minute evidence.
-
-After all gates pass, reconcile current docs/risks, stage an exact reviewed D
-allowlist excluding user changes/secrets/rawstate. Obtain exact-candidate GitHub
-Linux CI on the existing D branch; then normal fast-forward directmain and verify
-SHA/ancestry. One English Phase-Completion:D commit only when justified; no PR.
-Existing15-minute publisher is PAUSED during root closure; preserve its cadence
-and latest scope if resumed. Never start another roadmap phase automatically.
+The existing15-minute publisher must defer active root closure and any later
+pause. Check its real app status and preserve cadence/notification policy.
+Future authorized documentation checks must reconcile current summaries with
+actual acceptance/CI/main history, preserve raw/historical records and remain
+quiet when there is no genuine drift or new completed phase.

@@ -1,6 +1,6 @@
 # Phase D — Synthetic Pilot Operations
 
-Date: 2026-10-20. In-progress package; consult [STATUS.md](STATUS.md) before use.
+Date:2026-10-20. Accepted bounded simulation package; consult [STATUS.md](STATUS.md) before use.
 Scope: one owned Docker Desktop Linux/amd64 project, simulated source only.
 No physical device, public endpoint or production mode. V1 stays separate.
 

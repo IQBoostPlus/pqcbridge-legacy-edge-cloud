@@ -1,27 +1,23 @@
 # Phase D execution status
 
-Date:2026-10-20. **Runtime/evidence review complete; exact-candidate Linux CI and
-publication pending.** Scope: [human30-minute amendment](SCOPE_AMENDMENT.md),
-owned Docker/simulated source only. [Candidate record](CANDIDATE.md).
+Date:2026-10-20. **ACCEPTED: human-amended30-minute owned Docker/simulation scope.**
+D01–D05 are complete for this scope: offline package, coordinated cold recovery,
+strict permissions/receipts/schema refusal, matching fault/runtime evidence,
+separate Standards/Spec final reviews and operational handover. [Completion](COMPLETION.md).
 
-D01 packaging, D02 cold recovery/permissions, D03 matching runtime and D05
-operations/handover passed their scoped checks. D04 independent Standards/Spec
-final evidence reviews passed; GitHub Linux CI remains the publication gate.
-
-Latest measured result: 1800.001 real seconds; 360 sent/accepted/ACK/unique cloud records; durable ACK p95 0.4754s.
-All scheduled readings, at least three both-role rotations, manifest renewals,
-resource bounds and final durable reconciliation passed. The current private
-cold receipt and every payload hash matched before verified owned cleanup.
+Actual1800.000536seconds/360scheduled records, zero misses; durable accepted/ACK/
+uniquecloud360, zero backlog; p950.475430seconds; three both-role rotations,
+renewals,52resource samples, cold all-payload hashes and current-owner cleanup
+verified. Formal D9/9, B19/C17 and existing265regressions are source-matched.
 [Runtime audit](evidence/final-runtime-audit.json), [final review](FINAL_REVIEW.md).
+[GitHub Linux CI](https://github.com/IQBoostPlus/pqcbridge-legacy-edge-cloud/actions/runs/39393876501) passed test and Docker jobs for exact candidate
+4a9431d23b8af834eceae1a85a9fd4a261034612. Final publication always requires successful CI for its exact
+final documentation commit and verified remote SHA; see completion/publication
+rules rather than treating a local commit as publication.
 
-Windows265/offline Linux265, repaired-source B19/C17 and formal D9/9 remain
-matched by source hashes. Current supervisor refusal tests5/5 passed; old19 and
-earlier failed/interrupted/inconclusive runs are retained at their actual scope.
-No longer duration, production or physical-device acceptance is inferred.
-
-Current run's owned containers/networks/volumes are cleaned. Four state volumes
-from two older diagnostic/inconclusive projects remain intentionally retained;
-private raw roots/vaults stay outside Git. Original user configuration, V1,
-CLAUDE/docs-agent/quota changes are preserved. See [runbook](OPERATIONS.md),
-[risks](RISKS.md), [resume instructions](RESUME_PROMPT.md). No D main publication
-has been performed at this candidate stage. No PR is authorized.
+No one-hour/24-hour/production or physical-device claim. Private keys/state/raw
+vaults stay outside Git. One older inconclusive network and four historical state
+volumes remain retained; current-owner cleanup is separate. Preserve all original
+V1/user configuration and unrelated CLAUDE/docs-agent/quota work. [Risks](RISKS.md),
+[runbook](OPERATIONS.md), [recovery instructions](RESUME_PROMPT.md).
+No new phase starts automatically and no PR is authorized.

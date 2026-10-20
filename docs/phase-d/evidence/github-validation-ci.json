@@ -1,0 +1,164 @@
+{
+  "source": "GitHub Actions REST API",
+  "head_sha": "4a9431d23b8af834eceae1a85a9fd4a261034612",
+  "checked_at_utc": "2026-10-20T08:34:04.1415137Z",
+  "html_url": "https://github.com/IQBoostPlus/pqcbridge-legacy-edge-cloud/actions/runs/39393876501",
+  "branch": "codex/phase-d-pilot",
+  "conclusion": "success",
+  "event": "push",
+  "jobs": [
+    {
+      "id": 118531687675,
+      "name": "docker",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/IQBoostPlus/pqcbridge-legacy-edge-cloud/actions/runs/39393876501/job/118531687675",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-20T08:30:24Z",
+          "completed_at": "2026-10-20T08:30:24Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-20T08:30:24Z",
+          "completed_at": "2026-10-20T08:30:25Z"
+        },
+        {
+          "name": "Validate Docker Compose configuration",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-20T08:30:25Z",
+          "completed_at": "2026-10-20T08:30:26Z"
+        },
+        {
+          "name": "Build Docker images",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-20T08:30:26Z",
+          "completed_at": "2026-10-20T08:30:37Z"
+        },
+        {
+          "name": "Fresh-clone bootstrap smoke test",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-20T08:30:37Z",
+          "completed_at": "2026-10-20T08:30:50Z"
+        },
+        {
+          "name": "Show service logs on failure",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 6,
+          "started_at": "2026-10-20T08:30:50Z",
+          "completed_at": "2026-10-20T08:30:50Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12,
+          "started_at": "2026-10-20T08:30:50Z",
+          "completed_at": "2026-10-20T08:30:50Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-10-20T08:30:50Z",
+          "completed_at": "2026-10-20T08:30:51Z"
+        }
+      ]
+    },
+    {
+      "id": 118531688037,
+      "name": "test",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/IQBoostPlus/pqcbridge-legacy-edge-cloud/actions/runs/39393876501/job/118531688037",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-20T08:30:24Z",
+          "completed_at": "2026-10-20T08:30:24Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-20T08:30:24Z",
+          "completed_at": "2026-10-20T08:30:25Z"
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-20T08:30:25Z",
+          "completed_at": "2026-10-20T08:30:25Z"
+        },
+        {
+          "name": "Install dependencies",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-20T08:30:25Z",
+          "completed_at": "2026-10-20T08:30:27Z"
+        },
+        {
+          "name": "Run tests",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-20T08:30:27Z",
+          "completed_at": "2026-10-20T08:30:38Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-10-20T08:30:38Z",
+          "completed_at": "2026-10-20T08:30:38Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-10-20T08:30:38Z",
+          "completed_at": "2026-10-20T08:30:38Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-10-20T08:30:38Z",
+          "completed_at": "2026-10-20T08:30:38Z"
+        }
+      ]
+    }
+  ],
+  "required_jobs": [
+    "test",
+    "docker"
+  ],
+  "run_id": 39393876501,
+  "status": "passed",
+  "run_status": "completed"
+}

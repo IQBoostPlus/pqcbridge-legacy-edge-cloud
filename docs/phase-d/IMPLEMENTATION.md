@@ -1,7 +1,8 @@
 # Phase D — Package and Recovery Implementation, Endurance Pending
 
-Date: 2026-10-20. Status:30-minute runtime and separate final evidence reviews passed; exact-candidate Linux CI pending.
-Baseline caffc69; current branch codex/phase-d-pilot. D is not accepted/published.
+Date: 2026-10-20. Status:accepted30-minute runtime, separate final evidence review and matching GitHub Linux CI; see COMPLETION.md.
+Baseline caffc69; branch codex/phase-d-pilot. The amended bounded D scope is
+accepted; verify publication separately against actual main history and CI.
 
 ## Concrete Result
 
@@ -56,5 +57,6 @@ See [candidate](CANDIDATE.md) and [final review](FINAL_REVIEW.md).
   instead requires one fresh continuous hour; the old partial result is unchanged.
 
 The current complete phase status and evidence pointers are in [STATUS.md](STATUS.md).
-Final risk disposition, independent runtime-evidence review and exact-candidate
-GitHub Linux CI remain publication gates. No main push or PR was performed for D.
+Final risk disposition, independent evidence reviews and matching GitHub Linux CI
+are recorded in COMPLETION.md. Verify actual main SHA/CI before claiming publication;
+no PR is authorized.

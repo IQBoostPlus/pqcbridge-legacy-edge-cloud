@@ -5,7 +5,8 @@ telemetry: authenticated hybrid transport, durable delivery, bounded recovery,
 and evidence of the policy actually in effect.
 
 > **Engineering prototype with bounded lab acceptance.** Phase A transport
-> selection, Phase B secure delivery and Phase C migration management are accepted for owned Docker services
+> selection, Phase B secure delivery, Phase C migration management and the amended
+> Phase D pilot package are accepted for owned Docker services
 > and simulated devices. Physical-device compatibility and production security
 > have not been established. Passing tests does not prove a system secure.
 
@@ -24,13 +25,13 @@ and evidence of the policy actually in effect.
   [Main CI](https://github.com/IQBoostPlus/pqcbridge-legacy-edge-cloud/actions/runs/39260202385)
   passed all 247 tests and Docker checks. [CI follow-up](docs/phase-c/CI_FIX.md)
   preserves the earlier Linux failure and its test-only repair.
-- [Phase D](docs/phase-d/STATUS.md): offline pilot packaging, coordinated current-
-  state recovery and operator handover are implemented and runtime-reviewed.
-  The explicitly [human-amended30-minute experiment](docs/phase-d/SCOPE_AMENDMENT.md)
-  passed with final durable reconciliation, rotation, resource and backup checks.
-  [Candidate/evidence](docs/phase-d/CANDIDATE.md), [final review](docs/phase-d/FINAL_REVIEW.md)
-  and [pilot runbook](docs/phase-d/OPERATIONS.md). Exact-candidate GitHub Linux CI
-  and main publication remain pending; no one-hour/24-hour or production claim.
+- [Phase D](docs/phase-d/COMPLETION.md): offline pilot packaging, coordinated cold
+  recovery, same-schema upgrade/rollback and operator handover are accepted for
+  the owned Docker/simulation scope. The explicitly human-amended30-minute run
+  reconciled360 unique records, completed three rotations and verified backup/
+  cleanup; durable ACK p950.475s. [Linux CI](https://github.com/IQBoostPlus/pqcbridge-legacy-edge-cloud/actions/runs/39393876501) passed tests and Docker checks.
+  [Evidence/review](docs/phase-d/FINAL_REVIEW.md), [pilot runbook](docs/phase-d/OPERATIONS.md).
+  This establishes neither one-hour/24-hour stability nor production acceptance.
 - [B engineering operations](docs/phase-b/OPERATIONS.md) documents the delivery path;
   [C management operations](docs/phase-c/OPERATIONS.md) covers managed deployment
   and migration recovery.

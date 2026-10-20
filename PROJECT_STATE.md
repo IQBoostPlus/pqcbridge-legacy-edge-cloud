@@ -1,25 +1,15 @@
-# Current project state: Phase D runtime reviewed; Linux CI pending
+# Current project state: Phase D accepted for30-minute simulation scope
 
-
-
-Updated:2026-10-20, Asia/Singapore. The latest human instruction explicitly
-resumes D and changes its continuous experiment from one hour to30minutes.
-Current authority: docs/phase-d/SCOPE_AMENDMENT.md and RESUME_PROMPT.md.
-The earlier pause handoff remains history; no interrupted time counts.
-D authority: docs/phase-d/EXECUTION_SPEC.md and STATUS.md. Branch:
-codex/phase-d-pilot; baseline caffc697e4975ab46266e9cb011542408b4bdfb8.
-Baseline preservation: tmp/phase-d-baseline-be4eff8f72a54f9388f01082a39d576c.
-Deployment/recovery and amended30-minute runtime evidence are complete; separate
-final evidence reviews passed. Exact-candidate Linux CI and publication remain open. Do not publish D
-or let the scheduled publisher capture active, unreviewed work. C remains accepted below.
-The strengthened live rollback changes standard to conservative profile while
-retaining current valid credentials and proving a fresh ACK.
-C completion4b70e0d4d6f2e71be9cd592e777b4936663314a5 and its test-only repair
-2cde91dfabdf4435e298243b2b52bb1dcb48723c are verified published to main. Pre-main
-Linux CI39259917002 and main CI39260202385 both passed; GitHub Linux tests247
-passed8.42s. No PR was created or merged. Existing pqc-bridge-github remains PAUSED during active closure; resume only
-with the current30-minute scope and preserve its cadence/notification policy.
-Its 15-minute cadence, main/no-PR rule and closing documentation check are preserved.
+Updated:2026-10-20, Asia/Singapore. A/B/C and amended D are accepted within their
+explicit owned Docker/simulated-device boundaries. Current D authority:
+docs/phase-d/COMPLETION.md, STATUS.md, SCOPE_AMENDMENT.md, FINAL_REVIEW.md,
+OPERATIONS.md, RISKS.md and evidence/final-runtime-audit.json.
+Working branch codex/phase-d-pilot; original D baseline caffc697e4975ab46266e9cb011542408b4bdfb8.
+Runtime-reviewed candidate 4a9431d23b8af834eceae1a85a9fd4a261034612 passed GitHub Linux CI
+39393876501 (test+Docker). No PR is authorized. Exact final-commit CI and
+ordinary fast-forward/remoteSHA verification are always publication requirements.
+Check actual main ancestry and the conversation/local receipt before retrying a
+push; never duplicate Phase-Completion:D after it already exists in main history.
 
 ## 1. Recovery Authority
 
@@ -65,19 +55,24 @@ allowlist, excluding unrelated work/secrets/raw state. Do not duplicate the C
 completion trailer. Verify exact remote SHA. The existing proxy127.0.0.1:10808
 works per command; do not change persistent proxy settings.
 
-## 4. Runtime Complete; Next Publication Gate
+## 4. Completed D and Recovery After Publication
 
-The fresh30-minute experiment passed: 1800.001 real seconds; 360 sent/accepted/ACK/unique cloud records; durable ACK p95 0.4754s.
-Independent final Standards/Spec evidence reviews passed. Current cold checkpoint
-and owned cleanup verified. See docs/phase-d/CANDIDATE.md, FINAL_REVIEW.md and
-evidence/final-runtime-audit.json. Earlier inconclusive one-hour state is retained;
-do not rerun or promote its raw progress. No live current experiment is needed.
+D runtime1800.000536s/360sent=accepted=ACK=uniquecloud, zero misses/backlog,
+three both-role rotations, p950.475430s; resource limits/current cold hashes/
+owned cleanup verified. FormalD9/B19/C17 and prior265regressions remain matched.
+Separate final AI Standards/Spec reviews passed. See D completion/evidence; do
+not rerun passed suites or repeat implementation simply to recover context.
 
-Next: inspect an explicit D allowlist, preserve unrelated user edits/private state,
-commit the runtime-reviewed candidate on codex/phase-d-pilot for GitHub Linux CI.
-Do not mark Phase-Completion:D or publish main until the required matching CI
-passes. Then record accepted scope, validate the final documentation candidate
-on the same branch and ordinary fast-forward origin/main; verify SHA. Never PR.
-The15-minute publisher remains PAUSED during root closure to avoid concurrent
-publication. Original configuration/V1 and unrelated CLAUDE/docs-agent/quota
-changes remain outside D commits. Do not repeat passed local suites for context.
+Earlier24-hour/one-hour attempts remain interrupted/inconclusive. Their raw
+evidence, one old network and four state volumes are retained; never sum time or
+delete unknown data. Original configuration/V1, user CLAUDE/docs-agent/quota
+changes and private issuer/state/vaults remain protected and outside D staging.
+No production, physical-device, one-hour/24-hour stability or advisory clearance.
+
+The existing publisher uses the unchanged15-minute cadence/notification policy
+and must defer active root publication or a later human/quota pause. Consult its
+actual app status; preserve this existing task rather than duplicating it. Later authorized runs may correct verified current-doc
+drift, but must not start new implementation or duplicate accepted commits.
+For any future substantial task, fresh safe quota Check and human scope apply.
+Current D handoff: docs/phase-d/RESUME_PROMPT.md. Final publication receipt is
+kept locally in tmp/d-publication.json and the conversation to avoid SHA loops.

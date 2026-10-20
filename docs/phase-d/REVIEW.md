@@ -1,6 +1,6 @@
 # Phase D — Independent Review and Finding Record
 
-Date: 2026-10-20. **Independent30-minute static amendment reviews passed; final runtime evidence and CI acceptance pending.**
+Date: 2026-10-20. **Independent static/final evidence reviews and matching GitHub Linux CI passed; accepted bounded scope.**
 Baseline caffc697e4975ab46266e9cb011542408b4bdfb8, plus the explicit D working
 allowlist including untracked D files. Current scope is defined in EXECUTION_SPEC.
 
@@ -58,12 +58,12 @@ regression invocation also passed before repair, while repeated pressure runs
 failed. Preserve that limitation rather than claiming a deterministic red test.
 
 See [independent amendment review](AMENDMENT_REVIEW.md) for separate Standards
-and Spec reports: zero unresolved static findings, with final runtime/CI gates open.
+and Spec reports: zero unresolved static findings, with final runtime and matching CI subsequently passed in COMPLETION.md.
 
 ## Final Evidence Review
 
 Separate Standards/Spec final runtime reviews passed with no unresolved blocker:
 [FINAL_REVIEW.md](FINAL_REVIEW.md). The human-amended30-minute result passed all
 recorded gates. The earlier24-hour/one-hour failures or inconclusive records remain
-unchanged. Exact-candidate GitHub Linux CI and verified main publication are still
-pending at this candidate stage; no completion trailer has been created yet.
+unchanged. Matching GitHub Linux CI subsequently passed; see COMPLETION.md. Any final
+publication commit must pass its own exact CI before a verified normal main push.

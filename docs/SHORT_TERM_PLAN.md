@@ -1,6 +1,6 @@
 # PQC Bridge Short-Term Implementation Plan
 
-Updated: 2026-10-20. Planning targets below are not measured results. Phases A, B and C are complete for the revised Docker/simulation scope; measured evidence and boundaries are recorded in the [Phase A status](phase-a/STATUS.md), [Phase B status](phase-b/STATUS.md) and [Phase C status](phase-c/STATUS.md). Human-authorized [Phase D](phase-d/STATUS.md) implementation is saved and acceptance resumed under the latest [human-approved 30-minute amendment](phase-d/SCOPE_AMENDMENT.md); the earlier [pause handoff](phase-d/PAUSE_HANDOFF.md) is preserved.
+Updated: 2026-10-20. Planning targets below are not measured results. Phases A, B, C and human-amended D are complete for their explicit Docker/simulation scopes; measured evidence and boundaries are recorded in the [Phase A status](phase-a/STATUS.md), [Phase B status](phase-b/STATUS.md) and [Phase C status](phase-c/STATUS.md). Human-authorized [Phase D completion](phase-d/COMPLETION.md) records the passed30-minute scope and Linux CI; the earlier [pause handoff](phase-d/PAUSE_HANDOFF.md) remains historical.
 
 Execution scope clarification: the user selected Docker deployment with simulated devices for this iteration. This supersedes the physical-device/real-legacy prerequisite in A-02/A-05 for the current lab scope; simulator results must still never be presented as real-device compatibility. Actual target-runtime transport validation and delivery-contract gates remain required.
 
@@ -14,7 +14,7 @@ The provisional estimate is 6–10 effective working weeks for one primary devel
 
 Pass the Phase A selection gate before committing to the main Phase B implementation. Use minimal registration and authorization contracts in B, then add their management lifecycle in C. Deployment checks, performance baselines, and observability begin in A/B rather than waiting for D.
 
-Task IDs are planning identifiers within this document, not existing GitHub Issues. They were initially Not started; use the linked execution status for current progress. Phases A/B/C are accepted for the selected lab scope. The human explicitly started [Phase D](phase-d/STATUS.md) on 2026-10-20; D resumed with a30-minute duration gate after a fresh safe quota Check; D is not yet accepted. C's [milestone record](phase-c/COMPLETION.md) distinguishes current matching evidence from historical incomplete runs. Completing C does not automatically start D.
+Task IDs are planning identifiers within this document, not existing GitHub Issues. They were initially Not started; use the linked execution status for current progress. Phases A/B/C are accepted for the selected lab scope. The human explicitly started [Phase D](phase-d/STATUS.md) on 2026-10-20; D passed its human-amended30-minute gate, independent review and Linux CI; see its completion record. C's [milestone record](phase-c/COMPLETION.md) distinguishes current matching evidence from historical incomplete runs. Completing C does not automatically start D.
 
 ## 2. Phase A: Define the Use Case and Validate the Technical Approach (1–2 Weeks)
 

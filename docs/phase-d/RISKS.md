@@ -1,16 +1,16 @@
 # Phase D — Risk Register and Deployment Gates
 
-Date: 2026-10-20. D resumed with the explicit 30-minute amendment and remains incomplete. No production release is authorized.
+Date: 2026-10-20. D is accepted for the explicit30-minute amended simulation scope. No production release is authorized.
 
-## Gate Disposition Before GitHub CI
+## Accepted Gate Disposition
 
 - D-GATE-01 closed: actual amended30-minute run, at least three both-role rotations,
   renewals, limits, durable reconciliation, p95, private cold hashes and owned cleanup
   verified in evidence/final-runtime-audit.json. No longer duration is established.
 - D-GATE-02 closed: formal D9/9 and source/runner mapping independently reviewed;
   all37 application hashes match and the two runner status-only edits are proven.
-- D-GATE-03 partial: separate final Standards/Spec reviews passed. Exact-candidate
-  GitHub Linux CI remains required before main publication.
+- D-GATE-03 closed: separate final Standards/Spec reviews and matching GitHub Linux
+  CI passed. Every final publication candidate still requires its own exact CI.
 - D-GATE-04 closed for this simulation: package/recovery/permissions/alerts and
   dependency maintenance records reconciled against matching evidence. No current
   advisory clearance or production deployment approval is implied.

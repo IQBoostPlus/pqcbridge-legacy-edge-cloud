@@ -5,8 +5,8 @@ COMPLETION, REVIEW, OPERATIONS and CI_FIX records. C and test repair2cde91d are
 verified published to main. GitHub Linux CI39259917002 and main CI39260202385
 passed; no PR was created or merged. Do not repeat C implementation, its completion
 commit, the repair or passed suites merely for context. For the human-authorized
-2026-10-20 D work, follow ../phase-d/RESUME_PROMPT.md; D resumed under the human-approved 30-minute
-amendment and is not yet accepted. Read ../phase-d/SCOPE_AMENDMENT.md and the
+2026-10-20 D work, follow ../phase-d/RESUME_PROMPT.md; D is accepted under the human-approved30-minute
+amendment; see ../phase-d/COMPLETION.md. Read ../phase-d/SCOPE_AMENDMENT.md and the
 current D resume instructions; the earlier pause handoff is historical.
 
 Preserve newer user changes and the current documentation organization. Keep
