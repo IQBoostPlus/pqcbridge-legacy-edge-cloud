@@ -1,0 +1,159 @@
+{
+  "cleanup": {
+    "remaining": {
+      "containers": [],
+      "networks": [],
+      "volumes": []
+    },
+    "removed": [
+      "c8896ff39aaf",
+      "cc994e20bb98",
+      "2f7a43ec7dd0",
+      "pqc-d-5a3eea766c636f54_cloud_state",
+      "pqc-d-5a3eea766c636f54_gateway_state"
+    ],
+    "state_policy": "only ownership-verified lab volumes removed; private cold checkpoints retained",
+    "verified": true
+  },
+  "delivery_p95_seconds": 0.6383947920000992,
+  "earliest_finish_utc": "2026-10-20T03:07:20.294650+00:00",
+  "elapsed_seconds": 35.00012717799996,
+  "expected_seconds": 35,
+  "finished_utc": "2026-10-20T03:07:43.288073+00:00",
+  "full_24_hour_gate": false,
+  "harness_sha256": "7f0f85b9cb3937f2cd5acc32bbd628cb10c86172219c8f3f5aba6171e808ebfc",
+  "installation": {
+    "image": "sha256:6bd57c11aa63085b0fb7244dc4342338f3466f937ba2d4eaf0db9544cee48a9e",
+    "project": "pqc-d-5a3eea766c636f54",
+    "provisioned": true,
+    "scope": "synthetic-only"
+  },
+  "latest": {
+    "management_state": "Effective",
+    "state_bytes": 168630,
+    "storage": {
+      "accepted_total": 7,
+      "acknowledged_total": 7,
+      "clock_uncertain": false,
+      "pending": 0,
+      "quarantined": 0,
+      "refused": 0,
+      "source_gap": 0
+    }
+  },
+  "reconciliation": {
+    "business": {
+      "business_sha256": "73e6eeddcca5e86c592d0b25698b5c7ca6f9cab323990bdcf4c81acad4d09000",
+      "rows": 7,
+      "unique_ids": 7
+    },
+    "cloud": {
+      "committed_total": 7,
+      "refused": 0
+    },
+    "gateway": {
+      "accepted_total": 7,
+      "acknowledged_total": 7,
+      "clock_uncertain": false,
+      "pending": 0,
+      "quarantined": 0,
+      "refused": 0,
+      "source_gap": 0
+    }
+  },
+  "recovery_receipt": {
+    "checkpoint_id": "fa29b240-2f39-4395-a1ff-3d1b0413414f",
+    "file_count": 24,
+    "format": "pqc-pilot-cold-v1",
+    "manifest_sha256": "aacbadfbc61774337533c47cc5b89fc1e64bf91f7ba700ae5559c8220f5f6542"
+  },
+  "resource_samples": 2,
+  "rotations": [],
+  "scope": "synthetic owned Docker",
+  "sent": 7,
+  "source_sha256": {
+    "cloud/__init__.py": "e10e46d659b4748502284bf77ae76e9123f1764a88232ae49f1eda8b8cbf4099",
+    "cloud/cloud.py": "3f3c8ca18c2efc1a6e73372052561a397f82622e456162f2cb7cb84e75970b2d",
+    "cloud/processing.py": "e25326df0aaef1c785713757ddf1515a01e605c68446ec4fbf6cfa00c9d77b07",
+    "cloud/secure.py": "6b126f168382fc9103c789fd3e88f2ea3ea61be0ffa0268d1bc070a74924825e",
+    "cloud/store.py": "e84f9c4bffa3c34b2f4e0be5eaf2978e57dceccd21b0b1ec3f4ad0406df66ddf",
+    "common/__init__.py": "192f70232468a4b37d0e8adbde62746093552162958c94e3db945f73ca9cd72b",
+    "common/config.py": "0c6196d2b0480ac17d84d7f2b92ee309bbaf0659d4e5f1e731cc817c130072a7",
+    "common/credentials.py": "fac1a9eb860e30c205abd28cb6a28708e0ca319951b46ede4d1096016c632ae0",
+    "common/crypto.py": "d2bc38964ac746004839318a22ca1140e32a700de01cd1e723c2cc4ec3acb33f",
+    "common/delivery.py": "0001f4e852cff08082f3193040ad99b5f819b21c2e4d1485433642b7655bce4c",
+    "common/demo_device_keys.json": "323e3bf19a2849371cc64a71ce02d5e24594e616dd7e14e09493186a27fbda9a",
+    "common/demo_gateway_keys.json": "5efd8901cdcef6d66faa57ec1e50ecb4ac20830f97dc48aaf0e592a4987824e5",
+    "common/health.py": "19b731b674887a6b9c615c5d905c7b088e6d43d9233788eff9d0239584587db2",
+    "common/logging_setup.py": "8bd9a5be029165ac75d2d0dc5723041c72abf5886a462314c03c3881cc5c01ca",
+    "common/managed_bootstrap.py": "4873d41340f6c3c712d72617f09b25b860d2241aad22b89a60575f6a1be538ff",
+    "common/managed_config.py": "d2ac626aa6571ffcb80582fe03b8b1e34b0c59cbf5c1311459bf133e7f8d4169",
+    "common/management.py": "b0bf372714d36e10f8fbc7ad1bfdf06e857231d86d0d6f3901dba6ba19270c55",
+    "common/metrics.py": "fb79dcbedaa2ad3c130b1ff7eac3d83664fc438a59d24d520c16434d690a0f8b",
+    "common/pilot_ops.py": "ff02b342c751cb065f02c2da7f71eab2b5e02e917ba7c9285c044cc643620338",
+    "common/protocol.py": "4d4584fbf1222eb8569ee8c85e3fa4e8c61603b53c06a94c978de064399914c5",
+    "common/replay.py": "0e402d8ae82424535f8160977d634d420ae2b5fe8a295577dbeac4c08f718908",
+    "common/secure_bootstrap.py": "46fc6cf17ddfd8041b8055a113aacbaae2369b7d5f4f9e5da81b89cd1f88aad1",
+    "common/secure_runtime.py": "b6b150fa2e561ab3e8b5cafb39546a1ef292da8e50f075145ea8793d4f95635d",
+    "common/secure_transport.py": "3df8f208202ce6b2271c44a50387d06d643a4d3ec2214c6b3ee18b3ec417f7a7",
+    "deploy/phase_b/tls-policy.cnf": "68375cb30d9284888675f12a658f8980795170ca205cca7e227038f525b18bd2",
+    "deploy/phase_d/Dockerfile": "59570b80874308f6d11fddff1cd5ea31a51faf74bb383d51a3e762be7b5a0a6a",
+    "device/__init__.py": "30551a4dd7816ed9565997c6f1fb2c578299e410934c6f54c5eb13a1829c6054",
+    "device/device.py": "39d827f6e9220c92c9ad9ed805c28bc9e7a130c8dd433051c866f5320db6504c",
+    "device/sensor.py": "f68d9e488d1537386dabffd0736ddc18f73302e9111e76d623333fb027574817",
+    "device/state.py": "18fbe20a8faa2c5b077d43d16b939123c91f46f7093e5ccabbe3360041bbb147",
+    "gateway/__init__.py": "5965a97028bda129c350a3fbf74e8e15c9977abffebf1ccbd45121198ee9b78f",
+    "gateway/cloud_channel.py": "aff7aebb9e45b2393a064c202376f5f859ead5d592db964cb291aaa730c5c670",
+    "gateway/gateway.py": "74eb3945306a1938a13ec774ad3cbdc8c32f3231b025bfeced471174eec55c69",
+    "gateway/processing.py": "2fee497bd98434ce695de1bdd87ae4052a6e2e8c6dd96ed66b7dbb6ad86cdc05",
+    "gateway/secure.py": "56e16ef38e6d4d72a318d6072c725cc7f8ffa96b44d92e96a810cee37c79255f",
+    "requirements.txt": "c3552b0d627bdbedbeecbe9658d82eeaa1ccae6282a0808f9e1e1b6570dda435",
+    "scripts/phase_d/worker.py": "0fcf4d8c900e326079b3da961a0ccaadb109631c17835f5fbb836f69ba92981f"
+  },
+  "started_utc": "2026-10-20T03:06:31.998228+00:00",
+  "status": "diagnostic_passed",
+  "worker": {
+    "baseline": {
+      "accepted_total": 0,
+      "acknowledged_total": 0,
+      "clock_uncertain": false,
+      "pending": 0,
+      "quarantined": 0,
+      "refused": 0,
+      "source_gap": 0
+    },
+    "elapsed_seconds": 35.00012717799996,
+    "expected_seconds": 35.0,
+    "interval_seconds": 5.0,
+    "latencies_seconds": [
+      0.4740613079998184,
+      0.44223144800002956,
+      0.6383947920000992,
+      0.4475935240000126,
+      0.546040277999964,
+      0.419434807000016,
+      0.4880562610001107
+    ],
+    "latest": {
+      "management_state": "Effective",
+      "state_bytes": 168630,
+      "storage": {
+        "accepted_total": 7,
+        "acknowledged_total": 7,
+        "clock_uncertain": false,
+        "pending": 0,
+        "quarantined": 0,
+        "refused": 0,
+        "source_gap": 0
+      }
+    },
+    "max_pending": 0,
+    "max_state_bytes": 168630,
+    "missed_schedule": 0,
+    "sent": 7,
+    "status": "passed"
+  },
+  "workload_started_utc": "2026-10-20T03:06:45.294650+00:00",
+  "raw_result_sha256": "22ccf358747b08cf07f66c4ea3a293c01ae7164f1c170258d2c1351c5c24e3ec",
+  "runtime_root": "D:\\Code\\pqcbridge-phase-d-artifacts\\endurance-diagnostic-20261020-02"
+}

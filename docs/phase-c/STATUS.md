@@ -6,7 +6,8 @@ Separate Standards/Spec re-reviews have no remaining blocker. Branch:
 codex/phase-c-management; baseline5c12f8644d35ae85422318bbad934379067affa1.
 C completion and its test-only repair are verified published to main at
 2cde91dfabdf4435e298243b2b52bb1dcb48723c. Main CI39260202385 passed tests and
-Docker checks. Later documentation commits may advance main; D remains unstarted.
+Docker checks. Later documentation commits may advance main. The human started
+[Phase D](../phase-d/STATUS.md) on2026-10-20; D acceptance is tracked separately.
 
 ## 1. Implementation and Acceptance
 

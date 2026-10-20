@@ -1,0 +1,15 @@
+{
+  "status": "failed",
+  "runtime_root": "D:\\Code\\pqcbridge-phase-d-artifacts\\formal-20261020-01",
+  "raw_result_sha256": "68ad901ec72591c6f0378d7091fe04e79023faae9b2c537d71638d8a1e66c0f5",
+  "cases": [
+    "fresh_offline_installation",
+    "isolated_full_handshakes_X25519",
+    "isolated_full_handshakes_X25519MLKEM768"
+  ],
+  "error": {
+    "message": "",
+    "type": "AssertionError"
+  },
+  "boundary": "historical before final shared delivery lock repair; not final candidate acceptance"
+}

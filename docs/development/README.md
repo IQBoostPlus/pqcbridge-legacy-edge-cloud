@@ -6,7 +6,7 @@ Write all project documentation in English. Use Chinese when communicating with 
 
 - [Initial Development Records](initial/README.md) retain P01–P08 history and its technical requirements.
 - [Phase A](../phase-a/STATUS.md), [Phase B](../phase-b/STATUS.md) and [Phase C](../phase-c/STATUS.md) retain engineering execution reports and evidence. Preserve historical status and raw results.
-- Current C records: [migration milestone](../phase-c/COMPLETION.md), [management operations](../phase-c/OPERATIONS.md) and [Linux CI follow-up](../phase-c/CI_FIX.md). D has not started.
+- Current C records: [migration milestone](../phase-c/COMPLETION.md), [management operations](../phase-c/OPERATIONS.md) and [Linux CI follow-up](../phase-c/CI_FIX.md). [Phase D](../phase-d/STATUS.md) resumed on2026-10-20 under the explicit [30-minute amendment](../phase-d/SCOPE_AMENDMENT.md); the fresh30-minute experiment and separate final reviews passed; exact-candidate Linux CI and main publication remain pending. The [D pause handoff](../phase-d/PAUSE_HANDOFF.md) remains historical.
 - Subsequent milestones use the [record template](RECORD_TEMPLATE.md), adapted to the actual work. Keep related evidence and runbooks with the relevant phase.
 - The [engineering roadmap](../ENGINEERING_ROADMAP.md) defines direction; execution records establish implementation and acceptance. Update current navigation without rewriting historical outcomes.
 

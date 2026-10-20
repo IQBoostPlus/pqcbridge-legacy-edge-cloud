@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "exit_code": 0,
+  "elapsed_seconds": 18.639999999999418,
+  "image": "sha256:96fe8611508007806924a7bee84a0850aea834601cd792f268dfe0d2d024d777",
+  "runtime_root": "D:\\Code\\pqcbridge-phase-d-artifacts\\linux-regression-79cb9fdf83874ddbaeb5ffc535737f53",
+  "source_overlay_sha256": {
+    "common/pilot_ops.py": "ff02b342c751cb065f02c2da7f71eab2b5e02e917ba7c9285c044cc643620338",
+    "deploy/phase_d/Dockerfile": "59570b80874308f6d11fddff1cd5ea31a51faf74bb383d51a3e762be7b5a0a6a",
+    "scripts/phase_d/acceptance.py": "362a123a35a5240488ff72e9faf3a7e5111b97f1a6341cb6817ea982bc56dc66",
+    "scripts/phase_d/endurance.py": "7f0f85b9cb3937f2cd5acc32bbd628cb10c86172219c8f3f5aba6171e808ebfc",
+    "scripts/phase_d/package.py": "26d470d69a05536775de064017eb182e66cb06b6dd1fe7722f2e58024b50c320",
+    "scripts/phase_d/worker.py": "0fcf4d8c900e326079b3da961a0ccaadb109631c17835f5fbb836f69ba92981f",
+    "tests/test_pilot_ops.py": "9bc3a49161bf4e957077dbfef8ad1aa983714ea1f12ee11a005a46923b16ee57",
+    "tests/test_pilot_package.py": "97680a69cf3d2ff8137d204e7ca2600db7cfa4fd76fa411d6015ead6b928282a"
+  },
+  "summary": "261 passed in 17.36s",
+  "boundary": "offline Linux regression; not GitHub CI or runtime endurance"
+}

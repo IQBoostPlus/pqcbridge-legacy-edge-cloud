@@ -1,0 +1,24 @@
+{
+  "status": "passed",
+  "exit_code": 0,
+  "elapsed_seconds": 14.68800000000192,
+  "image": "sha256:468bc9c41c3e480d8dae6d71f4338890d16d885c220a94ad2d12731a365af5d3",
+  "runtime_root": "D:\\Code\\pqcbridge-phase-d-artifacts\\linux-regression-c3ecf0a8b4774847adf569f592e09cad",
+  "source_overlay_sha256": {
+    "common/pilot_ops.py": "93652aab98df7596da34dbe1693755a7ae0d6779172c70fa87f6330078bb07af",
+    "common/delivery.py": "361bffe0cfcbd4b65112e5f2fb9f5d9221f11daebfe2d6865bba974d64a4816f",
+    "deploy/phase_d/Dockerfile": "59570b80874308f6d11fddff1cd5ea31a51faf74bb383d51a3e762be7b5a0a6a",
+    "tests/test_delivery_concurrency.py": "946fc5c3ab9ec7acc7eb4fd5b498f5f33a7300f86f7cf95a7d86a0dbc0947ebb",
+    "scripts/phase_d/acceptance.py": "ece65983d70dbb108506ee26858cc016c83e4c323aa96ecd097440f631eb2adb",
+    "scripts/phase_d/endurance.py": "8e3c2f66018d46263f8948293fa248becb7ee0f69ee094d0b00ed4c08f9c242d",
+    "scripts/phase_d/package.py": "26d470d69a05536775de064017eb182e66cb06b6dd1fe7722f2e58024b50c320",
+    "scripts/phase_d/recovery_probe.py": "424bb9e1878b80edba18debf03c8b057ed2254c4d89d0b3ff145a041c14ec20e",
+    "scripts/phase_d/sqlite_probe.py": "582ccd0e6a890ca20072ea559fc5d02ff56df512010ce373f0661ce345c59305",
+    "scripts/phase_d/worker.py": "0fcf4d8c900e326079b3da961a0ccaadb109631c17835f5fbb836f69ba92981f",
+    "tests/test_pilot_harness.py": "fcb4fe24f798c1ce29f47e77984b02b2003343645b120b080ac3137f6b791862",
+    "tests/test_pilot_ops.py": "9bc3a49161bf4e957077dbfef8ad1aa983714ea1f12ee11a005a46923b16ee57",
+    "tests/test_pilot_package.py": "97680a69cf3d2ff8137d204e7ca2600db7cfa4fd76fa411d6015ead6b928282a"
+  },
+  "summary": "265 passed in 13.93s",
+  "boundary": "offline Linux regression; not GitHub CI or runtime endurance"
+}

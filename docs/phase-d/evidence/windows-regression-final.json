@@ -1,0 +1,8 @@
+{
+  "status": "passed",
+  "tests": 265,
+  "elapsed_seconds": 20.807,
+  "junit_sha256": "b592920d0dbe912e56e7a08c6fcd085a5d20f50699ee7569bab97adc0d105310",
+  "boundary": "normal Windows user Python; not GitHub Linux CI",
+  "delivery_sha256": "361bffe0cfcbd4b65112e5f2fb9f5d9221f11daebfe2d6865bba974d64a4816f"
+}

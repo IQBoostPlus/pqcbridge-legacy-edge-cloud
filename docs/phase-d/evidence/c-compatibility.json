@@ -1,0 +1,121 @@
+{
+  "status": "passed",
+  "runtime_root": "D:\\Code\\pqcbridge-phase-d-artifacts\\c-compat-20261020-01",
+  "raw_result_sha256": "a267358df65772193244f598804b47323178ccc9bbc5640cf8e3ab62e6a0134b",
+  "source_sha256": {
+    "cloud/__init__.py": "e10e46d659b4748502284bf77ae76e9123f1764a88232ae49f1eda8b8cbf4099",
+    "cloud/cloud.py": "3f3c8ca18c2efc1a6e73372052561a397f82622e456162f2cb7cb84e75970b2d",
+    "cloud/processing.py": "e25326df0aaef1c785713757ddf1515a01e605c68446ec4fbf6cfa00c9d77b07",
+    "cloud/secure.py": "6b126f168382fc9103c789fd3e88f2ea3ea61be0ffa0268d1bc070a74924825e",
+    "cloud/store.py": "e84f9c4bffa3c34b2f4e0be5eaf2978e57dceccd21b0b1ec3f4ad0406df66ddf",
+    "common/__init__.py": "192f70232468a4b37d0e8adbde62746093552162958c94e3db945f73ca9cd72b",
+    "common/config.py": "0c6196d2b0480ac17d84d7f2b92ee309bbaf0659d4e5f1e731cc817c130072a7",
+    "common/credentials.py": "fac1a9eb860e30c205abd28cb6a28708e0ca319951b46ede4d1096016c632ae0",
+    "common/crypto.py": "d2bc38964ac746004839318a22ca1140e32a700de01cd1e723c2cc4ec3acb33f",
+    "common/delivery.py": "361bffe0cfcbd4b65112e5f2fb9f5d9221f11daebfe2d6865bba974d64a4816f",
+    "common/demo_device_keys.json": "323e3bf19a2849371cc64a71ce02d5e24594e616dd7e14e09493186a27fbda9a",
+    "common/demo_gateway_keys.json": "5efd8901cdcef6d66faa57ec1e50ecb4ac20830f97dc48aaf0e592a4987824e5",
+    "common/health.py": "19b731b674887a6b9c615c5d905c7b088e6d43d9233788eff9d0239584587db2",
+    "common/logging_setup.py": "8bd9a5be029165ac75d2d0dc5723041c72abf5886a462314c03c3881cc5c01ca",
+    "common/managed_bootstrap.py": "4873d41340f6c3c712d72617f09b25b860d2241aad22b89a60575f6a1be538ff",
+    "common/managed_config.py": "d2ac626aa6571ffcb80582fe03b8b1e34b0c59cbf5c1311459bf133e7f8d4169",
+    "common/management.py": "b0bf372714d36e10f8fbc7ad1bfdf06e857231d86d0d6f3901dba6ba19270c55",
+    "common/metrics.py": "fb79dcbedaa2ad3c130b1ff7eac3d83664fc438a59d24d520c16434d690a0f8b",
+    "common/pilot_ops.py": "93652aab98df7596da34dbe1693755a7ae0d6779172c70fa87f6330078bb07af",
+    "common/protocol.py": "4d4584fbf1222eb8569ee8c85e3fa4e8c61603b53c06a94c978de064399914c5",
+    "common/replay.py": "0e402d8ae82424535f8160977d634d420ae2b5fe8a295577dbeac4c08f718908",
+    "common/secure_bootstrap.py": "46fc6cf17ddfd8041b8055a113aacbaae2369b7d5f4f9e5da81b89cd1f88aad1",
+    "common/secure_runtime.py": "b6b150fa2e561ab3e8b5cafb39546a1ef292da8e50f075145ea8793d4f95635d",
+    "common/secure_transport.py": "3df8f208202ce6b2271c44a50387d06d643a4d3ec2214c6b3ee18b3ec417f7a7",
+    "deploy/phase_b/Dockerfile": "c08af733dbac5337b7b3a233a436312f9f7d59bc9d8740cc12188ee0d4aea6ec",
+    "deploy/phase_b/tls-policy.cnf": "68375cb30d9284888675f12a658f8980795170ca205cca7e227038f525b18bd2",
+    "device/__init__.py": "30551a4dd7816ed9565997c6f1fb2c578299e410934c6f54c5eb13a1829c6054",
+    "device/device.py": "39d827f6e9220c92c9ad9ed805c28bc9e7a130c8dd433051c866f5320db6504c",
+    "device/sensor.py": "f68d9e488d1537386dabffd0736ddc18f73302e9111e76d623333fb027574817",
+    "device/state.py": "18fbe20a8faa2c5b077d43d16b939123c91f46f7093e5ccabbe3360041bbb147",
+    "gateway/__init__.py": "5965a97028bda129c350a3fbf74e8e15c9977abffebf1ccbd45121198ee9b78f",
+    "gateway/cloud_channel.py": "aff7aebb9e45b2393a064c202376f5f859ead5d592db964cb291aaa730c5c670",
+    "gateway/gateway.py": "74eb3945306a1938a13ec774ad3cbdc8c32f3231b025bfeced471174eec55c69",
+    "gateway/processing.py": "2fee497bd98434ce695de1bdd87ae4052a6e2e8c6dd96ed66b7dbb6ad86cdc05",
+    "gateway/secure.py": "56e16ef38e6d4d72a318d6072c725cc7f8ffa96b44d92e96a810cee37c79255f"
+  },
+  "cases": [
+    {
+      "name": "issuer_private_key_linux_permissions_and_role_mount_isolation",
+      "passed": true
+    },
+    {
+      "name": "gateway_real_source_delivery_post_apply_effective",
+      "passed": true
+    },
+    {
+      "name": "gateway_two_real_source_delivery_post_apply_effective",
+      "passed": true
+    },
+    {
+      "name": "live_canary_profile_post_apply_ack_and_unaffected_group",
+      "passed": true
+    },
+    {
+      "name": "unknown_and_classical_profiles_refused_by_actual_cli",
+      "passed": true
+    },
+    {
+      "name": "missing_key_canary_fails_closed_without_disrupting_other_group",
+      "passed": true
+    },
+    {
+      "name": "failed_rotation_recovers_with_same_already_issued_key_and_fingerprint",
+      "passed": true
+    },
+    {
+      "name": "profile_rollback_new_version_retains_current_valid_credential",
+      "passed": true
+    },
+    {
+      "name": "stale_actual_observation_refused_and_public_status_projects_unknown",
+      "passed": true
+    },
+    {
+      "name": "gateway_rotation_real_old_leaf_overlap_then_retirement",
+      "passed": true
+    },
+    {
+      "name": "emergency_revoke_disconnects_active_and_refuses_new_leaf",
+      "passed": true
+    },
+    {
+      "name": "old_control_snapshot_refused_after_real_role_restart",
+      "passed": true
+    },
+    {
+      "name": "fresh_nonrevoked_credential_recovers_without_namespace_reset",
+      "passed": true
+    },
+    {
+      "name": "device_disable_closes_existing_source_and_refuses_new_source",
+      "passed": true
+    },
+    {
+      "name": "gateway_disable_rejects_active_and_new_business_access",
+      "passed": true
+    },
+    {
+      "name": "offline_lease_expiry_buffers_then_renewal_drains_exact_same_event",
+      "passed": true
+    },
+    {
+      "name": "managed_leaf_expiry_closes_existing_and_refuses_new_channel",
+      "passed": true
+    }
+  ],
+  "case_count": 17,
+  "cleanup_verified": true,
+  "image": "sha256:90f50366340d25d12d290a5e545ac14396b5a66d0953abfc2b6e7215835ad266",
+  "runtime": {
+    "python": "3.12.14 (main, Sep 19 2026, 01:04:57) [GCC 14.2.0]",
+    "ssl": "OpenSSL 3.5.7 9 Jun 2026",
+    "cryptography": "50.0.1",
+    "platform": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.41"
+  }
+}

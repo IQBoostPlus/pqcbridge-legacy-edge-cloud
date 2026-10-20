@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "reads": 9758,
+  "failures": [],
+  "errors": [],
+  "disable_statement_cache": false,
+  "database_counters": {
+    "accepted_total": "17",
+    "acknowledged_total": "7"
+  }
+}

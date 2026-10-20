@@ -251,12 +251,15 @@ class _Store:
             raise DeliveryError("state_byte_quota")
 
     def _metric(self, key, delta=0):
-        row = self._db.execute("SELECT value FROM metadata WHERE key=?", (key,)).fetchone()
-        value = int(row[0]) if row else 0
-        if delta:
-            value += delta
-            self._set(key, value)
-        return value
+        # Expiry also reads a metric after committing. Serialize that read with
+        # snapshots/transactions sharing this connection and its statement cache.
+        with self._lock:
+            row = self._db.execute("SELECT value FROM metadata WHERE key=?", (key,)).fetchone()
+            value = int(row[0]) if row else 0
+            if delta:
+                value += delta
+                self._set(key, value)
+            return value
 
     def _set(self, key, value):
         self._db.execute("INSERT INTO metadata(key,value) VALUES (?,?) ON CONFLICT(key) DO UPDATE SET value=excluded.value", (key, str(value)))
@@ -359,6 +362,12 @@ class GatewayQueue(_Store):
         self._transaction(action)
 
     def expire(self, now=None):
+        # Capture clocks only after acquiring the same lock as acceptance. An
+        # older pre-lock sample must not be compared with a newer committed row.
+        with self._lock:
+            return self._expire_locked(now)
+
+    def _expire_locked(self, now):
         if now is None:
             wall = time.time()
         elif isinstance(now, str):

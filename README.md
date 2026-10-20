@@ -23,7 +23,14 @@ and evidence of the policy actually in effect.
   [2cde91d](https://github.com/IQBoostPlus/pqcbridge-legacy-edge-cloud/commit/2cde91dfabdf4435e298243b2b52bb1dcb48723c).
   [Main CI](https://github.com/IQBoostPlus/pqcbridge-legacy-edge-cloud/actions/runs/39260202385)
   passed all 247 tests and Docker checks. [CI follow-up](docs/phase-c/CI_FIX.md)
-  preserves the earlier Linux failure and its test-only repair. Phase D has not started.
+  preserves the earlier Linux failure and its test-only repair.
+- [Phase D](docs/phase-d/STATUS.md): offline pilot packaging, coordinated current-
+  state recovery and operator handover are implemented and runtime-reviewed.
+  The explicitly [human-amended30-minute experiment](docs/phase-d/SCOPE_AMENDMENT.md)
+  passed with final durable reconciliation, rotation, resource and backup checks.
+  [Candidate/evidence](docs/phase-d/CANDIDATE.md), [final review](docs/phase-d/FINAL_REVIEW.md)
+  and [pilot runbook](docs/phase-d/OPERATIONS.md). Exact-candidate GitHub Linux CI
+  and main publication remain pending; no one-hour/24-hour or production claim.
 - [B engineering operations](docs/phase-b/OPERATIONS.md) documents the delivery path;
   [C management operations](docs/phase-c/OPERATIONS.md) covers managed deployment
   and migration recovery.

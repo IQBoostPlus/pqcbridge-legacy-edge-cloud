@@ -1,0 +1,22 @@
+{
+  "status": "failed",
+  "provenance": "Transcribed from the pre-fix sqlite_probe.py tool output on 2026-10-20; not a new run",
+  "reads": 9059,
+  "disable_statement_cache": false,
+  "failures": [
+    {
+      "accepted_total": 0,
+      "acknowledged_total": 7,
+      "pending": 10,
+      "quarantined": 0,
+      "refused": 0,
+      "source_gap": 0,
+      "clock_uncertain": false
+    }
+  ],
+  "errors": [],
+  "database_counters": {
+    "accepted_total": "17",
+    "acknowledged_total": "7"
+  }
+}

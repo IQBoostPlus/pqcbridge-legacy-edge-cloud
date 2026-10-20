@@ -1,0 +1,8 @@
+{
+  "status": "passed",
+  "image_archive_sha256": "77f642b2abc470640310766deb33f99969966e4303d35d2e9641b50a40a2b350",
+  "bytes": 56434688,
+  "imported": true,
+  "image": "sha256:8ed026f132a3484baf56ffe72d52390eea7c755d8686bfd5a37946a256cd047c",
+  "boundary": "external controller/image archive export+checksum+load on same owned engine; not a new physical host"
+}

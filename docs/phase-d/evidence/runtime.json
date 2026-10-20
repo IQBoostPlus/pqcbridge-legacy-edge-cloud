@@ -1,0 +1,5 @@
+{
+  "python": "3.12.14 (main, Sep 19 2026, 01:04:57) [GCC 14.2.0]",
+  "openssl": "OpenSSL 3.5.7 9 Jun 2026",
+  "cryptography": "50.0.1"
+}

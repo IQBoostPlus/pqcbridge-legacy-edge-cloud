@@ -1,0 +1,13 @@
+{
+  "status": "failed",
+  "reads": 2,
+  "failures": [],
+  "errors": [
+    "TypeError"
+  ],
+  "disable_statement_cache": false,
+  "database_counters": {
+    "accepted_total": "17",
+    "acknowledged_total": "7"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "boundary": "valid-schema synthetic unused metadata blob; cold recovery memory, not business capacity",
+  "cleanup": {
+    "remaining": {
+      "containers": [],
+      "networks": [],
+      "volumes": []
+    },
+    "removed": [
+      "pqc-d-c2e0a7fa729339f3_cloud_state",
+      "pqc-d-c2e0a7fa729339f3_gateway_state"
+    ],
+    "state_policy": "only ownership-verified lab volumes removed; private cold checkpoints retained",
+    "verified": true
+  },
+  "elapsed_seconds": 54.31551194600024,
+  "fixture_bytes": 234881024,
+  "peak_rss_kib": 21604,
+  "receipt": {
+    "checkpoint_id": "c71ab340-bf3d-42d6-be13-18a3508a3c7b",
+    "file_count": 21,
+    "format": "pqc-pilot-cold-v1",
+    "manifest_sha256": "fb553fd2e1600f272d6891f53b4ce6c0a15c3a18aed5cb7b48a0b1bbff368a88"
+  },
+  "restored": true,
+  "status": "passed",
+  "raw_result_sha256": "5f94da9bc8457c151a15c06e77023850a8d756005d780a1a009cb89aa96854b0",
+  "runtime_root": "D:\\Code\\pqcbridge-phase-d-artifacts\\large-recovery-20261020-01"
+}

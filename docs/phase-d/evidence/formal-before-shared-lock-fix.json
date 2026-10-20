@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "runtime_root": "D:\\Code\\pqcbridge-phase-d-artifacts\\formal-20261020-02",
+  "raw_result_sha256": "a0d10b6fde6acbd7159012b461fd30979079ca12f3f45adb3d7fc190500fea67",
+  "cases": [
+    "fresh_offline_installation",
+    "isolated_full_handshakes_X25519",
+    "isolated_full_handshakes_X25519MLKEM768",
+    "normal_load_durable_ack_latency",
+    "overload_closes_unacknowledged_sources_without_false_acceptance",
+    "actual_cloud_outage_and_complete_drain",
+    "isolated_current_checkpoint_restore_and_same_schema_package_upgrade",
+    "restored_offline_issuer_rotates_both_roles_and_delivers",
+    "rollback_package_with_current_state_preserves_new_business_record"
+  ],
+  "error": null,
+  "boundary": "historical before final shared delivery lock repair; not final candidate acceptance"
+}

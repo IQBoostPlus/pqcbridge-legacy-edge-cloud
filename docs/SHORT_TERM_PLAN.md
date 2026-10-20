@@ -1,6 +1,6 @@
 # PQC Bridge Short-Term Implementation Plan
 
-Updated: 2026-10-19. Planning targets below are not measured results. Phases A, B and C are complete for the revised Docker/simulation scope; measured evidence and boundaries are recorded in the [Phase A status](phase-a/STATUS.md), [Phase B status](phase-b/STATUS.md) and [Phase C status](phase-c/STATUS.md).
+Updated: 2026-10-20. Planning targets below are not measured results. Phases A, B and C are complete for the revised Docker/simulation scope; measured evidence and boundaries are recorded in the [Phase A status](phase-a/STATUS.md), [Phase B status](phase-b/STATUS.md) and [Phase C status](phase-c/STATUS.md). Human-authorized [Phase D](phase-d/STATUS.md) implementation is saved and acceptance resumed under the latest [human-approved 30-minute amendment](phase-d/SCOPE_AMENDMENT.md); the earlier [pause handoff](phase-d/PAUSE_HANDOFF.md) is preserved.
 
 Execution scope clarification: the user selected Docker deployment with simulated devices for this iteration. This supersedes the physical-device/real-legacy prerequisite in A-02/A-05 for the current lab scope; simulator results must still never be presented as real-device compatibility. Actual target-runtime transport validation and delivery-contract gates remain required.
 
@@ -14,7 +14,7 @@ The provisional estimate is 6–10 effective working weeks for one primary devel
 
 Pass the Phase A selection gate before committing to the main Phase B implementation. Use minimal registration and authorization contracts in B, then add their management lifecycle in C. Deployment checks, performance baselines, and observability begin in A/B rather than waiting for D.
 
-Task IDs are planning identifiers within this document, not existing GitHub Issues. They were initially Not started; use the linked execution status for current progress. Phases A/B/C are accepted for the selected lab scope; Phase D has not started. C's [milestone record](phase-c/COMPLETION.md) distinguishes current matching evidence from historical incomplete runs. Completing C does not automatically start D.
+Task IDs are planning identifiers within this document, not existing GitHub Issues. They were initially Not started; use the linked execution status for current progress. Phases A/B/C are accepted for the selected lab scope. The human explicitly started [Phase D](phase-d/STATUS.md) on 2026-10-20; D resumed with a30-minute duration gate after a fresh safe quota Check; D is not yet accepted. C's [milestone record](phase-c/COMPLETION.md) distinguishes current matching evidence from historical incomplete runs. Completing C does not automatically start D.
 
 ## 2. Phase A: Define the Use Case and Validate the Technical Approach (1–2 Weeks)
 
@@ -115,7 +115,7 @@ Exercise bounded overlap of old and new credentials, retirement of old credentia
 
 These are initial candidate values to freeze against the use case in Phase A. Without supporting business requirements, they must not be presented as suitable for arbitrary devices or production scale.
 
-- Run for at least 24 hours at the agreed load without unhandled exceptions; keep memory, connections, and disk within agreed limits.
+- Run for at least 30 continuous minutes at the agreed load without unhandled exceptions; keep memory, connections, and disk within agreed limits. This explicitly human-approved2026-10-20 [amendment](phase-d/SCOPE_AMENDMENT.md) replaces the original24-hour D gate and establishes no24-hour endurance claim.
 - Recover from a 10-minute network outage within designed buffering capacity. All data durably accepted by the gateway eventually receives cloud acknowledgement, with unique business-record counts reconciled.
 - Complete exit/restart tests at all Phase B failure points, plus queue-full and disk-full tests.
 - Reject invalid identities, unauthorized devices, applicable replay cases, and unauthorized downgrades as expected; legitimate traffic remains recoverable.

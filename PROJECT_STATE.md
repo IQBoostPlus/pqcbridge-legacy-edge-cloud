@@ -1,18 +1,29 @@
-# Current project state: Phase C complete
+# Current project state: Phase D runtime reviewed; Linux CI pending
 
-Updated: 2026-10-19, Asia/Singapore. C completed after explicit user continuation.
+
+
+Updated:2026-10-20, Asia/Singapore. The latest human instruction explicitly
+resumes D and changes its continuous experiment from one hour to30minutes.
+Current authority: docs/phase-d/SCOPE_AMENDMENT.md and RESUME_PROMPT.md.
+The earlier pause handoff remains history; no interrupted time counts.
+D authority: docs/phase-d/EXECUTION_SPEC.md and STATUS.md. Branch:
+codex/phase-d-pilot; baseline caffc697e4975ab46266e9cb011542408b4bdfb8.
+Baseline preservation: tmp/phase-d-baseline-be4eff8f72a54f9388f01082a39d576c.
+Deployment/recovery and amended30-minute runtime evidence are complete; separate
+final evidence reviews passed. Exact-candidate Linux CI and publication remain open. Do not publish D
+or let the scheduled publisher capture active, unreviewed work. C remains accepted below.
 The strengthened live rollback changes standard to conservative profile while
-retaining current valid credentials and proving a fresh ACK. D has not started.
+retaining current valid credentials and proving a fresh ACK.
 C completion4b70e0d4d6f2e71be9cd592e777b4936663314a5 and its test-only repair
 2cde91dfabdf4435e298243b2b52bb1dcb48723c are verified published to main. Pre-main
 Linux CI39259917002 and main CI39260202385 both passed; GitHub Linux tests247
-passed8.42s. No PR was created or merged. Existing pqc-bridge-github is ACTIVE
-with the main/no-PR rule and unchanged cadence, now including a required current-
-document consistency check at the end of each run. Defer while work is active.
+passed8.42s. No PR was created or merged. Existing pqc-bridge-github remains PAUSED during active closure; resume only
+with the current30-minute scope and preserve its cadence/notification policy.
+Its 15-minute cadence, main/no-PR rule and closing documentation check are preserved.
 
 ## 1. Recovery Authority
 
-Checkout: D:\Code\pqcbridge-legacy-edge-cloud. Branch: codex/phase-c-management.
+Checkout: D:\Code\pqcbridge-legacy-edge-cloud. C historical branch: codex/phase-c-management.
 Baseline: 5c12f8644d35ae85422318bbad934379067affa1 retains the user's post-B-merge
 documentation organization. B completion a6a083acac5afc06b81e82d4568e775069883ac1
 remains accepted/published. Current C authority: docs/phase-c/STATUS.md,
@@ -54,15 +65,19 @@ allowlist, excluding unrelated work/secrets/raw state. Do not duplicate the C
 completion trailer. Verify exact remote SHA. The existing proxy127.0.0.1:10808
 works per command; do not change persistent proxy settings.
 
-## 4. Next Safe Step
+## 4. Runtime Complete; Next Publication Gate
 
-C and the CI repair are already published; do not repeat either commit or the
-passed suites. Inspect actual origin/main before any later publication; a newer
-documentation commit may advance its tip while retaining the accepted release.
-See docs/phase-c/CI_FIX.md for the red/green and successful GitHub CI record.
-Before ending work, synchronize README, this state, the short-term plan, current
-phase status, operations/recovery instructions and navigation with verified facts.
-Preserve historical evidence and user-owned edits. If no drift exists, do not
-change files or create timestamp-only commits. Wait for the next human request.
-RESUME_PROMPT.md documents recovery. Do not start D automatically. A later explicit
-pause always takes precedence over publication.
+The fresh30-minute experiment passed: 1800.001 real seconds; 360 sent/accepted/ACK/unique cloud records; durable ACK p95 0.4754s.
+Independent final Standards/Spec evidence reviews passed. Current cold checkpoint
+and owned cleanup verified. See docs/phase-d/CANDIDATE.md, FINAL_REVIEW.md and
+evidence/final-runtime-audit.json. Earlier inconclusive one-hour state is retained;
+do not rerun or promote its raw progress. No live current experiment is needed.
+
+Next: inspect an explicit D allowlist, preserve unrelated user edits/private state,
+commit the runtime-reviewed candidate on codex/phase-d-pilot for GitHub Linux CI.
+Do not mark Phase-Completion:D or publish main until the required matching CI
+passes. Then record accepted scope, validate the final documentation candidate
+on the same branch and ordinary fast-forward origin/main; verify SHA. Never PR.
+The15-minute publisher remains PAUSED during root closure to avoid concurrent
+publication. Original configuration/V1 and unrelated CLAUDE/docs-agent/quota
+changes remain outside D commits. Do not repeat passed local suites for context.
