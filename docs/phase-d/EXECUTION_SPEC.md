@@ -1,8 +1,11 @@
 # Phase D — Controlled Docker Pilot Candidate
 
-Date: 2026-10-20. Status: implementation started by explicit human instruction.
-Baseline: caffc697e4975ab46266e9cb011542408b4bdfb8. Working branch:
-codex/phase-d-pilot. Preserve unrelated CLAUDE/docs-agent/quota changes and V1.
+Date: 2026-10-20. Status: accepted for the human-amended 30-minute simulation
+scope; see [completion](COMPLETION.md) and [status](STATUS.md). D completion
+87d33bf and exact-commit main CI 39394824514 were verified on 2026-10-21.
+The requirements below retain the D acceptance contract; they are not pending
+implementation. Baseline: caffc697e4975ab46266e9cb011542408b4bdfb8; historical
+implementation branch: codex/phase-d-pilot. Preserve unrelated user changes and V1.
 
 ## Scope and Deliverables
 

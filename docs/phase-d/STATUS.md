@@ -11,9 +11,11 @@ renewals,52resource samples, cold all-payload hashes and current-owner cleanup
 verified. Formal D9/9, B19/C17 and existing265regressions are source-matched.
 [Runtime audit](evidence/final-runtime-audit.json), [final review](FINAL_REVIEW.md).
 [GitHub Linux CI](https://github.com/IQBoostPlus/pqcbridge-legacy-edge-cloud/actions/runs/39393876501) passed test and Docker jobs for exact candidate
-4a9431d23b8af834eceae1a85a9fd4a261034612. Final publication always requires successful CI for its exact
-final documentation commit and verified remote SHA; see completion/publication
-rules rather than treating a local commit as publication.
+4a9431d23b8af834eceae1a85a9fd4a261034612. D completion
+87d33bfe5f6982cd743af5fa7ebafb30131fbb4b is verified in main history; its
+[main CI](https://github.com/IQBoostPlus/pqcbridge-legacy-edge-cloud/actions/runs/39394824514)
+passed test and Docker jobs. These publication facts were checked on 2026-10-21.
+Future updates require their own exact remote-SHA and CI verification.
 
 No one-hour/24-hour/production or physical-device claim. Private keys/state/raw
 vaults stay outside Git. One older inconclusive network and four historical state

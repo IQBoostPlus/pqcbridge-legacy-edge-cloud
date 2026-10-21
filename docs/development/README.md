@@ -10,6 +10,11 @@ Write all project documentation in English. Use Chinese when communicating with 
 - Subsequent milestones use the [record template](RECORD_TEMPLATE.md), adapted to the actual work. Keep related evidence and runbooks with the relevant phase.
 - The [engineering roadmap](../ENGINEERING_ROADMAP.md) defines direction; execution records establish implementation and acceptance. Update current navigation without rewriting historical outcomes.
 
+Current cross-phase documentation: [project report/user stories](../PROJECT_REPORT.md)
+and [planned real-device/Web/AI milestone](../REAL_DEVICE_PLAN.md). The
+[2026-10-21 synchronization record](2026-10-21-PROGRESS-SYNCHRONIZATION.md)
+records the evidence/status corrections without extending runtime acceptance.
+
 ## Writing Style
 
 Use the revised P01–P08 records as the reference: direct technical prose, numbered sections, explicit scope, stable finding identifiers, concise comparison tables, and concrete evidence. A record should explain the problem and outcome before implementation detail. Prefer one record per meaningful milestone rather than one per chat or small edit.

@@ -1,12 +1,18 @@
 # PQC Bridge Short-Term Implementation Plan
 
-Updated: 2026-10-20. Planning targets below are not measured results. Phases A, B, C and human-amended D are complete for their explicit Docker/simulation scopes; measured evidence and boundaries are recorded in the [Phase A status](phase-a/STATUS.md), [Phase B status](phase-b/STATUS.md) and [Phase C status](phase-c/STATUS.md). Human-authorized [Phase D completion](phase-d/COMPLETION.md) records the passed30-minute scope and Linux CI; the earlier [pause handoff](phase-d/PAUSE_HANDOFF.md) remains historical.
+Updated: 2026-10-21. Planning targets below are not measured results. Phases A, B, C and human-amended D are complete for their explicit Docker/simulation scopes; measured evidence and boundaries are recorded in the [Phase A status](phase-a/STATUS.md), [Phase B status](phase-b/STATUS.md) and [Phase C status](phase-c/STATUS.md). Human-authorized [Phase D completion](phase-d/COMPLETION.md) records the passed30-minute scope and Linux CI; the earlier [pause handoff](phase-d/PAUSE_HANDOFF.md) remains historical.
 
 Execution scope clarification: the user selected Docker deployment with simulated devices for this iteration. This supersedes the physical-device/real-legacy prerequisite in A-02/A-05 for the current lab scope; simulator results must still never be presented as real-device compatibility. Actual target-runtime transport validation and delivery-contract gates remain required.
 
 Objective: deliver an engineering gateway for one site, one legacy protocol, and one-way telemetry, producing a controlled-pilot candidate. Overall direction, long-term plans, and risk boundaries are defined in the [Engineering Roadmap](ENGINEERING_ROADMAP.md).
 
-The provisional estimate is 6–10 effective working weeks for one primary developer, to be revised after Phase A. The implementation owner produces code and evidence; another suitably qualified person should review protocol, security, and phase acceptance. Confirm staffing and available effort at kickoff; these roles are not assumed to be staffed already.
+The original A–D estimate was 6–10 effective working weeks for one primary developer. It is retained as planning history, not a remaining-duration estimate. The implementation owner produces code and evidence; another suitably qualified person should review protocol, security, and phase acceptance. Confirm staffing and available effort at kickoff; these roles are not assumed to be staffed already.
+
+Current consolidated outcomes and evidence are in [PROJECT_REPORT.md](PROJECT_REPORT.md).
+The next [real-device/Web/AI plan](REAL_DEVICE_PLAN.md) is separate, with hardware,
+ARM64, product, approval and 48-hour gates. None is accepted by the A–D simulation
+results. D completion 87d33bf and its exact-commit main CI were verified published
+on 2026-10-21; see [D completion](phase-d/COMPLETION.md).
 
 ## 1. Execution Order and Dependencies
 
@@ -132,14 +138,14 @@ The short-term release excludes a generic cryptographic algorithm configurator, 
 
 If effort exceeds estimates, reduce management UI scope and protocol coverage first. Preserve authentication, durable delivery, resource limits, and fault acceptance. Prefer a small, maintainable dependency set. Any service split must address a concrete requirement the current components cannot meet.
 
-## 7. First Work After Implementation Starts
+## 7. Original A–D Kickoff Sequence (Historical)
 
 1. Complete A-01 to establish a reproducible current baseline while preserving existing user work.
 2. Complete A-02 to identify the device/protocol and primary environment. If hardware is unavailable, document the limits of independent-implementation verification.
 3. Carry out A-03 and A-04 in isolation to resolve handshake risks and hybrid transport feasibility first.
 4. Complete A-05, freeze message-delivery and persistent-state contracts, and re-estimate Phases B–D.
 
-This task list is the entry point for a future implementation request. Producing or translating these documents does not initiate development, external deployment, or Git pushes.
+The sequence above records the original A–D kickoff and has already been completed for the amended simulation scope. Future physical/product work follows REAL_DEVICE_PLAN.md. This documentation synchronization does not start that implementation.
 
 ## 8. Development Records and Competition Evidence
 

@@ -1,4 +1,4 @@
-# Phase D — Package and Recovery Implementation, Endurance Pending
+# Phase D — Accepted Simulation Package and Recovery Implementation
 
 Date: 2026-10-20. Status:accepted30-minute runtime, separate final evidence review and matching GitHub Linux CI; see COMPLETION.md.
 Baseline caffc69; branch codex/phase-d-pilot. The amended bounded D scope is
@@ -33,7 +33,7 @@ See [candidate](CANDIDATE.md) and [final review](FINAL_REVIEW.md).
 
 ## Current Evidence Boundary
 
-- Current Windows regression:265 passed21.07s. Offline Linux:265 passed13.93s.
+- Recorded Windows regression: 265 passed. Offline Linux: 265 passed in 13.93s.
   Linux is a local no-network container check, not GitHub CI.
 - After the shared delivery fix, actual B compatibility19/19 and actual C
   lifecycle17/17 passed, with ownership cleanup verified.
@@ -53,10 +53,12 @@ See [candidate](CANDIDATE.md) and [final review](FINAL_REVIEW.md).
 - The real24-hour run at endurance-20261020-main was safely stopped by human
   request after925.665 seconds. It is interrupted, not accepted; private cold
   checkpoint and verified owned cleanup completed. A fresh full-duration run
-  was originally required. The later explicit [human amendment](SCOPE_AMENDMENT.md)
-  instead requires one fresh continuous hour; the old partial result is unchanged.
+  was originally required. A historical one-hour plan was subsequently superseded
+  by the explicit [30-minute amendment](SCOPE_AMENDMENT.md); the fresh 30-minute
+  run passed, while the old partial result remains interrupted.
 
 The current complete phase status and evidence pointers are in [STATUS.md](STATUS.md).
 Final risk disposition, independent evidence reviews and matching GitHub Linux CI
-are recorded in COMPLETION.md. Verify actual main SHA/CI before claiming publication;
-no PR is authorized.
+are recorded in COMPLETION.md. D completion 87d33bf is verified in main history
+with successful exact-commit main CI 39394824514. Future updates require their
+own remote-SHA and CI checks.

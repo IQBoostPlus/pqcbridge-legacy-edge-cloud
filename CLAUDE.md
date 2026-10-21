@@ -2,11 +2,14 @@
 
 PQC Bridge is an engineering prototype for verifiable post-quantum migration of
 legacy edge-to-cloud telemetry. Initial development history is in
-`docs/development/initial/README.md`; current engineering evidence is in
-`docs/phase-a/` and `docs/phase-b/`. Consult `PROJECT_STATE.md` for local recovery
+`docs/development/initial/README.md`; accepted engineering evidence is in
+`docs/phase-a/` through `docs/phase-d/`. Current user stories and results are in
+`docs/PROJECT_REPORT.md`; planned physical/Web/AI work is in
+`docs/REAL_DEVICE_PLAN.md`. Consult `PROJECT_STATE.md` for local recovery
 and pause instructions before implementation.
 
-Phase A/B acceptance is limited to the owned Docker/simulated-device lab. Do not
+Phase A–D acceptance is limited to the owned Docker/simulated-device lab;
+D sustained acceptance covers the human-amended 30-minute run only. Do not
 claim physical-device compatibility or production security from these results.
 The commands below describe the initial V1 path; the opt-in engineering path is
 documented in `docs/phase-b/OPERATIONS.md`.
@@ -28,7 +31,7 @@ work to be published automatically.
 
 - Install: `pip install -r requirements.txt`
 - Test: `pytest` (from the project root; `pytest.ini` sets the pythonpath;
-  136 passed at the end of P08)
+  265 passed in the recorded D regression; 136 was the historical P08 result)
 - Run (3 terminals, in this order):
   1. `python -m cloud.cloud`   (port 5002, health 8002)
   2. `python -m gateway.gateway` (devices 5001, health 8001)

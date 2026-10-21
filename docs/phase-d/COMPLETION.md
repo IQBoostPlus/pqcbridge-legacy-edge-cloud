@@ -50,10 +50,12 @@ clearance. RetryTTL/security policy were not shortened. Recovery receipts prove
 selected checkpoint integrity, not global freshness. Real source in-flight loss
 may be unknown; all broader blockers in [RISKS.md](RISKS.md) still apply.
 
-This completion record changes documentation only over the CI-tested candidate.
-Before any main publication, validate its exact final commit on the existing D
-branch and require a normal fast-forward preserving actual origin/main history.
-No PR or forcepush. Record the resulting remote SHA and final-commit CI in the
-conversation/local receipt; do not create a self-SHA/timestamp-only follow-up.
+D completion 87d33bfe5f6982cd743af5fa7ebafb30131fbb4b is verified in remote
+main history. Its [main CI](https://github.com/IQBoostPlus/pqcbridge-legacy-edge-cloud/actions/runs/39394824514)
+passed both test and Docker jobs; those facts were checked on 2026-10-21.
+This records publication of the existing completion, not another D completion.
+Future documentation updates require their own exact-commit CI/publication
+verification and a normal fast-forward preserving remote history. Keep their
+receipts in the conversation/local artifacts; do not chase a document's own SHA.
 Old inconclusive project network/state volumes remain deliberately retained;
 current-run cleanup never claims every historical Docker resource was removed.

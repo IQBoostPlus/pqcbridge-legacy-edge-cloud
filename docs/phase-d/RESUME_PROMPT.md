@@ -3,7 +3,11 @@
 Read PROJECT_STATE.md, COMPLETION.md, STATUS.md, FINAL_REVIEW.md, RISKS.md,
 OPERATIONS.md and SCOPE_AMENDMENT.md. The human-amended30-minute scope passed
 actual runtime, separate Standards/Spec reviews and GitHub Linux validation
-candidate 4a9431d23b8af834eceae1a85a9fd4a261034612, run39393876501. Do not repeat implementation,
+candidate 4a9431d23b8af834eceae1a85a9fd4a261034612, run39393876501. D completion
+87d33bfe5f6982cd743af5fa7ebafb30131fbb4b is verified in remote main history,
+with successful main CI 39394824514 (checked 2026-10-21). Later commits may
+advance main. See docs/PROJECT_REPORT.md and docs/REAL_DEVICE_PLAN.md from the
+repository root for current results and planned physical/product gates. Do not repeat implementation,
 the endurance experiment, passed suites or an existing completion commit.
 
 Before any publication retry inspect actual origin/main and branch ancestry,

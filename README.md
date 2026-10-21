@@ -1,60 +1,99 @@
 # PQC Bridge — Legacy Edge-Cloud
 
-PQC Bridge explores verifiable post-quantum migration for legacy edge-to-cloud
-telemetry: authenticated hybrid transport, durable delivery, bounded recovery,
-and evidence of the policy actually in effect.
+PQC Bridge helps legacy telemetry systems move to authenticated hybrid
+post-quantum transport through an edge gateway. Its engineering path combines
+durable delivery, credential lifecycle management, controlled migration and
+evidence that the intended policy is actually carrying business data.
 
-> **Engineering prototype with bounded lab acceptance.** Phase A transport
-> selection, Phase B secure delivery, Phase C migration management and the amended
-> Phase D pilot package are accepted for owned Docker services
-> and simulated devices. Physical-device compatibility and production security
-> have not been established. Passing tests does not prove a system secure.
+> **Engineering prototype with bounded laboratory acceptance.** Phases A–D
+> are accepted for owned Docker services and simulated devices. The accepted
+> sustained run is 30 minutes. Real-device compatibility, ARM64 deployment,
+> the Web application, AI diagnostics and 48-hour operation remain planned.
+> Physical-device and production security acceptance have not been established.
 
-## Current Engineering Status
+## Users and Intended Outcomes
 
-- [Phase A](docs/phase-a/STATUS.md): target-runtime hybrid TLS feasibility and the
-  simulation delivery contract were verified.
-- [Phase B](docs/phase-b/STATUS.md): an opt-in TLS 1.3/mTLS path with mandatory
-  hybrid key exchange, identity authorization, durable queues, cloud deduplication
-  and acknowledgements, recovery, and resource limits was accepted in the lab.
-- [Phase C](docs/phase-c/STATUS.md): local enrollment, versioned hybrid policy
-  profiles, current-channel business proof, credential rotation/revocation, canary
-  rollout and safe rollback were accepted in the Docker/simulated-device lab.
-- C and its Linux test portability repair are published to `main` at
-  [2cde91d](https://github.com/IQBoostPlus/pqcbridge-legacy-edge-cloud/commit/2cde91dfabdf4435e298243b2b52bb1dcb48723c).
-  [Main CI](https://github.com/IQBoostPlus/pqcbridge-legacy-edge-cloud/actions/runs/39260202385)
-  passed all 247 tests and Docker checks. [CI follow-up](docs/phase-c/CI_FIX.md)
-  preserves the earlier Linux failure and its test-only repair.
-- [Phase D](docs/phase-d/COMPLETION.md): offline pilot packaging, coordinated cold
-  recovery, same-schema upgrade/rollback and operator handover are accepted for
-  the owned Docker/simulation scope. The explicitly human-amended30-minute run
-  reconciled360 unique records, completed three rotations and verified backup/
-  cleanup; durable ACK p950.475s. [Linux CI](https://github.com/IQBoostPlus/pqcbridge-legacy-edge-cloud/actions/runs/39393876501) passed tests and Docker checks.
-  [Evidence/review](docs/phase-d/FINAL_REVIEW.md), [pilot runbook](docs/phase-d/OPERATIONS.md).
-  This establishes neither one-hour/24-hour stability nor production acceptance.
-- [B engineering operations](docs/phase-b/OPERATIONS.md) documents the delivery path;
-  [C management operations](docs/phase-c/OPERATIONS.md) covers managed deployment
-  and migration recovery.
-  The V1 commands and architecture below remain available as the initial baseline.
+| User | Story | Delivery status |
+| --- | --- | --- |
+| Site owner | Keep existing sensors and use a gateway to improve the cloud link without changing device firmware | Simulation demonstrated; physical compatibility pending |
+| Security administrator | Require authenticated hybrid transport and reject unauthorized identities or weaker policies | Accepted in the engineering lab |
+| Data consumer | Recover durably accepted readings after an outage without duplicate cloud business records | Accepted within the recorded fault and retention boundaries |
+| Migration operator | Move one gateway group, verify live business proof, rotate credentials and recover safely from failure | Local CLI accepted; no fleet Web platform |
+| Operations staff | View real readings, gaps, backlog, history and security evidence in a browser | Planned |
+| Incident responder | Obtain evidence-backed AI advice, approve a fixed action and verify recovery with new data | Planned; benefit and safety require evaluation |
 
-These are recorded phase outcomes, not tests rerun during this documentation
-update. Consult each phase's evidence and limitations before making a claim.
+Protection covers the gateway-to-cloud link. The gateway is a trusted plaintext
+termination point; hybrid key exchange does not make the conventional certificate
+signatures post-quantum. Delivery guarantees begin at durable gateway acceptance.
+The unchanged simulator has no reading ACK or automatic source replay.
 
-## Roadmap and Development Records
+## Completed Engineering Progress
 
+Status synchronized on 2026-10-21. These are recorded results; this documentation
+update did not rerun runtime experiments or extend their acceptance scope.
+
+| Phase | Accepted result | Recorded verification |
+| --- | --- | --- |
+| [A: technical selection](docs/phase-a/STATUS.md) | Isolated baseline, simulated protocol compatibility, target-runtime hybrid TLS and lab-v1 delivery contract | 136 baseline tests; Windows transport 27/27; target Linux adapter 22/22 |
+| [B: secure delivery](docs/phase-b/STATUS.md) | TLS 1.3/mTLS with mandatory X25519MLKEM768, device authorization, durable queues, transactional cloud deduplication and ACKs, retries and resource bounds | 179 regression tests; actual normal applications 19/19; fault and expiry matrices |
+| [C: migration management](docs/phase-c/COMPLETION.md) | Local enrollment/audit, versioned profiles, current-channel proof, rotation/revocation, canary rollout and constrained rollback | 247 regression tests; lifecycle 17/17; observation/CLI proof 4/4; Linux CI |
+| [D: controlled simulation package](docs/phase-d/COMPLETION.md) | Offline package, coordinated cold restore, same-schema upgrade/rollback, operator alerts and handover | Windows/Linux 265 regression tests each; formal acceptance 9/9; continuous 30-minute run; Linux CI |
+
+The accepted D run lasted **1,800.000536 seconds** at one reading every five
+seconds: **360 sent = accepted = acknowledged = unique cloud records**, zero
+missed schedules, zero pending/quarantined records, three both-role credential
+rotations and durable ACK **p95 0.475430 seconds**. A separate formal experiment
+covered an actual ten-minute outage and complete backlog drain.
+[Runtime evidence](docs/phase-d/evidence/endurance-30min-final.json),
+[final audit](docs/phase-d/evidence/final-runtime-audit.json).
+
+D completion is published in main history as
+[87d33bf](https://github.com/IQBoostPlus/pqcbridge-legacy-edge-cloud/commit/87d33bfe5f6982cd743af5fa7ebafb30131fbb4b).
+Its [main CI](https://github.com/IQBoostPlus/pqcbridge-legacy-edge-cloud/actions/runs/39394824514)
+passed both test and Docker jobs. C's earlier test portability repair and its CI
+remain documented in the [C follow-up](docs/phase-c/CI_FIX.md).
+Overlapping suites and repeated runs are not additive assurance.
+
+## Next Delivery: Real Sensors, Web Operations and Assisted Recovery
+
+The next planned system uses one Orange Pi 3B ARM64 gateway, two SEN0438
+Modbus RTU sensors sampled every ten seconds, and one AMD64 Linux cloud host.
+The product layer is planned as FastAPI, a separate product SQLite database,
+Vue 3/TypeScript and ECharts, with Microsoft Entra roles, Foundry Agent Service
+and Azure AI Search. These modules and integrations are not implemented here.
+
+1. Validate wiring, stable serial identities and native ARM64-to-AMD64 hybrid TLS.
+2. Integrate real sampling with atomic acceptance; prove outage/restart recovery.
+3. Add incremental projection, capacity maintenance, authenticated Web monitoring
+   and history/export.
+4. Add read-only, cited AI diagnosis; then separately approved fixed recovery
+   actions with fresh-data verification and audit.
+5. Run the real-device fault matrix, 48-hour evaluation, backup/restore and
+   upgrade/rollback before claiming that milestone complete.
+
+At this planned load, 100,000 cloud rows represent about 5.8 days and the 10,000-row
+gateway queue about 13.9 hours, before byte limits. Long-term operation requires
+reviewed storage/deduplication and management-audit maintenance. Increasing a disk
+or clearing state does not resolve those limits.
+
+## Reports, Plans and Operations
+
+- [Project report: user stories, completed work and remaining boundaries](docs/PROJECT_REPORT.md)
+- [Real-device implementation plan and acceptance gates](docs/REAL_DEVICE_PLAN.md)
 - [Engineering and competition roadmap](docs/ENGINEERING_ROADMAP.md)
-- [Short-term implementation plan](docs/SHORT_TERM_PLAN.md)
-- [Initial Development Records: P01–P08](docs/development/initial/README.md)
+- [A–D implementation plan and current status](docs/SHORT_TERM_PLAN.md)
+- [B delivery runbook](docs/phase-b/OPERATIONS.md), [C management runbook](docs/phase-c/OPERATIONS.md), [D simulation runbook](docs/phase-d/OPERATIONS.md)
+- [Initial development records: P01–P08](docs/development/initial/README.md)
 - [Development documentation guide](docs/development/README.md)
 
-The long-term aim is a reproducible cybersecurity and post-quantum migration
-project with a clearly evaluated contribution. AI-assisted migration diagnostics
-are a conditional research track, subject to measured benefit over rule-based
-and manual baselines. These roadmap capabilities are not completion claims.
+The long-term research goal is reproducible evidence for compatibility,
+security-preserving migration and recovery. AI diagnostics remain an evaluated
+extension: compare with rules and manual diagnosis before claiming measured
+benefit. Competition dates and eligibility are not selected.
 
-The following sections document the initial V1 path and its historical controls.
-They do not replace the separate Phase B operational instructions or imply that
-the opt-in engineering path has the same transport and persistence limitations.
+The remaining sections preserve the initial V1 commands, architecture and
+historical controls. Use the separate engineering runbooks for the accepted
+B–D path; the V1 plain-TCP and in-memory limitations describe that baseline.
 
 ## 1. Initial V1 Architecture
 

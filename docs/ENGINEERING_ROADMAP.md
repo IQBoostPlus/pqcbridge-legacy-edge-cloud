@@ -1,6 +1,6 @@
 # PQC Bridge Engineering Roadmap
 
-Updated: 2026-10-18. Status: the engineering direction has been accepted. The milestones, effort estimates, and technology choices below are plans, not delivered capabilities.
+Updated: 2026-10-21. Status: A–D are accepted for their explicit Docker/simulation scopes. Physical deployment, Web/AI operations and further research remain planned. The historical estimates and decision gates below are preserved; current acceptance is recorded separately.
 
 This roadmap reflects the accepted review of the proposed refactoring plan. It extends the project from a course demonstration toward an engineering system suitable for a controlled pilot. The [Initial Development Records](development/initial/README.md) retain P01–P08 technical findings, verification results, and historical decision states.
 
@@ -12,11 +12,23 @@ The long-term objective is a competition-ready cybersecurity and post-quantum so
 
 The first release covers one organization, one site, one legacy protocol, one active gateway instance, one cloud receiver, and one-way telemetry. Preserve Python, the existing component boundaries, Docker, tests, and security review assets where practical. Industrial control commands, device firmware updates, multi-tenancy, and high-availability clusters are outside this release.
 
-Execution details: [Short-Term Implementation Plan](SHORT_TERM_PLAN.md).
+Execution details: [A–D implementation plan](SHORT_TERM_PLAN.md), [current project report](PROJECT_REPORT.md) and [planned real-device/Web/AI milestone](REAL_DEVICE_PLAN.md).
 
 ## 2. Current Baseline and Verification Boundaries
 
-As of 2026-10-18, Phases A and B have recorded acceptance for the owned Docker/simulated-device lab; see [A](phase-a/STATUS.md) and [B](phase-b/STATUS.md). Phase C is paused and not accepted; D is future work. The table below describes the original planning baseline, not the full current engineering path. This documentation update did not rerun runtime checks.
+As of 2026-10-21, [A](phase-a/STATUS.md), [B](phase-b/STATUS.md),
+[C](phase-c/COMPLETION.md) and amended [D](phase-d/COMPLETION.md) are accepted
+for owned Docker services and simulated devices. D completion 87d33bf is present
+in verified remote main history; its [main CI](https://github.com/IQBoostPlus/pqcbridge-legacy-edge-cloud/actions/runs/39394824514)
+passed test and Docker jobs. D's 30-minute run reconciled 360 unique records,
+completed three both-role rotations and measured durable ACK p95 0.475430 seconds.
+It establishes no one-hour/24-hour endurance or physical/production acceptance.
+
+The following table retains the original V1 planning baseline. Its gaps are
+historical motivation, not a claim that the accepted B–D path still lacks TLS,
+durability or credential management. See the [project report](PROJECT_REPORT.md)
+for delivered controls and remaining risks. No runtime checks were rerun for
+this documentation synchronization.
 
 
 The planning baseline is commit `681986b`. When planning began, the workspace already contained changes to `CLAUDE.md` and files under `docs/agents/`. Those existing changes were preserved.
@@ -44,7 +56,13 @@ Primary references: [README](../README.md), [gateway sessions](../gateway/cloud_
 - Treat security, reliable delivery, operations, and migration recovery as core requirements. Begin deployment validation and benchmarking early.
 - Require evidence for completion claims. A distributed configuration is not proof that a policy is effective.
 
-### Technology Decisions Still Requiring Validation
+### Original Selection Gates and Remaining Field Validation
+
+The table records the selection gates used to plan A–D. The lab selected direct
+Python/OpenSSL hybrid TLS, SQLite transactions, local credential management and
+per-gateway rollout; their acceptance is in the phase records. Physical protocol
+interoperability, native ARM64 operation and deployment-specific custody,
+capacity and durability still require the [real-device gates](REAL_DEVICE_PLAN.md).
 
 | Decision | Preferred direction to evaluate | Decision gate |
 | --- | --- | --- |
@@ -71,9 +89,14 @@ If the preferred approach is infeasible in the target environment, document comp
 
 The P03 decisions accepting non-persistent state, static demo credentials, and limited scale for the course prototype do not automatically exempt the engineering version from these requirements. Record revised design decisions, data migration methods, and rollback conditions during implementation. Preserve the historical review conclusions.
 
-## 5. Short-Term Roadmap: Controlled-Pilot Candidate
+## 5. A–D Roadmap and Recorded Acceptance
 
-Planning assumption: one primary developer familiar with the repository, with access to the target device or an independent protocol implementation. Phases A–D provisionally require **6–10 effective working weeks**. This is an effort estimate, not a delivery commitment measured from this document's date. Hardware procurement, external security review, environment approval, and waiting time are additional. Re-estimate after Phase A using the resulting evidence.
+The original planning assumption was one primary developer and **6–10 effective
+working weeks** for A–D, excluding procurement and external waiting time. This
+historical estimate is not remaining work or a measured project duration. A–D
+have since passed their amended simulation gates; the original plan below
+retains its intended outcomes. The next physical/product milestone has separate
+[estimates and gates](REAL_DEVICE_PLAN.md), including 48-hour real operation.
 
 | Phase | Estimate | Main outcome | Acceptance gate |
 | --- | --- | --- | --- |
@@ -90,7 +113,8 @@ Use milestone gates and the selected event deadline to plan delivery. The former
 
 | Milestone | Contribution | Required evidence | Gate |
 | --- | --- | --- | --- |
-| Engineering foundation | Secure, recoverable gateway with controlled migration | A–D evidence, explicit lab/field boundaries, recovery and credential tests | Preserve security and delivery acceptance; control the first-release scope |
+| Engineering foundation — accepted in simulation | Secure, recoverable gateway with controlled migration | A–D evidence, explicit lab/field boundaries, recovery and credential tests | Preserve accepted controls; field use still requires separate verification |
+| Physical and operations product — planned | Two real sensors, ARM64 gateway, authenticated Web operations and approved recovery | [Real-device plan](REAL_DEVICE_PLAN.md), compatibility/fault results, fresh-data action proof and 48-hour report | Native transport, capacity maintenance and identity gates precede broader use |
 | Research validation | A testable method for migration without silent downgrade or data loss after durable acceptance | Defined research question, comparison baselines, automated experiments, raw results, and limitations | Identify what the project contributes beyond its TLS and storage dependencies |
 | Competition release | Stable demonstration of the contribution | Reproducible package, English technical report, architecture diagram, short demonstration, video, and claim-to-evidence matrix | Select event and deadline; freeze features before submission and rehearse the complete demonstration |
 | Conditional AI study | Evidence-grounded migration diagnosis and recommendations | Held-out cases, rule/manual baselines, ablation results, safety tests, latency, and cost | Add AI to the core contribution only when it demonstrates a measurable benefit |
@@ -155,7 +179,7 @@ Each phase report must identify the commit, dependency and image versions, envir
 - Deliver small, reviewable changes. Define contracts before modifying shared interfaces, persistent formats, or security policies.
 - Track phases as Not started / In progress / Awaiting verification / Accepted / Blocked. Completion requires evidence.
 - Arrange independent security review of protocol and credential design. If review resources are unavailable, constrain deployment scope and security claims.
-- Keep acceptance contracts and decision context in local documentation. Before creating GitHub Issues, follow `docs/agents/issue-tracker.md`; cross-reference task IDs to avoid maintaining conflicting status records.
+- Keep acceptance contracts and decision context in repository documentation. Planning task IDs are not GitHub Issues; cross-reference any later issue IDs to avoid conflicting status records.
 
 ## 9. External Technical References
 
@@ -172,3 +196,5 @@ These references inform technology selection but do not replace target-environme
 2026-10-16: Both planning documents were rewritten in English at the user's request. All project documentation is to be written in English; communication with the user remains in Chinese. Scope, task IDs, estimates, and acceptance requirements were retained.
 
 2026-10-18: The accepted competition direction was incorporated: cybersecurity as the primary track, verifiable post-quantum migration as the focus, and an evidence-gated AI diagnostic study. Initial development records were reorganized, and direct GitHub pushes became the publication preference. No paused Phase C implementation was resumed by this documentation update.
+
+2026-10-21: Synchronized A–D acceptance and verified D main/CI history, added current user-story/report navigation and the separate planned real-device/Web/AI milestone. Historical estimates, failures and raw evidence remain unchanged. No new runtime implementation was started.

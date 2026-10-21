@@ -160,7 +160,9 @@ explicit [human scope amendment](SCOPE_AMENDMENT.md). It uses
 real time, five-second samples, lease renewal, rotation, Docker resource samples,
 final reconciliation and a private cold checkpoint before owned cleanup. It is
 not a recurring Codex task and does not publish code. A shorter diagnostic stays
-explicitly non-accepting. See PAUSE_HANDOFF.md and RESUME_PROMPT.md for the stopped run and resume rules.
+explicitly non-accepting. PAUSE_HANDOFF.md preserves the earlier interrupted run;
+current accepted scope and recovery authority are in STATUS.md, COMPLETION.md
+and RESUME_PROMPT.md.
 The human explicitly resumed D and changed its duration to1,800seconds. Renewal
 remains every150seconds; both-role rotation is now every450seconds. Require at
 least three real rotations. Earlier pause records and partial durations remain

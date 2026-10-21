@@ -33,4 +33,10 @@ AI-use or authorship disclosures required by a particular competition, license, 
 
 Use the [development record guide](../README.md) and [template](../RECORD_TEMPLATE.md) for future milestones. Keep the same evidence-first style: scope, concrete findings, decisions, implementation, verification, and remaining risk. Record results only after observation and preserve failed experiments when they explain a change.
 
-Current engineering evidence is maintained separately in [Phase A](../../phase-a/STATUS.md) and [Phase B](../../phase-b/STATUS.md). Their acceptance is limited to the owned Docker/simulated-device lab; it does not establish physical-device or production acceptance.
+Current engineering evidence is maintained separately in [Phase A](../../phase-a/STATUS.md),
+[Phase B](../../phase-b/STATUS.md), [Phase C](../../phase-c/COMPLETION.md) and
+[Phase D](../../phase-d/COMPLETION.md). Their acceptance is limited to the owned
+Docker/simulated-device lab, with D sustained acceptance covering 30 minutes.
+See the [project report](../../PROJECT_REPORT.md) for consolidated results and
+the [real-device plan](../../REAL_DEVICE_PLAN.md) for future physical/Web/AI work.
+No physical-device or production acceptance is established by these records.

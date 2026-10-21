@@ -1,78 +1,72 @@
-# Current project state: Phase D accepted for30-minute simulation scope
+# Current Project State: A–D Accepted in Simulation
 
-Updated:2026-10-20, Asia/Singapore. A/B/C and amended D are accepted within their
-explicit owned Docker/simulated-device boundaries. Current D authority:
-docs/phase-d/COMPLETION.md, STATUS.md, SCOPE_AMENDMENT.md, FINAL_REVIEW.md,
-OPERATIONS.md, RISKS.md and evidence/final-runtime-audit.json.
-Working branch codex/phase-d-pilot; original D baseline caffc697e4975ab46266e9cb011542408b4bdfb8.
-Runtime-reviewed candidate 4a9431d23b8af834eceae1a85a9fd4a261034612 passed GitHub Linux CI
-39393876501 (test+Docker). No PR is authorized. Exact final-commit CI and
-ordinary fast-forward/remoteSHA verification are always publication requirements.
-Check actual main ancestry and the conversation/local receipt before retrying a
-push; never duplicate Phase-Completion:D after it already exists in main history.
+Updated: 2026-10-21, Asia/Shanghai. Checkout: D:\PQC\pqcbridge-legacy-edge-cloud.
+Current branch: main. D completion 87d33bfe5f6982cd743af5fa7ebafb30131fbb4b
+was verified in origin/main history on this date. Its main CI run 39394824514
+passed both test and Docker jobs. Later documentation commits may advance main;
+never duplicate the existing Phase-Completion: D commit.
 
-## 1. Recovery Authority
+## 1. Current Authority
 
-Checkout: D:\Code\pqcbridge-legacy-edge-cloud. C historical branch: codex/phase-c-management.
-Baseline: 5c12f8644d35ae85422318bbad934379067affa1 retains the user's post-B-merge
-documentation organization. B completion a6a083acac5afc06b81e82d4568e775069883ac1
-remains accepted/published. Current C authority: docs/phase-c/STATUS.md,
-COMPLETION.md, REVIEW.md, OPERATIONS.md and evidence/FINAL_AUDIT.json. These
-supersede October18 pause instructions and the preserved earlier documentation's
-C status. Historical pause records are provenance, not current work instructions.
+Read README.md, docs/PROJECT_REPORT.md, docs/SHORT_TERM_PLAN.md and
+docs/ENGINEERING_ROADMAP.md for current summaries. Phase-specific authority is
+each current STATUS/COMPLETION/REVIEW/OPERATIONS record; D additionally uses
+SCOPE_AMENDMENT.md, RISKS.md and evidence/final-runtime-audit.json.
+Historical pause handoffs and earlier pending records preserve provenance and
+do not override accepted completion. Old D:\Code paths refer to historical
+external runtime artifacts, whose presence is not assumed in this checkout.
 
-## 2. Accepted C Result
+## 2. Accepted Results
 
-Trusted local catalog/audit CLI, bounded issuer, versioned fixed hybrid profiles,
-per-gateway configuration, current-channel proof, rotation/revocation, staged
-rollout and constrained rollback are implemented and reviewed. Matching final
-source:247 complete regression passes14.46s; B compatibility19/19; observation/CLI
-proof4/4; C lifecycle17/17. All three Docker labs verified owned cleanup. Separate
-AI Standards/Spec re-reviews have no blocker. FINAL_AUDIT reports zero source/
-harness drift, all12 protected inputs unchanged, no C/B owner containers/networks/
-volumes and no matching validation runner. No passed suite needs rerunning just
-for context. Earlier intermediate/interrupted reports remain historical.
+- A: simulated baseline, risk mapping, Linux hybrid TLS feasibility and lab-v1
+  delivery contract. Target adapter 22/22; baseline 136 tests.
+- B: mandatory TLS 1.3/mTLS/X25519MLKEM768, identity/device authorization,
+  durable acceptance/queue, transactional cloud deduplication/ACK and bounded
+  recovery/resources. Recorded regression 179; normal services 19/19.
+- C: trusted local catalog/audit CLI, fixed versioned profiles, fresh
+  current-channel business proof, rotation/revocation, canary and safe rollback.
+  Recorded regression 247; observation 4/4; lifecycle 17/17. Completion and
+  portability repair are published; see docs/phase-c/CI_FIX.md.
+- D: offline simulation package, coordinated current-state cold recovery,
+  strict receipt/schema refusal, same-schema upgrade/rollback and operator CLI.
+  Recorded Windows/Linux regression 265 each; formal D 9/9; B 19/C 17.
+  Real sustained run 1,800.000536 seconds: 360 sent/accepted/ACK/unique cloud,
+  zero misses/pending/quarantine, three both-role rotations, ACK p95 0.475430s.
+  Cold integrity and current-owner cleanup were verified.
 
-The scope does not establish production security, physical-device compatibility,
-24-hour endurance, upgrade/restore acceptance or instantaneous offline revocation.
+These are recorded lab results; this documentation update reran no application
+experiment. Do not repeat passed suites merely to reconstruct context.
+No physical-device, ARM64, production, one-hour/24-hour endurance or current
+vulnerability-clearance claim is established. The earlier interrupted/inconclusive
+attempts remain historical; do not add their time to the accepted run.
 
-## 3. Preservation and Publication
+## 3. Planned Next Milestone
 
-Protected baseline: tmp/phase-c-resume-latest-a36aba08aafa4aa0bcf38a10fc586a2a.
-Preserve unrelated user CLAUDE/docs-agent/quota changes, README/docs organization,
-original .env/keys/device/cloud state, Compose and V1. Current CLAUDE quota checks
-apply; do not publish unrelated guards/checkpoints. No reset/clean/stash discard,
-force push or original-state migration. Raw credentials/logs stay outside checkout;
-unique validation images remain cached.
+docs/REAL_DEVICE_PLAN.md consolidates the 2026-10-20 local implementation
+handbook and procurement plan: two real Modbus sensors, Orange Pi ARM64,
+AMD64 cloud, product projection/Web/RBAC, cited read-only AI, human-approved
+fixed actions and a new physical 48-hour evaluation. These are planned modules
+and gates, not delivered capabilities or authority to start implementation.
+Storage/deduplication and management-audit maintenance are long-run blockers.
+The D installer remains simulation-only; do not relabel it as a physical release.
 
-Standing human authorization permits one scoped C completion commit and normal
-push to origin https://github.com/IQBoostPlus/pqcbridge-legacy-edge-cloud.git on
-main under the latest explicit human instruction, superseding earlier phase-branch
-publication restrictions. Use the existing C branch only to obtain pre-main CI
-for the repaired commit; do not create or merge a PR. Fetch origin/main and require
-a normal fast-forward preserving remote commits. Use an explicit reviewed
-allowlist, excluding unrelated work/secrets/raw state. Do not duplicate the C
-completion trailer. Verify exact remote SHA. The existing proxy127.0.0.1:10808
-works per command; do not change persistent proxy settings.
+## 4. Preservation and Publication
 
-## 4. Completed D and Recovery After Publication
+Follow the current CLAUDE.md and development documentation guide. Preserve V1,
+original configuration, source/cloud state, credentials, user edits and archived
+evidence. Private issuer/state/raw logs/vaults remain outside Git. Never reset,
+clean, discard a stash, force-push, clear guards or migrate original state to
+recover context. Historical D records intentionally retain an older network
+and four volumes; current-owner cleanup is not an assertion about today's host.
 
-D runtime1800.000536s/360sent=accepted=ACK=uniquecloud, zero misses/backlog,
-three both-role rotations, p950.475430s; resource limits/current cold hashes/
-owned cleanup verified. FormalD9/B19/C17 and prior265regressions remain matched.
-Separate final AI Standards/Spec reviews passed. See D completion/evidence; do
-not rerun passed suites or repeat implementation simply to recover context.
+For authorized documentation updates, inspect actual remote main, use an
+explicit reviewed file allowlist, validate links/evidence/whitespace, and preserve
+all remote commits. Use a normal direct push and verify the exact remote SHA.
+For the D completion release, exact-candidate CI was a gate and is now recorded
+as passed. Further documentation publication must check its own CI; historical
+runtime passes do not establish that a new commit's CI completed.
 
-Earlier24-hour/one-hour attempts remain interrupted/inconclusive. Their raw
-evidence, one old network and four state volumes are retained; never sum time or
-delete unknown data. Original configuration/V1, user CLAUDE/docs-agent/quota
-changes and private issuer/state/vaults remain protected and outside D staging.
-No production, physical-device, one-hour/24-hour stability or advisory clearance.
-
-The existing publisher uses the unchanged15-minute cadence/notification policy
-and must defer active root publication or a later human/quota pause. Consult its
-actual app status; preserve this existing task rather than duplicating it. Later authorized runs may correct verified current-doc
-drift, but must not start new implementation or duplicate accepted commits.
-For any future substantial task, fresh safe quota Check and human scope apply.
-Current D handoff: docs/phase-d/RESUME_PROMPT.md. Final publication receipt is
-kept locally in tmp/d-publication.json and the conversation to avoid SHA loops.
+Historical publisher/receipt references are provenance. Inspect actual app state
+before making automation claims; do not create, resume or alter an automation
+as part of a documentation synchronization. Keep publication receipts outside
+tracked documents to avoid self-referential SHA-only commits.
