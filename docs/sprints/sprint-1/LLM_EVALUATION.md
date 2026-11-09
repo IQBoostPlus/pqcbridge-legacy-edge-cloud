@@ -21,7 +21,7 @@ AI test and browser evidence; student/PO acceptance remains pending. Refer to th
 | Decision | Retain as local planning drafts subject to integrating and student review; no claim of completed student evaluation |
 | Verification | Parent AI read all five Sprint records and the README/CLAUDE changes, checked the five story IDs and scope/status consistency. A local check passed for seven documents, 23 relative file links, five required records, five story sections and trailing whitespace; git diff --check also passed. No product code or dashboard runtime was tested; student evaluation remains pending |
 | Changes made in draft | Explicit pending states, provisional risk estimates/owners, unapproved status rules and synthetic-data interpretation boundaries added |
-| Remaining risk | Source-chat trace is not a standalone prompt archive; student ownership, real Jira mapping and PO acceptance remain absent; wording review cannot establish dashboard behavior |
+| Remaining risk | Source-chat trace is not a standalone prompt archive; student ownership, Jira mapping and PO acceptance were unconfirmed at this planning stage; wording review cannot establish dashboard behavior |
 
 Integration review retained the explicit pending implementation/Jira/meeting
 states and the proposed status/freshness rules. The parent updated provenance
@@ -42,7 +42,7 @@ must identify the student and their actual assessment separately.
 | Independent AI source review | build_records read model.mjs, fixture, app.mjs, index.html and dashboard README. No actionable metric/domain mismatch identified: unknown stays in denominator, fixture separates expected/suspected fallback and mixed segments, UI uses shared summary/textContent, and invalid input clears prior presentation. This source review does not establish browser success |
 | Decision / authority | Build this bounded local prototype under the user's instruction; selected metric/status rules remain subject to human team/PO review. No human usability evaluation is claimed |
 | Verification | Parent independently ran 11/11 passing model tests plus passing app/model syntax checks; local HTTP returned 200. Parent browser walkthrough observed default 8/5/2/1 and 62.5%, all roles, exact filters, empty search, both clocks, definitions, local data errors/reset, empty/unknown-only/stale/all-PQC scenarios and literal rendering of HTML-looking data. Detailed evidence: [VERIFICATION.md](VERIFICATION.md) |
-| Remaining risk | No remote Jira mapping or human acceptance; fixture assumptions and AI-authored tests cannot establish real monitoring or cryptographic assurance |
+| Remaining risk | Jira mapping and human acceptance were outstanding at the end of the build; fixture assumptions and AI-authored tests cannot establish real monitoring or cryptographic assurance |
 
 The parent supplied actual check results for this entry. The initial model-test
 run exposed an incorrect search expectation; that expectation was corrected and
@@ -73,14 +73,14 @@ and model evidence above.
 | Evaluation criteria | Approximately 500 report words; statements grounded in existing records; distinguish local Jira-ready stories from remote Jira activity; preserve pending human evaluation, PO approval, review and retrospective; match gallery captions to visible screenshots |
 | Decision | Prepare reviewable Markdown sources and supplementary screenshots in this batch. PDF export and human review remain pending; no PDF rendering or completion claim is made |
 | Verification | Parent observed and captured overview, security, migration, executive, fallback-inventory and definitions views in the running browser, and visually inspected the captures. This records agent evidence rather than student acceptance. The report body contains 501 whitespace-delimited words excluding headings; six gallery image targets exist. Supplementary details are in VERIFICATION.md. Historical model/browser checks in AI-S1-002 are not new tests for this artifact-preparation batch |
-| Remaining risk | The report cannot supply missing Scrum participation or Jira history. Exported layout, course-process completeness and human acceptance require separate work |
+| Remaining risk | The report can reflect confirmed Jira entry and still requires evidence for earlier Scrum participation. Exported layout, course-process completeness and human acceptance require separate work |
 
 No dashboard code change or new product test result is asserted by this entry.
 The earlier build evidence remains historical and unchanged. The parent supplied
 actual screenshot observations; the record-maintenance subagent independently
 checked the report word count and the gallery image file references. The six
 new image files have JPEG signatures. Gallery captions distinguish synthetic
-scenarios from real attacks, and the report preserves pending Jira and meeting
+scenarios from real attacks, and the draft at that stage preserved the pending Jira and meeting
 states. Human content evaluation and PDF export/layout validation remain pending.
 The parent confirmed all six JPEGs decode and the temporary capture server was
 stopped. The two updated evidence records passed local link/whitespace checks
@@ -98,7 +98,7 @@ and `git diff --check`.
 | Evaluation criteria | Record the known roster; preserve unknown roles, contributions, meeting facts and sign-off; distinguish AI assessment from student/PO acceptance; reconcile missing-material claims with actual artifacts; retain original build evidence as historical |
 | Decision | Prepare reviewable team material and prospectively allocate responsibilities under the user's explicit delegation. D-09 distinguishes those assignments from unverified past contributions. R-09/D-08 preserve the boundary between supplied membership, reported review occurrence and missing review evidence; discussion candidates await member confirmation |
 | Verification | material_review independently reran 11/11 passing model tests in this batch and checked fixture totals 8 = 5 + 2 + 1, six gallery image targets and executive/fallback screenshot-caption agreement. No actionable defect within the synthetic scope was identified. Parent integrated the roster, prospective roles, confirmation-ready discussion candidates and review outcome in TEAM_REVIEW.md, and checked Markdown links/names/whitespace. No new browser walkthrough, human finding or remote Jira result is asserted |
-| Remaining work | Prospective role acknowledgement, actual contributions, review date/attendees/opinions, acceptance decisions, Jira evidence and any course submission/export gaps require real information. The reported review does not establish a retrospective; final scope follows the parent-integrated material review |
+| Remaining work | Prospective role acknowledgement, actual contributions, review date/attendees/opinions, acceptance decisions and the course submission/export gaps require real information; Jira mapping was confirmed in the subsequent handoff. The reported review does not establish a retrospective; final scope follows the parent-integrated material review |
 
 The earlier browser walkthrough remains historical; the independent 11/11 model
 test rerun above is new evidence in this material-review batch. The reviewer
@@ -111,19 +111,34 @@ instead of obsolete "execution/dashboard pending" states. RA-S1-04 still
 requires actual student participation.
 
 build_records read the team's review record and submission cover roster for
-consistency. Membership and prospective responsibilities are now known, while
-past contributions, actual meeting particulars and member opinions remain
-unconfirmed. The per-member discussion candidates in TEAM_REVIEW.md are prepared
+consistency at that review stage. The roster and initial responsibility
+proposals were available, while past contributions, meeting particulars and
+member opinions were unconfirmed. See TEAM_REVIEW.md for the current allocation. The per-member discussion candidates in TEAM_REVIEW.md are prepared
 for confirmation, not attributed historical quotations or accepted decisions.
 The current review retains the known mobile/process/PO validation limits and
 does not close related risks. No product code was changed by these record edits.
 
+## AI-S1-005: Jira handoff and repository reconciliation
+
+The browser GPT received a prompt with the Sprint Goal, five user stories, five
+process tasks, acceptance criteria and instructions to preserve existing entries.
+The user confirmed that it saved the goal in SCRUM Sprint 1, then verified the
+ten new items and six dependency links in the [Group 22 Backlog](https://tacczy.atlassian.net/jira/software/projects/SCRUM/boards/1/backlog).
+Earlier entries describe the state at the time of their respective batches.
+The current mappings and statuses are in [BACKLOG.md](BACKLOG.md).
+
+The handoff distinguishes reported technical verification (stories In Review)
+from outstanding process work (tasks To Do). Formal estimates and assignees,
+actual Jira Sprint dates, team/PO acceptance and retrospective outcomes remain
+open. [SCRUM-12](https://tacczy.atlassian.net/browse/SCRUM-12) tracks the team's evaluation of significant LLM outputs.
+The documentation reconciliation uses the user's confirmed browser results.
+It adds no new product test or direct Jira inspection.
+
 ## Evaluation checklist for each implementation batch
 
-After integrating the roster and user-confirmed occurrence of the earlier review,
-the parent counted the revised report body at 486 whitespace-delimited words,
-excluding cover information, headings and reviewer notes. Prepared discussion
-candidates remain outside the report's factual account and require confirmation.
+The earlier report revision counted 486 whitespace-delimited words. The
+current count is kept in the local report's reviewer notes. Prepared discussion
+candidates remain outside the report's factual account until confirmed.
 
 Before merging a generated batch into the increment, record its local story IDs,
 prompt/context location, generated output paths, evaluator and findings. Preserve

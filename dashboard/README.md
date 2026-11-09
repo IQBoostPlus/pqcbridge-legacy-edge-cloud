@@ -91,7 +91,7 @@ not a production monitoring or compliance system.
 ## Project records
 
 [Sprint goal](../docs/sprints/sprint-1/SPRINT_GOAL.md),
-[backlog](../docs/sprints/sprint-1/BACKLOG.md),
+[backlog and Jira mapping](../docs/sprints/sprint-1/BACKLOG.md),
 [risks and decisions](../docs/sprints/sprint-1/RISK_AND_DECISION_LOG.md),
 [LLM evaluation](../docs/sprints/sprint-1/LLM_EVALUATION.md) and
 [retrospective actions](../docs/sprints/sprint-1/RETROSPECTIVE_ACTIONS.md)

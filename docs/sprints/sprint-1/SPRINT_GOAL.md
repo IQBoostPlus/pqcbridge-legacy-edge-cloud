@@ -15,7 +15,11 @@ Current delivery state: **first increment implemented; AI model and browser
 checks passed within the recorded boundary; human acceptance pending**. The
 existing PQC Bridge communication prototype is background material. Actual checks
 and runtime results are recorded in [VERIFICATION.md](VERIFICATION.md).
-Student/PO acceptance and course submissions remain separate from implementation.
+The user confirmed that the goal and ten work items are in [SCRUM Sprint 1](https://tacczy.atlassian.net/secure/GHGoToBoard.jspa?sprintId=1).
+Five stories are In Review, and five process tasks are To Do. The Jira Sprint
+has not started and has no dates entered. See [BACKLOG.md](BACKLOG.md) for the
+issue mapping and confirmed dependency links. Student/PO acceptance and course
+submission are tracked separately.
 
 ## Committed dashboard scope
 
@@ -28,7 +32,7 @@ Student/PO acceptance and course submissions remain separate from implementation
 | S1-US-05 | Definitions and interpretation limits | Explain coverage, fallback, HNDL exposure, data time and classification assumptions. Expected fallback is distinguishable from a suspected downgrade. Exposure is not a detected HNDL attack; migration completion is not a security guarantee. Unknown or stale information cannot silently produce an all-clear status. |
 
 The full stories and detailed acceptance criteria live in [BACKLOG.md](BACKLOG.md).
-These IDs are local identifiers, not Jira issue keys.
+The local IDs map to SCRUM-5 through SCRUM-9 in the backlog.
 
 ## Implementation boundaries and metric proposal
 
@@ -96,32 +100,37 @@ integration completion. Update the root README and relevant component/project
 instructions in the same batch whenever scope, startup, verification or known
 limitations change. Use English for repository documentation.
 
-Jira-ready drafts are local until a real Jira project/issue mapping is available.
-Record actual issue keys and synchronization state when transferred. Preserve
-the distinction between local edits and remote Jira updates. Student team
+Keep the local-to-Jira mapping current in BACKLOG.md when the team reports
+verified changes. Preserve the distinction between local edits and remote Jira
+updates. Student team
 members supply actual membership, estimates, Scrum Master rotation, meeting
 outcomes and acceptance decisions; AI draft authorship does not supply them.
 
 ## Sprint submission checklist
 
 - [x] Five student names supplied by the user and recorded in TEAM_REVIEW.md and submission covers.
-- [ ] Confirm the prospective Scrum roles/rotation and working agreement in TEAM_REVIEW.md; record past contributions separately.
+- [x] Record the current Sprint 1 work allocation in [TEAM_REVIEW.md](TEAM_REVIEW.md).
+- [ ] Confirm the Scrum Master proposal, rotation and working agreement with the team; record past contributions separately.
 - [ ] Product vision and stakeholder needs/conflicts reviewed by the team.
-- [ ] Stories estimated/prioritized by the team and tracked in Jira.
-- [x] Working dashboard increment exercised by integrating AI with runtime evidence (actual Sprint review/team acceptance pending).
-- [ ] Planned versus completed scope and changes explained.
-- [ ] Risks, decisions and significant LLM outputs evaluated.
+- [x] Sprint Goal, five stories and five process tasks saved in Jira; six dependencies verified by the user.
+- [ ] Confirm priorities, formal estimates and assignees; enter actual Sprint dates and agree the Jira Sprint start.
+- [x] Working dashboard increment exercised with model tests and browser evidence; group review reported held, with outcomes and acceptance pending.
+- [x] Planned versus implemented scope documented in the report draft.
+- [x] Initial risk, decision and LLM evaluation records prepared with technical checks.
+- [ ] Add the team's conclusions on risk changes, decisions and LLM output quality.
 - [ ] Recover the reported review's date, attendance, feedback and acceptance; record an actual retrospective and track agreed actions for Sprint 2.
-- [ ] Report draft prepared from evidence in `submission/Sprint1_Report.md`; student review and PDF export pending.
-- [ ] Six dashboard images assembled in `submission/Sprint1_Dashboard_Images.md`; student review and PDF export pending.
-- [ ] 5-minute video and the slides used in it exported as PDF.
+- [x] Report draft and gallery with six dashboard screenshots prepared locally.
+- [ ] Review and export the approximately 500-word report and export the dashboard images as one PDF.
+- [ ] Prepare slides, record the video (at most five minutes), export the slides used as PDF and submit all four items.
 
 ## Change record
 
-| Event | Authority/evidence | Result |
+| Event | Authority/evidence | Result at that stage |
 | --- | --- | --- |
 | Initial scope recorded | User accepted the five-feature Sprint 1 proposal in chat | Goal, Jira-ready backlog and initial process records created; implementation, team review, Jira transfer and course submissions pending |
 | First build integrated | User instructed construction; model/UI subagents and process-record subagent worked under exclusive ownership | Five features implemented; 11 model tests and browser scenarios observed; see verification. Human acceptance, Jira transfer, actual review/retrospective and course submissions pending |
 | Submission Markdown drafted | User requested screenshots and editable report/gallery before their own PDF export | Six fresh screenshots and two Markdown sources prepared; human review and export pending |
 | Team register and review prepared | User supplied five member names and requested review/completion | Membership confirmed; technical/material review and student walkthrough questions prepared in TEAM_REVIEW.md; actual student feedback, roles and acceptance await evidence |
 | Review occurrence clarified and roles allocated | User confirmed a prior review without saved minutes and delegated allocation | Prior review recorded as user-reported; prospective owners/SM rotation and discussion candidates prepared; actual meeting details and member acknowledgement pending |
+| Jira entry confirmed | User confirmed saved goal and checked all ten records, order, statuses and six dependency links in the [Group 22 Backlog](https://tacczy.atlassian.net/jira/software/projects/SCRUM/boards/1/backlog) | SCRUM-5 through SCRUM-9 In Review; SCRUM-10 through SCRUM-14 To Do; Sprint unstarted and undated; estimates, assignees and acceptance pending |
+| Work allocation updated | User supplied the revised five-person split | TEAM_REVIEW.md records current responsibilities; individual Jira assignees and Scrum Master confirmation remain separate |

@@ -47,17 +47,21 @@ The [Sprint goal and delivery record](docs/sprints/sprint-1/SPRINT_GOAL.md)
 is the scope authority and contains acceptance, build sequence and submission
 checklists. Supporting records are maintained during construction:
 
-- [Jira-ready user stories and acceptance criteria](docs/sprints/sprint-1/BACKLOG.md)
+- [Jira issue mapping, user stories and acceptance criteria](docs/sprints/sprint-1/BACKLOG.md)
 - [Initial risks and decision log](docs/sprints/sprint-1/RISK_AND_DECISION_LOG.md)
 - [LLM output evaluation](docs/sprints/sprint-1/LLM_EVALUATION.md)
 - [Retrospective actions and follow-up](docs/sprints/sprint-1/RETROSPECTIVE_ACTIONS.md)
 
 During each build batch, subagents maintain these records under exclusive file
 ownership; the integrating agent reconciles evidence, verifies the assembled
-increment, and updates README and relevant project instructions. Local story
-IDs and proposed actions remain drafts until mapped to actual Jira issues and
-team decisions. Team/PO acceptance and retrospective outcomes are recorded when
-they occur. Sprint 1's course deadline is 11 November 2026 at 23:59 Finnish time.
+increment, and updates README and relevant project instructions.
+
+The user confirmed that [SCRUM Sprint 1](https://tacczy.atlassian.net/secure/GHGoToBoard.jspa?sprintId=1) has a saved goal, five stories In Review
+(SCRUM-5 through SCRUM-9), five process tasks To Do (SCRUM-10 through SCRUM-14)
+and six linked dependencies. The Jira Sprint is unstarted with blank dates.
+Formal story points, assignees, team/PO acceptance and retrospective outcomes
+remain pending. The course submission deadline is 11 November 2026 at 23:59
+Finnish time.
 
 The Sprint 1 report draft and six-image dashboard gallery are kept locally
 under `docs/sprints/sprint-1/submission/`. Student review and PDF export are

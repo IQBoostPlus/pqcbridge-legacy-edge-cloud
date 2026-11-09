@@ -25,9 +25,9 @@ updating completion claims. Update README and affected project instructions
 in the same batch. Repository documentation is written in English.
 
 The Sprint 1 dashboard uses synthetic data independently of the existing
-Device/Gateway/Cloud prototype. Local story IDs are not remote Jira keys;
-record actual human meetings, PO decisions and Jira updates only when they
-occur.
+Device/Gateway/Cloud prototype. Use the local-to-Jira mapping in
+`docs/sprints/sprint-1/BACKLOG.md` for SCRUM Sprint 1. Record verified Jira
+changes and actual meetings and PO decisions as separate events.
 
 For dashboard startup, reporting rules and test commands, read
 `dashboard/README.md`. Recorded runtime/check results and their limits live in

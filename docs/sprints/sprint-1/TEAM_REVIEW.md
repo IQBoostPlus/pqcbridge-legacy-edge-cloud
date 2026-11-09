@@ -6,20 +6,19 @@ The user supplied the following five members in the project chat. Names are
 recorded exactly as supplied; roster membership does not establish attendance,
 individual contributions or acceptance of the increment.
 
-| Member | Membership source | Sprint role / contribution evidence |
+| Member | Membership source | Current Sprint 1 responsibility |
 | --- | --- | --- |
-| Changzhengyuan Chu | User-provided roster | Sprint 1 Scrum Master; coordination and integration follow-up |
-| Valerii Lebedev | User-provided roster | Data model, fixture and reporting-rule follow-up |
-| Jinghao Lei | User-provided roster | Interface, role views and accessibility follow-up |
-| Cheng Peng | User-provided roster | Test evidence, domain checks and validation follow-up |
-| Zhizhou Zhao | User-provided roster | Jira records, documentation and submission coordination |
+| Changzhengyuan Chu | User-provided roster | Jira, project documentation and submission coordination |
+| Valerii Lebedev | User-provided roster | Video recording |
+| Jinghao Lei | User-provided roster | Interface, role views and accessibility |
+| Cheng Peng | User-provided roster | Testing, security concept checks and verification records |
+| Zhizhou Zhao | User-provided roster | Sprint report and PowerPoint slides |
 
-This is a prospective allocation made under the user's explicit instruction to
-assign responsibilities. Member acknowledgement is pending. It does not describe
-who built earlier features, facilitated the earlier meeting or wrote past work.
-All five remain development-team members; the teacher retains the PO role.
-Planned Scrum Master rotation: Valerii Lebedev for Sprint 2 and Jinghao Lei for
-Sprint 3, subject to the group's confirmation and availability.
+The user supplied this allocation for current work. Member acknowledgement,
+historical contributions and formal Jira assignees are tracked separately.
+The teacher retains the Product Owner role. The separate Scrum Master proposal
+remains subject to team confirmation: Changzhengyuan Chu for Sprint 1,
+Valerii Lebedev for Sprint 2 and Jinghao Lei for Sprint 3.
 
 ## Product vision and stakeholder review basis
 
@@ -89,11 +88,11 @@ attributing it to a member or reporting it as a group decision.
 
 | Assigned follow-up lead | Discussion candidate | Proposed modification / completion criterion |
 | --- | --- | --- |
-| Changzhengyuan Chu | The first increment should stay focused on a clear demonstration of the accepted scope | Agree a short demonstration sequence and keep the final video within five minutes; record actual scope acceptance |
-| Valerii Lebedev | A coverage number needs its denominator and data-quality interpretation | Personally verify 5/8 = 62.5% and the unknown/empty/stale examples; confirm or revise D-03/D-04 with rationale |
+| Changzhengyuan Chu | Process evidence needs to be traceable to Jira | Use the ten mapped issues to track current progress and confirm estimates, assignees and actual dates with the team |
+| Valerii Lebedev | The video needs a focused demonstration of the accepted scope | Record the dashboard walkthrough using the final slides and check the five-minute limit |
 | Jinghao Lei | Reported 100% migration can still be misunderstood when evidence is stale | Run a student role walkthrough and complete mobile/keyboard checks; consider moving overall evidence quality nearer the overview only if the walkthrough supports that change |
 | Cheng Peng | AI-authored tests and screenshots need student evaluation | Reproduce critical arithmetic, fallback classification and invalid-input recovery checks; record expected/observed results and any actual defects |
-| Zhizhou Zhao | Process evidence needs to be traceable to real Jira work | Transfer five stories to the actual board, add real keys/estimates/status evidence, and replace pending report statements only after confirmation |
+| Zhizhou Zhao | The report and slides should tell the same evidence-based Sprint story | Review the report against the Sprint evidence and prepare the slides used in the video |
 
 No code change is justified solely by these candidates. Prioritize actual defects
 and PO feedback; confirm scope before adding usability changes.
@@ -117,7 +116,7 @@ followed by the five students:
   teacher acceptance. Give each agreed action an actual owner and target date.
 
 Teacher/PO: the course teacher, as specified by the course materials.
-Prospective roles and rotation are allocated above. Acknowledgement, historical
+The current work allocation and proposed Scrum Master rotation are recorded above. Acknowledgement, historical
 contribution evidence, communication channel and team agreement await confirmation.
 
 ## Follow-up actions prepared for confirmation
@@ -125,14 +124,19 @@ contribution evidence, communication channel and team agreement await confirmati
 | Action | Priority / completion criterion | Owner and target |
 | --- | --- | --- |
 | Confirm roles, contributions and working agreement | Before submission: confirm prospective roles and record historical contributions and communication choices | Changzhengyuan Chu; before Sprint 1 submission |
-| Transfer stories and estimates to Jira | Add actual board/project, issue keys, team estimates and status evidence | Zhizhou Zhao; before Sprint 1 submission |
+| Confirm Jira planning fields | The mapping and statuses are recorded in [BACKLOG.md](BACKLOG.md); confirm team estimates, priorities, assignees and actual Sprint dates in [SCRUM-10](https://tacczy.atlassian.net/browse/SCRUM-10) | Changzhengyuan Chu coordinates; before Sprint 1 submission |
 | Recover review evidence and evaluate generated work | Record actual participants, feedback, acceptance conditions and student evaluation | Changzhengyuan Chu coordinates; Cheng Peng records validation; before final report |
-| Hold retrospective and agree improvements | Record actual observations and agreed actions; follow them in Sprint 2 | Changzhengyuan Chu; by Sprint 1 close; Valerii Lebedev follows up in Sprint 2 |
-| Review reporting rules with PO | Obtain feedback on denominator, clock and status precedence | Valerii Lebedev; at the next PO discussion |
+| Hold retrospective and agree improvements | Record actual observations and agreed actions; follow them in Sprint 2 | Proposed Scrum Master facilitates in Sprint 1; confirm the Sprint 2 follow-up owner with the team |
+| Review reporting rules with PO | Obtain feedback on denominator, clock and status precedence | Cheng Peng prepares verification evidence for the next PO discussion; confirm the meeting owner with the team |
 | Check remaining mobile/accessibility concerns | Record actual results and prioritize material usability defects | Jinghao Lei with Cheng Peng; review before submission and carry unresolved items into Sprint 2 |
-| Finish Moodle artifacts | Review Markdown, export PDFs, record video of at most five minutes and export its actual slides | Zhizhou Zhao coordinates; all five check content; by the course deadline |
+| Finish Moodle artifacts | In [SCRUM-14](https://tacczy.atlassian.net/browse/SCRUM-14), verify the report PDF, combined dashboard-image PDF, video of at most five minutes and PDF of the slides used | Changzhengyuan Chu coordinates; Zhizhou Zhao prepares the report and slides; Valerii Lebedev records the video; all five check content by the course deadline |
 
 ## Human review and acceptance record
+
+The user confirmed the Jira setup separately from the earlier group review.
+[SCRUM-13](https://tacczy.atlassian.net/browse/SCRUM-13) is To Do and tracks review findings and retrospective
+actions as distinct outcomes. The board's In Review story status reflects
+pending acceptance.
 
 | Field | Current evidence |
 | --- | --- |

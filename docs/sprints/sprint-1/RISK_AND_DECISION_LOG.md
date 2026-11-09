@@ -3,8 +3,8 @@
 Status: AI-assisted build record; group review reported held by the user,
 with retained minutes and confirmed findings unavailable.
 The [Sprint goal](SPRINT_GOAL.md) is the scope authority; [BACKLOG.md](BACKLOG.md)
-contains local story IDs. Jira keys remain unassigned. Prospective member roles
-and story allocations are recorded under user delegation, pending acknowledgement.
+contains the verified local-to-Jira mapping. Current work responsibilities
+are recorded separately from Jira assignees in TEAM_REVIEW.md.
 The user-supplied roster is recorded in [TEAM_REVIEW.md](TEAM_REVIEW.md);
 membership does not establish past participation or acceptance.
 The course deadline recorded earlier in the project chat is 11 November 2026,
@@ -46,21 +46,23 @@ recorded by this initial draft.
 | D-03 | Coverage measured as PQC connection segments / all in-scope connection segments including unknown; zero records means unavailable | Prototype implementation choice by integrating AI under user-authorized construction; team/PO review pending | Including unknown prevents inflated coverage; alternative known-only denominator would hide uncertainty | S1-US-02; hand-worked fixture expectation: 5 / 8 = 62.5%; implementation checks recorded in VERIFICATION.md; human review pending |
 | D-04 | Explicit historical demo clock pinned to snapshot time; optional current-time clock. Per-record age greater than 24 hours is stale. Overall precedence: suspected downgrade => red; otherwise empty/unknown/stale/future observations or future snapshot relative to selected clock => unknown; otherwise fallback => amber; otherwise green | Prototype implementation rule recorded before implementation; chosen by integrating AI, not teacher approval | Fixed clock makes demonstrations repeatable while identifying them as historical. Current-time mode reveals aging. Green describes reported segment migration only. Alternative live-only clock makes a fixed historical fixture stale immediately; an unexplained coverage-to-color threshold hides uncertainty | S1-US-04, S1-US-05; model and browser checks in VERIFICATION.md; team/PO review pending |
 | D-05 | Existing prototype fallback logs as background rather than automatic HNDL evidence | Technical interpretation recorded from current goal and README; human domain review pending | Preconfigured symmetric keys differ from classical key exchange; synthetic exposure needs explicit assumptions | R-04; domain review before mapping prototype data |
-| D-06 | Local Jira-ready stories until a real Jira project and issue mapping are available | Current execution boundary; no remote Jira write recorded | Preserves traceability without inventing issue keys or collaboration history | BACKLOG.md; add real project/keys after verified transfer |
+| D-06 | Prepare local stories, then map them to the course Jira project | Initial boundary superseded by the user-confirmed Jira entry | Preserve local IDs and distinguish the Jira entry from prior build and meeting history | [Backlog mapping](BACKLOG.md); [SCRUM-10](https://tacczy.atlassian.net/browse/SCRUM-10) tracks team confirmation of estimates, roles and priorities |
 | D-07 | Reject the entire invalid snapshot visibly, rather than silently dropping unsupported records | Prototype implementation choice by integrating AI under authorized construction | Prevents denominator changes and retained healthy summaries after bad input. Require synthetic schema v1, unique IDs, valid statuses/methods and observation times no later than snapshot time | S1-US-01, S1-US-02; schema/model checks passed; invalid-input UI reset observed; human review pending |
 | D-08 | Record supplied membership separately from confirmed roles, contributions and review outcomes | User supplied the roster; evidence classification by integrating AI | Known members are recorded in TEAM_REVIEW.md. No member is assigned a role or credited with work by inference; AI review supports later human review | Team to confirm actual roles, opinions, decisions and sign-off; Jira/PO acceptance unchanged |
-| D-09 | Allocate prospective responsibilities under user delegation, rather than reconstruct past contributions or member feedback | User explicitly delegated allocation after reporting that group review occurred without a saved record | TEAM_REVIEW.md records forward responsibilities: Changzhengyuan Chu facilitates/integrates; Valerii Lebedev focuses on model/data; Jinghao Lei on UI/accessibility; Cheng Peng on QA/domain checks; Zhizhou Zhao on Jira/docs/submissions. Member acknowledgement pending; all remain developers | Actual review date, attendees, opinions and acceptance decision are unconfirmed. Planned later Scrum Master rotation is prospective, not completed |
+| D-09 | Allocate prospective responsibilities under user delegation, rather than reconstruct past contributions or member feedback | User explicitly delegated allocation after reporting that group review occurred without a saved record | Initial allocation superseded by D-10. Review participation and individual contributions remain separate | Actual review date, attendees, opinions and acceptance decision are unconfirmed. Planned later Scrum Master rotation is prospective, not completed |
+| D-10 | Update the Sprint 1 work allocation | User supplied revised responsibilities | TEAM_REVIEW.md records the current allocation for Jira, documentation, submission coordination, UI, verification, video, report and slides | Confirm individual Jira assignees and any remaining Scrum role decisions with the team |
 
 ## Change record
 
-| Event | Change | Evidence | Residual work |
+| Event | Change | Evidence | Residual work at that stage |
 | --- | --- | --- | --- |
 | Initial planning draft | R-01 through R-08 and D-01 through D-06 documented by delegated AI author | User request, Sprint goal and this local file; parent integration review recorded in LLM_EVALUATION.md | Student ownership, PO feedback and implementation verification pending; all risks remain open |
 | First build batch started | D-03/D-04 selected as explicit prototype rules; D-07 records rejection policy | User instruction to start construction; delegated model/UI task contracts; BUILD_PROMPTS.md | Model tests, integrated browser checks, student/PO review pending |
-| First build batch integrated | Five stories implemented; parent independently observed 11/11 model checks and scoped browser walkthrough | VERIFICATION.md; AI-S1-002 in LLM_EVALUATION.md | All risks remain open for human review; mobile full-page screenshot capture failed; Jira/teacher acceptance pending |
+| First build batch integrated | Five stories implemented; parent independently observed 11/11 model checks and scoped browser walkthrough | VERIFICATION.md; AI-S1-002 in LLM_EVALUATION.md | All risks remain open for human review; mobile full-page screenshot capture failed; Jira entry and teacher acceptance pending |
 | Roster received and material review requested | User supplied five members; R-09 and D-08 distinguish membership from process evidence | TEAM_REVIEW.md; AI-S1-004 in LLM_EVALUATION.md | Actual roles, meeting facts, individual opinions, Jira mapping and sign-off remain pending; no human-acceptance risk closed |
 | Review clarification and forward allocation | User reports review held, original record not saved; delegated role allocation recorded as D-09 | Current project chat; TEAM_REVIEW.md | Confirm actual review date/attendees/findings and acknowledge forward roles; retrospective remains unconfirmed; no invented opinions or risk closure |
-| Independent material review integrated | Reviewer reran 11/11 model tests, independently checked 8 = 5 + 2 + 1 and inspected executive/fallback screenshot-caption agreement; no actionable synthetic-scope defect found | TEAM_REVIEW.md; AI-S1-004 in LLM_EVALUATION.md | Human evidence, Jira mapping, complete mobile validation and teacher/PO acceptance remain open |
+| Independent material review integrated | Reviewer reran 11/11 model tests, independently checked 8 = 5 + 2 + 1 and inspected executive/fallback screenshot-caption agreement; no actionable synthetic-scope defect found | TEAM_REVIEW.md; AI-S1-004 in LLM_EVALUATION.md | At that review, human evidence, Jira mapping, mobile validation and teacher/PO acceptance were still open |
+| Jira entry confirmed | The user verified the saved Sprint Goal, ten mapped items and six dependencies | [Backlog mapping](BACKLOG.md); [SCRUM-11](https://tacczy.atlassian.net/browse/SCRUM-11) tracks risk and decision maintenance | R-07 traceability improved; earlier Jira activity, confirmed dates, estimates, ownership and actual meeting outcomes still require evidence. Risks remain open |
 
 For a new decision, append ID, trigger, alternatives, chosen action, authority,
 affected stories, verification and residual risk. Record proposals as proposals
@@ -81,10 +83,10 @@ and startup explanation with no actionable domain/metric mismatch identified.
   backend/security redesign stayed outside this increment.
 - R-06: AI provenance and review recorded; an incorrect initial model-test search
   expectation was corrected, rather than reported as an implementation defect.
-- R-07/R-09: local IDs remain unassigned in Jira. The user reports a group review
-  was held, but original minutes were not saved and date, actual attendees,
-  opinions and acceptance decision remain unconfirmed. Prospective allocation
-  under D-09 does not establish past contributions. Retrospective is unconfirmed.
+- R-07/R-09: the local-to-Jira mapping is now recorded. The user reports a
+  group review was held without retained minutes. The date, actual attendees,
+  feedback, acceptance and retrospective still need confirmation. D-09
+  records proposed responsibilities for follow-up.
 - R-08: stale/all-PQC and unknown/empty cases prevent all-clear under the rule;
   green wording is qualified. Mobile geometry was checked, but full-page mobile
   screenshot capture failed, leaving complete mobile visual validation open.

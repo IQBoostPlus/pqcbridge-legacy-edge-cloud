@@ -19,7 +19,7 @@ summaries, not verbatim copies of those task messages.
 | --- | --- | --- |
 | dashboard_model | dashboard/model.mjs, fixtures/snapshot.json, tests/model.test.mjs | Implement dependency-free validation, shared calculations, filters and a fixed 8-segment fixture; test independently worked expectations and invalid/unknown/empty/stale/future cases. |
 | dashboard_ui | dashboard/index.html, styles.css, app.mjs | Build an accessible responsive local dashboard using the shared model API; include three role views, filters/search, local fixture loading/reset, data errors and definitions; render dataset values as text. |
-| build_records | BACKLOG.md, RISK_AND_DECISION_LOG.md, LLM_EVALUATION.md, RETROSPECTIVE_ACTIONS.md | Record actual decisions, AI provenance and progress during construction; wait for integrating-agent evidence before claiming test/UI success; preserve human/Jira/PO pending states. |
+| build_records | BACKLOG.md, RISK_AND_DECISION_LOG.md, LLM_EVALUATION.md, RETROSPECTIVE_ACTIONS.md | Record actual decisions, AI provenance and progress during construction; wait for integrating-agent evidence before claiming test/UI success; preserve the human/Jira/PO states that were pending at the time of construction; see BACKLOG.md for the later Jira entry. |
 
 The parent agent owns contract coordination, integration review, runtime/browser
 verification, README/CLAUDE/goal updates and the final verification record.

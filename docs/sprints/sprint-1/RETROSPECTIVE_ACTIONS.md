@@ -3,15 +3,15 @@
 Status: preparatory record. No Sprint 1 retrospective meeting or student-team
 outcome is recorded here. The actions below are proposed preventive work items;
 they become agreed retrospective actions only after an actual team discussion.
-Local action IDs are not Jira issue keys.
+The coordination task [SCRUM-13](https://tacczy.atlassian.net/browse/SCRUM-13) is To Do. Individual action
+proposals below have local IDs and await team agreement before Jira entry.
 The five-member roster is now available in [TEAM_REVIEW.md](TEAM_REVIEW.md).
 Actual retrospective attendees, facilitator and action owners remain unconfirmed.
 The user reports a group review was held without a saved original record; its
 date, actual attendees, opinions and acceptance decision remain unconfirmed.
 That review statement does not establish that a retrospective also occurred.
-Prospective roles in TEAM_REVIEW.md are allocated under user delegation, pending
-member acknowledgement; they do not backfill past participation or accepted
-retrospective actions.
+Current work responsibilities are recorded in TEAM_REVIEW.md. The team
+confirms retrospective participation and action owners separately.
 The later independent material review refreshed 11/11 model checks and sampled
 screenshot-caption agreement. Its findings can inform the eventual
 retrospective, but are not member observations or an agreed improvement action.
@@ -25,7 +25,7 @@ Scope: [SPRINT_GOAL.md](SPRINT_GOAL.md). Implementation stories:
 | Local ID | Trigger / proposed action | Completion evidence needed | State | Owner / Jira key | Follow-up |
 | --- | --- | --- | --- | --- | --- |
 | RA-S1-01 | Avoid inconsistent metrics: agree on coverage denominator, units and unknown behavior before building | D-03/D-04 and worked-result checks in VERIFICATION.md linked to S1-US-02 | Proposed; prototype rules and AI arithmetic checks recorded; team agreement pending | Unassigned / not created | Inspect actual discrepancies in Sprint 1 retrospective; carry any agreed action to Sprint 2 |
-| RA-S1-02 | Avoid process evidence gaps: update stories and logs with actual findings at each build batch | Actual AI build and artifact-preparation entries in LLM_EVALUATION.md; real Jira mapping still required | Proposed; per-batch AI records maintained; team adoption/Jira evidence pending | Unassigned / not created | Inspect one completed story at the retrospective; check follow-through during Sprint 2 planning |
+| RA-S1-02 | Avoid process evidence gaps: update stories and logs with actual findings at each build batch | Build and artifact-preparation entries in LLM_EVALUATION.md; [story mapping](BACKLOG.md) is in place, with ongoing updates to be agreed | Proposed; per-batch records maintained and initial Jira mapping confirmed; team adoption pending | Unassigned / not created | Inspect one completed story at the retrospective; check follow-through during Sprint 2 planning |
 | RA-S1-03 | Avoid a last-minute unusable demo: run a small integrated browser walkthrough before adding optional scope | Working parent-observed walkthrough and screenshots in VERIFICATION.md | Proposed; implemented dashboard and AI walkthrough evidence available; team review pending | Unassigned / not created | Discuss the observed integration friction; follow agreed improvement in Sprint 2 |
 | RA-S1-04 | Avoid confusing stakeholders: have students walk through all three roles and record misunderstandings | Named participants, task/scenario, observed misunderstanding, resulting change; label role-play as simulated | Proposed; participation pending | Unassigned / not created | Review actual feedback at the retrospective; verify any carried fix in Sprint 2 |
 

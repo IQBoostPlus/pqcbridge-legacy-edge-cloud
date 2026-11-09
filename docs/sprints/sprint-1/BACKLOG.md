@@ -1,22 +1,26 @@
-# Sprint 1 backlog: Jira-ready local draft
+# Sprint 1 backlog and Jira mapping
 
 Baseline: 8 November 2026. Scope authority: [Sprint goal](SPRINT_GOAL.md).
 All dashboard stories are **Implemented; AI checks passed; human acceptance
-pending**. This file records local build progress, not completed Jira updates. Local IDs below are not Jira keys.
-Prospective owners below are allocated under the user's delegation, with member
-acknowledgement pending. Actual estimates and teacher/Product Owner acceptance
-remain unconfirmed.
+pending**. The user confirmed that [SCRUM Sprint 1](https://tacczy.atlassian.net/secure/GHGoToBoard.jspa?sprintId=1)
+contains the saved Sprint Goal, five stories and five process tasks. The Sprint
+has not started, and both date fields were empty at the reported check.
+The mappings below reflect the user's browser verification.
+The current team work allocation is in [TEAM_REVIEW.md](TEAM_REVIEW.md).
+Actual estimates, formal Jira assignees and Product Owner acceptance remain
+unconfirmed.
 
 The user has supplied the five-person roster, recorded in
-[TEAM_REVIEW.md](TEAM_REVIEW.md). Membership and prospective allocations are recorded; acknowledgement, actual
-contributions and review sign-off still require the members' confirmation. The
+[TEAM_REVIEW.md](TEAM_REVIEW.md), along with the current work allocation.
+Member acknowledgement, past contributions and review sign-off still require
+confirmation. The
 user reports that a group review was held but its original record was not saved.
 Date, actual attendees, feedback and acceptance decision remain unconfirmed.
 The material review there supplies separately identified evidence for discussion,
 not a reconstruction of missing member opinions.
 The independent material reviewer reran 11/11 model tests and reconciled the
 fixture and sampled screenshot captions; this refreshes technical evidence
-without changing the pending human acceptance or remote Jira status.
+without establishing human acceptance.
 
 The existing Device/Gateway/Cloud prototype provides background only. The
 increment must run independently using synthetic data.
@@ -26,15 +30,15 @@ increment must run independently using synthetic data.
 Story points below are provisional relative-size suggestions (1, 2, 3, 5 scale),
 not hours or team commitments. Confirm estimates and ordering in actual planning.
 All five stories are required for the accepted Sprint 1 increment; the priority
-column gives the suggested implementation order.
+column records the board order; dependencies capture implementation prerequisites.
 
-| Local ID | Summary | Priority/order | Proposed points | Dependencies | Status | Jira key | Prospective owner; acknowledgement pending |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| S1-US-01 | Load a fixed synthetic connection dataset | Must / 1 | 3, unconfirmed | Schema v1 build contract | Implemented; AI checks passed; human acceptance pending | Unassigned | Valerii Lebedev |
-| S1-US-02 | Show reconciled connection coverage totals | Must / 2 | 2, unconfirmed | S1-US-01 | Implemented; AI checks passed; human acceptance pending | Unassigned | Valerii Lebedev |
-| S1-US-03 | Inspect and filter connection segments | Must / 3 | 3, unconfirmed | S1-US-01 | Implemented; AI checks passed; human acceptance pending | Unassigned | Jinghao Lei |
-| S1-US-04 | Present the same data for three stakeholder roles | Must / 4 | 5, unconfirmed | S1-US-02, S1-US-03, S1-US-05 rules | Implemented; AI checks passed; human acceptance pending | Unassigned | Jinghao Lei |
-| S1-US-05 | Explain indicators and their interpretation limits | Must / rules before UI, finish with 4 | 3, unconfirmed | S1-US-01 contract; D-03/D-04 prototype rules | Implemented; AI checks passed; human acceptance pending | Unassigned | Cheng Peng |
+| Local ID | Summary | Priority/order | Proposed points | Dependencies | Jira status | Jira key |
+| --- | --- | --- | --- | --- | --- | --- |
+| S1-US-01 | Load a fixed synthetic connection dataset | Must / 1 | 3, unconfirmed | Schema v1 build contract | In Review | [SCRUM-5](https://tacczy.atlassian.net/browse/SCRUM-5) |
+| S1-US-02 | Show reconciled connection coverage totals | Must / 2 | 2, unconfirmed | S1-US-01 | In Review | [SCRUM-6](https://tacczy.atlassian.net/browse/SCRUM-6) |
+| S1-US-03 | Inspect and filter connection segments | Must / 3 | 3, unconfirmed | S1-US-01 | In Review | [SCRUM-7](https://tacczy.atlassian.net/browse/SCRUM-7) |
+| S1-US-04 | Present the same data for three stakeholder roles | Must / 4 | 5, unconfirmed | S1-US-02, S1-US-03, S1-US-05 rules | In Review | [SCRUM-8](https://tacczy.atlassian.net/browse/SCRUM-8) |
+| S1-US-05 | Explain indicators and their interpretation limits | Must / 5 on board; rules needed by S1-US-04 | 3, unconfirmed | S1-US-01 contract; D-03/D-04 prototype rules | In Review | [SCRUM-9](https://tacczy.atlassian.net/browse/SCRUM-9) |
 
 ### S1-US-01: Fixed synthetic connection dataset
 
@@ -158,19 +162,16 @@ freshness rules, browser verification. Evidence: implementation and parent-obser
 
 ## Process tasks accompanying the stories
 
-These local task IDs may be transferred to Jira alongside stories. Process-log
-maintenance and AI output evaluation are in progress; actual planning evidence, review minutes/decisions,
-retrospective and submission remain pending. No task has a remote issue key. The user-delegated prospective allocation is
-recorded in TEAM_REVIEW.md; it does not document past contributions or member
-acknowledgement.
+All five tasks are in SCRUM Sprint 1 and were **To Do** at the reported Jira
+check. The existing logs, evaluation and submission drafts are partial evidence.
 
-| Local task | Proposed work | Completion evidence |
-| --- | --- | --- |
-| S1-T-01 | Team planning: confirm roles, working agreement, estimates and Sprint goal | Actual attendees/date, decisions and assigned work; team/PO feedback recorded |
-| S1-T-02 | Maintain [risks and decisions](RISK_AND_DECISION_LOG.md) | Dated updates identifying authority, rationale, residual risks and follow-up |
-| S1-T-03 | Evaluate significant LLM outputs in [LLM evaluation](LLM_EVALUATION.md) | Prompt/output references, findings, decisions, fixes, checks and remaining risks |
-| S1-T-04 | Review integrated increment and conduct actual retrospective | Runtime demonstration and team/PO feedback; [retrospective actions](RETROSPECTIVE_ACTIONS.md) with owners and follow-up |
-| S1-T-05 | Prepare Sprint submission from actual evidence | 500-word report, 5-minute video and the slides used in the video as PDF; working increment reference |
+| Local task | Jira key | Work | Completion evidence |
+| --- | --- | --- | --- |
+| S1-T-01 | [SCRUM-10](https://tacczy.atlassian.net/browse/SCRUM-10) | Confirm Sprint 1 planning and working agreement | Actual decisions, roles, priority and estimates; team/PO feedback where available |
+| S1-T-02 | [SCRUM-11](https://tacczy.atlassian.net/browse/SCRUM-11) | Maintain the [Sprint 1 risk register and decision log](RISK_AND_DECISION_LOG.md) | Dated updates identifying authority, rationale, residual risks and follow-up |
+| S1-T-03 | [SCRUM-12](https://tacczy.atlassian.net/browse/SCRUM-12) | Review and evaluate significant LLM outputs | [Evaluation](LLM_EVALUATION.md) with findings, corrections, checks and team conclusions |
+| S1-T-04 | [SCRUM-13](https://tacczy.atlassian.net/browse/SCRUM-13) | Confirm Sprint review outcomes and record retrospective actions | Actual review findings and acceptance decision where recoverable; separate [retrospective record](RETROSPECTIVE_ACTIONS.md) with agreed owners, dates and Sprint 2 follow-up |
+| S1-T-05 | [SCRUM-14](https://tacczy.atlassian.net/browse/SCRUM-14) | Prepare and check the Sprint 1 Moodle submission | Approximately 500-word report PDF, video of at most five minutes, PDF of the slides used and one combined dashboard-image PDF |
 
 ## Definition of Done and current evidence
 
@@ -188,23 +189,21 @@ feedback. All five stories have implementation and parent-observed AI check evid
 [VERIFICATION.md](VERIFICATION.md); **human acceptance is pending**. This does
 not mark stories Done in Jira or establish student/PO acceptance.
 
-## Transfer to Jira and ongoing maintenance
+## Jira entry and ongoing maintenance
 
-1. Obtain the actual course Jira project key and board from the student team.
-   No remote Jira connection or synchronization has been performed for this file.
-2. Copy each story's summary, role/need, acceptance criteria, dependencies and
-   local ID into a Jira story. Keep estimates provisional until team planning;
-   assign real team members through the team's normal process.
-3. If using Jira import, map fields against that project's actual import schema;
-   this Markdown file is a copy-ready draft, not a validated CSV import payload.
-4. Record the returned issue key against the local ID, link dependencies and add
-   the actual Sprint assignment. Preserve local IDs for traceability.
-5. During each build batch, a bounded backlog subagent updates verified evidence
-   and proposed changes here. The integrating agent reconciles these with the
-   [goal](SPRINT_GOAL.md), logs and README before changing completion claims.
-6. After an actual remote update, record the issue URL/key, date and resulting
-   state. Keep Planned, Implemented, Verified and Accepted distinct; do not mark
-   a Jira issue done solely because this document or a subagent task is finished.
+The user confirmed saving the Sprint Goal and checking all ten new records,
+their Sprint assignment, order and status after refreshing the [Group 22 Backlog](https://tacczy.atlassian.net/jira/software/projects/SCRUM/boards/1/backlog).
+The six saved is-blocked-by links are SCRUM-6, SCRUM-7 and SCRUM-9 each blocked
+by SCRUM-5, and SCRUM-8 blocked by SCRUM-6, SCRUM-7 and SCRUM-9. The SCRUM-8
+dependency on SCRUM-9 concerns the indicator rules.
+
+The Jira descriptions recorded the estimates and owner proposals from the
+initial entry. Reconcile those owner notes with the current work allocation in
+TEAM_REVIEW.md when the team confirms individual issue assignments. Formal Story
+Points and Assignee fields were empty at the last reported check. Confirm those
+fields, priorities and actual Sprint dates with the team. Record subsequent Jira changes
+with the issue URL, resulting state and evidence. Keep implementation,
+technical verification and team/PO acceptance distinct.
 
 ## First implementation batch: implemented, awaiting human acceptance
 
@@ -228,17 +227,17 @@ these process records to `build_records`, with exclusive file ownership. See
 
 The user subsequently reported a group review was held; no retained minutes or
 confirmed date/attendees/decisions are available. This implementation batch does
-not supply those missing facts or imply a remote Jira operation.
+not supply those missing facts. The later Jira entry is recorded above.
 
 ### Parent-observed AI verification by story
 
 | Story | Observed checks | Remaining acceptance boundary |
 | --- | --- | --- |
-| S1-US-01 | Fixed fixture loads over local HTTP; malformed JSON and invalid schema rejected; invalid input after a green dataset clears old metrics, role content and rows; reset restores default | Synthetic scenarios only; student/PO review pending || Valerii Lebedev |
-| S1-US-02 | Default 8 = 5 + 2 + 1 and 62.5%; empty means unavailable; unknown-only gives 0%; all-PQC gives 100%; filters leave global summary unchanged | Coverage is segment migration, not security assurance || Valerii Lebedev |
-| S1-US-03 | Fallback returns SEG-001/SEG-007 (2/8), unknown SEG-008 (1/8), PQC 5/8, All 8/8; nonexistent search gives explicit empty result; context and segment labels inspected | No live monitoring or automatic blocking || Jinghao Lei |
-| S1-US-04 | Sarah expected/suspected/unknown context, Michael 5-of-8 with blockers, Emma RED Investigate with exactly three risks including business impact/actions | AI browser walkthrough is not student usability evaluation || Jinghao Lei |
-| S1-US-05 | Definitions and both clocks inspected; one stale PQC row can display 100% coverage while overall is UNKNOWN; all-PQC green is qualified; HTML-looking reason displays literally without creating images | Rules remain prototype choices awaiting team/PO review || Cheng Peng |
+| S1-US-01 | Fixed fixture loads over local HTTP; malformed JSON and invalid schema rejected; invalid input after a green dataset clears old metrics, role content and rows; reset restores default | Synthetic scenarios only; student/PO review pending |
+| S1-US-02 | Default 8 = 5 + 2 + 1 and 62.5%; empty means unavailable; unknown-only gives 0%; all-PQC gives 100%; filters leave global summary unchanged | Coverage is segment migration, not security assurance |
+| S1-US-03 | Fallback returns SEG-001/SEG-007 (2/8), unknown SEG-008 (1/8), PQC 5/8, All 8/8; nonexistent search gives explicit empty result; context and segment labels inspected | No live monitoring or automatic blocking |
+| S1-US-04 | Sarah expected/suspected/unknown context, Michael 5-of-8 with blockers, Emma RED Investigate with exactly three risks including business impact/actions | AI browser walkthrough is not student usability evaluation |
+| S1-US-05 | Definitions and both clocks inspected; one stale PQC row can display 100% coverage while overall is UNKNOWN; all-PQC green is qualified; HTML-looking reason displays literally without creating images | Rules remain prototype choices awaiting team/PO review |
 
 No browser error/warning logs were observed. At a 390-pixel viewport, measured
 page width had no page overflow and the table scrolled horizontally with controls

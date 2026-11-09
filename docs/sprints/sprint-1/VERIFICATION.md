@@ -1,11 +1,12 @@
 # Sprint 1 build verification
 
-Status: first increment implemented; integrating-AI model/browser checks passed
-within the boundary below. Student/PO acceptance, Jira synchronization and an
-confirmed review outcomes and an actual retrospective remain pending. The user
-subsequently reported that the group review was held but its minutes were not
-saved; see TEAM_REVIEW.md for the recovery record and prospective roles. Build record: 8 November
-2026 (client project date).
+Status: first increment implemented; integrating-AI model and browser checks
+passed within the boundary below. The user later confirmed that the Sprint Goal
+and ten items were saved in Jira. See [BACKLOG.md](BACKLOG.md) for that separate
+record. The group review was reported held without retained minutes. Team/PO
+acceptance, review findings and the retrospective remain unconfirmed. See
+[TEAM_REVIEW.md](TEAM_REVIEW.md). Build record: 8 November 2026 (client project
+date).
 
 ## Workspace baseline
 
@@ -96,10 +97,11 @@ Markdown links, referenced HTML assets, duplicate HTML IDs and trailing whitespa
 dependencies were not changed; its historical tests/runtime are not reused as
 dashboard evidence, and its suite was not rerun for this isolated frontend.
 
-Outstanding: student walkthrough/evaluation, teacher/PO review of reporting
-rules and usefulness, full mobile/cross-browser/accessibility assessment, actual
-Jira mapping, team roles/estimates, Sprint review and retrospective, report,
-video and slides. These remain separate from the implemented increment.
+At the end of the build, student and PO review, broader usability validation,
+Jira entry and course submission were still pending. The user later confirmed
+Jira entry. Remaining work includes student evaluation, teacher/PO review,
+broader mobile/cross-browser/accessibility validation, team estimates and
+assignees, review findings, retrospective actions and final submission.
 
 ## Supplementary screenshot and submission-source preparation
 
@@ -138,8 +140,6 @@ after capture and no listener remained on port 8010. Local checks of these two
 updated evidence records passed for 16 relative links and trailing whitespace;
 `git diff --check` passed as well.
 
-PDF export and rendered-PDF validation are outside this Markdown-only batch and
-remain pending, as do human content review, real Jira mapping and actual team
-review/retrospective records. The earlier outstanding report item now has a
-Markdown draft; final report review and export are still required. No video or
-slides are claimed by these source files.
+The report and gallery drafts await student content review, PDF export and
+rendered-PDF validation. The video and its slide PDF are still outstanding.
+See [SPRINT_GOAL.md](SPRINT_GOAL.md) for the current submission checklist.
