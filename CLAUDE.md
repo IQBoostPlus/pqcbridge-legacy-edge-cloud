@@ -14,7 +14,27 @@ Development" (Software Development, Maintenance & Operations).
 - Every significant AI interaction must be documented by the student
   team (README.md §9).
 
-## Commands
+## Sprint 1 dashboard work
+
+Before planning, implementing or reviewing the course dashboard, read
+`docs/sprints/sprint-1/SPRINT_GOAL.md` for the approved scope, acceptance
+boundaries and current delivery state. During each build batch, delegate
+bounded subagent work for the backlog, risk/decision log, LLM evaluation and
+retrospective actions listed there; integrate and verify their evidence before
+updating completion claims. Update README and affected project instructions
+in the same batch. Repository documentation is written in English.
+
+The Sprint 1 dashboard uses synthetic data independently of the existing
+Device/Gateway/Cloud prototype. Local story IDs are not remote Jira keys;
+record actual human meetings, PO decisions and Jira updates only when they
+occur.
+
+For dashboard startup, reporting rules and test commands, read
+`dashboard/README.md`. Recorded runtime/check results and their limits live in
+`docs/sprints/sprint-1/VERIFICATION.md`. Run the dashboard separately from the
+prototype; its tests use Node's built-in runner and no crypto/backend services.
+
+## Prototype commands
 
 - Install: `pip install -r requirements.txt`
 - Test: `pytest` (from the project root; `pytest.ini` sets the pythonpath;

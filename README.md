@@ -14,6 +14,60 @@
 Project: **Legacy System Modernization for PQC & LLM-Assisted Development**
 Course: Software Development, Maintenance & Operations
 
+## Sprint 1: PQC Security Monitoring Dashboard
+
+The repository is also being used as background for the Professional Software
+Engineering Processes and Human Factors (811373A) Scrum project. The approved
+Sprint 1 goal is a runnable dashboard with fixed synthetic data, overview
+metrics, a filterable connection list, basic security/migration/executive views,
+and explicit indicator definitions and limits.
+
+**Current status: first dashboard increment implemented and checked by AI;
+student/team and Product Owner acceptance pending.** It runs independently of
+Device/Gateway/Cloud, with no third-party frontend dependencies. From the
+repository root:
+
+```powershell
+python -m http.server 8010 --bind 127.0.0.1 --directory dashboard
+```
+
+Open **http://127.0.0.1:8010/**. Stop with Ctrl+C. The historical synthetic
+snapshot has 8 connection segments: 5 PQC, 2 fallback and 1 unknown (62.5%
+coverage). Switch between Sarah, Michael and Emma views, inspect connection
+context, filter/search, compare reporting clocks or load another synthetic JSON
+snapshot. Unknown, empty, invalid and stale data have explicit reporting states.
+
+Run model checks with `node --test dashboard/tests/model.test.mjs` (Node.js 24).
+The integrating agent observed 11 passing tests and exercised the actual browser
+flows. See [dashboard instructions](dashboard/README.md) and the
+[verification record](docs/sprints/sprint-1/VERIFICATION.md) for evidence and
+limits. Historical P01-P08 prototype results are separate from these new checks.
+
+The [Sprint goal and delivery record](docs/sprints/sprint-1/SPRINT_GOAL.md)
+is the scope authority and contains acceptance, build sequence and submission
+checklists. Supporting records are maintained during construction:
+
+- [Jira-ready user stories and acceptance criteria](docs/sprints/sprint-1/BACKLOG.md)
+- [Initial risks and decision log](docs/sprints/sprint-1/RISK_AND_DECISION_LOG.md)
+- [LLM output evaluation](docs/sprints/sprint-1/LLM_EVALUATION.md)
+- [Retrospective actions and follow-up](docs/sprints/sprint-1/RETROSPECTIVE_ACTIONS.md)
+
+During each build batch, subagents maintain these records under exclusive file
+ownership; the integrating agent reconciles evidence, verifies the assembled
+increment, and updates README and relevant project instructions. Local story
+IDs and proposed actions remain drafts until mapped to actual Jira issues and
+team decisions. Team/PO acceptance and retrospective outcomes are recorded when
+they occur. Sprint 1's course deadline is 11 November 2026 at 23:59 Finnish time.
+
+The Sprint 1 report draft and six-image dashboard gallery are kept locally
+under `docs/sprints/sprint-1/submission/`. Student review and PDF export are
+pending. The report
+contains a separately marked reviewer checklist to remove before export.
+The [team register and review record](docs/sprints/sprint-1/TEAM_REVIEW.md)
+contains the five user-supplied member names, evidence-based review material,
+stakeholder questions and remaining team/PO decisions. Membership alone does
+not establish participation or sign-off.
+
 ## 1. Architecture overview
 
 Three components, pure software simulation, plain TCP with a tiny
