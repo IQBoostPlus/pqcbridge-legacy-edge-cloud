@@ -75,7 +75,8 @@ export function summarize(snapshot, now = Date.now()) {
   const suspected = suspectedRows.length;
   let overall;
   if (suspected) {
-    overall = { level: 'red', label: 'Investigate', reason: `${suspected} synthetic suspected downgrade scenario(s) require investigation. This is not a confirmed attack.` };
+    const cases = suspected === 1 ? 'One synthetic case needs review' : `${suspected} synthetic cases need review`;
+    overall = { level: 'red', label: 'Investigate', reason: `${cases} for suspected downgrade. This is not a confirmed attack.` };
   } else if (!total || unknown || stale || future || futureSnapshot) {
     overall = { level: 'unknown', label: 'Insufficient evidence', reason: `${total ? `${unknown} unknown, ${stale} stale and ${future} future-dated segment(s).` : 'No connection segments available.'}${futureSnapshot ? ' Snapshot time is ahead of the reporting clock.' : ''} An all-clear cannot be established.` };
   } else if (fallback) {
@@ -109,5 +110,5 @@ export function filterConnections(snapshot, status = 'all', query = '') {
   if (typeof query !== 'string') throw new Error('Search query must be a string.');
   const needle = query.trim().toLowerCase();
   return snapshot.connections.filter(row => (status === 'all' || row.status === status)
-    && Object.values(row).join(' ').toLowerCase().includes(needle));
+    && (!needle || FIELDS.map(field => row[field]).join(' ').toLowerCase().includes(needle)));
 }

@@ -1,98 +1,43 @@
-# PQC Bridge dashboard - Sprint 1
+# PQC Bridge | Sprint 1 dashboard
 
-A static, LLM-assisted educational dashboard for the Human Factors Scrum
-project. Uses synthetic connection segments independently of the existing
-Device/Gateway/Cloud protocol prototype. No third-party runtime dependencies,
-real credentials, network monitoring or automatic security actions are needed.
+A Vue 3, Vue Router and Vite rebuild of the Sprint 1 dashboard at `e3c366b`. It uses the same schema, default fixture and reporting rules. The default load shows 8 connection segments, 5 PQC (62.5%), 2 fallback and 1 unknown. The three perspectives use the same snapshot.
 
-## Run locally
+Integrated from [zerphy799/pqc-dashboard-vue at f95f684](https://github.com/zerphy799/pqc-dashboard-vue/commit/f95f684d3f81abd7aff7a8423dd6978c143b098c).
+Run the commands below from this `dashboard/` directory. In PowerShell, use
+`npm.cmd` if `npm` resolves to a restricted script.
 
-From the repository root, with Python 3 installed:
+## Preview the production build
 
-```powershell
-python -m http.server 8010 --bind 127.0.0.1 --directory dashboard
+Build the dashboard and serve it with Vite preview. Open the local URL that
+Vite prints. The compiled dashboard needs no external network services.
+
+```sh
+npm ci
+npm run build
+npm run preview
 ```
 
-Open **http://127.0.0.1:8010/** in a modern browser. Use another free port if
-8010 is occupied. Stop the server with Ctrl+C when finished. Opening the HTML
-directly as a file is unsupported because ES modules and JSON use HTTP loading.
-The server serves this dashboard directory only, on loopback.
+## Develop
 
-Run the model checks with Node.js 24 (no install step):
+Requires Node.js 22.12+ or 24.
 
-```powershell
-node --test dashboard/tests/model.test.mjs
+```sh
+npm ci
+npm run dev
 ```
 
-See [verification](../docs/sprints/sprint-1/VERIFICATION.md) for observed results
-and the validation boundary, rather than inferring success from these commands.
+Open the URL printed by Vite. Run `npm test` for the model suite and `npm run build` to build the static site into `dist/`. Run `npm run preview` to serve the production build locally. Serve the site over HTTP.
 
-## Demonstrate the increment
+## Data and UI
 
-1. Load the default fixture. The global overview should show eight connection
-   segments, five PQC (62.5%), two fallback and one unknown.
-2. In Sarah's security view, distinguish the expected legacy exception from the
-   synthetic suspected downgrade; inspect reasons and confidentiality assumptions.
-3. Filter Fallback, then Unknown. Search for a nonexistent connection to see the
-   empty-result message; clear the search and restore All.
-4. Switch to Michael's migration view to inspect blockers, then Emma's executive
-   view for an explained overall status and up to three risks/actions.
-5. Compare the historical snapshot clock with current time to see data freshness.
-6. Load a local JSON snapshot for additional scenarios. Invalid input should show
-   an error and clear the previous data presentation. Reset to restore the demo.
+- Historical mode compares observations with the snapshot time. Current-time mode compares the same observations with the browser clock. The reporting threshold is 24 hours.
+- Local JSON import stays in the browser. Reset demo restores the bundled fixture. Search checks supported text fields; filters only change the inventory.
+- Routes cover the overview, Sarah's security review, Michael's migration planning, Emma's executive briefing, connection inventory, individual evidence, the dataset and the interpretation guide. Inventory records, role cases, and long evidence text use paging within the viewport. Evidence stays on the selected connection and field while the clock updates.
+- `model.mjs` owns validation and reporting. `src/dashboard.js` owns the shared snapshot and filters. `src/router.js` defines the routes. Hash navigation supports opening a route directly from a plain static server.
+- This dashboard uses synthetic data independently of Device/Gateway/Cloud. Reported migration, fallback, and suspected downgrade scenarios have the limits documented in the interface.
+- This frontend is the working dashboard increment. Scrum records, team evaluation and Moodle submissions are tracked separately.
 
-The file chooser reads local JSON in the browser; it does not upload it to an
-external service or persist the selection. Only synthetic data is supported.
-
-## Data and reporting rules
-
-The fixed [snapshot](fixtures/snapshot.json) declares `schemaVersion: 1`,
-`synthetic: true`, a title, UTC `snapshotAt` and a `connections` array. Each
-connection supplies string values for `id`, `device`, `segment`,
-`keyEstablishment`, `status`, `reason`, `observedAt`, `fallbackKind`, `blocker`,
-`confidentiality`, `impact` and `action`.
-
-Segments are `device-to-gateway` or `gateway-to-cloud`. Status is `pqc`,
-`fallback` or `unknown`. PQC requires `ML-KEM-768` and fallback kind `none`;
-the synthetic fallback scenario uses `ECDH-P256` and kind `expected` or
-`suspected`; unknown uses method and kind `unknown`. IDs are unique. Observation
-times cannot be later than the snapshot. The model rejects an invalid snapshot
-as a whole; it does not quietly discard records and alter coverage.
-
-Coverage is PQC segments divided by all segments, including unknown. Displayed
-percentages round to one decimal place. A valid empty snapshot has unavailable
-coverage. Filters affect the list, while global summary cards retain all records.
-A PQC gateway-to-cloud segment does not establish end-to-end device protection.
-
-The default demonstration clock is pinned to the fixture's historical snapshot
-time, keeping results reproducible. It is explicitly labelled as historical
-synthetic data. The current-time mode compares observations to the actual clock.
-Observations older than 24 hours are stale; future observations relative to the
-selected clock are also uncertain. Freshness concerns can coexist with red alerts.
-
-Overall reporting priority is:
-
-1. Red if any synthetic suspected downgrade exists (investigation needed).
-2. Unknown for no records, unknown status, stale data or future observations.
-3. Amber for remaining expected classical fallback.
-4. Green only when all reported segments are PQC and current under these rules.
-
-Green describes the reported segment migration state, not a security guarantee.
-The default fixture is red because one scenario calls for investigation; fallback
-alone is not proof of attack. HNDL information describes potential exposure under
-stated classical-key-exchange and confidentiality assumptions, not detected
-harvesting or successful future decryption. The old prototype's preconfigured
-ChaCha20-Poly1305 path is a different model from this course scenario.
-
-The rules are prototype decisions under the accepted scope, awaiting student
-and Product Owner review. This is a small demonstrator with synthetic scenarios,
-not a production monitoring or compliance system.
-
-## Project records
-
-[Sprint goal](../docs/sprints/sprint-1/SPRINT_GOAL.md),
-[backlog and Jira mapping](../docs/sprints/sprint-1/BACKLOG.md),
-[risks and decisions](../docs/sprints/sprint-1/RISK_AND_DECISION_LOG.md),
-[LLM evaluation](../docs/sprints/sprint-1/LLM_EVALUATION.md) and
-[retrospective actions](../docs/sprints/sprint-1/RETROSPECTIVE_ACTIONS.md)
-track this increment separately from the earlier protocol work.
+See the [Sprint goal](../docs/sprints/sprint-1/SPRINT_GOAL.md) for scope,
+the [backlog](../docs/sprints/sprint-1/BACKLOG.md) for Jira and acceptance
+criteria, and [verification](../docs/sprints/sprint-1/VERIFICATION.md) for
+checks and remaining UI validation.

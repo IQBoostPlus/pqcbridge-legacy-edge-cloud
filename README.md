@@ -22,26 +22,28 @@ Sprint 1 goal is a runnable dashboard with fixed synthetic data, overview
 metrics, a filterable connection list, basic security/migration/executive views,
 and explicit indicator definitions and limits.
 
-**Current status: first dashboard increment implemented and checked by AI;
-student/team and Product Owner acceptance pending.** It runs independently of
-Device/Gateway/Cloud, with no third-party frontend dependencies. From the
-repository root:
+**Current status: the Sprint 1 dashboard uses the Vue interface.** The model
+suite, production build and scoped Chromium walkthrough pass. Team and Product
+Owner acceptance remain pending. The
+dashboard runs independently of Device/Gateway/Cloud. From the repository root,
+with Node.js 22.12+ or 24:
 
 ```powershell
-python -m http.server 8010 --bind 127.0.0.1 --directory dashboard
+npm.cmd --prefix dashboard ci
+npm.cmd --prefix dashboard run dev
 ```
 
-Open **http://127.0.0.1:8010/**. Stop with Ctrl+C. The historical synthetic
+Open the local URL printed by Vite. Stop with Ctrl+C. The historical synthetic
 snapshot has 8 connection segments: 5 PQC, 2 fallback and 1 unknown (62.5%
 coverage). Switch between Sarah, Michael and Emma views, inspect connection
 context, filter/search, compare reporting clocks or load another synthetic JSON
 snapshot. Unknown, empty, invalid and stale data have explicit reporting states.
 
-Run model checks with `node --test dashboard/tests/model.test.mjs` (Node.js 24).
-The integrating agent observed 11 passing tests and exercised the actual browser
-flows. See [dashboard instructions](dashboard/README.md) and the
-[verification record](docs/sprints/sprint-1/VERIFICATION.md) for evidence and
-limits. Historical P01-P08 prototype results are separate from these new checks.
+Run `npm.cmd --prefix dashboard test` for the model suite and
+`npm.cmd --prefix dashboard run build` for the static build. See the
+[dashboard instructions](dashboard/README.md) and the
+[verification record](docs/sprints/sprint-1/VERIFICATION.md) for the Vue checks
+and separately recorded browser evidence from the first interface.
 
 The [Sprint goal and delivery record](docs/sprints/sprint-1/SPRINT_GOAL.md)
 is the scope authority and contains acceptance, build sequence and submission

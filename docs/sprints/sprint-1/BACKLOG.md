@@ -1,8 +1,9 @@
 # Sprint 1 backlog and Jira mapping
 
 Baseline: 8 November 2026. Scope authority: [Sprint goal](SPRINT_GOAL.md).
-All dashboard stories are **Implemented; AI checks passed; human acceptance
-pending**. The user confirmed that [SCRUM Sprint 1](https://tacczy.atlassian.net/secure/GHGoToBoard.jspa?sprintId=1)
+The first dashboard implementation passed the recorded AI checks. The Vue
+replacement has its own verification batch. Human acceptance remains pending.
+The user confirmed that [SCRUM Sprint 1](https://tacczy.atlassian.net/secure/GHGoToBoard.jspa?sprintId=1)
 contains the saved Sprint Goal, five stories and five process tasks. The Sprint
 has not started, and both date fields were empty at the reported check.
 The mappings below reflect the user's browser verification.
@@ -204,6 +205,16 @@ Points and Assignee fields were empty at the last reported check. Confirm those
 fields, priorities and actual Sprint dates with the team. Record subsequent Jira changes
 with the issue URL, resulting state and evidence. Keep implementation,
 technical verification and team/PO acceptance distinct.
+
+## Vue replacement batch
+
+The user authorized the Vue interface replacement using
+[zerphy799/pqc-dashboard-vue at f95f684](https://github.com/zerphy799/pqc-dashboard-vue/commit/f95f684d3f81abd7aff7a8423dd6978c143b098c).
+The integration applies the existing acceptance criteria for S1-US-01 through
+S1-US-05. Collect fresh evidence for fixed data loading and reset, coverage
+totals, filtered inventory, stakeholder views and indicator explanations. Record
+the build and browser results with the tested revision in
+[VERIFICATION.md](VERIFICATION.md). The checks below cover the first interface.
 
 ## First implementation batch: implemented, awaiting human acceptance
 

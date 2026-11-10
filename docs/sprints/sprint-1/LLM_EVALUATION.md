@@ -134,6 +134,15 @@ open. [SCRUM-12](https://tacczy.atlassian.net/browse/SCRUM-12) tracks the team's
 The documentation reconciliation uses the user's confirmed browser results.
 It adds no new product test or direct Jira inspection.
 
+### AI-S1-006: Vue dashboard replacement
+
+| Field | Recorded evidence / state |
+| --- | --- |
+| Request and source | The user authorized the interface replacement from [zerphy799/pqc-dashboard-vue at f95f684](https://github.com/zerphy799/pqc-dashboard-vue/commit/f95f684d3f81abd7aff7a8423dd6978c143b098c). The request is recorded in the current project chat |
+| Work and ownership | The parent agent integrates the Vue source into `dashboard/`. The build_records subagent maintains the four Sprint process records. D-11 records the selection and R-10 tracks regression risk |
+| Evaluation scope | Check the integrated build against S1-US-01 through S1-US-05, including the fixture totals and unknown denominator, connection filters, role views, freshness and invalid-input behavior, and the interpretation of fallback and HNDL exposure |
+| Verification | Dependency install, production build and 12 model tests passed. A later isolated Chromium walkthrough exercised routes, filters, local JSON and reset. A Windows preview MIME mismatch and narrow-screen filter alignment issue were resolved. See [VERIFICATION.md](VERIFICATION.md) for screenshots and the verification boundary |
+
 ## Evaluation checklist for each implementation batch
 
 The earlier report revision counted 486 whitespace-delimited words. The
@@ -143,6 +152,9 @@ candidates remain outside the report's factual account until confirmed.
 Before merging a generated batch into the increment, record its local story IDs,
 prompt/context location, generated output paths, evaluator and findings. Preserve
 the prompt or an accessible exact transcript reference in addition to a summary.
+
+The evidence below covers the first interface. AI-S1-006 tracks the Vue
+replacement separately.
 
 | Evaluation area | Expected evidence | Current state |
 | --- | --- | --- |

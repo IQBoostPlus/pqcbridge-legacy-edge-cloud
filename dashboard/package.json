@@ -1,0 +1,20 @@
+{
+  "name": "pqc-bridge-dashboard",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "test": "node --test tests/model.test.mjs"
+  },
+  "dependencies": {
+    "vue": "3.5.45",
+    "vue-router": "4.6.4"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "6.0.10",
+    "vite": "7.3.8"
+  }
+}

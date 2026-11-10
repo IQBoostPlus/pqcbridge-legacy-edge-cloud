@@ -86,6 +86,15 @@ test('status filters and free-text search preserve segment-level identities', ()
   assert.throws(() => filterConnections(fixture, 'all', null), /query/);
 });
 
+test('search ignores additional JSON fields that are outside the connection schema', () => {
+  const data = clone();
+  data.connections[0].metadata = { toString: null };
+  data.connections[1].extra = 'internal annotation';
+  assert.equal(filterConnections(data).length, 8);
+  assert.equal(filterConnections(data, 'all', 'pump').length, 2);
+  assert.equal(filterConnections(data, 'all', 'internal annotation').length, 0);
+});
+
 test('invalid top-level schemas fail visibly rather than becoming healthy empty data', () => {
   for (const value of [null, [], 'data', 42]) assert.throws(() => validateSnapshot(value), /object/);
   for (const [field, value] of [['schemaVersion', 2], ['synthetic', false], ['title', ' '], ['connections', null]]) {

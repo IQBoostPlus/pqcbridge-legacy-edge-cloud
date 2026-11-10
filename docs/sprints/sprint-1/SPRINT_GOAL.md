@@ -11,10 +11,11 @@ baseline; teacher/Product Owner acceptance and team estimates remain pending.
 The course deadline recorded in the supplied instructions is **11 November 2026,
 23:59 Finnish time**. Confirm any subsequent course announcement with the PO.
 
-Current delivery state: **first increment implemented; AI model and browser
-checks passed within the recorded boundary; human acceptance pending**. The
-existing PQC Bridge communication prototype is background material. Actual checks
-and runtime results are recorded in [VERIFICATION.md](VERIFICATION.md).
+Current delivery state: **Vue interface integrated; model tests, production
+build and scoped Chromium walkthrough pass; human acceptance pending**. The
+original interface's evidence and the Vue verification are recorded separately
+in [VERIFICATION.md](VERIFICATION.md). The existing PQC Bridge communication
+prototype remains background material.
 The user confirmed that the goal and ten work items are in [SCRUM Sprint 1](https://tacczy.atlassian.net/secure/GHGoToBoard.jspa?sprintId=1).
 Five stories are In Review, and five process tasks are To Do. The Jira Sprint
 has not started and has no dates entered. See [BACKLOG.md](BACKLOG.md) for the
@@ -134,3 +135,5 @@ outcomes and acceptance decisions; AI draft authorship does not supply them.
 | Review occurrence clarified and roles allocated | User confirmed a prior review without saved minutes and delegated allocation | Prior review recorded as user-reported; prospective owners/SM rotation and discussion candidates prepared; actual meeting details and member acknowledgement pending |
 | Jira entry confirmed | User confirmed saved goal and checked all ten records, order, statuses and six dependency links in the [Group 22 Backlog](https://tacczy.atlassian.net/jira/software/projects/SCRUM/boards/1/backlog) | SCRUM-5 through SCRUM-9 In Review; SCRUM-10 through SCRUM-14 To Do; Sprint unstarted and undated; estimates, assignees and acceptance pending |
 | Work allocation updated | User supplied the revised five-person split | TEAM_REVIEW.md records current responsibilities; individual Jira assignees and Scrum Master confirmation remain separate |
+| Vue interface integrated | User selected the upstream UI at `f95f684`; D-11 and AI-S1-006 record the source | Same default fixture; 12 model tests, production build and static HTTP checks passed; interactive Vue checks pending |
+| Vue visual verification | Actual Chromium walkthrough at 1440 × 900 and 390 × 844 | Corrected the preview instructions and narrow filter layout; eleven PNGs and observed behavior recorded in VERIFICATION.md |

@@ -85,3 +85,13 @@ separate explanations. No real retrospective meeting is implied by this note.
 Potential follow-up for actual team discussion: ask students to interpret that
 stale scenario and capture their own misunderstandings. Team members decide
 whether to adopt this action, assign an owner and create the real Jira issue.
+
+### Discussion candidate from the Vue replacement batch
+
+Use the existing story criteria as a checklist whenever the interface changes.
+Compare the first interface evidence with the integrated Vue results for
+loading, coverage, filters, role views and explanations. Store the source
+revision with each browser walkthrough so the team can identify which interface
+it reviewed. This is a candidate for RA-S1-02 and RA-S1-03, pending team
+discussion. The replacement source and verification scope are recorded under
+[AI-S1-006](LLM_EVALUATION.md#ai-s1-006-vue-dashboard-replacement).

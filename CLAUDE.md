@@ -32,7 +32,8 @@ changes and actual meetings and PO decisions as separate events.
 For dashboard startup, reporting rules and test commands, read
 `dashboard/README.md`. Recorded runtime/check results and their limits live in
 `docs/sprints/sprint-1/VERIFICATION.md`. Run the dashboard separately from the
-prototype; its tests use Node's built-in runner and no crypto/backend services.
+prototype. The interface uses Vue and Vite, and its model tests use Node's
+built-in runner without crypto/backend services.
 
 ## Prototype commands
 

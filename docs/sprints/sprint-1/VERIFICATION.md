@@ -1,7 +1,8 @@
 # Sprint 1 build verification
 
-Status: first increment implemented; integrating-AI model and browser checks
-passed within the boundary below. The user later confirmed that the Sprint Goal
+The current dashboard uses Vue. See the final section for checks of the new
+interface. The first build's model and browser checks are recorded below as
+historical evidence. The user later confirmed that the Sprint Goal
 and ten items were saved in Jira. See [BACKLOG.md](BACKLOG.md) for that separate
 record. The group review was reported held without retained minutes. Team/PO
 acceptance, review findings and the retrospective remain unconfirmed. See
@@ -143,3 +144,42 @@ updated evidence records passed for 16 relative links and trailing whitespace;
 The report and gallery drafts await student content review, PDF export and
 rendered-PDF validation. The video and its slide PDF are still outstanding.
 See [SPRINT_GOAL.md](SPRINT_GOAL.md) for the current submission checklist.
+
+## Vue interface replacement
+
+Integrated into `dashboard/` from [upstream f95f684](https://github.com/zerphy799/pqc-dashboard-vue/commit/f95f684d3f81abd7aff7a8423dd6978c143b098c).
+The default fixture is unchanged. The imported model uses the same coverage and
+status rules, limits search to schema fields and revises the suspected-case
+wording. See [dashboard instructions](../../../dashboard/README.md) for startup.
+
+- With Node.js 24.16.0, `npm ci` and `npm run build` succeeded.
+- `npm test` passed all 12 model tests, including the default fixture and the
+  additional search test for fields outside the schema.
+- A local Python static server returned HTTP 200 for the bundle, but on this
+  Windows host it served the JavaScript as `text/plain`. Chromium rejected the
+  module. The dashboard README now uses Vite preview for the production build.
+
+### Vue browser and visual verification
+
+The compiled dashboard was served through Vite preview and opened in isolated
+Chromium 156. The walkthrough confirmed 62.5% default coverage, the three role
+views, fallback pagination in Sarah's view, PQC/fallback/unknown counts of
+5/2/1, empty search and clearing filters, connection evidence, the methodology
+guide, current-time mode, invalid JSON rejection, valid local JSON import and
+reset to the historical fixture. No page or browser console errors were
+observed during the final walkthrough.
+
+The first 390 px capture showed the protection selector extending beyond the
+filter panel's right padding. The narrow layout now gives the search field and
+selector separate grid columns. The final capture measured a 10 px inset
+between the selector and card edge. None of the eleven captured states had
+page-level horizontal overflow or an out-of-viewport main panel.
+
+| Viewport | Actual browser screenshots |
+| --- | --- |
+| 1440 × 900 | [Overview](evidence/vue/01-desktop-overview.png), [Sarah](evidence/vue/02-desktop-security.png), [Michael](evidence/vue/03-desktop-migration.png), [Emma](evidence/vue/04-desktop-executive.png), [Fallback filter](evidence/vue/05-desktop-fallback-filter.png), [Connection evidence](evidence/vue/06-desktop-connection-evidence.png), [Methodology](evidence/vue/07-desktop-methodology.png), [Invalid input](evidence/vue/08-desktop-invalid-input.png) |
+| 390 × 844 | [Overview](evidence/vue/09-mobile-overview.png), [Sarah](evidence/vue/10-mobile-security.png), [Fallback filter](evidence/vue/11-mobile-fallback-filter.png) |
+
+The narrow viewport is a browser simulation. Physical mobile devices,
+other browser engines, full accessibility and team/PO acceptance are outside
+the verified scope. The earlier screenshots remain historical evidence.

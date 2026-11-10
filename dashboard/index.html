@@ -2,47 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="A synthetic PQC migration snapshot for security, project and executive decisions.">
-  <title>PQC Bridge | Migration overview</title>
-  <link rel="stylesheet" href="./styles.css">
-  <script type="module" src="./app.mjs"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore migration coverage, connection evidence, and stakeholder decisions in a synthetic PQC snapshot.">
+  <title>Migration dashboard | PQC Bridge</title>
 </head>
 <body>
-  <a class="skip" href="#main">Skip to dashboard</a>
-  <header class="topbar">
-    <a class="brand" href="./"><span class="brand-mark" aria-hidden="true">P</span><span>PQC Bridge <small>SECURITY MONITORING</small></span></a>
-    <span class="prototype">SPRINT 1 PROTOTYPE</span>
-  </header>
-  <main id="main">
-    <section class="hero" aria-labelledby="page-title">
-      <div><p class="eyebrow">MIGRATION INTELLIGENCE</p><h1 id="page-title">A clearer view of your transition.</h1><p class="intro">Understand coverage, investigate exposure and see what needs to happen next.</p></div>
-      <div class="data-label"><span class="dot" aria-hidden="true"></span> Synthetic data <small>Educational demonstration</small></div>
-    </section>
-    <section class="snapshot-bar" aria-label="Snapshot controls">
-      <div><span class="label">DATA SNAPSHOT</span><strong id="snapshot-title">Loading demonstration…</strong><span id="snapshot-time" class="muted">Awaiting dataset</span></div>
-      <div class="source-controls"><label>Evaluate freshness against<select id="clock"><option value="snapshot">Historical snapshot time</option><option value="current">Current time</option></select></label><label class="button secondary file-button">Load local JSON<input id="upload" type="file" accept=".json,application/json"></label><button id="reset" class="button secondary" type="button">Reset demo</button></div>
-      <p id="clock-note" class="clock-note">Fixed historical simulation. No live monitoring.</p>
-    </section>
-    <section id="error" class="error" role="alert" hidden><h2>Dataset unavailable</h2><p id="error-message"></p><p>Choose a valid synthetic JSON snapshot or reset the demo. Previous results have been cleared.</p></section>
-    <noscript><p class="error">JavaScript is required to load the synthetic dashboard.</p></noscript>
-    <div class="section-label"><h2>Connection coverage</h2><span>All connection segments · unaffected by list filters</span></div>
-    <section class="metrics" aria-label="All connection segment metrics">
-      <article class="metric"><span class="label">TOTAL SEGMENTS</span><strong id="total">—</strong><p>Known inventory in this snapshot</p></article>
-      <article class="metric accent"><span class="label">PQC COVERAGE</span><strong id="coverage">—</strong><p id="coverage-detail">Awaiting dataset</p></article>
-      <article class="metric"><span class="label">CLASSICAL FALLBACK</span><strong id="fallback">—</strong><p>Review reasons and exposure</p></article>
-      <article class="metric"><span class="label">UNKNOWN PROTECTION</span><strong id="unknown">—</strong><p>Included in the coverage denominator</p></article>
-    </section>
-    <div class="perspective-heading"><div><p class="eyebrow">YOUR PERSPECTIVE</p><h2>One snapshot. Three decisions.</h2></div><div class="role-switch" role="group" aria-label="Stakeholder perspective"><button type="button" data-role="security" aria-pressed="true">Sarah · Security</button><button type="button" data-role="migration" aria-pressed="false">Michael · Migration</button><button type="button" data-role="executive" aria-pressed="false">Emma · Executive</button></div></div>
-    <section id="role-panel" class="role-panel" aria-live="polite" aria-label="Selected stakeholder view"><p class="muted">Loading stakeholder perspective…</p></section>
-    <section class="inventory" aria-labelledby="inventory-title">
-      <div class="inventory-heading"><div><p class="eyebrow">UNDERLYING EVIDENCE</p><h2 id="inventory-title">Connection inventory</h2><p class="muted">Inspect individual segments; a protected upstream link does not protect the entire device path.</p></div></div>
-      <div class="filters"><label>Protection status<select id="status-filter"><option value="all">All statuses</option><option value="pqc">PQC</option><option value="fallback">Fallback</option><option value="unknown">Unknown</option></select></label><label class="search-label">Search connections<input id="search" type="search" placeholder="Device, connection ID or reason…"></label><p id="row-count" role="status">Awaiting dataset</p></div>
-      <div class="table-scroll" tabindex="0" role="region" aria-label="Connection table; scroll horizontally on small screens"><table><caption class="sr-only">Synthetic connection segments and their protection context</caption><thead><tr><th scope="col">Connection / device</th><th scope="col">Segment / key establishment</th><th scope="col">Protection</th><th scope="col">Reason &amp; context</th><th scope="col">Observed (UTC)</th></tr></thead><tbody id="connections"></tbody></table></div>
-      <p id="empty" class="empty" hidden>No connections match these filters.</p>
-    </section>
-    <section class="definitions" aria-labelledby="definitions-title"><details><summary id="definitions-title">How to read this dashboard <span>Definitions, assumptions &amp; limits</span></summary><div class="definition-grid"><article><h3>Coverage measures migration</h3><p>PQC coverage = PQC connection segments ÷ all in-scope segments, including unknowns. The percentage is rounded to one decimal place. Zero records means unavailable coverage. This is a migration indicator, not a security guarantee.</p></article><article><h3>Exposure is not a detected attack</h3><p>Harvest-now-decrypt-later (HNDL) exposure describes traffic that could be collected now and decrypted later under the stated key-establishment and confidentiality assumptions. This dashboard does not detect HNDL attacks. Expected classical fallback alone is not proof of a downgrade; suspected events are explicitly labelled synthetic scenarios.</p></article><article><h3>Time and overall status</h3><p>Records older than 24 hours relative to the selected clock are stale. Historical mode evaluates the fixed snapshot at its own time; current-time mode assesses its age now. Priority: suspected downgrade → red; empty, unknown, stale or future-dated evidence → unknown; remaining fallback → amber; otherwise → green for reported segment migration only. These prototype rules await team/PO review.</p></article><article><h3>Segments and model boundaries</h3><p>Device-to-gateway and gateway-to-cloud are separate segments. ML-KEM on one segment does not establish end-to-end PQC protection. The course's synthetic classical-key-exchange scenario is distinct from the existing prototype's preconfigured symmetric-key device path. Local JSON data is validated as a whole; invalid snapshots are rejected rather than silently excluding records.</p></article></div></details></section>
-    <footer><span>PQC Bridge · Professional Software Engineering Processes and Human Factors</span><span>Synthetic prototype · Team and PO acceptance pending</span></footer>
-  </main>
+  <div id="app"></div>
+  <noscript>This dashboard requires JavaScript to load the synthetic snapshot.</noscript>
+  <script type="module" src="/src/main.js"></script>
 </body>
 </html>
