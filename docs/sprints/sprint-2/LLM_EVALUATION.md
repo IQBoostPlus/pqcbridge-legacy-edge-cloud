@@ -109,7 +109,7 @@ date is not supplied. No extra customer PDF export format is inferred.
 | Current technical state | Integrating agent reports 39/39 tests (17 legacy + 22 new), 44-module production build and 11/11 legacy scenario comparisons passed; scoped browser checks verified six-item 2/2/2 totals, unchanged filtered denominators, current-clock 2/4/0, separate customer selection/export, legacy unavailable state, invalid rejection/reset and three role workflows. Exact evidence belongs in VERIFICATION.md |
 | Process preparation | Customer-focused review questions, role tasks and retrospective follow-up prepared; US-01/02/06-09 technically implemented/verified; actual Jira/estimates/assignments and human feedback remain pending |
 | Student evaluation and acceptance | Pending named student review and actual findings; technical AI review cannot establish student evaluation or teacher/PO acceptance |
-| Push boundary | User authorized GitHub push; record the actual pushed revision and outcome after verification, not from this planning entry |
+| GitHub delivery | Product commit `7f14cddc35f0ed555fd86ab58ed3ce07b8abed99` pushed to `origin/main` on 12 November 2026. A subsequent `git ls-remote --heads origin main` returned that exact commit. This receipt is a documentation-only follow-up; product verification remains tied to the implementation above |
 
 AI review and corrections in this build: the scoped 390 × 844 browser check
 found report-width overflow; grid-column changes were checked, including

@@ -267,3 +267,12 @@ links, Markdown whitespace, screenshot dimensions, saved browser-export clocks
 and the legacy-runner model hash. `git diff --check` passed. The first document
 checker used the host's default text encoding for an export JSON file; switching
 that checker to explicit UTF-8 resolved the checker error without changing data.
+
+### GitHub publication receipt
+
+Product commit `7f14cddc35f0ed555fd86ab58ed3ce07b8abed99` was pushed to
+`https://github.com/IQBoostPlus/pqcbridge-legacy-edge-cloud`, branch `main`, on
+12 November 2026. An independent `git ls-remote --heads origin main` returned
+that exact commit after the successful push. This receipt is a documentation-only
+follow-up; the tested product sources and build are unchanged. The owned local
+preview server was stopped after verification.
