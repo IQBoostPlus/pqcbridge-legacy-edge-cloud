@@ -14,6 +14,30 @@
 Project: **Legacy System Modernization for PQC & LLM-Assisted Development**
 Course: Software Development, Maintenance & Operations
 
+## Sprint 2: Indicator credibility and user understanding
+
+The group priority confirmed by the user is **indicator credibility first**:
+make coverage, segment scope, unknown handling, freshness and status reasons
+traceable and independently checkable, then evaluate understanding across the
+security, migration and executive roles. The
+[Sprint 2 goal and delivery record](docs/sprints/sprint-2/SPRINT_GOAL.md)
+defines the ordered proposal, evidence gate and acceptance boundaries.
+
+Current state: **Sprint 2 indicator evidence features implemented and technically
+verified; human evaluation and team/PO acceptance pending.** Open Indicators
+from the sidebar (or the overview's trace link) to inspect the formula, source
+records, clocks and all coexisting evidence conditions. Export evidence JSON
+from Indicators or Dataset to retain the source snapshot, reporting rules and
+evaluation time. Connection details now include path context; filtered inventory
+keeps global coverage explicit. The model suite passed 17/17 tests, the production
+build passed and 11/11 scenario comparisons passed. Browser walkthroughs include
+desktop and 390px layouts, imports, error recovery, export and the three roles.
+See the [experiment](docs/sprints/sprint-2/USER_UNDERSTANDING_EXPERIMENT.md),
+[verification](docs/sprints/sprint-2/VERIFICATION.md) and
+[group discussion record](docs/sprints/sprint-2/TEAM_REVIEW.md).
+Sprint 2 Jira mapping, estimates, assignments, dates and course submission
+requirements await confirmation. Dashboard startup commands below still apply.
+
 ## Sprint 1: PQC Security Monitoring Dashboard
 
 The repository is also being used as background for the Professional Software

@@ -62,7 +62,7 @@ function clear() {
       </div>
     </div>
     <div class="inventory-footer">
-      <span aria-live="polite">{{ rows.length }} of {{ summary.total }} segments</span>
+      <span aria-live="polite">{{ rows.length }} of {{ summary.total }} segments · Global coverage {{ summary.coverage === null ? 'unavailable' : summary.coverage.toFixed(1) + '%' }}</span>
       <PageStepper v-if="count > 1" :page="page" :count="count" @change="current = $event" />
     </div>
   </section>

@@ -46,9 +46,10 @@ const arcs = computed(() => {
             <div v-for="item in legend" :key="item.id"><dt><i :class="item.id"></i>{{ item.title }}</dt><dd>{{ item.value }}</dd></div>
             <div class="legend-total"><dt>Total segments</dt><dd>{{ summary.total }}</dd></div>
           </dl>
-          <p class="coverage-note">Unknown segments count toward the total.</p>
+          <p class="coverage-note">{{ summary.pqc }} / {{ summary.total }} segments × 100. Unknown segments count toward the total.</p>
         </div>
       </div>
+      <RouterLink class="text-link coverage-audit-link" :to="{ name: 'indicators' }">Trace calculation &amp; evidence</RouterLink>
     </section>
 
     <section class="panel status-card">
@@ -56,6 +57,7 @@ const arcs = computed(() => {
       <div class="status-reading">
         <h3>{{ summary.overall.label }}</h3>
         <p>{{ summary.overall.reason }}</p>
+        <p v-if="summary.stale || summary.unknown || summary.future || summary.futureSnapshot" class="status-evidence-note">Evidence limits: {{ summary.unknown }} unknown · {{ summary.stale }} stale · {{ summary.future }} future-dated segments<span v-if="summary.futureSnapshot"> · snapshot ahead of reporting clock</span>.</p>
       </div>
       <RouterLink :to="{ name: 'executive' }" class="text-link">Executive briefing <AppIcon name="arrow" /></RouterLink>
     </section>

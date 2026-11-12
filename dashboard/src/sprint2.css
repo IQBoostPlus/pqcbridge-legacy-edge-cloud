@@ -1,0 +1,41 @@
+.indicator-audit { overflow-y: auto; padding: clamp(16px, 2.6vw, 30px); display: block; overflow-wrap: anywhere; scrollbar-gutter: stable; }
+.indicator-audit > * + * { margin-top: 20px; }
+.indicator-audit h3 { font-size: 1.05rem; }
+.audit-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.audit-section { border-top: 1px solid var(--line); padding-top: 16px; }
+.audit-section > * + * { margin-top: 10px; }
+.audit-formula { font-size: 1.15rem; font-weight: 650; color: var(--ink); }
+.audit-times { display: grid; gap: 12px; }
+.audit-times dt { font-size: .8rem; color: var(--muted); }
+.audit-times dd { font-variant-numeric: tabular-nums; }
+.evidence-reasons { padding-left: 20px; }
+.evidence-reasons li + li { margin-top: 7px; }
+.audit-records { list-style: none; padding: 0; display: grid; gap: 10px; }
+.audit-records li { display: grid; gap: 3px; padding: 10px; border: 1px solid var(--line); border-radius: 8px; }
+.audit-records a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; font-weight: 600; }
+.audit-records span, .audit-records time, .audit-limit { font-size: .85rem; }
+.coverage-card { grid-template-rows: auto minmax(0, 1fr) auto; }
+.coverage-audit-link { font-size: .83rem; margin-top: 8px; }
+.status-evidence-note { font-size: .8rem; }
+.focus-footer { flex-wrap: wrap; justify-content: space-between; }
+.inventory-footer > span { font-size: .8rem; }
+@media (max-width: 760px) {
+  .indicator-audit .panel-heading { flex-wrap: wrap; }
+  .indicator-audit .panel-heading p { white-space: normal; }
+  .overview-layout { display: flex; flex-direction: column; overflow-y: auto; gap: 10px; }
+  .overview-layout > .panel { flex: none; }
+  .coverage-card { min-height: 310px; }
+  .coverage-graphic { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1fr); grid-template-rows: auto; }
+  .ring-wrap { width: min(100%, 170px); }
+  .coverage-note { display: block; font-size: .73rem; }
+  .coverage-breakdown { width: 100%; }
+  .status-card p { display: block; font-size: .8rem; }
+  .status-card h3 { font-size: 1.2rem; }
+  .snapshot-card { grid-template-columns: minmax(0, 1fr); }
+  .snapshot-card small, .snapshot-link { display: block; }
+  .inventory-footer { flex-wrap: wrap; }
+  .inventory-footer > span { max-width: 100%; }
+}
+@media (max-height: 620px) and (min-width: 761px) {
+  .overview-layout { overflow-y: auto; grid-template-rows: minmax(310px, auto) auto; }
+}

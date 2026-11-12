@@ -1,0 +1,220 @@
+{
+  "schemaVersion": 1,
+  "synthetic": true,
+  "snapshot": {
+    "schemaVersion": 1,
+    "synthetic": true,
+    "title": "North field migration - synthetic snapshot",
+    "snapshotAt": "2026-11-08T04:00:00Z",
+    "connections": [
+      {
+        "id": "SEG-001",
+        "device": "Pump station A",
+        "segment": "device-to-gateway",
+        "keyEstablishment": "ECDH-P256",
+        "status": "fallback",
+        "fallbackKind": "expected",
+        "reason": "Registered legacy controller cannot use ML-KEM; approved-demo exception scenario.",
+        "observedAt": "2026-11-08T03:55:00Z",
+        "blocker": "Certified replacement expected in 2028; procurement review needed.",
+        "confidentiality": "Synthetic operating telemetry assumed sensitive for 3 days; validate this assumption with the asset owner.",
+        "impact": "Disabling this connection would remove pump monitoring.",
+        "action": "Review the exception lifetime and replacement plan with security and operations."
+      },
+      {
+        "id": "SEG-002",
+        "device": "Pump station A",
+        "segment": "gateway-to-cloud",
+        "keyEstablishment": "ML-KEM-768",
+        "status": "pqc",
+        "fallbackKind": "none",
+        "reason": "Synthetic gateway segment reports ML-KEM-768; the device segment remains classical.",
+        "observedAt": "2026-11-08T03:55:00Z",
+        "blocker": "None reported for this segment.",
+        "confidentiality": "Synthetic telemetry assumption: 3 days; only this segment is reported migrated.",
+        "impact": "Cloud forwarding remains available in the scenario.",
+        "action": "Keep segment-level status separate from the device's complete path."
+      },
+      {
+        "id": "SEG-003",
+        "device": "Valve controller B",
+        "segment": "device-to-gateway",
+        "keyEstablishment": "ML-KEM-768",
+        "status": "pqc",
+        "fallbackKind": "none",
+        "reason": "Synthetic modern controller reports ML-KEM-768.",
+        "observedAt": "2026-11-08T03:50:00Z",
+        "blocker": "None reported for this segment.",
+        "confidentiality": "Synthetic maintenance data assumed sensitive for 1 year.",
+        "impact": "Valve telemetry remains available in the scenario.",
+        "action": "Retain migration evidence and confirm the inventory."
+      },
+      {
+        "id": "SEG-004",
+        "device": "Valve controller B",
+        "segment": "gateway-to-cloud",
+        "keyEstablishment": "ML-KEM-768",
+        "status": "pqc",
+        "fallbackKind": "none",
+        "reason": "Synthetic cloud link reports ML-KEM-768.",
+        "observedAt": "2026-11-08T03:50:00Z",
+        "blocker": "None reported for this segment.",
+        "confidentiality": "Synthetic maintenance data assumed sensitive for 1 year.",
+        "impact": "Central monitoring receives the scenario's valve data.",
+        "action": "Continue inventory and observation reviews."
+      },
+      {
+        "id": "SEG-005",
+        "device": "Environmental sensor C",
+        "segment": "device-to-gateway",
+        "keyEstablishment": "ML-KEM-768",
+        "status": "pqc",
+        "fallbackKind": "none",
+        "reason": "Synthetic replacement sensor reports ML-KEM-768.",
+        "observedAt": "2026-11-08T03:45:00Z",
+        "blocker": "None reported for this segment.",
+        "confidentiality": "Synthetic environmental readings assumed sensitive for 7 days.",
+        "impact": "Environmental monitoring remains available in the scenario.",
+        "action": "Confirm asset-owner assumptions during review."
+      },
+      {
+        "id": "SEG-006",
+        "device": "Environmental sensor C",
+        "segment": "gateway-to-cloud",
+        "keyEstablishment": "ML-KEM-768",
+        "status": "pqc",
+        "fallbackKind": "none",
+        "reason": "Synthetic cloud link reports ML-KEM-768.",
+        "observedAt": "2026-11-08T03:45:00Z",
+        "blocker": "None reported for this segment.",
+        "confidentiality": "Synthetic environmental readings assumed sensitive for 7 days.",
+        "impact": "Cloud analytics receives scenario readings.",
+        "action": "Keep evidence current; no automatic security assurance is inferred."
+      },
+      {
+        "id": "SEG-007",
+        "device": "Pressure controller D",
+        "segment": "device-to-gateway",
+        "keyEstablishment": "ECDH-P256",
+        "status": "fallback",
+        "fallbackKind": "suspected",
+        "reason": "Synthetic event: inventory says ML-KEM capable, but this segment reports unplanned ECDH-P256 after a policy change. Cause unconfirmed.",
+        "observedAt": "2026-11-08T03:58:00Z",
+        "blocker": "Investigate policy change before approving migration completion.",
+        "confidentiality": "Synthetic configuration data assumed sensitive for 5 years, making future-decryption exposure relevant.",
+        "impact": "A policy defect or downgrade could expose long-lived configuration data; automatic disconnection could interrupt pressure monitoring.",
+        "action": "Investigate the policy change, verify capabilities and escalate evidence to the security officer."
+      },
+      {
+        "id": "SEG-008",
+        "device": "Remote meter E",
+        "segment": "device-to-gateway",
+        "keyEstablishment": "unknown",
+        "status": "unknown",
+        "fallbackKind": "unknown",
+        "reason": "Synthetic inventory entry has no verified key-establishment observation.",
+        "observedAt": "2026-11-08T03:40:00Z",
+        "blocker": "Unknown; assign an inventory and device-capability check.",
+        "confidentiality": "Unknown; asset owner must establish the confidentiality lifetime.",
+        "impact": "Missing evidence prevents a reliable migration commitment.",
+        "action": "Confirm device capabilities and data sensitivity before assigning protection status."
+      }
+    ]
+  },
+  "reportingClock": "2026-11-08T04:00:00.000Z",
+  "rules": {
+    "coverage": "PQC connection segments / all in-scope connection segments, including unknowns, multiplied by 100. Empty coverage is unavailable; display rounds to one decimal.",
+    "unit": "Connection segment; device-to-gateway and gateway-to-cloud links count separately. Inventory filters do not change global coverage.",
+    "freshnessHours": 24,
+    "freshnessBoundary": "Evaluate each observation against the reporting clock. Exactly 24 hours is current; greater than 24 hours is stale. Future observations and future snapshot time prevent an all-clear.",
+    "statusPrecedence": "Suspected downgrade -> investigate; otherwise empty/unknown/stale/future evidence -> insufficient evidence; otherwise expected fallback -> migration remaining; otherwise reported segments migrated. Coexisting evidence reasons remain applicable. Migration is not a system-security guarantee."
+  },
+  "summary": {
+    "total": 8,
+    "pqc": 5,
+    "fallback": 2,
+    "unknown": 1,
+    "coverage": 62.5,
+    "stale": 0,
+    "future": 0,
+    "futureSnapshot": false,
+    "suspected": 1,
+    "overall": {
+      "level": "red",
+      "label": "Investigate",
+      "reason": "One synthetic case needs review for suspected downgrade. This is not a confirmed attack."
+    },
+    "risks": [
+      {
+        "title": "1 suspected downgrade scenario(s)",
+        "detail": "SEG-007: Synthetic event: inventory says ML-KEM capable, but this segment reports unplanned ECDH-P256 after a policy change. Cause unconfirmed. Business impact: A policy defect or downgrade could expose long-lived configuration data; automatic disconnection could interrupt pressure monitoring.",
+        "action": "SEG-007: Investigate the policy change, verify capabilities and escalate evidence to the security officer."
+      },
+      {
+        "title": "Incomplete or out-of-date evidence",
+        "detail": "1 unknown; 0 older than 24 hours; 0 future-dated segments. Uncertainty can hide migration blockers and delay decisions.",
+        "action": "Confirm inventory and observation times before reporting an all-clear or committing migration dates."
+      },
+      {
+        "title": "2 classical fallback segment(s)",
+        "detail": "Synthetic ECDH-P256 traffic may remain exposed to future decryption under the stated confidentiality assumptions. Replacement delays must be balanced against service continuity.",
+        "action": "Inspect each confidentiality assumption and blocker; agree time-limited exceptions and replacement priorities with stakeholders."
+      }
+    ],
+    "evidence": {
+      "clock": 1794110400000,
+      "snapshotAt": "2026-11-08T04:00:00Z",
+      "numeratorIds": [
+        "SEG-002",
+        "SEG-003",
+        "SEG-004",
+        "SEG-005",
+        "SEG-006"
+      ],
+      "denominatorIds": [
+        "SEG-001",
+        "SEG-002",
+        "SEG-003",
+        "SEG-004",
+        "SEG-005",
+        "SEG-006",
+        "SEG-007",
+        "SEG-008"
+      ],
+      "unknownIds": [
+        "SEG-008"
+      ],
+      "staleIds": [],
+      "futureIds": [],
+      "suspectedIds": [
+        "SEG-007"
+      ],
+      "expectedFallbackIds": [
+        "SEG-001"
+      ],
+      "reasons": [
+        {
+          "code": "suspected",
+          "label": "Suspected downgrade needs investigation; not a confirmed attack.",
+          "ids": [
+            "SEG-007"
+          ]
+        },
+        {
+          "code": "unknown",
+          "label": "Protection is unknown; these segments remain in the coverage denominator.",
+          "ids": [
+            "SEG-008"
+          ]
+        },
+        {
+          "code": "expected-fallback",
+          "label": "Expected classical fallback remains; review exceptions and replacement blockers.",
+          "ids": [
+            "SEG-001"
+          ]
+        }
+      ]
+    }
+  }
+}

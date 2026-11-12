@@ -1,4 +1,4 @@
-// Shared reporting rules for the synthetic Sprint 1 dashboard.
+// Shared reporting rules and traceable evidence for the synthetic dashboard.
 export const FRESHNESS_HOURS = 24;
 const HOUR = 60 * 60 * 1000;
 const STATUSES = ['pqc', 'fallback', 'unknown'];
@@ -100,8 +100,48 @@ export function summarize(snapshot, now = Date.now()) {
     detail: 'Synthetic ECDH-P256 traffic may remain exposed to future decryption under the stated confidentiality assumptions. Replacement delays must be balanced against service continuity.',
     action: 'Inspect each confidentiality assumption and blocker; agree time-limited exceptions and replacement priorities with stakeholders.',
   });
+  const ids = predicate => rows.filter(predicate).map(row => row.id);
+  const evidence = {
+    clock: now,
+    snapshotAt: snapshot.snapshotAt,
+    numeratorIds: ids(row => row.status === 'pqc'),
+    denominatorIds: rows.map(row => row.id),
+    unknownIds: ids(row => row.status === 'unknown'),
+    staleIds: ids(row => now - Date.parse(row.observedAt) > FRESHNESS_HOURS * HOUR),
+    futureIds: ids(row => Date.parse(row.observedAt) > now),
+    suspectedIds: suspectedRows.map(row => row.id),
+    expectedFallbackIds: ids(row => row.fallbackKind === 'expected'),
+    reasons: [],
+  };
+  // Retain simultaneous reasons even when a higher-priority condition sets the headline.
+  if (suspected) evidence.reasons.push({ code: 'suspected', label: 'Suspected downgrade needs investigation; not a confirmed attack.', ids: [...evidence.suspectedIds] });
+  if (!total) evidence.reasons.push({ code: 'empty', label: 'No connection segments available; coverage is unavailable.', ids: [] });
+  if (unknown) evidence.reasons.push({ code: 'unknown', label: 'Protection is unknown; these segments remain in the coverage denominator.', ids: [...evidence.unknownIds] });
+  if (stale) evidence.reasons.push({ code: 'stale', label: `Observations are older than ${FRESHNESS_HOURS} hours; refresh evidence before a current all-clear.`, ids: [...evidence.staleIds] });
+  if (future) evidence.reasons.push({ code: 'future', label: 'Observations are ahead of the reporting clock; check their times.', ids: [...evidence.futureIds] });
+  if (futureSnapshot) evidence.reasons.push({ code: 'future-snapshot', label: 'Snapshot time is ahead of the reporting clock.', ids: [] });
+  if (evidence.expectedFallbackIds.length) evidence.reasons.push({ code: 'expected-fallback', label: 'Expected classical fallback remains; review exceptions and replacement blockers.', ids: [...evidence.expectedFallbackIds] });
   return { total, pqc, fallback, unknown, coverage: total ? pqc / total * 100 : null,
-    stale, suspected, overall, risks: risks.slice(0, 3) };
+    stale, future, futureSnapshot, suspected, overall, risks: risks.slice(0, 3), evidence };
+}
+
+export function createEvidenceReport(snapshot, now = Date.now()) {
+  const summary = summarize(snapshot, now);
+  if (!Number.isFinite(new Date(now).getTime())) throw new Error('Reporting clock must be a representable calendar time.');
+  return {
+    schemaVersion: 1,
+    synthetic: true,
+    snapshot: structuredClone(snapshot),
+    reportingClock: new Date(now).toISOString(),
+    rules: {
+      coverage: 'PQC connection segments / all in-scope connection segments, including unknowns, multiplied by 100. Empty coverage is unavailable; display rounds to one decimal.',
+      unit: 'Connection segment; device-to-gateway and gateway-to-cloud links count separately. Inventory filters do not change global coverage.',
+      freshnessHours: FRESHNESS_HOURS,
+      freshnessBoundary: 'Evaluate each observation against the reporting clock. Exactly 24 hours is current; greater than 24 hours is stale. Future observations and future snapshot time prevent an all-clear.',
+      statusPrecedence: 'Suspected downgrade -> investigate; otherwise empty/unknown/stale/future evidence -> insufficient evidence; otherwise expected fallback -> migration remaining; otherwise reported segments migrated. Coexisting evidence reasons remain applicable. Migration is not a system-security guarantee.',
+    },
+    summary,
+  };
 }
 
 export function filterConnections(snapshot, status = 'all', query = '') {

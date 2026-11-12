@@ -14,6 +14,27 @@ Development" (Software Development, Maintenance & Operations).
 - Every significant AI interaction must be documented by the student
   team (README.md §9).
 
+## Sprint 2 dashboard work
+
+Before planning, implementing or reviewing Sprint 2 dashboard work, read
+`docs/sprints/sprint-2/SPRINT_GOAL.md` for the credibility-first priority,
+metric evidence gate and current delivery state. Read
+`docs/sprints/sprint-2/USER_UNDERSTANDING_EXPERIMENT.md` when conducting or
+reporting comprehension evaluation, and `docs/sprints/sprint-2/TEAM_REVIEW.md`
+when recording group decisions. Attribute discussion drafts, actual participant
+responses, technical checks and team/PO acceptance to their respective evidence.
+Maintain the Sprint 2 backlog, risks, LLM evaluation and retrospective records
+through bounded delegated work with exclusive file ownership during build
+batches. Integrate evidence before updating completion claims, README or
+affected instructions. Repository documentation is English.
+
+The implemented indicator audit uses `summarize().evidence` and
+`createEvidenceReport()` in `dashboard/model.mjs`; keep reporting rules shared
+with role views. Read `docs/sprints/sprint-2/VERIFICATION.md` before reporting
+current delivery evidence. Use the participant kit in the experiment record for
+actual understanding sessions; source checks and browser role walks establish
+technical behavior only.
+
 ## Sprint 1 dashboard work
 
 Before planning, implementing or reviewing the course dashboard, read

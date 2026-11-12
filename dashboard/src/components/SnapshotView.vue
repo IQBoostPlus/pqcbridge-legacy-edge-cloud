@@ -1,5 +1,5 @@
 <script setup>
-import { clockTime, importFile, resetDemo, state, summary } from '../dashboard.js';
+import { clockTime, downloadEvidence, importFile, resetDemo, state, summary } from '../dashboard.js';
 import { utc } from '../display.js';
 import AppIcon from './AppIcon.vue';
 import PagedText from './PagedText.vue';
@@ -17,6 +17,7 @@ import PagedText from './PagedText.vue';
       <div class="dataset-actions">
         <label class="button primary upload">Load local JSON<input type="file" accept=".json,application/json" @change="importFile"></label>
         <button class="button" type="button" @click="resetDemo">Reset demo</button>
+        <button class="button" type="button" :disabled="!summary || state.loading" @click="downloadEvidence">Export evidence JSON</button>
       </div>
     </div>
     <div v-if="state.error" class="dataset-feedback danger" role="alert"><strong>Snapshot rejected</strong><PagedText :text="state.error" /></div>

@@ -1,0 +1,177 @@
+{
+  "evidenceType": "AI-authored model rehearsal; no human participants",
+  "sourceRevision": "7ce2898745e69a5e4943080e605db5b2f36dcd3b",
+  "runAt": "2026-11-12T04:32:24.549Z",
+  "reportingClock": "2026-11-08T04:00:00Z",
+  "scenarioCount": 11,
+  "cases": [
+    {
+      "id": "C01-default",
+      "expected": {
+        "total": 8,
+        "pqc": 5,
+        "fallback": 2,
+        "unknown": 1,
+        "coverage": 62.5,
+        "stale": 0,
+        "suspected": 1,
+        "level": "red"
+      },
+      "actual": {
+        "total": 8,
+        "pqc": 5,
+        "fallback": 2,
+        "unknown": 1,
+        "coverage": 62.5,
+        "stale": 0,
+        "suspected": 1,
+        "level": "red"
+      },
+      "result": "pass"
+    },
+    {
+      "id": "C02-filter-denominator",
+      "expected": {
+        "ids": [
+          "SEG-001",
+          "SEG-007"
+        ],
+        "globalCoverage": 62.5
+      },
+      "actual": {
+        "ids": [
+          "SEG-001",
+          "SEG-007"
+        ],
+        "globalCoverage": 62.5
+      },
+      "result": "pass"
+    },
+    {
+      "id": "C03-empty",
+      "expected": {
+        "coverage": null,
+        "level": "unknown"
+      },
+      "actual": {
+        "coverage": null,
+        "level": "unknown"
+      },
+      "result": "pass"
+    },
+    {
+      "id": "C04-unknown",
+      "expected": {
+        "total": 1,
+        "coverage": 0,
+        "level": "unknown"
+      },
+      "actual": {
+        "total": 1,
+        "coverage": 0,
+        "level": "unknown"
+      },
+      "result": "pass"
+    },
+    {
+      "id": "C05-stale-all-pqc",
+      "expected": {
+        "coverage": 100,
+        "stale": 5,
+        "level": "unknown"
+      },
+      "actual": {
+        "coverage": 100,
+        "stale": 5,
+        "level": "unknown"
+      },
+      "result": "pass"
+    },
+    {
+      "id": "C06-mixed-path",
+      "expected": {
+        "ids": [
+          "SEG-001",
+          "SEG-002"
+        ],
+        "statuses": [
+          "fallback",
+          "pqc"
+        ],
+        "coverage": 50
+      },
+      "actual": {
+        "ids": [
+          "SEG-001",
+          "SEG-002"
+        ],
+        "statuses": [
+          "fallback",
+          "pqc"
+        ],
+        "coverage": 50
+      },
+      "result": "pass"
+    },
+    {
+      "id": "C07-expected-fallback",
+      "expected": {
+        "level": "amber",
+        "suspected": 0
+      },
+      "actual": {
+        "level": "amber",
+        "suspected": 0
+      },
+      "result": "pass"
+    },
+    {
+      "id": "C08-suspected-and-stale",
+      "expected": {
+        "level": "red",
+        "stale": 8,
+        "suspected": 1,
+        "riskCount": 3
+      },
+      "actual": {
+        "level": "red",
+        "stale": 8,
+        "suspected": 1,
+        "riskCount": 3
+      },
+      "result": "pass"
+    },
+    {
+      "id": "C09-freshness-boundary",
+      "expected": {
+        "atBoundary": 0,
+        "afterBoundary": 1
+      },
+      "actual": {
+        "atBoundary": 0,
+        "afterBoundary": 1
+      },
+      "result": "pass"
+    },
+    {
+      "id": "C10-future-clock",
+      "expected": {
+        "level": "unknown"
+      },
+      "actual": {
+        "level": "unknown"
+      },
+      "result": "pass"
+    },
+    {
+      "id": "C11-invalid-data",
+      "expected": {
+        "rejected": true
+      },
+      "actual": {
+        "rejected": true
+      },
+      "result": "pass"
+    }
+  ]
+}

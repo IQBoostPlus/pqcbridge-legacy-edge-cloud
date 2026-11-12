@@ -1,4 +1,30 @@
-# PQC Bridge | Sprint 1 dashboard
+# PQC Bridge | Sprint 2 dashboard
+
+Sprint 2 adds an **Indicators** evidence page: inspect the coverage numerator and
+denominator, linked source records, snapshot/reporting/observation times and all
+coexisting investigation or data-quality reasons. Export evidence JSON from
+Indicators or Dataset. It contains the source snapshot, evaluation clock, rules
+and summary; it is an audit artifact, not an importable snapshot (the nested
+`snapshot` retains that input). Downloads are initiated explicitly and contain
+the loaded synthetic data. Current-time mode re-evaluates observations without
+fetching live data.
+
+The overview shows the coverage formula and simultaneous evidence limits;
+inventory filters keep global coverage explicit. Connection evidence includes
+the other reported segments for the same device under **Path context**.
+
+Technical verification: 17 model tests, production build and 11 scenario
+comparisons passed; desktop and 390px browser workflows are recorded in the
+[Sprint 2 verification](../docs/sprints/sprint-2/VERIFICATION.md).
+The [Sprint 2 goal](../docs/sprints/sprint-2/SPRINT_GOAL.md) is the current scope
+authority. Human comprehension results and team/PO acceptance remain pending.
+
+For actual group sessions, load JSON files from
+`docs/sprints/sprint-2/experiments/scenarios/` via Dataset. The participant
+response sheet and scenario preparation instructions are linked in the
+[experiment record](../docs/sprints/sprint-2/USER_UNDERSTANDING_EXPERIMENT.md).
+
+## Sprint 1 interface baseline
 
 A Vue 3, Vue Router and Vite rebuild of the Sprint 1 dashboard at `e3c366b`. It uses the same schema, default fixture and reporting rules. The default load shows 8 connection segments, 5 PQC (62.5%), 2 fallback and 1 unknown. The three perspectives use the same snapshot.
 

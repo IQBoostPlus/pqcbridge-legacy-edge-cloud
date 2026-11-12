@@ -1,6 +1,6 @@
 import { computed, shallowReactive } from 'vue';
 import fixture from '../fixtures/snapshot.json';
-import { filterConnections, summarize, validateSnapshot } from '../model.mjs';
+import { createEvidenceReport, filterConnections, summarize, validateSnapshot } from '../model.mjs';
 
 export const state = shallowReactive({
   snapshot: validateSnapshot(fixture),
@@ -17,6 +17,17 @@ export const state = shallowReactive({
 export const clockTime = computed(() => state.clock === 'current' ? state.time : Date.parse(state.snapshot?.snapshotAt));
 export const summary = computed(() => state.snapshot ? summarize(state.snapshot, clockTime.value) : null);
 export const rows = computed(() => state.snapshot ? filterConnections(state.snapshot, state.status, state.query) : []);
+
+export function downloadEvidence() {
+  if (!state.snapshot || state.loading) return;
+  const report = createEvidenceReport(state.snapshot, clockTime.value);
+  const url = URL.createObjectURL(new Blob([JSON.stringify(report, null, 2) + '\n'], { type: 'application/json' }));
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = 'pqc-evidence-report.json';
+  link.click();
+  window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
 let request = 0;
 
 function applySnapshot(snapshot, source) {

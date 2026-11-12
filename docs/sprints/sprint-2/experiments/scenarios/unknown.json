@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "synthetic": true,
+  "title": "North field migration - synthetic snapshot",
+  "snapshotAt": "2026-11-08T04:00:00Z",
+  "connections": [
+    {
+      "id": "SEG-008",
+      "device": "Remote meter E",
+      "segment": "device-to-gateway",
+      "keyEstablishment": "unknown",
+      "status": "unknown",
+      "fallbackKind": "unknown",
+      "reason": "Synthetic inventory entry has no verified key-establishment observation.",
+      "observedAt": "2026-11-08T03:40:00Z",
+      "blocker": "Unknown; assign an inventory and device-capability check.",
+      "confidentiality": "Unknown; asset owner must establish the confidentiality lifetime.",
+      "impact": "Missing evidence prevents a reliable migration commitment.",
+      "action": "Confirm device capabilities and data sensitivity before assigning protection status."
+    }
+  ]
+}

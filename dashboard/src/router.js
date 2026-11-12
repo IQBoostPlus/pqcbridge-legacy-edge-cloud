@@ -5,6 +5,7 @@ import ConnectionInventory from './components/ConnectionInventory.vue';
 import EvidenceView from './components/EvidenceView.vue';
 import SnapshotView from './components/SnapshotView.vue';
 import MethodologyView from './components/MethodologyView.vue';
+import IndicatorAudit from './components/IndicatorAudit.vue';
 
 export const destinations = [
   { path: '/', name: 'overview', label: 'Overview', title: 'Migration overview', icon: 'overview', component: CoverageOverview },
@@ -14,6 +15,7 @@ export const destinations = [
   { path: '/connections', name: 'connections', label: 'Connections', title: 'Connection inventory', icon: 'links', component: ConnectionInventory },
   { path: '/snapshot', name: 'snapshot', label: 'Dataset', title: 'Snapshot settings', icon: 'database', component: SnapshotView },
   { path: '/methodology', name: 'methodology', label: 'Methodology', title: 'Interpretation guide', icon: 'book', component: MethodologyView },
+  { path: '/indicators', name: 'indicators', label: 'Indicators', title: 'Indicator evidence', icon: 'links', component: IndicatorAudit },
 ];
 
 export const router = createRouter({

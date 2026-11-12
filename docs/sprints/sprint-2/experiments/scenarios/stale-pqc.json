@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "synthetic": true,
+  "title": "North field migration - synthetic snapshot",
+  "snapshotAt": "2026-11-08T04:00:00Z",
+  "connections": [
+    {
+      "id": "SEG-002",
+      "device": "Pump station A",
+      "segment": "gateway-to-cloud",
+      "keyEstablishment": "ML-KEM-768",
+      "status": "pqc",
+      "fallbackKind": "none",
+      "reason": "Synthetic gateway segment reports ML-KEM-768; the device segment remains classical.",
+      "observedAt": "2026-11-06T03:00:00Z",
+      "blocker": "None reported for this segment.",
+      "confidentiality": "Synthetic telemetry assumption: 3 days; only this segment is reported migrated.",
+      "impact": "Cloud forwarding remains available in the scenario.",
+      "action": "Keep segment-level status separate from the device's complete path."
+    },
+    {
+      "id": "SEG-003",
+      "device": "Valve controller B",
+      "segment": "device-to-gateway",
+      "keyEstablishment": "ML-KEM-768",
+      "status": "pqc",
+      "fallbackKind": "none",
+      "reason": "Synthetic modern controller reports ML-KEM-768.",
+      "observedAt": "2026-11-06T03:00:00Z",
+      "blocker": "None reported for this segment.",
+      "confidentiality": "Synthetic maintenance data assumed sensitive for 1 year.",
+      "impact": "Valve telemetry remains available in the scenario.",
+      "action": "Retain migration evidence and confirm the inventory."
+    },
+    {
+      "id": "SEG-004",
+      "device": "Valve controller B",
+      "segment": "gateway-to-cloud",
+      "keyEstablishment": "ML-KEM-768",
+      "status": "pqc",
+      "fallbackKind": "none",
+      "reason": "Synthetic cloud link reports ML-KEM-768.",
+      "observedAt": "2026-11-06T03:00:00Z",
+      "blocker": "None reported for this segment.",
+      "confidentiality": "Synthetic maintenance data assumed sensitive for 1 year.",
+      "impact": "Central monitoring receives the scenario's valve data.",
+      "action": "Continue inventory and observation reviews."
+    },
+    {
+      "id": "SEG-005",
+      "device": "Environmental sensor C",
+      "segment": "device-to-gateway",
+      "keyEstablishment": "ML-KEM-768",
+      "status": "pqc",
+      "fallbackKind": "none",
+      "reason": "Synthetic replacement sensor reports ML-KEM-768.",
+      "observedAt": "2026-11-06T03:00:00Z",
+      "blocker": "None reported for this segment.",
+      "confidentiality": "Synthetic environmental readings assumed sensitive for 7 days.",
+      "impact": "Environmental monitoring remains available in the scenario.",
+      "action": "Confirm asset-owner assumptions during review."
+    },
+    {
+      "id": "SEG-006",
+      "device": "Environmental sensor C",
+      "segment": "gateway-to-cloud",
+      "keyEstablishment": "ML-KEM-768",
+      "status": "pqc",
+      "fallbackKind": "none",
+      "reason": "Synthetic cloud link reports ML-KEM-768.",
+      "observedAt": "2026-11-06T03:00:00Z",
+      "blocker": "None reported for this segment.",
+      "confidentiality": "Synthetic environmental readings assumed sensitive for 7 days.",
+      "impact": "Cloud analytics receives scenario readings.",
+      "action": "Keep evidence current; no automatic security assurance is inferred."
+    }
+  ]
+}

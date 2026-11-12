@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "synthetic": true,
+  "title": "North field migration - synthetic snapshot",
+  "snapshotAt": "2026-11-08T04:00:00Z",
+  "connections": [
+    {
+      "id": "SEG-001",
+      "device": "Pump station A",
+      "segment": "device-to-gateway",
+      "keyEstablishment": "ECDH-P256",
+      "status": "fallback",
+      "fallbackKind": "expected",
+      "reason": "Registered legacy controller cannot use ML-KEM; approved-demo exception scenario.",
+      "observedAt": "2026-11-08T03:55:00Z",
+      "blocker": "Certified replacement expected in 2028; procurement review needed.",
+      "confidentiality": "Synthetic operating telemetry assumed sensitive for 3 days; validate this assumption with the asset owner.",
+      "impact": "Disabling this connection would remove pump monitoring.",
+      "action": "Review the exception lifetime and replacement plan with security and operations."
+    },
+    {
+      "id": "SEG-002",
+      "device": "Pump station A",
+      "segment": "gateway-to-cloud",
+      "keyEstablishment": "ML-KEM-768",
+      "status": "pqc",
+      "fallbackKind": "none",
+      "reason": "Synthetic gateway segment reports ML-KEM-768; the device segment remains classical.",
+      "observedAt": "2026-11-08T03:55:00Z",
+      "blocker": "None reported for this segment.",
+      "confidentiality": "Synthetic telemetry assumption: 3 days; only this segment is reported migrated.",
+      "impact": "Cloud forwarding remains available in the scenario.",
+      "action": "Keep segment-level status separate from the device's complete path."
+    }
+  ]
+}

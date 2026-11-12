@@ -9,7 +9,7 @@ const route = useRoute();
 const main = ref(null);
 const mainNav = destinations.slice(0, 5);
 const tools = destinations.slice(5);
-const canRender = computed(() => summary.value || ['snapshot', 'methodology'].includes(route.name));
+const canRender = computed(() => summary.value || ['snapshot', 'methodology', 'indicators'].includes(route.name));
 let timer;
 
 watch(() => state.clock, () => { state.time = Date.now(); });
@@ -47,7 +47,7 @@ onUnmounted(() => window.clearInterval(timer));
       <nav class="desktop-tools" aria-label="Supporting pages">
         <RouterLink v-for="item in tools" :key="item.name" :to="{ name: item.name }"><AppIcon :name="item.icon" /><span>{{ item.label }}</span></RouterLink>
       </nav>
-      <div class="rail-footer"><span class="signal-dot"></span><span>Synthetic exercise</span><strong>Sprint 1</strong></div>
+      <div class="rail-footer"><span class="signal-dot"></span><span>Synthetic exercise</span><strong>Sprint 2</strong></div>
     </aside>
 
     <main id="main" ref="main" tabindex="-1" class="workspace">

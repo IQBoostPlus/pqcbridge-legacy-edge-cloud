@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
-import { validateSnapshot, summarize, filterConnections, FRESHNESS_HOURS } from '../model.mjs';
+import { validateSnapshot, summarize, filterConnections, createEvidenceReport, FRESHNESS_HOURS } from '../model.mjs';
 
 const fixture = JSON.parse(await readFile(new URL('../fixtures/snapshot.json', import.meta.url), 'utf8'));
 const clock = Date.parse(fixture.snapshotAt);
@@ -136,4 +136,71 @@ test('timestamps require actual ISO UTC calendar values and observations cannot 
   }
   const data = clone(); data.connections[0].observedAt = '2026-11-08T04:00:01Z';
   assert.throws(() => validateSnapshot(data), /after snapshotAt/);
+});
+
+test('metric evidence traces global numerator, unknown denominator and mixed device path to exact IDs', () => {
+  const result = summarize(clone(), clock);
+  assert.deepEqual(result.evidence.numeratorIds, ['SEG-002', 'SEG-003', 'SEG-004', 'SEG-005', 'SEG-006']);
+  assert.deepEqual(result.evidence.denominatorIds, ['SEG-001', 'SEG-002', 'SEG-003', 'SEG-004', 'SEG-005', 'SEG-006', 'SEG-007', 'SEG-008']);
+  assert.deepEqual(result.evidence.unknownIds, ['SEG-008']);
+  assert.deepEqual(result.evidence.suspectedIds, ['SEG-007']);
+  assert.deepEqual(result.evidence.expectedFallbackIds, ['SEG-001']);
+  const pump = clone();
+  pump.connections = pump.connections.filter(row => row.device === 'Pump station A');
+  assert.deepEqual(summarize(pump, clock).evidence.numeratorIds, ['SEG-002']);
+  assert.deepEqual(summarize(pump, clock).evidence.denominatorIds, ['SEG-001', 'SEG-002']);
+  filterConnections(pump, 'pqc');
+  assert.equal(summarize(pump, clock).coverage, 50);
+});
+
+test('investigation headline retains coexisting unknown, stale and expected fallback evidence', () => {
+  const result = summarize(clone(), clock + 48 * 3600000);
+  assert.equal(result.overall.level, 'red');
+  assert.deepEqual(result.evidence.reasons.map(reason => reason.code), ['suspected', 'unknown', 'stale', 'expected-fallback']);
+  assert.deepEqual(result.evidence.reasons.find(reason => reason.code === 'stale').ids,
+    ['SEG-001', 'SEG-002', 'SEG-003', 'SEG-004', 'SEG-005', 'SEG-006', 'SEG-007', 'SEG-008']);
+  assert.equal(result.future, 0);
+  assert.equal(result.futureSnapshot, false);
+  assert.equal(result.evidence.clock, clock + 48 * 3600000);
+  assert.equal(result.evidence.snapshotAt, fixture.snapshotAt);
+});
+
+test('future and empty evidence are explicit with IDs only for contributing observations', () => {
+  const future = summarize(just('pqc'), clock - 3600000);
+  assert.equal(future.future, 5);
+  assert.equal(future.futureSnapshot, true);
+  assert.deepEqual(future.evidence.reasons.map(reason => reason.code), ['future', 'future-snapshot']);
+  assert.deepEqual(future.evidence.futureIds, ['SEG-002', 'SEG-003', 'SEG-004', 'SEG-005', 'SEG-006']);
+  assert.deepEqual(future.evidence.reasons.find(reason => reason.code === 'future-snapshot').ids, []);
+  const empty = summarize({ ...clone(), connections: [] }, clock);
+  assert.deepEqual(empty.evidence.reasons, [{ code: 'empty', label: 'No connection segments available; coverage is unavailable.', ids: [] }]);
+  assert.deepEqual(empty.evidence.denominatorIds, []);
+});
+
+test('evidence report freezes the evaluation context as a detached serializable snapshot', () => {
+  const input = clone();
+  const report = createEvidenceReport(input, clock);
+  const saved = JSON.parse(JSON.stringify(report));
+  assert.equal(saved.synthetic, true);
+  assert.equal(saved.schemaVersion, 1);
+  assert.equal(saved.reportingClock, '2026-11-08T04:00:00.000Z');
+  assert.deepEqual(saved.snapshot, fixture);
+  assert.equal(saved.summary.coverage, 62.5);
+  assert.equal(saved.rules.freshnessHours, 24);
+  assert.match(saved.rules.unit, /filters do not change global coverage/);
+  input.connections[0].reason = 'Changed after export';
+  assert.equal(report.snapshot.connections[0].reason, fixture.connections[0].reason);
+  report.snapshot.connections[1].device = 'Changed report';
+  assert.equal(input.connections[1].device, fixture.connections[1].device);
+  assert.deepEqual(saved.summary.evidence.denominatorIds, fixture.connections.map(row => row.id));
+});
+
+test('evidence export rejects invalid snapshots and unusable reporting clocks', () => {
+  assert.throws(() => createEvidenceReport(null, clock), /object/);
+  assert.throws(() => createEvidenceReport(clone(), NaN), /clock/);
+  assert.throws(() => createEvidenceReport(clone(), Infinity), /clock/);
+  assert.throws(() => createEvidenceReport(clone(), 1e20), /calendar time/);
+  const contradictory = clone();
+  contradictory.connections[0].status = 'pqc';
+  assert.throws(() => createEvidenceReport(contradictory, clock), /PQC requires/);
 });
