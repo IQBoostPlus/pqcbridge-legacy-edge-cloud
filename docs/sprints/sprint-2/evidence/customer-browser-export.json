@@ -1,0 +1,830 @@
+{
+  "schemaVersion": 1,
+  "synthetic": true,
+  "snapshot": {
+    "schemaVersion": 1,
+    "synthetic": true,
+    "title": "Northfield Energy customer report \u2014 synthetic Sprint 2 snapshot",
+    "snapshotAt": "2026-11-08T04:00:00Z",
+    "connections": [
+      {
+        "id": "SEG-001",
+        "device": "Pump station A",
+        "segment": "device-to-gateway",
+        "keyEstablishment": "ECDH-P256",
+        "status": "fallback",
+        "fallbackKind": "expected",
+        "reason": "Registered legacy controller cannot use ML-KEM; approved-demo exception scenario.",
+        "observedAt": "2026-11-08T03:55:00Z",
+        "blocker": "Certified replacement expected in 2028; procurement review needed.",
+        "confidentiality": "Synthetic operating telemetry assumed sensitive for 3 days; validate this assumption with the asset owner.",
+        "impact": "Disabling this connection would remove pump monitoring.",
+        "action": "Review the exception lifetime and replacement plan with security and operations."
+      },
+      {
+        "id": "SEG-002",
+        "device": "Pump station A",
+        "segment": "gateway-to-cloud",
+        "keyEstablishment": "ML-KEM-768",
+        "status": "pqc",
+        "fallbackKind": "none",
+        "reason": "Synthetic gateway segment reports ML-KEM-768; the device segment remains classical.",
+        "observedAt": "2026-11-08T03:55:00Z",
+        "blocker": "None reported for this segment.",
+        "confidentiality": "Synthetic telemetry assumption: 3 days; only this segment is reported migrated.",
+        "impact": "Cloud forwarding remains available in the scenario.",
+        "action": "Keep segment-level status separate from the device's complete path."
+      },
+      {
+        "id": "SEG-003",
+        "device": "Valve controller B",
+        "segment": "device-to-gateway",
+        "keyEstablishment": "ML-KEM-768",
+        "status": "pqc",
+        "fallbackKind": "none",
+        "reason": "Synthetic modern controller reports ML-KEM-768.",
+        "observedAt": "2026-11-08T03:50:00Z",
+        "blocker": "None reported for this segment.",
+        "confidentiality": "Synthetic maintenance data assumed sensitive for 1 year.",
+        "impact": "Valve telemetry remains available in the scenario.",
+        "action": "Retain migration evidence and confirm the inventory."
+      },
+      {
+        "id": "SEG-004",
+        "device": "Valve controller B",
+        "segment": "gateway-to-cloud",
+        "keyEstablishment": "ML-KEM-768",
+        "status": "pqc",
+        "fallbackKind": "none",
+        "reason": "Synthetic cloud link reports ML-KEM-768.",
+        "observedAt": "2026-11-08T03:50:00Z",
+        "blocker": "None reported for this segment.",
+        "confidentiality": "Synthetic maintenance data assumed sensitive for 1 year.",
+        "impact": "Central monitoring receives the scenario's valve data.",
+        "action": "Continue inventory and observation reviews."
+      },
+      {
+        "id": "SEG-005",
+        "device": "Environmental sensor C",
+        "segment": "device-to-gateway",
+        "keyEstablishment": "ML-KEM-768",
+        "status": "pqc",
+        "fallbackKind": "none",
+        "reason": "Synthetic replacement sensor reports ML-KEM-768.",
+        "observedAt": "2026-11-08T03:45:00Z",
+        "blocker": "None reported for this segment.",
+        "confidentiality": "Synthetic environmental readings assumed sensitive for 7 days.",
+        "impact": "Environmental monitoring remains available in the scenario.",
+        "action": "Confirm asset-owner assumptions during review."
+      },
+      {
+        "id": "SEG-006",
+        "device": "Environmental sensor C",
+        "segment": "gateway-to-cloud",
+        "keyEstablishment": "ML-KEM-768",
+        "status": "pqc",
+        "fallbackKind": "none",
+        "reason": "Synthetic cloud link reports ML-KEM-768.",
+        "observedAt": "2026-11-08T03:45:00Z",
+        "blocker": "None reported for this segment.",
+        "confidentiality": "Synthetic environmental readings assumed sensitive for 7 days.",
+        "impact": "Cloud analytics receives scenario readings.",
+        "action": "Keep evidence current; no automatic security assurance is inferred."
+      },
+      {
+        "id": "SEG-007",
+        "device": "Pressure controller D",
+        "segment": "device-to-gateway",
+        "keyEstablishment": "ECDH-P256",
+        "status": "fallback",
+        "fallbackKind": "suspected",
+        "reason": "Synthetic event: inventory says ML-KEM capable, but this segment reports unplanned ECDH-P256 after a policy change. Cause unconfirmed.",
+        "observedAt": "2026-11-08T03:58:00Z",
+        "blocker": "Investigate policy change before approving migration completion.",
+        "confidentiality": "Synthetic configuration data assumed sensitive for 5 years, making future-decryption exposure relevant.",
+        "impact": "A policy defect or downgrade could expose long-lived configuration data; automatic disconnection could interrupt pressure monitoring.",
+        "action": "Investigate the policy change, verify capabilities and escalate evidence to the security officer."
+      },
+      {
+        "id": "SEG-008",
+        "device": "Remote meter E",
+        "segment": "device-to-gateway",
+        "keyEstablishment": "unknown",
+        "status": "unknown",
+        "fallbackKind": "unknown",
+        "reason": "Synthetic inventory entry has no verified key-establishment observation.",
+        "observedAt": "2026-11-08T03:40:00Z",
+        "blocker": "Unknown; assign an inventory and device-capability check.",
+        "confidentiality": "Unknown; asset owner must establish the confidentiality lifetime.",
+        "impact": "Missing evidence prevents a reliable migration commitment.",
+        "action": "Confirm device capabilities and data sensitivity before assigning protection status."
+      }
+    ],
+    "provenance": "AI-authored synthetic scenario for Sprint 2; legacy segment evidence retained, customer mappings and plans are illustrative and unapproved.",
+    "customerReporting": {
+      "keyCustomerId": "CUS-NORTH",
+      "inventoryComplete": true,
+      "customers": [
+        {
+          "id": "CUS-NORTH",
+          "name": "Northfield Energy (synthetic key customer)"
+        },
+        {
+          "id": "CUS-OTHER",
+          "name": "Other customer (synthetic)"
+        }
+      ],
+      "dataItems": [
+        {
+          "customerId": "CUS-NORTH",
+          "dataItemId": "DATA-T01",
+          "dataClass": "Operational telemetry",
+          "confidentiality": "Assumed sensitive for 3 days; short life does not exempt the 2027 target.",
+          "observedAt": "2026-11-08T03:59:00Z",
+          "requiredSegmentIds": [
+            "SEG-001",
+            "SEG-002",
+            "SEG-001"
+          ],
+          "mappingComplete": true
+        },
+        {
+          "customerId": "CUS-NORTH",
+          "dataItemId": "DATA-T01",
+          "dataClass": "Operational telemetry",
+          "confidentiality": "Assumed sensitive for 3 days; short life does not exempt the 2027 target.",
+          "observedAt": "2026-11-08T03:59:00Z",
+          "requiredSegmentIds": [
+            "SEG-002"
+          ],
+          "mappingComplete": true
+        },
+        {
+          "customerId": "CUS-NORTH",
+          "dataItemId": "DATA-T02",
+          "dataClass": "Operational telemetry",
+          "confidentiality": "Assumed sensitive for 7 days; validate with the asset owner.",
+          "observedAt": "2026-11-08T03:59:00Z",
+          "requiredSegmentIds": [
+            "SEG-005",
+            "SEG-006"
+          ],
+          "mappingComplete": true
+        },
+        {
+          "customerId": "CUS-NORTH",
+          "dataItemId": "DATA-C01",
+          "dataClass": "Configuration",
+          "confidentiality": "Assumed sensitive for 5 years; future decryption is relevant.",
+          "observedAt": "2026-11-08T03:59:00Z",
+          "requiredSegmentIds": [
+            "SEG-007",
+            "SEG-002"
+          ],
+          "mappingComplete": true
+        },
+        {
+          "customerId": "CUS-NORTH",
+          "dataItemId": "DATA-C02",
+          "dataClass": "Configuration",
+          "confidentiality": "Assumed sensitive for 5 years; protection evidence is incomplete.",
+          "observedAt": "2026-11-08T03:59:00Z",
+          "requiredSegmentIds": [
+            "SEG-008",
+            "SEG-002"
+          ],
+          "mappingComplete": true
+        },
+        {
+          "customerId": "CUS-NORTH",
+          "dataItemId": "DATA-M01",
+          "dataClass": "Maintenance",
+          "confidentiality": "Assumed sensitive for 1 year; validate with the asset owner.",
+          "observedAt": "2026-11-08T03:59:00Z",
+          "requiredSegmentIds": [
+            "SEG-003",
+            "SEG-004"
+          ],
+          "mappingComplete": true
+        },
+        {
+          "customerId": "CUS-NORTH",
+          "dataItemId": "DATA-U01",
+          "dataClass": null,
+          "confidentiality": "Unknown lifetime and class; classification required.",
+          "observedAt": "2026-11-08T03:59:00Z",
+          "requiredSegmentIds": [
+            "SEG-009"
+          ],
+          "mappingComplete": false
+        },
+        {
+          "customerId": "CUS-OTHER",
+          "dataItemId": "DATA-OTHER",
+          "dataClass": "Operational telemetry",
+          "confidentiality": "Unrelated synthetic customer; excluded from Northfield totals.",
+          "observedAt": "2026-11-08T03:59:00Z",
+          "requiredSegmentIds": [
+            "SEG-006"
+          ],
+          "mappingComplete": true
+        },
+        {
+          "customerId": null,
+          "dataItemId": "DATA-UNATTR",
+          "dataClass": null,
+          "confidentiality": "Unknown customer and lifetime; ownership verification required.",
+          "observedAt": "2026-11-08T03:59:00Z",
+          "requiredSegmentIds": [
+            "SEG-002"
+          ],
+          "mappingComplete": true
+        }
+      ],
+      "plans": [
+        {
+          "segmentId": "SEG-001",
+          "plannedMigrationDate": "2028-06-30",
+          "replacementDate": "2028-06-30",
+          "blocker": "Certified replacement is not expected until 2028.",
+          "consequence": "Stopping the legacy connection removes pump monitoring; no extra budget is assumed.",
+          "action": "Investigate earlier certification or a validated alternative, then escalate continuity/budget/contract choices. No option is approved.",
+          "owner": null,
+          "targetDate": null
+        },
+        {
+          "segmentId": "SEG-007",
+          "plannedMigrationDate": "2027-12-31",
+          "replacementDate": null,
+          "blocker": "Unconfirmed policy change; investigation is required.",
+          "consequence": "Automatic isolation could interrupt pressure monitoring.",
+          "action": "Investigate policy/capabilities and propose a verified recovery plan; do not claim completion from the target date.",
+          "owner": null,
+          "targetDate": null
+        },
+        {
+          "segmentId": "SEG-008",
+          "plannedMigrationDate": null,
+          "replacementDate": null,
+          "blocker": "Inventory and device capability not verified.",
+          "consequence": "Unknown readiness prevents a reliable customer commitment.",
+          "action": "Confirm capabilities, ownership and complete customer path.",
+          "owner": null,
+          "targetDate": null
+        }
+      ]
+    }
+  },
+  "reportingClock": "2026-11-08T04:00:00.000Z",
+  "rules": {
+    "coverage": "PQC connection segments / all in-scope connection segments, including unknowns, multiplied by 100. Empty coverage is unavailable; display rounds to one decimal.",
+    "unit": "Connection segment; device-to-gateway and gateway-to-cloud links count separately. Inventory filters do not change global coverage.",
+    "freshnessHours": 24,
+    "freshnessBoundary": "Evaluate each observation against the reporting clock. Exactly 24 hours is current; greater than 24 hours is stale. Future observations and future snapshot time prevent an all-clear.",
+    "statusPrecedence": "Suspected downgrade -> investigate; otherwise empty/unknown/stale/future evidence -> insufficient evidence; otherwise expected fallback -> migration remaining; otherwise reported segments migrated. Coexisting evidence reasons remain applicable. Migration is not a system-security guarantee."
+  },
+  "summary": {
+    "total": 8,
+    "pqc": 5,
+    "fallback": 2,
+    "unknown": 1,
+    "coverage": 62.5,
+    "stale": 0,
+    "future": 0,
+    "futureSnapshot": false,
+    "suspected": 1,
+    "overall": {
+      "level": "red",
+      "label": "Investigate",
+      "reason": "One synthetic case needs review for suspected downgrade. This is not a confirmed attack."
+    },
+    "risks": [
+      {
+        "title": "1 suspected downgrade scenario(s)",
+        "detail": "SEG-007: Synthetic event: inventory says ML-KEM capable, but this segment reports unplanned ECDH-P256 after a policy change. Cause unconfirmed. Business impact: A policy defect or downgrade could expose long-lived configuration data; automatic disconnection could interrupt pressure monitoring.",
+        "action": "SEG-007: Investigate the policy change, verify capabilities and escalate evidence to the security officer."
+      },
+      {
+        "title": "Incomplete or out-of-date evidence",
+        "detail": "1 unknown; 0 older than 24 hours; 0 future-dated segments. Uncertainty can hide migration blockers and delay decisions.",
+        "action": "Confirm inventory and observation times before reporting an all-clear or committing migration dates."
+      },
+      {
+        "title": "2 classical fallback segment(s)",
+        "detail": "Synthetic ECDH-P256 traffic may remain exposed to future decryption under the stated confidentiality assumptions. Replacement delays must be balanced against service continuity.",
+        "action": "Inspect each confidentiality assumption and blocker; agree time-limited exceptions and replacement priorities with stakeholders."
+      }
+    ],
+    "evidence": {
+      "clock": 1794110400000,
+      "snapshotAt": "2026-11-08T04:00:00Z",
+      "numeratorIds": [
+        "SEG-002",
+        "SEG-003",
+        "SEG-004",
+        "SEG-005",
+        "SEG-006"
+      ],
+      "denominatorIds": [
+        "SEG-001",
+        "SEG-002",
+        "SEG-003",
+        "SEG-004",
+        "SEG-005",
+        "SEG-006",
+        "SEG-007",
+        "SEG-008"
+      ],
+      "unknownIds": [
+        "SEG-008"
+      ],
+      "staleIds": [],
+      "futureIds": [],
+      "suspectedIds": [
+        "SEG-007"
+      ],
+      "expectedFallbackIds": [
+        "SEG-001"
+      ],
+      "reasons": [
+        {
+          "code": "suspected",
+          "label": "Suspected downgrade needs investigation; not a confirmed attack.",
+          "ids": [
+            "SEG-007"
+          ]
+        },
+        {
+          "code": "unknown",
+          "label": "Protection is unknown; these segments remain in the coverage denominator.",
+          "ids": [
+            "SEG-008"
+          ]
+        },
+        {
+          "code": "expected-fallback",
+          "label": "Expected classical fallback remains; review exceptions and replacement blockers.",
+          "ids": [
+            "SEG-001"
+          ]
+        }
+      ]
+    }
+  },
+  "customerReport": {
+    "available": true,
+    "reason": "2 of 6 attributed logical items have potential HNDL exposure; 2 remain unresolved. Scope completeness is unresolved. 1 connection(s) have dates beyond the 2027 deadline; 7 have no recorded migration plan. Current PQC evidence and future planning are separate.",
+    "overall": {
+      "level": "amber",
+      "label": "Customer migration gaps",
+      "reason": "2 of 6 attributed logical items have potential HNDL exposure; 2 remain unresolved. Scope completeness is unresolved. 1 connection(s) have dates beyond the 2027 deadline; 7 have no recorded migration plan. Current PQC evidence and future planning are separate."
+    },
+    "ruleVersion": "customer-items-v1",
+    "customer": {
+      "id": "CUS-NORTH",
+      "name": "Northfield Energy (synthetic key customer)"
+    },
+    "deadline": "2027-12-31",
+    "reportingClock": "2026-11-08T04:00:00.000Z",
+    "snapshotAt": "2026-11-08T04:00:00Z",
+    "unit": "Distinct logical data items",
+    "scope": {
+      "inventoryComplete": false,
+      "unattributedItemIds": [
+        "DATA-UNATTR"
+      ],
+      "unrelatedItemCount": 1,
+      "limitations": [
+        "1 logical item(s) have unknown customer ownership and are excluded from attributed quantities; customer inventory completeness cannot be established.",
+        "Required customer paths are incomplete or reference missing connection evidence."
+      ]
+    },
+    "totals": {
+      "total": 6,
+      "exposed": 2,
+      "unresolved": 2,
+      "pqc": 2,
+      "exposedPercent": 33.33333333333333,
+      "unresolvedPercent": 33.33333333333333,
+      "pqcPercent": 33.33333333333333
+    },
+    "classes": [
+      {
+        "dataClass": "Operational telemetry",
+        "total": 2,
+        "exposed": 1,
+        "unresolved": 0,
+        "pqc": 1,
+        "exposedPercent": 50,
+        "unresolvedPercent": 0,
+        "pqcPercent": 50,
+        "confidentialityAssumptions": [
+          "Assumed sensitive for 3 days; short life does not exempt the 2027 target.",
+          "Assumed sensitive for 7 days; validate with the asset owner."
+        ],
+        "qualityFlags": [],
+        "itemIds": [
+          "DATA-T01",
+          "DATA-T02"
+        ]
+      },
+      {
+        "dataClass": "Configuration",
+        "total": 2,
+        "exposed": 1,
+        "unresolved": 1,
+        "pqc": 0,
+        "exposedPercent": 50,
+        "unresolvedPercent": 50,
+        "pqcPercent": 0,
+        "confidentialityAssumptions": [
+          "Assumed sensitive for 5 years; future decryption is relevant.",
+          "Assumed sensitive for 5 years; protection evidence is incomplete."
+        ],
+        "qualityFlags": [
+          "unknown-segment"
+        ],
+        "itemIds": [
+          "DATA-C01",
+          "DATA-C02"
+        ]
+      },
+      {
+        "dataClass": "Maintenance",
+        "total": 1,
+        "exposed": 0,
+        "unresolved": 0,
+        "pqc": 1,
+        "exposedPercent": 0,
+        "unresolvedPercent": 0,
+        "pqcPercent": 100,
+        "confidentialityAssumptions": [
+          "Assumed sensitive for 1 year; validate with the asset owner."
+        ],
+        "qualityFlags": [],
+        "itemIds": [
+          "DATA-M01"
+        ]
+      },
+      {
+        "dataClass": "Unknown class",
+        "total": 1,
+        "exposed": 0,
+        "unresolved": 1,
+        "pqc": 0,
+        "exposedPercent": 0,
+        "unresolvedPercent": 100,
+        "pqcPercent": 0,
+        "confidentialityAssumptions": [
+          "Unknown lifetime and class; classification required."
+        ],
+        "qualityFlags": [
+          "incomplete-path",
+          "missing-segment"
+        ],
+        "itemIds": [
+          "DATA-U01"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "customerId": "CUS-NORTH",
+        "dataItemId": "DATA-T01",
+        "dataClass": "Operational telemetry",
+        "confidentiality": "Assumed sensitive for 3 days; short life does not exempt the 2027 target.",
+        "observedAt": "2026-11-08T03:59:00Z",
+        "requiredSegmentIds": [
+          "SEG-001",
+          "SEG-002"
+        ],
+        "mappingComplete": true,
+        "bucket": "exposed",
+        "qualityFlags": [],
+        "reasons": [
+          "SEG-001: Expected classical fallback; no deadline exemption. Registered legacy controller cannot use ML-KEM; approved-demo exception scenario."
+        ]
+      },
+      {
+        "customerId": "CUS-NORTH",
+        "dataItemId": "DATA-T02",
+        "dataClass": "Operational telemetry",
+        "confidentiality": "Assumed sensitive for 7 days; validate with the asset owner.",
+        "observedAt": "2026-11-08T03:59:00Z",
+        "requiredSegmentIds": [
+          "SEG-005",
+          "SEG-006"
+        ],
+        "mappingComplete": true,
+        "bucket": "pqc",
+        "qualityFlags": [],
+        "reasons": [
+          "All required mapped segments report current PQC evidence."
+        ]
+      },
+      {
+        "customerId": "CUS-NORTH",
+        "dataItemId": "DATA-C01",
+        "dataClass": "Configuration",
+        "confidentiality": "Assumed sensitive for 5 years; future decryption is relevant.",
+        "observedAt": "2026-11-08T03:59:00Z",
+        "requiredSegmentIds": [
+          "SEG-007",
+          "SEG-002"
+        ],
+        "mappingComplete": true,
+        "bucket": "exposed",
+        "qualityFlags": [],
+        "reasons": [
+          "SEG-007: Suspected downgrade; not a confirmed attack. Synthetic event: inventory says ML-KEM capable, but this segment reports unplanned ECDH-P256 after a policy change. Cause unconfirmed."
+        ]
+      },
+      {
+        "customerId": "CUS-NORTH",
+        "dataItemId": "DATA-C02",
+        "dataClass": "Configuration",
+        "confidentiality": "Assumed sensitive for 5 years; protection evidence is incomplete.",
+        "observedAt": "2026-11-08T03:59:00Z",
+        "requiredSegmentIds": [
+          "SEG-008",
+          "SEG-002"
+        ],
+        "mappingComplete": true,
+        "bucket": "unresolved",
+        "qualityFlags": [
+          "unknown-segment"
+        ],
+        "reasons": [
+          "unknown segment"
+        ]
+      },
+      {
+        "customerId": "CUS-NORTH",
+        "dataItemId": "DATA-M01",
+        "dataClass": "Maintenance",
+        "confidentiality": "Assumed sensitive for 1 year; validate with the asset owner.",
+        "observedAt": "2026-11-08T03:59:00Z",
+        "requiredSegmentIds": [
+          "SEG-003",
+          "SEG-004"
+        ],
+        "mappingComplete": true,
+        "bucket": "pqc",
+        "qualityFlags": [],
+        "reasons": [
+          "All required mapped segments report current PQC evidence."
+        ]
+      },
+      {
+        "customerId": "CUS-NORTH",
+        "dataItemId": "DATA-U01",
+        "dataClass": "Unknown class",
+        "confidentiality": "Unknown lifetime and class; classification required.",
+        "observedAt": "2026-11-08T03:59:00Z",
+        "requiredSegmentIds": [
+          "SEG-009"
+        ],
+        "mappingComplete": false,
+        "bucket": "unresolved",
+        "qualityFlags": [
+          "incomplete-path",
+          "missing-segment"
+        ],
+        "reasons": [
+          "incomplete path",
+          "missing segment",
+          "Unknown class; confidentiality/classification requires review."
+        ]
+      }
+    ],
+    "connections": [
+      {
+        "segmentId": "SEG-001",
+        "status": "fallback",
+        "evidenceStatus": "classical",
+        "qualityFlags": [],
+        "label": "Classical gap",
+        "plannedMigrationDate": "2028-06-30",
+        "replacementDate": "2028-06-30",
+        "scheduleStatus": "conflict",
+        "blocker": "Certified replacement is not expected until 2028.",
+        "consequence": "Stopping the legacy connection removes pump monitoring; no extra budget is assumed.",
+        "action": "Investigate earlier certification or a validated alternative, then escalate continuity/budget/contract choices. No option is approved.",
+        "owner": null,
+        "targetDate": null,
+        "dataClasses": [
+          "Operational telemetry"
+        ],
+        "dataItemIds": [
+          "DATA-T01"
+        ]
+      },
+      {
+        "segmentId": "SEG-002",
+        "status": "pqc",
+        "evidenceStatus": "reported-pqc",
+        "qualityFlags": [],
+        "label": "Reported current PQC",
+        "plannedMigrationDate": null,
+        "replacementDate": null,
+        "scheduleStatus": "unplanned",
+        "blocker": "None reported for this segment.",
+        "consequence": "Cloud forwarding remains available in the scenario.",
+        "action": "Keep segment-level status separate from the device's complete path.",
+        "owner": null,
+        "targetDate": null,
+        "dataClasses": [
+          "Operational telemetry",
+          "Configuration"
+        ],
+        "dataItemIds": [
+          "DATA-T01",
+          "DATA-C01",
+          "DATA-C02"
+        ]
+      },
+      {
+        "segmentId": "SEG-005",
+        "status": "pqc",
+        "evidenceStatus": "reported-pqc",
+        "qualityFlags": [],
+        "label": "Reported current PQC",
+        "plannedMigrationDate": null,
+        "replacementDate": null,
+        "scheduleStatus": "unplanned",
+        "blocker": "None reported for this segment.",
+        "consequence": "Environmental monitoring remains available in the scenario.",
+        "action": "Confirm asset-owner assumptions during review.",
+        "owner": null,
+        "targetDate": null,
+        "dataClasses": [
+          "Operational telemetry"
+        ],
+        "dataItemIds": [
+          "DATA-T02"
+        ]
+      },
+      {
+        "segmentId": "SEG-006",
+        "status": "pqc",
+        "evidenceStatus": "reported-pqc",
+        "qualityFlags": [],
+        "label": "Reported current PQC",
+        "plannedMigrationDate": null,
+        "replacementDate": null,
+        "scheduleStatus": "unplanned",
+        "blocker": "None reported for this segment.",
+        "consequence": "Cloud analytics receives scenario readings.",
+        "action": "Keep evidence current; no automatic security assurance is inferred.",
+        "owner": null,
+        "targetDate": null,
+        "dataClasses": [
+          "Operational telemetry"
+        ],
+        "dataItemIds": [
+          "DATA-T02"
+        ]
+      },
+      {
+        "segmentId": "SEG-007",
+        "status": "fallback",
+        "evidenceStatus": "classical",
+        "qualityFlags": [],
+        "label": "Classical gap",
+        "plannedMigrationDate": "2027-12-31",
+        "replacementDate": null,
+        "scheduleStatus": "on-deadline",
+        "blocker": "Unconfirmed policy change; investigation is required.",
+        "consequence": "Automatic isolation could interrupt pressure monitoring.",
+        "action": "Investigate policy/capabilities and propose a verified recovery plan; do not claim completion from the target date.",
+        "owner": null,
+        "targetDate": null,
+        "dataClasses": [
+          "Configuration"
+        ],
+        "dataItemIds": [
+          "DATA-C01"
+        ]
+      },
+      {
+        "segmentId": "SEG-008",
+        "status": "unknown",
+        "evidenceStatus": "unresolved",
+        "qualityFlags": [],
+        "label": "Unresolved evidence",
+        "plannedMigrationDate": null,
+        "replacementDate": null,
+        "scheduleStatus": "unplanned",
+        "blocker": "Inventory and device capability not verified.",
+        "consequence": "Unknown readiness prevents a reliable customer commitment.",
+        "action": "Confirm capabilities, ownership and complete customer path.",
+        "owner": null,
+        "targetDate": null,
+        "dataClasses": [
+          "Configuration"
+        ],
+        "dataItemIds": [
+          "DATA-C02"
+        ]
+      },
+      {
+        "segmentId": "SEG-003",
+        "status": "pqc",
+        "evidenceStatus": "reported-pqc",
+        "qualityFlags": [],
+        "label": "Reported current PQC",
+        "plannedMigrationDate": null,
+        "replacementDate": null,
+        "scheduleStatus": "unplanned",
+        "blocker": "None reported for this segment.",
+        "consequence": "Valve telemetry remains available in the scenario.",
+        "action": "Retain migration evidence and confirm the inventory.",
+        "owner": null,
+        "targetDate": null,
+        "dataClasses": [
+          "Maintenance"
+        ],
+        "dataItemIds": [
+          "DATA-M01"
+        ]
+      },
+      {
+        "segmentId": "SEG-004",
+        "status": "pqc",
+        "evidenceStatus": "reported-pqc",
+        "qualityFlags": [],
+        "label": "Reported current PQC",
+        "plannedMigrationDate": null,
+        "replacementDate": null,
+        "scheduleStatus": "unplanned",
+        "blocker": "None reported for this segment.",
+        "consequence": "Central monitoring receives the scenario's valve data.",
+        "action": "Continue inventory and observation reviews.",
+        "owner": null,
+        "targetDate": null,
+        "dataClasses": [
+          "Maintenance"
+        ],
+        "dataItemIds": [
+          "DATA-M01"
+        ]
+      },
+      {
+        "segmentId": "SEG-009",
+        "status": "missing",
+        "evidenceStatus": "unresolved",
+        "qualityFlags": [
+          "missing-segment",
+          "incomplete-path"
+        ],
+        "label": "Unresolved evidence",
+        "plannedMigrationDate": null,
+        "replacementDate": null,
+        "scheduleStatus": "unplanned",
+        "blocker": "Unknown; verify missing connection.",
+        "consequence": "Missing evidence prevents a reliable customer commitment.",
+        "action": "Confirm inventory, path and migration plan.",
+        "owner": null,
+        "targetDate": null,
+        "dataClasses": [
+          "Unknown class"
+        ],
+        "dataItemIds": [
+          "DATA-U01"
+        ]
+      }
+    ],
+    "risks": [
+      {
+        "title": "Migration or replacement dates miss the 2027 target",
+        "detail": "SEG-001 (migration: 2028-06-30; replacement: 2028-06-30): declared replacement or migration is after 31 December 2027. Local fallback approval does not waive the proposed customer requirement.",
+        "action": "Investigate earlier certified replacement or a validated alternative; escalate budget, continuity and contract choices. Feasibility and approval remain unknown.",
+        "owner": null,
+        "targetDate": null
+      },
+      {
+        "title": "2 customer data item(s) potentially exposed to HNDL",
+        "detail": "At least one required segment uses classical key establishment. Short-lived data is not automatically zero-risk; suspected downgrade is not a confirmed attack.",
+        "action": "Sarah investigates the segment evidence; Michael assesses migration and service-continuity options; Emma escalates required decisions.",
+        "owner": null,
+        "targetDate": null
+      },
+      {
+        "title": "Unresolved evidence or migration planning",
+        "detail": "2 unresolved attributed item(s). 1 logical item(s) have unknown customer ownership and are excluded from attributed quantities; customer inventory completeness cannot be established. Required customer paths are incomplete or reference missing connection evidence. Missing plans remain unresolved even for reported-PQC connections.",
+        "action": "Confirm customer ownership, data classes, complete paths, observations and accountable migration plans before a customer commitment.",
+        "owner": null,
+        "targetDate": null
+      }
+    ],
+    "methodology": [
+      "A logical item represents a declared stream or information asset. Counts/proportions do not estimate bytes, traffic volume, attack probability or financial loss.",
+      "Deduplicate by customer + dataItemId and merge required segment IDs. One primary class per item; unknown class remains visible.",
+      "Any known classical required segment establishes potential HNDL exposure, retaining simultaneous quality flags; otherwise incomplete/missing/unknown/stale/future evidence is unresolved; otherwise reported PQC.",
+      "Known-classical observations remain potential exposure even when stale. Exactly 24 hours is current; older is stale. Future item/segment/snapshot evidence cannot support reported PQC.",
+      "Unknown ownership is outside attributed totals but prevents complete-customer claims. Inventory filters do not change customer totals.",
+      "The proposed deadline applies to every required customer-data connection, including expected fallback and short-lived telemetry. A plan is not migration completion; 2028 replacements conflict with 2027.",
+      "All records are synthetic; no confirmed harvesting/attack, live protection, accepted waiver, funding or feasible replacement is inferred."
+    ]
+  }
+}

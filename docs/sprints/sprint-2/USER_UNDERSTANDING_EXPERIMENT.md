@@ -1,6 +1,62 @@
 # Sprint 2 user-understanding experiment
 
-## Evidence status and purpose
+## Current customer-report validation protocol
+
+The corrected [GOAL](SPRINT_GOAL.md) places the key customer's reporting change
+first. The earlier technical rehearsal and credibility-focused prompts below
+remain historical. They do not verify the new class aggregation or report, and
+no human results are supplied by this protocol. Formal sessions are supporting
+work after the required increment and technical checks; actual review feedback
+and course human-factors reflection remain necessary.
+
+Use the new synthetic customer fixture and a fixed historical reporting clock.
+Record the tested revision, fixture, selected customer, clock, viewport,
+facilitator and actual participants. Preserve unaided answers before showing
+any answer key or explanation. Rotate Sarah/Michael/Emma roles where useful.
+
+| Task | Prompt supplied without answer key | Reviewer criterion, shown only after first response |
+| --- | --- | --- |
+| CUS-01 / Emma | Explain how much customer data is potentially exposed, and the unit used. | Distinct logical items by class; three buckets reconcile; segment share and byte volume are different quantities |
+| CUS-02 / Sarah | Trace one exposed item to the connection evidence and explain what remains unknown. | Any known required classical segment establishes potential exposure; concurrent quality flags remain; no confirmed attack claim |
+| CUS-03 / Sarah | Explain an unresolved item and its confidentiality assumption. | Missing mapping, unknown/stale/future evidence or classification remains visible; short lifetime does not imply zero risk |
+| CUS-04 / Michael | Explain the migration work remaining for the customer and the replacement constraint. | All required customer segments included; 2028 replacement conflicts with 2027-12-31; planned action is not completed migration |
+| CUS-05 / Emma | Propose a next decision that preserves service and explains the customer position. | Identifies budget/continuity/deadline trade-off and options/escalation without claiming accepted waiver, funding or feasibility |
+| CUS-06 / Emma | Explain what prevents a complete or current all-clear and where the report can be checked. | Unknown attribution/scope, evidence time and class totals are explicit; source IDs/shared exported calculations support traceability |
+
+Score each explanation 0 (materially wrong/unsupported), 1 (partly correct,
+missing relevant scope/reason/action), or 2 (correct and justified); maximum 12.
+Keep missing responses missing, preserve assisted answers separately, and
+publish no human success rate before actual collection. If a critical scope,
+quantity or deadline misunderstanding occurs, record the observation, selected
+change or no-change rationale, owner and comparable retest. A small internal
+team exercise does not establish external-user comprehension.
+
+| Actual customer session record | State |
+| --- | --- |
+| Date, facilitator, actual participants and revision | Pending actual session |
+| Fixture, customer, clock and device | Pending actual session |
+| Unaided answers, evidence locations and scores | Not collected |
+| Assisted answers, disagreements and decisions | Not collected |
+| Corrections, acknowledged owner/target and retest | Pending actual findings |
+
+Independent technical expectations are supplied in
+[customer-expectations.md](experiments/customer-expectations.md); observed checks
+belong in [VERIFICATION.md](VERIFICATION.md), not in the human response fields. The
+existing response sheet can be reused with the CUS-01 through CUS-06 prompts;
+the old generated scenario kit remains a legacy-import/indicator regression
+kit and must not be described as a customer-report fixture.
+
+### Technical readiness for the customer tasks
+
+The integrating agent reports 39/39 model tests, a 44-module build, 11/11 legacy
+comparisons and scoped customer/role/import/export/keyboard checks passed. Final
+production preview loaded the built JavaScript and showed six items split 2/2/2;
+scoped error logs were empty and the 390 × 844 layout had no page horizontal
+overflow. These checks make the protocol exercisable; actual first responses
+and comprehension scores above remain uncollected. See
+[VERIFICATION.md](VERIFICATION.md) for exact checks and evidence artifacts.
+
+## Historical evidence status and purpose
 
 Prepared on 12 November 2026. The group's confirmed priority is indicator
 credibility first. This artifact contains an **executed AI technical rehearsal**,

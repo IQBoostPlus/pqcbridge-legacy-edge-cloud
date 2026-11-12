@@ -1,9 +1,9 @@
 # Sprint 2 team review and group discussion record
 
 Baseline: 12 November 2026. Scope: [Sprint goal](SPRINT_GOAL.md).
-The user confirmed in the project chat that prioritizing indicator credibility
-is a group decision. The date, attendees and minutes of that discussion have
-not been supplied. The discussion draft below prepares questions for review;
+The earlier indicator-credibility decision is retained as history below.
+The corrected goal now prioritizes customer reporting and the changed migration
+target. The agenda prepares questions for review;
 actual member responses, participation and acceptance remain pending.
 
 ## Membership and roles
@@ -14,7 +14,51 @@ provide context for the discussion draft, not confirmed Sprint 2 assignments.
 The proposal for Valerii Lebedev to act as Sprint 2 Scrum Master remains subject
 to team confirmation. The teacher retains the Product Owner role.
 
-## Group discussion results
+## Current customer-change review agenda
+
+The corrected [goal](SPRINT_GOAL.md) supersedes the earlier credibility-first
+ordering below. The customer report, class-level HNDL quantities and all-customer-
+connection target of 31 December 2027 now lead. Traceable indicators remain a
+foundation. This is the next review agenda, not a record of a completed meeting.
+
+| Member invited to review | Customer-focused question | Evidence / decision to record |
+| --- | --- | --- |
+| Changzhengyuan Chu | Does the report answer the key customer's question, using a clear unit and complete scope? | Class counts versus segment share; product vision link; unanswered PO questions |
+| Valerii Lebedev | How should the team plan the changed priorities and rotate facilitation? | Actual Scrum Master rotation, estimates, workload distribution and Jira changes |
+| Jinghao Lei | Can Emma reach the report and trace an exposed class to its required segments? | Actual first response, navigation issue and any adopted correction |
+| Cheng Peng | What can Sarah conclude about known classical exposure, unknown evidence and suspected downgrade? | Lifetime assumptions, concurrent quality flags and justified investigation |
+| Zhizhou Zhao | What should Michael and Emma do about certified replacements in 2028 against the 2027 target? | Continuity/budget trade-offs, alternative or escalation proposal, accepted decision if any |
+
+Persona trade-offs for discussion: Sarah needs exposure and downgrade evidence;
+Michael must preserve service while planning constrained replacements; Emma
+must explain customer readiness without inventing budget, agreement or a safe
+waiver. Short-lived telemetry and approved fallback still carry the deadline.
+
+Record the change response with keep/change/drop rationale from the backlog.
+Ask each member how the new scope affected their work, coordination,
+disagreements and emotional reactions; record no effect if that is their
+actual response. Record how a disagreement was handled and which decision was
+adopted, rather than treating a prepared agenda as consensus. Link accepted
+changes to real Jira items and next-Sprint retrospective follow-up.
+
+| Current review field | Evidence / state |
+| --- | --- |
+| Corrected scope and implementation authority | User requested comprehensive GOAL/backlog correction, then development and GitHub push |
+| Meeting date, channel, actual participants and facilitator | Pending actual review |
+| Product vision/stakeholder analysis reviewed | Pending actual review and reference |
+| Keep/change/drop decisions and rationale | Planning baseline in BACKLOG.md; actual team/PO response pending |
+| Changed workload, communication, disagreements and emotions | Pending attributable member observations |
+| Actual first answers and assistance | Pending; use the customer protocol in USER_UNDERSTANDING_EXPERIMENT.md |
+| Scrum Master rotation, acknowledged assignments and estimates | Pending actual planning |
+| Technical evidence available for review | Integrating agent reports 39/39 tests, build/scenarios and scoped desktop/mobile/keyboard/import/export/role checks, plus final built-asset preview with 2/2/2 totals and empty error logs; see VERIFICATION.md |
+| Teacher/PO feedback and acceptance | Pending actual review |
+
+## Earlier group discussion record
+
+The following material belongs to the earlier indicator-focused increment.
+It does not establish acceptance of the corrected customer-reporting scope.
+
+## Historical group discussion results
 
 ### User-confirmed group priority
 

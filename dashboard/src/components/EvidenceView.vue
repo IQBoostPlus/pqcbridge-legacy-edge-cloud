@@ -2,7 +2,7 @@
 import { computed, ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
 import { FRESHNESS_HOURS } from '../../model.mjs';
-import { state, clockTime } from '../dashboard.js';
+import { state, clockTime, customerReport } from '../dashboard.js';
 import { statusLabels, segmentLabels, utc } from '../display.js';
 import AppIcon from './AppIcon.vue';
 import PagedText from './PagedText.vue';
@@ -10,12 +10,15 @@ import PagedText from './PagedText.vue';
 const route = useRoute();
 const field = ref(0);
 const row = computed(() => state.snapshot.connections.find(connection => connection.id === route.params.id));
-const back = computed(() => ['security', 'migration'].includes(route.query.from) ? route.query.from : 'connections');
+const back = computed(() => ['customer', 'security', 'migration', 'executive'].includes(route.query.from) ? route.query.from : 'connections');
 const fields = computed(() => row.value ? [
   ['Classification reason', row.value.reason], ['Confidentiality', row.value.confidentiality],
   ['Migration blocker', row.value.blocker], ['Business impact', row.value.impact], ['Next action', row.value.action],
   ['Connection identity', row.value.id + ' · ' + row.value.device + ' · ' + segmentLabels[row.value.segment]],
   ['Path context', state.snapshot.connections.filter(item => item.device === row.value.device).map(item => `${item.id}: ${segmentLabels[item.segment]} reports ${item.status} (${item.keyEstablishment}).`).join(' ') + ' These are reported segments, not proof of a complete inventory or end-to-end security.'],
+  ['Customer data context', customerReport.value.available
+    ? customerReport.value.items.filter(item => item.requiredSegmentIds.includes(row.value.id)).map(item => `${item.dataItemId}: ${item.dataClass}; ${item.bucket}; ${item.confidentiality} Required segments: ${item.requiredSegmentIds.join(', ')}.`).join(' ') || 'No items for the selected customer reference this segment.'
+    : customerReport.value.reason],
 ] : []);
 const freshness = computed(() => {
   const age = clockTime.value - Date.parse(row.value.observedAt);
@@ -40,7 +43,7 @@ watch(() => route.params.id, () => { field.value = 0; });
       <select v-model.number="field" aria-label="Evidence field"><option v-for="([label], index) in fields" :key="label" :value="index">{{ label }}</option></select>
     </label>
     <PagedText :text="fields[field][1]" />
-    <div class="focus-footer"><RouterLink class="text-link" :to="{ name: back }"><AppIcon name="back" />Back to {{ back }}</RouterLink><RouterLink class="text-link" :to="{ name: 'indicators' }">Indicator evidence</RouterLink></div>
+    <div class="focus-footer"><RouterLink class="text-link" :to="{ name: back }"><AppIcon name="back" />Back to {{ back }}</RouterLink><RouterLink class="text-link" :to="{ name: 'customer' }">Customer report</RouterLink></div>
   </section>
   <section v-else class="panel centered">
     <h2>Connection not in this snapshot</h2><p>Choose a segment from the current inventory.</p>

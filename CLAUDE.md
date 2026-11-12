@@ -17,8 +17,12 @@ Development" (Software Development, Maintenance & Operations).
 ## Sprint 2 dashboard work
 
 Before planning, implementing or reviewing Sprint 2 dashboard work, read
-`docs/sprints/sprint-2/SPRINT_GOAL.md` for the credibility-first priority,
-metric evidence gate and current delivery state. Read
+`docs/sprints/sprint-2/SPRINT_GOAL.md` for the customer-reporting priority,
+customer/data-class metric contract, 2027 deadline and 2028 replacement conflict,
+implementation gates and current delivery state. Use its requirement mapping
+and `docs/sprints/sprint-2/BACKLOG.md` to select next work. Earlier credibility
+features and their checks are foundations, not acceptance of the corrected
+customer requirements. Read
 `docs/sprints/sprint-2/USER_UNDERSTANDING_EXPERIMENT.md` when conducting or
 reporting comprehension evaluation, and `docs/sprints/sprint-2/TEAM_REVIEW.md`
 when recording group decisions. Attribute discussion drafts, actual participant
@@ -30,8 +34,13 @@ affected instructions. Repository documentation is English.
 
 The implemented indicator audit uses `summarize().evidence` and
 `createEvidenceReport()` in `dashboard/model.mjs`; keep reporting rules shared
-with role views. Read `docs/sprints/sprint-2/VERIFICATION.md` before reporting
-current delivery evidence. Use the participant kit in the experiment record for
+with role views. Customer quantities and deadline gaps use `createCustomerReport()`;
+`createEvidenceReport(snapshot, now, customerId)` retains the selected customer
+and shared clock. The default fixture is `dashboard/fixtures/customer-snapshot.json`;
+legacy snapshots explicitly lack customer reporting. Preserve these boundaries
+when extending the report. Read `docs/sprints/sprint-2/VERIFICATION.md` before reporting
+dated delivery evidence, distinguishing baseline checks from new customer-scope
+verification. Use the participant kit in the experiment record for
 actual understanding sessions; source checks and browser role walks establish
 technical behavior only.
 

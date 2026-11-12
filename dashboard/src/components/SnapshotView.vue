@@ -1,5 +1,5 @@
 <script setup>
-import { clockTime, downloadEvidence, importFile, resetDemo, state, summary } from '../dashboard.js';
+import { clockTime, customerReport, downloadEvidence, importFile, resetDemo, state, summary } from '../dashboard.js';
 import { utc } from '../display.js';
 import AppIcon from './AppIcon.vue';
 import PagedText from './PagedText.vue';
@@ -26,8 +26,9 @@ import PagedText from './PagedText.vue';
       <strong>{{ state.source }} · {{ summary.total }} segments</strong>
       <span>{{ state.clock === 'snapshot' ? 'Snapshot clock' : 'Current evaluation' }} · <time>{{ utc(clockTime) }}</time></span>
       <span>{{ summary.stale }} stale segments with a 24-hour limit.</span>
+      <span>{{ customerReport.available ? 'Customer mapping available. Open the customer report for scope and class quantities.' : customerReport.reason }}</span>
       <small>File contents stay in this browser session.</small>
     </div>
-    <div class="focus-footer"><RouterLink class="text-link" :to="{ name: 'overview' }">Open overview <AppIcon name="arrow" /></RouterLink></div>
+    <div class="focus-footer"><RouterLink class="text-link" :to="{ name: 'customer' }">Open customer report <AppIcon name="arrow" /></RouterLink></div>
   </section>
 </template>

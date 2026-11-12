@@ -1,10 +1,15 @@
 # Sprint 2 LLM output evaluation
 
-This register records AI-generated planning and rehearsal work. Student
+This register records AI-generated planning, implementation and rehearsal work. Student
 evaluation and teacher/PO acceptance remain pending. Scope authority:
 [Sprint goal](SPRINT_GOAL.md). Related records: [backlog](BACKLOG.md),
 [risk and decision log](RISK_AND_DECISION_LOG.md),
 [team review](TEAM_REVIEW.md) and [verification](VERIFICATION.md).
+
+Current planning authority is the corrected Sprint goal: the largest customer's
+reporting and migration changes come first. AI-S2-001 and AI-S2-002 remain
+historical evidence for the earlier indicator-credibility increment; they do
+not demonstrate fulfillment of the newly identified customer requirements.
 
 ## Significant interaction register
 
@@ -67,6 +72,63 @@ found no actionable source/model issue. Five screenshots and the downloaded
 JSON are retained under `evidence/`. Six valid scenario files, one invalid
 example and a response sheet support actual sessions; human results remain
 uncollected.
+
+### AI-S2-003: correction against the course Sprint 2 requirements
+
+| Field | Recorded evidence / state |
+| --- | --- |
+| Date and authority | 12 November 2026; user requested that GOAL and backlog be corrected first, with a comprehensive goal usable for the next stage |
+| Source context | Course `PQC_Scrum_Project_Sprint2_pdf.pdf`, pages 3-5; `Human_factors_persona_cards.pdf`; `Human_factors_project_instructions.pdf`; current goal, backlog and product baseline e371940 |
+| Finding | The earlier goal prioritized generic credibility and comprehension work but omitted the largest customer's changed reporting scope, HNDL exposure by data class, the 2027-12-31 migration obligation and an initial customer report structure |
+| Selected correction | Make the customer-facing requirement change the product priority; preserve traceability and verification as supporting foundations; specify keep/change/drop decisions, persona impacts, group dynamics, Jira evidence and course deliverables |
+| Work and ownership | Integrating AI revises SPRINT_GOAL.md and reconciles entry-point references; backlog agent revises BACKLOG.md; record agent updates this register and RISK_AND_DECISION_LOG.md under exclusive ownership |
+| Scope and outputs | Documentation correction only: corrected goal/backlog and affected references/process records. No new customer-report code, GitHub push, Jira update or stakeholder acceptance is established by this batch |
+| Story continuity | Preserve S2-US-01 through S2-US-05 and their existing evidence. Introduce S2-US-06 customer data/class exposure, S2-US-07 deadline gap, S2-US-08 customer report and S2-US-09 revised persona decisions; new work remains to implement |
+| Metric review requirement | Distinct logical customer data items must not be confused with segment counts or data volume. Keep unknown class, incomplete paths and evidence uncertainty visible and reconcile class totals |
+| Deadline review requirement | All segments carrying customer data are in scope for 2027-12-31, including short-lived telemetry and approved fallback; the persona's 2028 replacement timing is an explicit conflict to resolve or escalate |
+| Human-factors review requirement | Record actual changes to persona trade-offs and group communication, disagreement, decisions and retrospective actions. AI preparation does not supply member experiences or team/PO approval |
+| Verification boundary | The earlier 17/17 model tests and 11/11 comparisons remain baseline evidence. Final document consistency, links and whitespace are checked by the integrating agent; no new product verification is claimed here |
+| Integrated document checks | Passed on 2026-11-12: seven changed Markdown files only, 52 local links, R1-R8 coverage, retained US-01 through US-09 and T-01 through T-06 identifiers, key contract/deadline markers and git diff whitespace check. GOAL/backlog were read together to reconcile report/export, plan-date and legacy-import acceptance conditions; runtime tests were not rerun for this documentation-only batch |
+| Student and PO evaluation | Pending named student review, actual findings and planning/PO confirmation of the corrected scope |
+
+The course deadline is 18 November 2026 at 23:59 Finnish time. The general
+instructions require a 500-word sprint report, five-minute video and PDF of the
+slides used, alongside the working increment and Jira/process evidence. An
+initial customer report structure is due at the next review; its actual meeting
+date is not supplied. No extra customer PDF export format is inferred.
+
+### AI-S2-004: customer-reporting implementation against the corrected GOAL
+
+| Field | Recorded evidence / state |
+| --- | --- |
+| Date and authority | 12 November 2026; user requested Sprint 2 construction against GOAL and GitHub push after completion |
+| Context | Corrected SPRINT_GOAL.md/BACKLOG.md, supplied course-source requirements, existing Vue dashboard/model/tests and pre-existing planning edits |
+| Work and exclusive ownership | Integrating AI owns UI, assembled verification and entry-point documentation; customer-model AI owns model and new customer fixture; test AI owns new customer tests and independent expectations; record AI owns backlog, risk/decisions, this register, retrospective, team agenda and comprehension protocol |
+| Selected scope | Explicit customer/item/class/path metadata; reconciled potential-exposure/unresolved/reported-PQC quantities; all-customer-connection 2027 gap and 2028 conflict; initial report and shared role/export evidence |
+| Evaluation checks required | Customer isolation and unknown ownership; repeated/shared paths without double counting; invalid/incomplete data; class reconciliation; lifetime/expected-versus-suspected fallback; freshness/future/empty cases; plan dates on either side of the deadline; legacy import/reset; same-clock report/export and role workflows |
+| Current technical state | Integrating agent reports 39/39 tests (17 legacy + 22 new), 44-module production build and 11/11 legacy scenario comparisons passed; scoped browser checks verified six-item 2/2/2 totals, unchanged filtered denominators, current-clock 2/4/0, separate customer selection/export, legacy unavailable state, invalid rejection/reset and three role workflows. Exact evidence belongs in VERIFICATION.md |
+| Process preparation | Customer-focused review questions, role tasks and retrospective follow-up prepared; US-01/02/06-09 technically implemented/verified; actual Jira/estimates/assignments and human feedback remain pending |
+| Student evaluation and acceptance | Pending named student review and actual findings; technical AI review cannot establish student evaluation or teacher/PO acceptance |
+| Push boundary | User authorized GitHub push; record the actual pushed revision and outcome after verification, not from this planning entry |
+
+AI review and corrections in this build: the scoped 390 × 844 browser check
+found report-width overflow; grid-column changes were checked, including
+keyboard horizontal-table access and Enter to open details. Required segment
+IDs were presented as a set instead of implying unrecorded route order with
+arrows. At 1440 × 900 the customer/role flows were checked. These are observed
+technical behaviors, not measured human comprehension or a broad accessibility
+claim. A downloaded CUS-OTHER evidence bundle retained only that selected
+customer's report, the same clock and SEG-006 association. Legacy input retained
+62.5% all-system segment share while explicitly lacking customer report scope.
+
+Final production-preview confirmation supplied by the integrating agent: the
+44-module build loaded `assets/index-Dqnu7a78.js` and rendered the same six-item
+2/2/2 customer totals. Scoped browser error logs were empty. At 390 × 844, body
+width was 390px and the report's scroll/client widths were both 345px, with no
+page horizontal overflow observed. Production desktop/mobile screenshots and
+actual Northfield/other-customer browser JSON downloads are retained under
+`evidence/`; VERIFICATION.md identifies their provenance and limits. This does
+not close actual student review, Jira, human feedback or PO acceptance.
 
 ## Evaluation criteria and follow-up
 

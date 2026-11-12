@@ -1,11 +1,49 @@
 # Sprint 2 retrospective actions and follow-up
 
-Baseline: 12 November 2026. The user confirms the group priority of indicator
-credibility first. No Sprint 2 retrospective meeting, action-owner agreement or
+Baseline: 12 November 2026. The earlier user-confirmed indicator-credibility
+priority is historical; the corrected goal prioritizes customer reporting. No Sprint 2 retrospective meeting, action-owner agreement or
 human study outcome has been supplied. The actions below are proposals for
 tracking and discussion under the [Sprint goal](SPRINT_GOAL.md).
 
-## Proposed carry-forward actions
+## Customer-change follow-up
+
+The corrected goal changes the work to which the carry-forward actions apply.
+Record accepted/revised/rejected/deferred outcomes at the actual retrospective;
+none is inferred from implementation. The four source actions remain linked
+below, with customer-focused completion questions:
+
+| Action | Revised review question | Required next-Sprint follow-up |
+| --- | --- | --- |
+| RA-S2-01 | Were customer scope, logical-item units, full paths, class totals and uncertainty agreed and independently checked before report acceptance? | Actual rule decisions and unresolved questions; owner/target after agreement |
+| RA-S2-02 | Can one changed customer story be traced through requirement, code, evaluation, test/browser evidence and real Jira state? | Inspect actual evidence and record what helped or failed |
+| RA-S2-03 | Did integrated report/roles/export preserve scope, clock and totals, including deadline conflicts and legacy imports? | Record observed defect, correction and regression outcome |
+| RA-S2-04 | Could actual reviewers explain class exposure and the 2027/2028 conflict without coaching? | First responses and assistance if sessions occur; otherwise retain pending |
+
+Discuss how the new requirement affected role allocation, work coordination,
+decisions, disagreements and feelings. Compare actual observations with the
+previous Sprint; a completed technical task alone does not show process
+improvement. Enter agreed actions in Jira with an acknowledged owner, due date,
+completion criterion and next-Sprint review. Record real keys only after entry.
+
+### Customer build follow-through evidence
+
+The integrating agent supplied the following technical evidence on 12 November
+2026. It supports review of the proposed actions; no student retrospective
+agreement or observed process improvement is inferred.
+
+| Action | Actual activity / evidence supplied | Remaining human/process evidence |
+| --- | --- | --- |
+| RA-S2-01 | Shared customer contract/model, independent expected counts and 39/39 tests; six items reconcile as 2/2/2 | Actual rule review and acceptance of the logical-item quantity unit |
+| RA-S2-02 | Bounded model/test/record ownership; parent integrated UI and actual checks, preserving requirement/story/evaluation links | Student evidence inspection, real Jira links and acknowledged assignments |
+| RA-S2-03 | 44-module build, 11/11 legacy comparisons, scoped desktop/mobile/keyboard/import/reset/export and role flows; width-overflow defect corrected | Actual team review, residual risk decisions and next-Sprint actions |
+| RA-S2-04 | Customer-focused CUS-01 through CUS-06 protocol and independent expectations ready | Actual unaided responses, assisted answers and change-effect evidence |
+
+Final production preview was also checked by the integrating agent: the built
+asset loaded, totals stayed 2/2/2, scoped error logs were empty and the 390px
+layout had no page horizontal overflow. This extends technical follow-through
+only; meeting outcomes and next-Sprint action effectiveness remain pending.
+
+## Proposed carry-forward actions (historical wording)
 
 The source is the [Sprint 1 retrospective record](../sprint-1/RETROSPECTIVE_ACTIONS.md).
 Its RA-S1-01 through RA-S1-04 were proposals; inclusion here does not change
@@ -31,7 +69,7 @@ The [verification record](VERIFICATION.md) holds the integrating agent's actual
 technical results and their limits. Technical comparisons and model tests must
 not be reported as a completed retrospective or a human study.
 
-## Development follow-through evidence
+## Earlier development follow-through evidence
 
 | Related action | Activity observed in this development batch | Evidence boundary |
 | --- | --- | --- |

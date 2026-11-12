@@ -14,29 +14,42 @@
 Project: **Legacy System Modernization for PQC & LLM-Assisted Development**
 Course: Software Development, Maintenance & Operations
 
-## Sprint 2: Indicator credibility and user understanding
+## Sprint 2: Customer reporting and the 2027 migration target
 
-The group priority confirmed by the user is **indicator credibility first**:
-make coverage, segment scope, unknown handling, freshness and status reasons
-traceable and independently checkable, then evaluate understanding across the
-security, migration and executive roles. The
+The corrected priority is **the key customer's changed reporting and migration
+requirements**: show potential HNDL exposure by data class, identify all customer
+connections requiring PQC key establishment by 31 December 2027, expose the
+conflict with 2028 replacements, and demonstrate an initial customer report.
+Indicator credibility supports these outcomes. The
 [Sprint 2 goal and delivery record](docs/sprints/sprint-2/SPRINT_GOAL.md)
-defines the ordered proposal, evidence gate and acceptance boundaries.
+defines the data and metric contract, report structure, implementation gates,
+persona outcomes, human-factors evidence and course deliverables. The
+[backlog](docs/sprints/sprint-2/BACKLOG.md) maps requirements to ordered stories
+and keep/change/drop decisions.
 
-Current state: **Sprint 2 indicator evidence features implemented and technically
-verified; human evaluation and team/PO acceptance pending.** Open Indicators
-from the sidebar (or the overview's trace link) to inspect the formula, source
-records, clocks and all coexisting evidence conditions. Export evidence JSON
-from Indicators or Dataset to retain the source snapshot, reporting rules and
-evaluation time. Connection details now include path context; filtered inventory
-keeps global coverage explicit. The model suite passed 17/17 tests, the production
-build passed and 11/11 scenario comparisons passed. Browser walkthroughs include
-desktop and 390px layouts, imports, error recovery, export and the three roles.
+Current state: **customer reporting implemented and technically verified;
+team/PO acceptance remains pending.** The default Customer page shows six
+distinct logical data items: two potentially exposed, two unresolved and two
+reported PQC. Class totals, confidentiality assumptions, unknown ownership and
+incomplete paths remain visible. Nine required connections include a missing
+record and a 2028 replacement conflict. These item quantities are separate from
+the all-system 5/8 segment share; they do not estimate traffic volume.
+
+Sarah, Michael and Emma use the same customer scope, clock and rules. Inspect
+item/connection evidence, switch customers or export the report with its source
+snapshot and versioned methodology. Legacy snapshots retain all-system views
+and explicitly lack customer reporting. Reset restores the customer demo.
+Verification passed: **39/39 tests**, **11/11 legacy scenario comparisons**,
+production build and scoped desktop/390px browser checks including filtering,
+clocks, import/recovery, actual downloads, roles and keyboard controls.
 See the [experiment](docs/sprints/sprint-2/USER_UNDERSTANDING_EXPERIMENT.md),
 [verification](docs/sprints/sprint-2/VERIFICATION.md) and
 [group discussion record](docs/sprints/sprint-2/TEAM_REVIEW.md).
-Sprint 2 Jira mapping, estimates, assignments, dates and course submission
-requirements await confirmation. Dashboard startup commands below still apply.
+Sprint 2 Jira updates, estimates,
+assignments, actual human feedback and team/PO acceptance remain pending.
+The course submission is due 18 November 2026 at 23:59 Finnish time and includes
+an approximately 500-word report, five-minute video and PDF of slides used.
+Dashboard startup commands below still apply.
 
 ## Sprint 1: PQC Security Monitoring Dashboard
 

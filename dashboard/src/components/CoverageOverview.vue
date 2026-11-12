@@ -5,7 +5,7 @@ import { utc } from '../display.js';
 import AppIcon from './AppIcon.vue';
 
 const legend = computed(() => [
-  { id: 'pqc', title: 'PQC protected', value: summary.value.pqc },
+  { id: 'pqc', title: 'Reported PQC', value: summary.value.pqc },
   { id: 'fallback', title: 'Classical fallback', value: summary.value.fallback },
   { id: 'unknown', title: 'Unknown', value: summary.value.unknown },
 ]);
@@ -49,7 +49,7 @@ const arcs = computed(() => {
           <p class="coverage-note">{{ summary.pqc }} / {{ summary.total }} segments × 100. Unknown segments count toward the total.</p>
         </div>
       </div>
-      <RouterLink class="text-link coverage-audit-link" :to="{ name: 'indicators' }">Trace calculation &amp; evidence</RouterLink>
+      <div class="coverage-audit-link"><RouterLink class="text-link" :to="{ name: 'customer' }">Customer exposure report</RouterLink> · <RouterLink class="text-link" :to="{ name: 'indicators' }">Trace segment calculation</RouterLink></div>
     </section>
 
     <section class="panel status-card">

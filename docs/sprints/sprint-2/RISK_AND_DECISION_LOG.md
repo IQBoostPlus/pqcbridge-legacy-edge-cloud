@@ -1,7 +1,14 @@
 # Sprint 2 risk and decision log
 
 Baseline: **12 November 2026**. Authority: [Sprint goal](SPRINT_GOAL.md).
-The user confirmed indicator credibility first as a group discussion decision;
+Current priority: respond to the largest customer's changed reporting and
+migration requirements, as defined in the corrected Sprint goal and backlog.
+The earlier credibility-first priority below is retained as planning history;
+S2-D-10 supersedes it as the Sprint's product priority. Indicator credibility
+remains supporting work. Earlier discussion, experiment and retrospective
+records must be read against the corrected goal when selecting next work.
+
+The user previously confirmed indicator credibility first as a group discussion decision;
 the actual meeting date, attendance and detailed minutes are unspecified.
 Formal team commitments, human experiment results and PO acceptance remain
 open. The planning batch prepared records and AI rehearsal evidence; the user
@@ -40,6 +47,16 @@ protocol, successful model check or proposed owner does not close a risk.
 | S2-D-07 | Keep local backlog and process proposals until real Jira/team actions occur | Current evidence boundary | Avoids invented issue keys, estimates, assignments, dates and acceptance | BACKLOG.md; verify future transfer and actual meeting outcomes |
 | S2-D-08 | Extend the existing shared model with evidence membership/reasons and a reproducible JSON report | Implementation choice under the user's Sprint 2 development authorization | Preserves existing calculations while exposing the records, clock and rules behind conclusions; exported data remains synthetic | S2-US-01/02; final tests and report checks in VERIFICATION.md |
 | S2-D-09 | Make denominator, reporting time, concurrent evidence concerns and segment context visible in the existing UI | Implementation choice addressing source-observed traceability gaps | Connects existing model rules to evidence a reader can inspect; no new scoring or protocol behavior | S2-US-01/04; verify actual rendered behavior before claiming completion |
+| S2-D-10 | Correct the Sprint goal and backlog around the largest customer's changed requirements | User authorized this planning correction after comparison with the course Sprint 2 PDF, pages 3-5, on 2026-11-12; team/PO review remains pending | Customer scope, HNDL exposure by data class, the 2027-12-31 deadline, an initial report structure and documented response to change become the primary work; S2-D-01 remains historical supporting rationale | Corrected SPRINT_GOAL.md and BACKLOG.md; new S2-US-06 through S2-US-09 are not implemented by this documentation batch |
+
+### Customer-build decisions — 12 November 2026
+
+| ID | Decision / authority | Rationale / verification gate |
+| --- | --- | --- |
+| S2-D-11 | User authorized construction against the corrected goal and a GitHub push after verification | Implement customer-scoped class exposure, deadline gap, initial report and changed role decisions; product verification precedes push |
+| S2-D-12 | Extend synthetic schema with explicit customer/item/path/plan metadata while retaining the legacy indicator input | Avoid inferring a customer from global segments; a legacy input without customer metadata must report customer scope unavailable; verify import/reset and invalid recovery |
+| S2-D-13 | Use shared reporting calculations for the report, roles and exported evidence | Deduplicate item/path references, retain three reconciled categories and simultaneous quality flags, use one clock and versioned rules; independent expectations and browser checks required |
+| S2-D-14 | Surface the 2027 deadline and relevant 2028 replacement as a decision conflict | Report proposed options and operational consequence without invented acceptance, budget or an exemption for fallback/telemetry; plan-date evidence is separate from observed current status |
 
 Existing coverage, 24-hour freshness and overall-precedence rules are inherited
 prototype behavior for review. Recording them does not establish a new team or
@@ -55,8 +72,43 @@ acceptance of these detailed rules.
 | 2026-11-12 / delegated record preparation | Ordered stories, acceptance criteria, risks and decision boundaries drafted under exclusive file ownership | Parent integration and verification recorded in LLM_EVALUATION.md and VERIFICATION.md; actual participant and PO evidence remains separate |
 | 2026-11-12 / implementation authorized | User requested development against the Sprint goal; D-08/D-09 document bounded implementation choices | Existing dirty planning records retained; scope limited to synthetic dashboard traceability and experiment support |
 | 2026-11-12 / integrated technical verification | Integrating agent observed 17/17 model tests, 11/11 comparisons, production build (42 modules), desktop/mobile walkthrough and browser JSON export | Technical readiness recorded; actual human comprehension, contract approval and PO acceptance remain open |
+| 2026-11-12 / course requirement correction | Source review found that the earlier goal omitted the customer's changed requirements; user requested corrected GOAL and backlog | Planning correction only; baseline tests and technical evidence do not establish delivery of the new customer requirements |
 
-## Implementation findings and residual risks
+## Risks introduced by the customer requirement change
+
+The source is `PQC_Scrum_Project_Sprint2_pdf.pdf`, pages 3-5, supplemented by
+the persona cards and general project instructions. These risks take priority
+when planning the corrected increment. Owners and estimates require actual
+team assignment; no risk is closed by rewriting the plan.
+
+| ID | Risk and effect | Likelihood / impact | Mitigation and required evidence | Related work |
+| --- | --- | --- | --- | --- |
+| S2-R-10 | Unscoped global connection totals are presented as the largest customer's exposure | High / High | Identify the synthetic customer and map each customer data item to all required connection segments; demonstrate that unrelated customer records do not affect the report | S2-US-06, S2-US-08 |
+| S2-R-11 | Counting segments or repeated paths double-counts data and misstates how much is exposed | High / High | Use the goal's distinct logical data-item unit and customer/class denominator; reconcile unique items and show exposed, reported-PQC and unresolved buckets separately | S2-US-01/02, S2-US-06 |
+| S2-R-12 | Missing class, path or observation evidence is excluded or silently treated as protected | Medium / High | Keep Unknown class and unresolved items visible, retain uncertainty alongside known exposure, and test missing/incomplete/stale/future evidence explicitly | S2-US-02, S2-US-06, S2-US-08 |
+| S2-R-13 | A 2028 legacy replacement plan appears compatible with the new 2027-12-31 obligation | High / High | Flag the scheduling conflict for every affected customer-carrying segment, including short-lived telemetry and approved exceptions; record options, business consequences and decisions without claiming completed production migration | S2-US-07, S2-US-09 |
+| S2-R-14 | Existing technical checks or AI role walkthroughs are taken as acceptance of the revised customer report and human-factors requirements | Medium / High | Retain 17/17 tests and 11/11 comparisons as baseline evidence for e371940 only; add customer/class/deadline/report checks and obtain attributable team/PO feedback and actual group reflection | S2-US-02, S2-US-08/09 and process tasks |
+| S2-R-15 | Technical work displaces reprioritization, Jira evidence and required course deliverables | Medium / High | Record keep/change/drop rationale and actual planning/role/retrospective decisions; prepare the 500-word report, five-minute video and slides-used PDF against the 2026-11-18 23:59 Finnish-time submission deadline | Process tasks and corrected completion checklist |
+
+## Customer build risk follow-up
+
+S2-R-10 through S2-R-14 now have customer-scoped technical mitigation evidence:
+the integrating agent reports 39/39 tests, a 44-module build and 11/11 legacy
+comparisons, plus desktop/mobile/keyboard, import/reset, role and export checks.
+Six known customer items reconcile as 2 exposed + 2 unresolved + 2 reported PQC;
+filtering did not alter totals, and the unrelated customer's selection/export
+remained separate. Current-clock evidence gave 2 exposed + 4 unresolved + 0
+reported PQC. Legacy metadata absence stayed unavailable; invalid input was
+rejected. A 390 × 844 width-overflow defect was corrected and checked; unordered
+required segment IDs no longer imply an observed route order. Exact evidence
+belong in VERIFICATION.md. Final production preview loaded the built asset,
+retained the same 2/2/2 totals and had empty scoped error logs; 390px production
+layout had equal report scroll/client widths and no page horizontal overflow. Scope completeness, rule
+acceptance, data-quantity unit review and actual persona comprehension remain limitations after technical
+checks. S2-R-15 remains open until actual Jira/process evidence and course
+artifacts/submission are complete.
+
+## Earlier implementation findings and residual risks
 
 The integrating agent identified source-level presentation gaps: the coverage
 formula was hidden on mobile, the headline did not show simultaneous unknown

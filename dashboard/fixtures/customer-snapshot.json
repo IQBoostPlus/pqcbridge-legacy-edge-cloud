@@ -1,0 +1,274 @@
+{
+  "schemaVersion": 1,
+  "synthetic": true,
+  "title": "Northfield Energy customer report \u2014 synthetic Sprint 2 snapshot",
+  "snapshotAt": "2026-11-08T04:00:00Z",
+  "connections": [
+    {
+      "id": "SEG-001",
+      "device": "Pump station A",
+      "segment": "device-to-gateway",
+      "keyEstablishment": "ECDH-P256",
+      "status": "fallback",
+      "fallbackKind": "expected",
+      "reason": "Registered legacy controller cannot use ML-KEM; approved-demo exception scenario.",
+      "observedAt": "2026-11-08T03:55:00Z",
+      "blocker": "Certified replacement expected in 2028; procurement review needed.",
+      "confidentiality": "Synthetic operating telemetry assumed sensitive for 3 days; validate this assumption with the asset owner.",
+      "impact": "Disabling this connection would remove pump monitoring.",
+      "action": "Review the exception lifetime and replacement plan with security and operations."
+    },
+    {
+      "id": "SEG-002",
+      "device": "Pump station A",
+      "segment": "gateway-to-cloud",
+      "keyEstablishment": "ML-KEM-768",
+      "status": "pqc",
+      "fallbackKind": "none",
+      "reason": "Synthetic gateway segment reports ML-KEM-768; the device segment remains classical.",
+      "observedAt": "2026-11-08T03:55:00Z",
+      "blocker": "None reported for this segment.",
+      "confidentiality": "Synthetic telemetry assumption: 3 days; only this segment is reported migrated.",
+      "impact": "Cloud forwarding remains available in the scenario.",
+      "action": "Keep segment-level status separate from the device's complete path."
+    },
+    {
+      "id": "SEG-003",
+      "device": "Valve controller B",
+      "segment": "device-to-gateway",
+      "keyEstablishment": "ML-KEM-768",
+      "status": "pqc",
+      "fallbackKind": "none",
+      "reason": "Synthetic modern controller reports ML-KEM-768.",
+      "observedAt": "2026-11-08T03:50:00Z",
+      "blocker": "None reported for this segment.",
+      "confidentiality": "Synthetic maintenance data assumed sensitive for 1 year.",
+      "impact": "Valve telemetry remains available in the scenario.",
+      "action": "Retain migration evidence and confirm the inventory."
+    },
+    {
+      "id": "SEG-004",
+      "device": "Valve controller B",
+      "segment": "gateway-to-cloud",
+      "keyEstablishment": "ML-KEM-768",
+      "status": "pqc",
+      "fallbackKind": "none",
+      "reason": "Synthetic cloud link reports ML-KEM-768.",
+      "observedAt": "2026-11-08T03:50:00Z",
+      "blocker": "None reported for this segment.",
+      "confidentiality": "Synthetic maintenance data assumed sensitive for 1 year.",
+      "impact": "Central monitoring receives the scenario's valve data.",
+      "action": "Continue inventory and observation reviews."
+    },
+    {
+      "id": "SEG-005",
+      "device": "Environmental sensor C",
+      "segment": "device-to-gateway",
+      "keyEstablishment": "ML-KEM-768",
+      "status": "pqc",
+      "fallbackKind": "none",
+      "reason": "Synthetic replacement sensor reports ML-KEM-768.",
+      "observedAt": "2026-11-08T03:45:00Z",
+      "blocker": "None reported for this segment.",
+      "confidentiality": "Synthetic environmental readings assumed sensitive for 7 days.",
+      "impact": "Environmental monitoring remains available in the scenario.",
+      "action": "Confirm asset-owner assumptions during review."
+    },
+    {
+      "id": "SEG-006",
+      "device": "Environmental sensor C",
+      "segment": "gateway-to-cloud",
+      "keyEstablishment": "ML-KEM-768",
+      "status": "pqc",
+      "fallbackKind": "none",
+      "reason": "Synthetic cloud link reports ML-KEM-768.",
+      "observedAt": "2026-11-08T03:45:00Z",
+      "blocker": "None reported for this segment.",
+      "confidentiality": "Synthetic environmental readings assumed sensitive for 7 days.",
+      "impact": "Cloud analytics receives scenario readings.",
+      "action": "Keep evidence current; no automatic security assurance is inferred."
+    },
+    {
+      "id": "SEG-007",
+      "device": "Pressure controller D",
+      "segment": "device-to-gateway",
+      "keyEstablishment": "ECDH-P256",
+      "status": "fallback",
+      "fallbackKind": "suspected",
+      "reason": "Synthetic event: inventory says ML-KEM capable, but this segment reports unplanned ECDH-P256 after a policy change. Cause unconfirmed.",
+      "observedAt": "2026-11-08T03:58:00Z",
+      "blocker": "Investigate policy change before approving migration completion.",
+      "confidentiality": "Synthetic configuration data assumed sensitive for 5 years, making future-decryption exposure relevant.",
+      "impact": "A policy defect or downgrade could expose long-lived configuration data; automatic disconnection could interrupt pressure monitoring.",
+      "action": "Investigate the policy change, verify capabilities and escalate evidence to the security officer."
+    },
+    {
+      "id": "SEG-008",
+      "device": "Remote meter E",
+      "segment": "device-to-gateway",
+      "keyEstablishment": "unknown",
+      "status": "unknown",
+      "fallbackKind": "unknown",
+      "reason": "Synthetic inventory entry has no verified key-establishment observation.",
+      "observedAt": "2026-11-08T03:40:00Z",
+      "blocker": "Unknown; assign an inventory and device-capability check.",
+      "confidentiality": "Unknown; asset owner must establish the confidentiality lifetime.",
+      "impact": "Missing evidence prevents a reliable migration commitment.",
+      "action": "Confirm device capabilities and data sensitivity before assigning protection status."
+    }
+  ],
+  "provenance": "AI-authored synthetic scenario for Sprint 2; legacy segment evidence retained, customer mappings and plans are illustrative and unapproved.",
+  "customerReporting": {
+    "keyCustomerId": "CUS-NORTH",
+    "inventoryComplete": true,
+    "customers": [
+      {
+        "id": "CUS-NORTH",
+        "name": "Northfield Energy (synthetic key customer)"
+      },
+      {
+        "id": "CUS-OTHER",
+        "name": "Other customer (synthetic)"
+      }
+    ],
+    "dataItems": [
+      {
+        "customerId": "CUS-NORTH",
+        "dataItemId": "DATA-T01",
+        "dataClass": "Operational telemetry",
+        "confidentiality": "Assumed sensitive for 3 days; short life does not exempt the 2027 target.",
+        "observedAt": "2026-11-08T03:59:00Z",
+        "requiredSegmentIds": [
+          "SEG-001",
+          "SEG-002",
+          "SEG-001"
+        ],
+        "mappingComplete": true
+      },
+      {
+        "customerId": "CUS-NORTH",
+        "dataItemId": "DATA-T01",
+        "dataClass": "Operational telemetry",
+        "confidentiality": "Assumed sensitive for 3 days; short life does not exempt the 2027 target.",
+        "observedAt": "2026-11-08T03:59:00Z",
+        "requiredSegmentIds": [
+          "SEG-002"
+        ],
+        "mappingComplete": true
+      },
+      {
+        "customerId": "CUS-NORTH",
+        "dataItemId": "DATA-T02",
+        "dataClass": "Operational telemetry",
+        "confidentiality": "Assumed sensitive for 7 days; validate with the asset owner.",
+        "observedAt": "2026-11-08T03:59:00Z",
+        "requiredSegmentIds": [
+          "SEG-005",
+          "SEG-006"
+        ],
+        "mappingComplete": true
+      },
+      {
+        "customerId": "CUS-NORTH",
+        "dataItemId": "DATA-C01",
+        "dataClass": "Configuration",
+        "confidentiality": "Assumed sensitive for 5 years; future decryption is relevant.",
+        "observedAt": "2026-11-08T03:59:00Z",
+        "requiredSegmentIds": [
+          "SEG-007",
+          "SEG-002"
+        ],
+        "mappingComplete": true
+      },
+      {
+        "customerId": "CUS-NORTH",
+        "dataItemId": "DATA-C02",
+        "dataClass": "Configuration",
+        "confidentiality": "Assumed sensitive for 5 years; protection evidence is incomplete.",
+        "observedAt": "2026-11-08T03:59:00Z",
+        "requiredSegmentIds": [
+          "SEG-008",
+          "SEG-002"
+        ],
+        "mappingComplete": true
+      },
+      {
+        "customerId": "CUS-NORTH",
+        "dataItemId": "DATA-M01",
+        "dataClass": "Maintenance",
+        "confidentiality": "Assumed sensitive for 1 year; validate with the asset owner.",
+        "observedAt": "2026-11-08T03:59:00Z",
+        "requiredSegmentIds": [
+          "SEG-003",
+          "SEG-004"
+        ],
+        "mappingComplete": true
+      },
+      {
+        "customerId": "CUS-NORTH",
+        "dataItemId": "DATA-U01",
+        "dataClass": null,
+        "confidentiality": "Unknown lifetime and class; classification required.",
+        "observedAt": "2026-11-08T03:59:00Z",
+        "requiredSegmentIds": [
+          "SEG-009"
+        ],
+        "mappingComplete": false
+      },
+      {
+        "customerId": "CUS-OTHER",
+        "dataItemId": "DATA-OTHER",
+        "dataClass": "Operational telemetry",
+        "confidentiality": "Unrelated synthetic customer; excluded from Northfield totals.",
+        "observedAt": "2026-11-08T03:59:00Z",
+        "requiredSegmentIds": [
+          "SEG-006"
+        ],
+        "mappingComplete": true
+      },
+      {
+        "customerId": null,
+        "dataItemId": "DATA-UNATTR",
+        "dataClass": null,
+        "confidentiality": "Unknown customer and lifetime; ownership verification required.",
+        "observedAt": "2026-11-08T03:59:00Z",
+        "requiredSegmentIds": [
+          "SEG-002"
+        ],
+        "mappingComplete": true
+      }
+    ],
+    "plans": [
+      {
+        "segmentId": "SEG-001",
+        "plannedMigrationDate": "2028-06-30",
+        "replacementDate": "2028-06-30",
+        "blocker": "Certified replacement is not expected until 2028.",
+        "consequence": "Stopping the legacy connection removes pump monitoring; no extra budget is assumed.",
+        "action": "Investigate earlier certification or a validated alternative, then escalate continuity/budget/contract choices. No option is approved.",
+        "owner": null,
+        "targetDate": null
+      },
+      {
+        "segmentId": "SEG-007",
+        "plannedMigrationDate": "2027-12-31",
+        "replacementDate": null,
+        "blocker": "Unconfirmed policy change; investigation is required.",
+        "consequence": "Automatic isolation could interrupt pressure monitoring.",
+        "action": "Investigate policy/capabilities and propose a verified recovery plan; do not claim completion from the target date.",
+        "owner": null,
+        "targetDate": null
+      },
+      {
+        "segmentId": "SEG-008",
+        "plannedMigrationDate": null,
+        "replacementDate": null,
+        "blocker": "Inventory and device capability not verified.",
+        "consequence": "Unknown readiness prevents a reliable customer commitment.",
+        "action": "Confirm capabilities, ownership and complete customer path.",
+        "owner": null,
+        "targetDate": null
+      }
+    ]
+  }
+}

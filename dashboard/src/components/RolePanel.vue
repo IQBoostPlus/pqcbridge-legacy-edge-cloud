@@ -1,10 +1,11 @@
 <script setup>
 import { computed, ref } from 'vue';
-import { state, summary } from '../dashboard.js';
+import { customerReport, state, summary } from '../dashboard.js';
 import { segmentLabels } from '../display.js';
 import AppIcon from './AppIcon.vue';
 import PageStepper from './PageStepper.vue';
 import PagedText from './PagedText.vue';
+import CustomerReport from './CustomerReport.vue';
 
 const props = defineProps({ role: { type: String, required: true } });
 const active = ref(0);
@@ -46,7 +47,8 @@ function protectionLabel(row) {
 </script>
 
 <template>
-  <div class="role-layout">
+  <CustomerReport v-if="customerReport.available" :role="role" />
+  <div v-else class="role-layout">
     <div class="role-brief">
       <div class="avatar" aria-hidden="true">{{ copy[role][0][0] }}</div>
       <div><strong>{{ copy[role][0] }}</strong><span>{{ copy[role][1] }}</span><p>{{ copy[role][2] }}</p></div>

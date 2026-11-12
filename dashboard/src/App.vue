@@ -7,9 +7,9 @@ import AppIcon from './components/AppIcon.vue';
 
 const route = useRoute();
 const main = ref(null);
-const mainNav = destinations.slice(0, 5);
-const tools = destinations.slice(5);
-const canRender = computed(() => summary.value || ['snapshot', 'methodology', 'indicators'].includes(route.name));
+const mainNav = destinations.slice(0, 6);
+const tools = destinations.slice(6);
+const canRender = computed(() => summary.value || ['customer', 'snapshot', 'methodology', 'indicators'].includes(route.name));
 let timer;
 
 watch(() => state.clock, () => { state.time = Date.now(); });
@@ -28,7 +28,7 @@ onUnmounted(() => window.clearInterval(timer));
   <div class="console">
     <a class="skip-link" href="#main" @click.prevent="main.focus()">Skip to content</a>
     <header class="brand-bar">
-      <RouterLink :to="{ name: 'overview' }" class="brand">
+      <RouterLink :to="{ name: 'customer' }" class="brand">
         <span class="brand-mark"><AppIcon name="logo" /></span>
         <span>PQC <strong>Bridge</strong><small>Migration console</small></span>
       </RouterLink>
