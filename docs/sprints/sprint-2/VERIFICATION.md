@@ -3,8 +3,10 @@
 Current delivery: the corrected customer report, class quantities, deadline
 gap and persona workflows are implemented and technically checked. See the
 **Customer reporting increment** section below for current evidence; earlier
-sections retain their historical scope. Actual human comprehension, Jira,
-course submission and team/PO acceptance remain pending.
+sections retain their historical scope. Jira upload and final checks are
+recorded below and in [JIRA_UPLOAD.md](JIRA_UPLOAD.md). Actual human comprehension,
+course submission and teacher/PO acceptance remain pending. Group endorsement
+of the review conclusions was confirmed by the user on 13 November 2026.
 
 ## Planning batch (historical baseline)
 
@@ -276,3 +278,47 @@ Product commit `7f14cddc35f0ed555fd86ab58ed3ce07b8abed99` was pushed to
 that exact commit after the successful push. This receipt is a documentation-only
 follow-up; the tested product sources and build are unchanged. The owned local
 preview server was stopped after verification.
+
+## Group confirmation update — 13 November 2026
+
+The user reports that the group approved the cross-perspective review conclusions.
+Group endorsement of the report/evidence interpretation, current metric basis,
+customer-first scope and keep/change/drop direction is confirmed. Historical
+entries retain their original date; pending group-endorsement wording is
+superseded by this update for those conclusions.
+
+This is a status/documentation update. No new product tests or participant
+sessions were conducted. Teacher/PO acceptance, measured comprehension,
+individual observations, actual Jira changes and course submission retain
+their separate evidence states.
+
+## Jira transfer and final UI checks - 13 November 2026
+
+All nine stories and six process tasks were created in existing SCRUM Sprint 2
+(ID 3) as SCRUM-15 through SCRUM-29. The board was reloaded after creation,
+confirming fifteen unique items; Sprint 1 retained its ten existing items.
+The corrected Sprint goal was visible after reload. Final task-list readback
+confirmed 8 In Review, 4 In Progress and 3 To Do. Priorities were 8 High and
+7 Medium; assignees, estimates and dates were not invented. Sprint 2 remains
+unstarted.
+
+Five malformed implementation hrefs in SCRUM-19 through SCRUM-23 were repaired
+from the prepared backlog descriptions and read back after save, checking the
+exact commit target and a single local-ID/acceptance-criteria section. All ten
+direct product dependencies were saved and read back in the four predecessor
+panels; SCRUM-17 also showed the expected reciprocal prerequisite links.
+The final board task list matched all fifteen mappings and statuses.
+
+The full mapping, dependency directions, recovery details and screenshot are in
+[JIRA_UPLOAD.md](JIRA_UPLOAD.md). The screenshot shows the Sprint and visible
+rows; the lower rows were checked through the page task list. These are Jira UI
+and documentation checks, not additional runtime tests, participant sessions,
+teacher/PO acceptance or evidence of course submission. No product code changed.
+
+Local integration checks reconciled all fifteen saved task-list rows with the
+prepared mapping, workflow state and priority, and confirmed unassigned/no
+estimate values. All fifteen keys/statuses match the backlog and upload receipt.
+The ten-edge dependency graph has no duplicate edges or cycles. All 112 local
+Markdown file links checked across the Sprint 2 records and both README files
+resolve; the 1699 x 882 JPEG screenshot is readable. Markdown whitespace checks
+passed. Runtime tests were not repeated for this documentation-only update.

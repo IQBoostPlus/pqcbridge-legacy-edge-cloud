@@ -1,7 +1,9 @@
 # Sprint 2 LLM output evaluation
 
-This register records AI-generated planning, implementation and rehearsal work. Student
-evaluation and teacher/PO acceptance remain pending. Scope authority:
+This register records AI-generated planning, implementation and review work.
+Group endorsement of the review conclusions is confirmed by the user on
+13 November 2026. Named individual evaluations and teacher/PO acceptance
+retain their separate evidence states. Scope authority:
 [Sprint goal](SPRINT_GOAL.md). Related records: [backlog](BACKLOG.md),
 [risk and decision log](RISK_AND_DECISION_LOG.md),
 [team review](TEAM_REVIEW.md) and [verification](VERIFICATION.md).
@@ -129,6 +131,54 @@ page horizontal overflow observed. Production desktop/mobile screenshots and
 actual Northfield/other-customer browser JSON downloads are retained under
 `evidence/`; VERIFICATION.md identifies their provenance and limits. This does
 not close actual student review, Jira, human feedback or PO acceptance.
+
+### AI-S2-005: cross-perspective review and discussion record
+
+| Field | Recorded evidence / state |
+| --- | --- |
+| Date and task | 12 November 2026; prepare a subagent discussion and review record for the current Sprint 2 increment |
+| Reviewed product | Implementation commit `7f14cddc35f0ed555fd86ab58ed3ce07b8abed99`; documentation receipt at `4cf3e9e9b5371bd881ada382a5519682b17d621b` |
+| Review method | Three AI subagents reviewed security/evidence, operations/customer needs and Scrum/change response. They exchanged challenges on quantity units and the minimum review outcome; the process reviewer recorded the synthesis under exclusive TEAM_REVIEW.md ownership |
+| Sources evaluated | Corrected GOAL/backlog, model, customer fixture/tests, CustomerReport.vue, existing verification, team and retrospective records |
+| Security evaluation | Six equal-weight logical items reconcile as 2 exposed + 2 unresolved + 2 reported PQC; unknown ownership and missing paths prevent complete-customer claims; stale evidence and suspected downgrade require qualifications |
+| Operations evaluation | Nine required connections are 2 classical + 5 reported current PQC + 2 unresolved; seven absent migration plans are a separate measure. The 2028/2027 conflict requires investigation/escalation, not assumed funding, feasibility or a waiver |
+| Process evaluation | Recommend a populated report for PO consideration; preserve keep/change/drop rationale and actual process follow-up. A formal external-user study or a solved procurement programme is not added as a Sprint review prerequisite |
+| Converged recommendation | Present the declared inventory position with limitations; ask the PO whether item counts suffice for the initial report or whether volume, unit, reporting window and source must be specified |
+| Outputs | Cross-perspective findings, proposed decisions, unresolved PO questions and evidence-based follow-up in TEAM_REVIEW.md |
+| Verification performed | Read-only source and record review; the earlier 39/39 tests, build and browser checks were inspected as recorded evidence, not rerun or relabeled as new human results. Final document checks are performed at integration |
+| Evaluation boundary | Findings are AI-assisted analytical recommendations. Actual group responses, accepted assignments, Jira actions, user-understanding measurements and teacher/PO approval retain their existing evidence states |
+
+No product code or course-submission artifact was changed by this review batch.
+
+### AI-S2-006: group endorsement recorded
+
+| Field | Current evidence / state |
+| --- | --- |
+| Date and source | 13 November 2026; the user reports that the group approved the review conclusions |
+| Confirmed scope | Customer-first priority, report/evidence interpretation, current logical-item metric with stated limitations, keep/change/drop rationale and follow-up direction |
+| Record update | TEAM_REVIEW, GOAL, backlog, risks, retrospective, experiment/verification status and README references now distinguish confirmed group endorsement from independent unfinished work |
+| Provenance | AI-S2-005 remains the analytical source; the user's report supplies subsequent group endorsement. No member quotations, attendance or scores are inferred |
+| Outstanding evidence | Actual teacher/PO response, named role/estimate values, Jira mutations, session measurements, individual process observations and course submission |
+| Checks | Documentation consistency, links and whitespace only; no product or participant tests performed in this update |
+
+### AI-S2-007: Jira upload, repair and final checks
+
+| Field | Recorded evidence / state |
+| --- | --- |
+| Date and authority | 13 November 2026; user authorized Jira upload/retry and final status, link and dependency checks, then writing actual keys back to project records |
+| Inputs | Corrected GOAL/backlog, implementation evidence, confirmed group endorsement and fifteen prepared source records |
+| Method | Connected Edge Jira UI; first four items through Create, eleven through in-product Rovo preview/create; no direct hidden API or browser security-setting changes |
+| Creation evaluation | Rovo callback reported an invocation-format error after the creation success. Creation was not repeated; reloaded board verified fifteen unique items in existing Sprint 2 ID 3, preventing duplicate creation |
+| Corrections | Five implementation hrefs contained encoded line-break/Records text; original descriptions were restored and read back with one local-ID/criteria marker and the correct commit href. A rich-editor append was detected and replaced before saving |
+| Workflow and dependencies | Actual states individually checked and reconciled in the final task list: 8 In Review, 4 In Progress, 3 To Do; ten directed blocks links saved and read back, including reciprocal prerequisite checks on SCRUM-17 |
+| UI recovery | A dropdown intercepted the first Link click and selected an unwanted target; the editor was corrected/cancelled, then the proper link set was saved and verified. A Sprint 1 date dialog was cancelled without changes |
+| Output | SCRUM-15 through SCRUM-29 mapped to local IDs in BACKLOG.md and JIRA_UPLOAD.md, with screenshot and dependency list |
+| Verification boundary | Jira UI/documentation verification only; no new runtime tests, participant data, individual experiences, teacher/PO approval or course submission inferred. Owners, estimates and dates remain blank |
+| Student evaluation | Upload/repair evidence is available for group review; AI execution does not by itself establish student evaluation or teacher/PO acceptance |
+
+The earlier entries preserve their dated scope. Their pending Jira-transfer
+statements are superseded by this verified upload event, not by creation
+attempts or AI assertions alone.
 
 ## Evaluation criteria and follow-up
 

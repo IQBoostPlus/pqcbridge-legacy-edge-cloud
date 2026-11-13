@@ -10,8 +10,10 @@ records must be read against the corrected goal when selecting next work.
 
 The user previously confirmed indicator credibility first as a group discussion decision;
 the actual meeting date, attendance and detailed minutes are unspecified.
-Formal team commitments, human experiment results and PO acceptance remain
-open. The planning batch prepared records and AI rehearsal evidence; the user
+The group endorsed the review conclusions on 13 November 2026, as reported
+by the user; scope, metric interpretation and keep/change/drop direction are
+confirmed. Named commitments, human experiment results and PO acceptance
+remain open. The planning batch prepared records and AI rehearsal evidence; the user
 subsequently authorized development according to the Sprint goal.
 
 ## Initial risks
@@ -57,6 +59,15 @@ protocol, successful model check or proposed owner does not close a risk.
 | S2-D-12 | Extend synthetic schema with explicit customer/item/path/plan metadata while retaining the legacy indicator input | Avoid inferring a customer from global segments; a legacy input without customer metadata must report customer scope unavailable; verify import/reset and invalid recovery |
 | S2-D-13 | Use shared reporting calculations for the report, roles and exported evidence | Deduplicate item/path references, retain three reconciled categories and simultaneous quality flags, use one clock and versioned rules; independent expectations and browser checks required |
 | S2-D-14 | Surface the 2027 deadline and relevant 2028 replacement as a decision conflict | Report proposed options and operational consequence without invented acceptance, budget or an exemption for fallback/telemetry; plan-date evidence is separate from observed current status |
+
+### Group confirmation — 13 November 2026
+
+| ID | Decision / authority | Result and boundary |
+| --- | --- | --- |
+| S2-D-15 | Group endorsement of cross-perspective review conclusions, reported by the user on 2026-11-13 | Customer-first direction, current metric interpretation and keep/change/drop rationale confirmed internally. Present report v1 and retain the PO quantity-unit question; investigate/escalate the 2028/2027 gap. Risk occurrence, mitigation execution, funding/waivers and PO approval are not inferred |
+
+Historical planning entries below describe their state at the time; S2-D-15
+supersedes pending group-endorsement wording for the endorsed conclusions.
 
 Existing coverage, 24-hour freshness and overall-precedence rules are inherited
 prototype behavior for review. Recording them does not establish a new team or
@@ -138,3 +149,16 @@ in [TEAM_REVIEW.md](TEAM_REVIEW.md), generated-output evaluation in
 [LLM_EVALUATION.md](LLM_EVALUATION.md) and carry-over outcomes in
 [RETROSPECTIVE_ACTIONS.md](RETROSPECTIVE_ACTIONS.md). Do not infer risk closure
 or human acceptance from the existence of these artifacts.
+
+## Jira evidence update - 13 November 2026
+
+The user authorized Sprint 2 upload and final checks. Fifteen real items
+SCRUM-15 through SCRUM-29 are in Sprint 2 ID 3; final states are 8 In Review,
+4 In Progress and 3 To Do. Ten directed dependencies were saved and read back.
+Five malformed implementation hrefs were corrected. See the exact mapping and
+UI evidence in [JIRA_UPLOAD.md](JIRA_UPLOAD.md).
+
+This supplies the actual Jira-transfer part of S2-R-08 and S2-R-15. Both retain
+residual process risk: assignments, estimates, dates, individual observations,
+teacher/PO decisions and course delivery require their own evidence. No risk
+is closed solely by uploading its tracking item.

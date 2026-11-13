@@ -28,7 +28,8 @@ persona outcomes, human-factors evidence and course deliverables. The
 and keep/change/drop decisions.
 
 Current state: **customer reporting implemented and technically verified;
-team/PO acceptance remains pending.** The default Customer page shows six
+group review conclusions confirmed on 13 November 2026; PO acceptance pending.**
+The default Customer page shows six
 distinct logical data items: two potentially exposed, two unresolved and two
 reported PQC. Class totals, confidentiality assumptions, unknown ownership and
 incomplete paths remain visible. Nine required connections include a missing
@@ -45,8 +46,12 @@ clocks, import/recovery, actual downloads, roles and keyboard controls.
 See the [experiment](docs/sprints/sprint-2/USER_UNDERSTANDING_EXPERIMENT.md),
 [verification](docs/sprints/sprint-2/VERIFICATION.md) and
 [group discussion record](docs/sprints/sprint-2/TEAM_REVIEW.md).
-Sprint 2 Jira updates, estimates,
-assignments, actual human feedback and team/PO acceptance remain pending.
+Sprint 2 Jira upload is complete: **15 items (SCRUM-15 through SCRUM-29)** and
+ten directed dependencies, checked on 13 November 2026. The
+[upload record](docs/sprints/sprint-2/JIRA_UPLOAD.md) contains actual keys and
+statuses (8 In Review, 4 In Progress, 3 To Do). Estimates, assignments, formal
+Sprint dates, individual session responses and teacher/PO acceptance remain
+pending. Group endorsement of the review conclusions is confirmed by the user.
 The course submission is due 18 November 2026 at 23:59 Finnish time and includes
 an approximately 500-word report, five-minute video and PDF of slides used.
 Dashboard startup commands below still apply.

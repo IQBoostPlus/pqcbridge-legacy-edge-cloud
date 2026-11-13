@@ -25,18 +25,31 @@ reported PQC; nine required segments include missing evidence and a 2028
 replacement conflict. [VERIFICATION.md](VERIFICATION.md) records the evidence
 and limitations; [BACKLOG.md](BACKLOG.md) separates technical state from acceptance.
 
-Next work is actual team rule/role/estimate confirmation, Jira updates, customer
-report demonstration with PO feedback, group-dynamics/retrospective observations
-and course submission artifacts. These have no completion claim from the build.
-R1-R4/R6 have technical evidence; R5/R7 have prepared local records and require
-actual process evidence; R8 and formal team/PO acceptance remain pending.
+On **13 November 2026**, the user reported that the group endorsed the review
+conclusions, customer-first scope, metric interpretation and keep/change/drop
+rationale. Internal group endorsement of those conclusions is **confirmed**;
+see [TEAM_REVIEW.md](TEAM_REVIEW.md).
+
+On **13 November 2026**, all 15 backlog items were uploaded to SCRUM Sprint 2
+(ID 3), with actual statuses, source links and ten directed dependencies
+checked. See [JIRA_UPLOAD.md](JIRA_UPLOAD.md) and [BACKLOG.md](BACKLOG.md):
+8 In Review, 4 In Progress and 3 To Do; none Done.
+
+Next work is acknowledged roles/estimates, formal Sprint/review dates, report demonstration
+with teacher/PO feedback, individual group-dynamics/retrospective observations
+and course submission artifacts. R1-R4/R6 have technical evidence with the
+review conclusions endorsed by the group; R5/R7 have confirmed direction but
+need remaining process/execution evidence. R8 and teacher/PO acceptance remain
+pending.
 
 ## Authority, sources and dates
 
 Corrected on **12 November 2026**, following the user's instruction to align
 GOAL and backlog with the actual course requirements. This authorizes the
 planning correction; formal teacher/Product Owner acceptance, team estimates,
-assignment acknowledgement and Jira updates remain separate.
+assignment acknowledgement and Jira execution remain separately evidenced.
+The completed Jira transfer is recorded above; its completion does not approve
+the product or close the process/submission tasks.
 
 Authoritative supplied course sources:
 
@@ -236,7 +249,8 @@ Definition of Done: product stories demonstrate R1-R4/R6 through verified data,
 tests and browser evidence; process tasks supply R5/R7/R8 with actual Jira,
 meeting, evaluation and artifact evidence. Keep unresolved business decisions
 and scope uncertainty explicit. Record team/PO acceptance only when received.
-Owners, estimates, Jira keys and review outcomes remain to be confirmed; the
+Jira keys/statuses are now verified. Owners, estimates, formal dates and
+teacher/PO review outcomes remain to be confirmed; the
 product contract above is concrete enough for the next implementation stage.
 
 ## Supporting records and current status
@@ -263,3 +277,5 @@ Repository documentation is English.
 | 2026-11-12 / course-source audit | Sprint 2 PDF revealed missing customer/class/deadline/change-response requirements; previous checks do not satisfy them |
 | 2026-11-12 / correction | User requested comprehensive next-stage GOAL/backlog; R1-R8 and acceptance contract defined; customer features and formal process/submission evidence pending |
 | 2026-11-12 / customer increment | User authorized build and GitHub push; R1-R4/R6 technically implemented and checked; actual process/submission and team/PO acceptance remain pending |
+| 2026-11-13 / group endorsement | User reports group approval of the review conclusions; scope, metric interpretation and keep/change/drop direction confirmed internally; teacher/PO acceptance and independent execution evidence remain separate |
+| 2026-11-13 / Jira upload completed | Fifteen real items SCRUM-15 through SCRUM-29, actual statuses, corrected source hrefs and ten directed dependency links verified; Sprint remains unstarted with blank dates/estimates and no inferred assignees or acceptance |

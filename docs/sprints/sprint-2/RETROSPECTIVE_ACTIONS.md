@@ -1,9 +1,28 @@
 # Sprint 2 retrospective actions and follow-up
 
 Baseline: 12 November 2026. The earlier user-confirmed indicator-credibility
-priority is historical; the corrected goal prioritizes customer reporting. No Sprint 2 retrospective meeting, action-owner agreement or
-human study outcome has been supplied. The actions below are proposals for
-tracking and discussion under the [Sprint goal](SPRINT_GOAL.md).
+priority is historical; the corrected goal prioritizes customer reporting.
+On 13 November 2026 the user confirmed group endorsement of the review
+conclusions and follow-up direction. This internal endorsement is confirmed;
+actual retrospective meeting details, acknowledged action owners and measured
+human-study outcomes have not been supplied. See the [Sprint goal](SPRINT_GOAL.md).
+
+## Confirmed follow-up direction — 13 November 2026
+
+The group endorses prioritizing the customer report, keeping traceable shared
+rules and verification, separating item quantities from segment/plan counts,
+and retaining the deadline conflict and PO quantity-unit question. These
+conclusions are accepted for follow-up. Owners, due dates, future action tickets,
+individual retrospective observations and improvement outcomes remain separate.
+Earlier tables preserve historical proposal states; this confirmation supersedes
+pending endorsement of the review direction without claiming execution.
+
+On 13 November 2026 the existing fifteen backlog items were uploaded and their
+statuses and ten dependencies checked; see [JIRA_UPLOAD.md](JIRA_UPLOAD.md).
+S2-US-05 is [SCRUM-23](https://tacczy.atlassian.net/browse/SCRUM-23) (In Progress),
+and review/retrospective task S2-T-04 is
+[SCRUM-27](https://tacczy.atlassian.net/browse/SCRUM-27) (To Do). These tracking
+items do not establish retrospective outcomes or separate agreed action tickets.
 
 ## Customer-change follow-up
 
@@ -33,7 +52,7 @@ agreement or observed process improvement is inferred.
 
 | Action | Actual activity / evidence supplied | Remaining human/process evidence |
 | --- | --- | --- |
-| RA-S2-01 | Shared customer contract/model, independent expected counts and 39/39 tests; six items reconcile as 2/2/2 | Actual rule review and acceptance of the logical-item quantity unit |
+| RA-S2-01 | Shared customer contract/model, independent expected counts and 39/39 tests; six items reconcile as 2/2/2 | Group rule conclusions confirmed on 2026-11-13; PO quantity-unit decision remains separate |
 | RA-S2-02 | Bounded model/test/record ownership; parent integrated UI and actual checks, preserving requirement/story/evaluation links | Student evidence inspection, real Jira links and acknowledged assignments |
 | RA-S2-03 | 44-module build, 11/11 legacy comparisons, scoped desktop/mobile/keyboard/import/reset/export and role flows; width-overflow defect corrected | Actual team review, residual risk decisions and next-Sprint actions |
 | RA-S2-04 | Customer-focused CUS-01 through CUS-06 protocol and independent expectations ready | Actual unaided responses, assisted answers and change-effect evidence |
@@ -91,7 +110,7 @@ student observations and accepted actions at the meeting below.
 | What helped, with concrete participant observations | Pending |
 | What impeded work, with concrete participant observations | Pending |
 | Stakeholder interpretation or communication differences | Pending actual participant evidence |
-| Actions accepted, revised or rejected, with reasons | Pending team decision |
+| Actions accepted, revised or rejected, with reasons | Review conclusions and follow-up direction confirmed by the group on 2026-11-13; action-specific execution decisions and owners not supplied |
 | Owner, due date, Jira key and completion criterion | Pending team assignment |
 | Follow-up evidence and observed improvement | Pending execution and review |
 

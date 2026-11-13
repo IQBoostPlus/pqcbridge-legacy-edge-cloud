@@ -3,8 +3,32 @@
 Baseline: 12 November 2026. Scope: [Sprint goal](SPRINT_GOAL.md).
 The earlier indicator-credibility decision is retained as history below.
 The corrected goal now prioritizes customer reporting and the changed migration
-target. The agenda prepares questions for review;
-actual member responses, participation and acceptance remain pending.
+target. **Group endorsement of the review conclusions is confirmed**, reported
+by the user on 13 November 2026. Individual responses and teacher/PO feedback
+retain their own evidence states.
+
+## Confirmed group endorsement — 13 November 2026
+
+The user reports that the group approved the cross-perspective review conclusions.
+This confirms the group's endorsement of the customer-first priority, evidence
+interpretation, keep/change/drop rationale and proposed follow-up direction.
+The logical-item metric is accepted by the group as the current report basis,
+including its limitations and the open PO question about whether volume is
+required. The group also endorses reporting the 2028/2027 conflict and
+investigating or escalating options without assuming funding or a waiver.
+
+| Confirmation item | Current state |
+| --- | --- |
+| Cross-perspective review conclusions | Confirmed by group, reported by the user on 2026-11-13 |
+| Customer-first scope and keep/change/drop rationale | Confirmed by group |
+| Interpretation of six data items, nine required segments and seven missing plans | Confirmed by group; these remain distinct quantities |
+| Current metric rules, limitations and presentation of report v1 | Confirmed by group; teacher/PO acceptance remains separate |
+| Follow-up direction for the deadline conflict and review questions | Confirmed by group; execution and business authorization are not inferred |
+
+This decision supersedes earlier pending group-endorsement wording for these
+conclusions. It is a user-reported group decision. Meeting attendance, individual
+statements, experiment scores, role/estimate values, Jira changes, procurement
+decisions and teacher/PO approval have not been supplied by this confirmation.
 
 ## Membership and roles
 
@@ -13,6 +37,72 @@ The five-member roster is carried from the user-supplied
 provide context for the discussion draft, not confirmed Sprint 2 assignments.
 The proposal for Valerii Lebedev to act as Sprint 2 Scrum Master remains subject
 to team confirmation. The teacher retains the Product Owner role.
+
+## Cross-perspective review findings — 12 November 2026
+
+This AI-assisted implementation review examined product commit `7f14cdd`
+from security/evidence, migration/customer-reporting and Scrum/change
+perspectives. It records analytical findings and proposed decisions, with
+provenance in [LLM interaction AI-S2-005](LLM_EVALUATION.md). The review used
+the goal, backlog, implementation, fixture and existing
+[verification evidence](VERIFICATION.md); it did not conduct new participant
+sessions or establish student agreement or teacher/PO acceptance.
+
+### Findings and exchanged challenges
+
+| Perspective | Finding | Challenge raised and resulting recommendation |
+| --- | --- | --- |
+| Security and evidence | The default six logical items reconcile to two potential HNDL, two unresolved and two reported PQC. Unknown ownership and missing SEG-009 prevent a complete-customer claim. Suspected downgrade requires investigation and does not establish an attack. | The process perspective asked what minimum explanation supports a review recommendation. The security response proposed a short demonstration of quantities, scope uncertainty, time and suspected-downgrade limits; it did not require an external study or score threshold. |
+| Migration and customer reporting | SEG-001's 2028-06-30 replacement/migration timing conflicts with the proposed 2027-12-31 target. Loss of pump monitoring is a service-continuity consequence, not evidence that an alternative is feasible. | The process perspective asked whether the Sprint must solve procurement. The operations response supported showing the gap, consequences and investigation/escalation options now, with funding, feasibility and any customer exception unresolved. |
+| Scrum and change response | The implemented increment and documented technical checks support presenting report v1. Bounded AI model/test/record ownership and observed corrections are workflow evidence; they do not establish student coordination outcomes or acceptance. | The reviewers converged on keeping the review bounded to the required customer outcome. Actual team decisions, Jira activity, retrospective observations and PO feedback remain necessary evidence for the corresponding process tasks. |
+
+The quantity-unit question remains open for PO review: **do counts and
+proportions of distinct logical data items adequately answer how much customer
+data is exposed in the initial report?** These quantities describe a declared
+inventory of streams/assets. They do not estimate byte volume, traffic share,
+attack probability or financial loss. If a volume measure is requested, define
+its unit, observation window and source data explicitly before changing the
+backlog or reporting a value.
+
+Keep the three reporting quantities distinct:
+
+- **Customer data:** six unique attributed items = 2 exposed + 2 unresolved +
+  2 reported PQC. DATA-UNATTR remains outside attributed totals and limits
+  inventory completeness.
+- **Required connections:** nine unique segment references = 2 classical gaps +
+  5 reported current PQC + 2 unresolved (unknown SEG-008 and missing SEG-009)
+  under the historical reporting clock.
+- **Planning:** seven of those connections have no recorded migration plan.
+  SEG-001 has a late plan and replacement; SEG-007 has an on-deadline plan.
+  Missing plans are not seven classical connections, and a plan is not migration
+  completion.
+
+### Confirmed direction and follow-up actions
+
+Keep shared rules, source traceability, clocks, validation and evidence export.
+Keep customer reporting and the 2027 gap ahead of generic polish. Change any
+claim that uses global segment share as customer-data exposure. Drop generic
+JSON export as sufficient evidence of a completed customer report. Defer a
+bespoke PDF exporter, broad redesign and expanded comprehension research unless
+actual review findings justify them. The group endorsed this direction on
+13 November 2026. These recommendations preserve the
+corrected backlog scope and add no new course or release requirement.
+
+| Follow-up action | Completion evidence | Owner / status |
+| --- | --- | --- |
+| Present report v1 for PO consideration | Demonstrated class quantities, unknown scope, evidence trace and deadline conflict; actual PO response recorded | Direction confirmed by group; execution owner unassigned |
+| Confirm the quantity unit | PO response accepting logical-item quantities, or a clarified volume/unit/window requirement entered in the backlog | Unassigned; pending decision |
+| Investigate or escalate the 2028/2027 gap | Alternatives, continuity/budget constraints and actual authorized decision; unknown feasibility or funding stays explicit | Direction confirmed by group; execution owner unassigned |
+| Confirm keep/change/drop and Scrum planning | Actual team/PO decisions, roles/rotation, estimates and assignments linked to verified Jira items | Group keep/change/drop confirmed; fifteen Jira items and ten dependencies verified 2026-11-13 in JIRA_UPLOAD.md; roles and estimates remain pending |
+| Follow through retrospective actions | Actual observations, adopted actions, completion criteria and next-Sprint follow-up recorded | Unassigned; pending actual review |
+| Complete existing course submission tasks | Checked report, video, slides-used PDF and actual submission evidence as required by the goal | Unassigned; pending delivery |
+
+The group has confirmed the recommendation to demonstrate the technically
+checked increment and seek PO decisions on scope, metric unit and migration
+trade-offs. The original AI findings establish no member attendance, personal
+response, comprehension score or PO acceptance. Subsequent group endorsement
+comes from the user's report above. Remaining actual-review fields have their
+own evidence states.
 
 ## Current customer-change review agenda
 
@@ -46,7 +136,7 @@ changes to real Jira items and next-Sprint retrospective follow-up.
 | Corrected scope and implementation authority | User requested comprehensive GOAL/backlog correction, then development and GitHub push |
 | Meeting date, channel, actual participants and facilitator | Pending actual review |
 | Product vision/stakeholder analysis reviewed | Pending actual review and reference |
-| Keep/change/drop decisions and rationale | Planning baseline in BACKLOG.md; actual team/PO response pending |
+| Keep/change/drop decisions and rationale | Confirmed by group on 2026-11-13, as reported by the user; PO response separate |
 | Changed workload, communication, disagreements and emotions | Pending attributable member observations |
 | Actual first answers and assistance | Pending; use the customer protocol in USER_UNDERSTANDING_EXPERIMENT.md |
 | Scrum Master rotation, acknowledged assignments and estimates | Pending actual planning |
@@ -95,9 +185,9 @@ teacher/PO acceptance.
 | Priority decision | User reports group agreement to place indicator credibility first |
 | Meeting date, channel, attendees and facilitator | Not supplied |
 | Human experiment sessions and unaided answers | Not collected in this batch |
-| Member feedback, disagreements and adopted changes | Pending actual discussion; the questions above remain proposals |
-| Sprint 2 owners, estimates, dates and Jira keys | Pending team planning and actual Jira entry |
-| Team acceptance and conditions | Pending |
+| Member feedback, disagreements and adopted changes | Group endorsement of review conclusions confirmed on 2026-11-13; individual comments and disagreements not supplied |
+| Sprint 2 owners, estimates, dates and Jira keys | Jira entry verified 2026-11-13: SCRUM-15 through SCRUM-29; see JIRA_UPLOAD.md. Owners, estimates and formal dates remain pending |
+| Team acceptance and conditions | Confirmed for the cross-perspective review conclusions on 2026-11-13; see the current endorsement record |
 | Teacher/PO feedback and acceptance | Pending |
 
 For a real review, record each participant's task, unaided response, explanation

@@ -11,9 +11,18 @@ technical checks cover that foundation only. Customer identification, data-class
 HNDL quantities, the 2027 gap and the first customer report are **not implemented**
 by that revision. Existing story IDs retain links to historical evidence.
 
-Actual Sprint 2 Jira transfer, estimates, assignment acknowledgements, Sprint
-dates and teacher/Product Owner acceptance remain pending. Record owners,
-estimates and real Jira keys/statuses during team planning. The course deadline
+**Group endorsement confirmed on 13 November 2026:** the user reports approval
+of the review conclusions, customer-first scope, current metric interpretation
+and keep/change/drop rationale. Earlier pending group-review statements are
+superseded for these conclusions; teacher/PO approval remains separate. See
+[TEAM_REVIEW.md](TEAM_REVIEW.md) for the dated confirmation.
+
+Sprint 2 Jira transfer was completed and checked on **13 November 2026**:
+15 items in SCRUM Sprint 2 (ID 3), 8 In Review / 4 In Progress / 3 To Do, with
+ten directed dependency links. Actual keys and statuses are recorded below;
+see [JIRA_UPLOAD.md](JIRA_UPLOAD.md) for the verified mapping and evidence.
+Estimates, assignment acknowledgements, formal Sprint dates and teacher/Product
+Owner acceptance remain pending. The course deadline
 is **18 November 2026, 23:59 Finnish time**, separate from the customer's
 **31 December 2027** PQC target.
 
@@ -28,8 +37,9 @@ production preview loaded the built asset, retained 2/2/2 totals and had empty
 scoped error logs; the 390px layout had no page horizontal overflow. The actual
 pushed revision and final delivery evidence belong in
 [VERIFICATION.md](VERIFICATION.md).
-Jira activity, actual group feedback, PO acceptance and course submission
-remain separate pending evidence.
+That build did not establish Jira activity or acceptance. The dated Jira
+transfer above and the group confirmation are later events; teacher/PO
+acceptance, actual session results and course submission remain separate.
 
 ## Prioritized stories
 
@@ -40,15 +50,15 @@ evaluation and conditional improvements.
 
 | Local ID | Summary | Priority / order | Dependencies | Current local state | Jira key / status |
 | --- | --- | --- | --- | --- | --- |
-| S2-US-06 | Define key-customer scope and quantify HNDL exposure by class | P1 / 1 | Customer contract and synthetic fixtures | Implemented; technical checks passed; human/PO acceptance pending | Not transferred / unknown |
-| S2-US-01 | Extend the traceable indicator contract to customer reporting | P1 / 1, alongside US-06 | Existing foundation; rules agreed before acceptance | Customer extension implemented; technical checks passed; team rule review pending | Not transferred / unknown |
-| S2-US-07 | Show the 2027 migration gap and 2028 replacement conflict | P1 / 2 | US-06 scope and US-01 rules | Implemented; technical checks passed; human/PO acceptance pending | Not transferred / unknown |
-| S2-US-08 | Deliver first customer report structure and populated review example | P1 / outline starts immediately; populated report 3 | US-06, US-07 and US-02 checks | Implemented; technical checks passed; human/PO acceptance pending | Not transferred / unknown |
-| S2-US-09 | Update stakeholder views for changed customer decisions | P1 / 3, alongside report | US-06 and US-07 | Implemented; technical checks passed; human/PO acceptance pending | Not transferred / unknown |
-| S2-US-02 | Independently verify quantities, deadline and report | P1 / each increment; final gate 4 | Agreed contract and changed features | 39/39 tests; build/scenarios/browser checks passed; human acceptance pending | Not transferred / unknown |
-| S2-US-03 | Evaluate comprehension across stakeholder roles | P2 / after verified report | Relevant US-02 checks | Protocol and AI rehearsal prepared; human results pending | Not transferred / unknown |
-| S2-US-04 | Correct evidence-supported usability problems | P2 / conditional | Reproducible defects or actual review findings | Mobile report overflow corrected and checked; human effect unmeasured | Not transferred / unknown |
-| S2-US-05 | Verify process improvements carried from Sprint 1 | Throughout; close at retrospective | Actual team decisions and outcomes | Records exist; human retrospective outcomes pending | Not transferred / unknown |
+| S2-US-06 | Define key-customer scope and quantify HNDL exposure by class | P1 / 1 | Customer contract and synthetic fixtures | Implemented; technical checks passed; group review conclusions confirmed 2026-11-13; PO acceptance pending | [SCRUM-15](https://tacczy.atlassian.net/browse/SCRUM-15) / In Review |
+| S2-US-01 | Extend the traceable indicator contract to customer reporting | P1 / 1, alongside US-06 | Existing foundation; rules agreed before acceptance | Customer extension implemented; technical checks passed; group rule conclusions confirmed 2026-11-13; PO acceptance pending | [SCRUM-16](https://tacczy.atlassian.net/browse/SCRUM-16) / In Review |
+| S2-US-07 | Show the 2027 migration gap and 2028 replacement conflict | P1 / 2 | US-06 scope and US-01 rules | Implemented; technical checks passed; group review conclusions confirmed 2026-11-13; PO acceptance pending | [SCRUM-17](https://tacczy.atlassian.net/browse/SCRUM-17) / In Review |
+| S2-US-08 | Deliver first customer report structure and populated review example | P1 / outline starts immediately; populated report 3 | US-06, US-07 and US-02 checks | Implemented; technical checks passed; group review conclusions confirmed 2026-11-13; PO acceptance pending | [SCRUM-18](https://tacczy.atlassian.net/browse/SCRUM-18) / In Review |
+| S2-US-09 | Update stakeholder views for changed customer decisions | P1 / 3, alongside report | US-06 and US-07 | Implemented; technical checks passed; group review conclusions confirmed 2026-11-13; PO acceptance pending | [SCRUM-19](https://tacczy.atlassian.net/browse/SCRUM-19) / In Review |
+| S2-US-02 | Independently verify quantities, deadline and report | P1 / each increment; final gate 4 | Agreed contract and changed features | 39/39 tests; build/scenarios/browser checks passed; group evidence conclusions confirmed; PO acceptance pending | [SCRUM-20](https://tacczy.atlassian.net/browse/SCRUM-20) / In Review |
+| S2-US-03 | Evaluate comprehension across stakeholder roles | P2 / after verified report | Relevant US-02 checks | Protocol and AI rehearsal prepared; human results pending | [SCRUM-21](https://tacczy.atlassian.net/browse/SCRUM-21) / To Do |
+| S2-US-04 | Correct evidence-supported usability problems | P2 / conditional | Reproducible defects or actual review findings | Mobile report overflow corrected and checked; human effect unmeasured | [SCRUM-22](https://tacczy.atlassian.net/browse/SCRUM-22) / In Review |
+| S2-US-05 | Verify process improvements carried from Sprint 1 | Throughout; close at retrospective | Actual team decisions and outcomes | Review conclusions and follow-up direction confirmed by group; execution and observed retrospective outcomes pending | [SCRUM-23](https://tacczy.atlassian.net/browse/SCRUM-23) / In Progress |
 
 ### S2-US-06: Customer scope and HNDL quantities by class
 
@@ -113,7 +123,7 @@ Acceptance criteria:
    alone do not establish comprehension or Product Owner acceptance.
 
 State: generic traceability/export implemented at `e371940`; customer extension
-implemented and technically checked; team rule review pending. Evidence: [VERIFICATION.md](VERIFICATION.md) and
+implemented and technically checked; group rule conclusions confirmed on 2026-11-13; PO acceptance pending. Evidence: [VERIFICATION.md](VERIFICATION.md) and
 [TEAM_REVIEW.md](TEAM_REVIEW.md). Supports R1-R4.
 
 ### S2-US-07: 2027 target and 2028 conflict
@@ -275,8 +285,9 @@ Supports R7.
 
 ## Keep, change and defer decisions
 
-This is the corrected planning baseline. Record actual team review and any
-subsequent changes in S2-T-06; detailed assignments/trade-offs remain pending.
+The group confirmed this planning direction on 13 November 2026, as reported
+by the user. Record subsequent changes in S2-T-06; detailed assignments and
+authorized business decisions remain to be supplied.
 
 | Disposition | Work | Corrected direction |
 | --- | --- | --- |
@@ -293,12 +304,12 @@ subsequent changes in S2-T-06; detailed assignments/trade-offs remain pending.
 
 | Local task | Work | Completion evidence | Jira mapping |
 | --- | --- | --- | --- |
-| S2-T-01 | Plan corrected scope/order, estimates, roles and dates; record Scrum Master rotation and other actual roles; relate priorities to existing product vision and stakeholder analysis; update Jira with preserved local IDs | Actual decisions, role rotation, acknowledged owners/estimates, vision/stakeholder references, real keys and verified statuses | Not transferred / pending |
-| S2-T-02 | Maintain risks/decisions: assumptions, uncertainty, 2027/2028 conflict, budget and continuity | Dated alternatives, authority, dependencies, mitigation and residual risks | Not transferred / pending |
-| S2-T-03 | Evaluate significant LLM outputs: fixtures, code, report and planning correction | Provenance, actual review findings, corrections and verification limits in LLM_EVALUATION.md | Not transferred / pending |
-| S2-T-04 | Review increment and retrospective; check Sprint 1 follow-through; enter agreed improvement actions in Jira for next-Sprint follow-up | Actual discussion/feedback, team/PO decisions, process outcomes, real action keys and next-Sprint follow-up plan | Not transferred / pending |
-| S2-T-05 | Assemble/check course submission by 18 November 2026, 23:59 Finnish time; reference product vision and stakeholder analysis in the report | Approximately 500-word report with those references, 5-minute video, PDF of slides actually used, working dashboard, Jira evidence and actual submission record | Not transferred / pending |
-| S2-T-06 | Analyze keep/change/drop, persona impacts and group dynamics | Rationale linked to backlog changes; Sarah/Michael/Emma trade-offs; observed coordination impact or evidenced no-impact conclusion | Not transferred / pending |
+| S2-T-01 | Plan corrected scope/order, estimates, roles and dates; record Scrum Master rotation and other actual roles; relate priorities to existing product vision and stakeholder analysis; update Jira with preserved local IDs | Actual decisions, role rotation, acknowledged owners/estimates, vision/stakeholder references, real keys and verified statuses | [SCRUM-24](https://tacczy.atlassian.net/browse/SCRUM-24) / In Progress |
+| S2-T-02 | Maintain risks/decisions: assumptions, uncertainty, 2027/2028 conflict, budget and continuity | Dated alternatives, authority, dependencies, mitigation and residual risks | [SCRUM-25](https://tacczy.atlassian.net/browse/SCRUM-25) / In Progress |
+| S2-T-03 | Evaluate significant LLM outputs: fixtures, code, report and planning correction | Provenance, actual review findings, corrections and verification limits in LLM_EVALUATION.md | [SCRUM-26](https://tacczy.atlassian.net/browse/SCRUM-26) / In Review |
+| S2-T-04 | Review increment and retrospective; check Sprint 1 follow-through; enter agreed improvement actions in Jira for next-Sprint follow-up | Actual discussion/feedback, team/PO decisions, process outcomes, real action keys and next-Sprint follow-up plan | [SCRUM-27](https://tacczy.atlassian.net/browse/SCRUM-27) / To Do |
+| S2-T-05 | Assemble/check course submission by 18 November 2026, 23:59 Finnish time; reference product vision and stakeholder analysis in the report | Approximately 500-word report with those references, 5-minute video, PDF of slides actually used, working dashboard, Jira evidence and actual submission record | [SCRUM-28](https://tacczy.atlassian.net/browse/SCRUM-28) / To Do |
+| S2-T-06 | Analyze keep/change/drop, persona impacts and group dynamics | Rationale linked to backlog changes; Sarah/Michael/Emma trade-offs; observed coordination impact or evidenced no-impact conclusion | [SCRUM-29](https://tacczy.atlassian.net/browse/SCRUM-29) / In Progress |
 
 The required PDF contains presentation slides actually used; it does not
 require customer-report PDF export. Submission content must reflect implemented
@@ -318,7 +329,8 @@ scope and actual process evidence, including limitations.
    evidence against the course deadline; record actual delivery status.
 
 A story is Done only with evidence for accepted criteria and reviewed generated
-work. Local records do not establish Jira history or human acceptance. Keep
+work. Verified Jira history is recorded in [JIRA_UPLOAD.md](JIRA_UPLOAD.md);
+upload completion does not establish human acceptance. Keep
 unresolved owners/dates/decisions pending. Maintain README/project instructions
 when scope/startup changes. Prior generic checks cannot complete new stories.
 
@@ -344,6 +356,7 @@ Table abbreviations US-xx and T-xx refer to the full S2-US-xx and S2-T-xx IDs.
 | 2026-11-12 / earlier development, e371940 | Metric evidence IDs/reasons, reporting clocks, connection context, JSON export and scenarios; 17/17 tests, 11/11 comparisons, build and scoped browser checks in VERIFICATION.md | Reusable foundation; human/PO acceptance pending |
 | 2026-11-12 / course-PDF audit and planning correction | Earlier goal omitted customer scope, class HNDL, revised deadline, report and change-impact requirements | Goal/backlog corrected; new customer work entered as To Do at that point |
 | 2026-11-12 / customer build and integrated checks | Six customer items reconcile as 2 exposed + 2 unresolved + 2 reported PQC; 39/39 tests, build, 11/11 legacy comparisons and scoped browser checks passed; details in VERIFICATION.md | US-01/02/06-09 technically implemented/verified; team rule review and human/PO acceptance pending; process/submission tasks retain pending evidence |
+| 2026-11-13 / Jira transfer and final checks | SCRUM-15 through SCRUM-29 in Sprint 2 ID 3; descriptions/source hrefs, actual statuses and ten directed dependencies checked in Jira; mapping in JIRA_UPLOAD.md | 8 In Review, 4 In Progress, 3 To Do; no Done claims; assignments, estimates, dates and teacher/PO acceptance remain separate |
 
 Historical browser/export observations remain in
 [VERIFICATION.md](VERIFICATION.md) with their original scope. They do not

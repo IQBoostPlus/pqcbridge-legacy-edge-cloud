@@ -2,8 +2,10 @@
 
 The corrected [Sprint 2 goal](../docs/sprints/sprint-2/SPRINT_GOAL.md) prioritizes
 the key customer's data-class HNDL report and 2027 migration gap, including the
-2028 replacement conflict. These features are implemented; human review and
-team/PO acceptance remain pending.
+2028 replacement conflict. These features are implemented. Group endorsement
+of the review conclusions
+was confirmed by the user on 13 November 2026; teacher/PO acceptance remains
+pending.
 
 The default **Customer** page reports six distinct logical items for Northfield
 Energy: 2 potentially exposed, 2 unresolved and 2 reported PQC, across telemetry,
@@ -34,7 +36,8 @@ build and 11 legacy scenario comparisons passed; desktop and 390px browser
 workflows are recorded in the
 [Sprint 2 verification](../docs/sprints/sprint-2/VERIFICATION.md).
 The [Sprint 2 goal](../docs/sprints/sprint-2/SPRINT_GOAL.md) is the current scope
-authority. Human comprehension results and team/PO acceptance remain pending.
+authority. Group endorsement of the review conclusions is confirmed; human
+comprehension measurements and teacher/PO acceptance remain pending.
 
 For customer-focused group sessions, reset the demo or load
 `dashboard/fixtures/customer-snapshot.json` and use the CUS tasks in the
@@ -91,3 +94,8 @@ See the [Sprint goal](../docs/sprints/sprint-2/SPRINT_GOAL.md) for scope,
 the [backlog](../docs/sprints/sprint-2/BACKLOG.md) for Jira and acceptance
 criteria, and [verification](../docs/sprints/sprint-2/VERIFICATION.md) for
 checks and remaining UI validation.
+
+The [Jira upload record](../docs/sprints/sprint-2/JIRA_UPLOAD.md) records the
+15 real Sprint 2 issue keys, workflow states and ten directed dependencies
+verified on 13 November 2026. Upload completion is separate from teacher/PO
+acceptance and course submission.

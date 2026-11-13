@@ -1,5 +1,12 @@
 # Sprint 2 user-understanding experiment
 
+## Group confirmation — 13 November 2026
+
+The user reports that the group endorsed the review conclusions, including the
+report's metric interpretation, limitations and review direction. This group
+endorsement is confirmed. It is not a set of unaided task responses; participant
+answers, assistance and comprehension scores below remain uncollected.
+
 ## Current customer-report validation protocol
 
 The corrected [GOAL](SPRINT_GOAL.md) places the key customer's reporting change
