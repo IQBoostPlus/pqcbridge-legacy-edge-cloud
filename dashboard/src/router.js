@@ -7,6 +7,7 @@ import SnapshotView from './components/SnapshotView.vue';
 import MethodologyView from './components/MethodologyView.vue';
 import IndicatorAudit from './components/IndicatorAudit.vue';
 import CustomerReport from './components/CustomerReport.vue';
+import IncidentView from './components/IncidentView.vue';
 
 export const destinations = [
   { path: '/', name: 'customer', label: 'Customer', title: 'Customer report', icon: 'brief', component: CustomerReport },
@@ -15,6 +16,7 @@ export const destinations = [
   { path: '/executive', name: 'executive', label: 'Executive', title: 'Executive briefing', icon: 'brief', component: RolePanel, props: { role: 'executive' } },
   { path: '/connections', name: 'connections', label: 'Connections', title: 'Connection inventory', icon: 'links', component: ConnectionInventory },
   { path: '/overview', name: 'overview', label: 'Overview', title: 'All-system overview', icon: 'overview', component: CoverageOverview },
+  { path: '/incident', name: 'incident', label: 'Incident', title: 'ML-KEM incident', icon: 'warning', component: IncidentView },
   { path: '/snapshot', name: 'snapshot', label: 'Dataset', title: 'Snapshot settings', icon: 'database', component: SnapshotView },
   { path: '/methodology', name: 'methodology', label: 'Methodology', title: 'Interpretation guide', icon: 'book', component: MethodologyView },
   { path: '/indicators', name: 'indicators', label: 'Indicators', title: 'Indicator evidence', icon: 'links', component: IndicatorAudit },

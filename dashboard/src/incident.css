@@ -1,0 +1,41 @@
+.incident-view {
+  overflow: auto;
+  scrollbar-gutter: stable;
+  padding: clamp(16px, 2.4vw, 32px);
+}
+.incident-header { margin-bottom: 18px; }
+.incident-header h2 { margin: 5px 0; font-size: clamp(1.45rem, 3vw, 2.25rem); letter-spacing: -.035em; }
+.incident-header p { font-size: .88rem; }
+.incident-callout, .incident-section {
+  padding: clamp(12px, 2vw, 20px);
+  margin-block: 12px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+.incident-callout { background: #faf1f3; border-color: #e7c5ce; }
+.incident-callout h3, .incident-section h3 { margin-block: 4px 6px; }
+.incident-callout p + p, .incident-section p + p { margin-top: 6px; }
+.incident-view a { overflow-wrap: anywhere; }
+.incident-roles { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 15px; }
+.incident-roles a[aria-current="page"] { background: var(--accent-soft); color: var(--accent); border-color: #b596ae; }
+.incident-toolbar { display: flex; flex-wrap: wrap; align-items: end; gap: 10px 22px; font-size: .86rem; }
+.incident-toolbar time { font-variant-numeric: tabular-nums; }
+.incident-callout[data-status="unknown"], .incident-callout[data-status="pending"] { background: #fff8ee; border-color: #e8d5b3; }
+.incident-callout[data-status="verified"] { background: #f1f7f3; border-color: #becebf; }
+.incident-facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 20px; margin: 10px 0; }
+.incident-facts dt { font-weight: 650; color: var(--ink); }
+.incident-facts dd { margin: 3px 0 0; overflow-wrap: anywhere; }
+.incident-actions { padding-left: 24px; margin-block: 8px 10px; }
+.incident-actions li { padding: 8px 0; position: relative; }
+.incident-actions li + li { border-top: 1px solid var(--line); }
+.incident-actions li > div { display: inline-block; vertical-align: top; margin-right: 8px; }
+.incident-actions li p { margin: 3px 0; }
+.incident-risks { padding-left: 20px; }
+.incident-risks li { margin-block: 7px; }
+@media (max-width: 560px) {
+  .incident-facts { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 375px) {
+  .mobile-tools { gap: 4px; }
+  .mobile-tools .icon-button { width: 35px; }
+}

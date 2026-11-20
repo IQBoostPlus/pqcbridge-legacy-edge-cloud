@@ -10,7 +10,10 @@ import PagedText from './PagedText.vue';
 const route = useRoute();
 const field = ref(0);
 const row = computed(() => state.snapshot.connections.find(connection => connection.id === route.params.id));
-const back = computed(() => ['customer', 'security', 'migration', 'executive'].includes(route.query.from) ? route.query.from : 'connections');
+const back = computed(() => ['customer', 'security', 'migration', 'executive', 'incident'].includes(route.query.from) ? route.query.from : 'connections');
+const returnRoute = computed(() => back.value === 'incident'
+  ? { name: 'incident', query: { role: route.query.role, checkpoint: route.query.checkpoint } }
+  : { name: back.value });
 const fields = computed(() => row.value ? [
   ['Classification reason', row.value.reason], ['Confidentiality', row.value.confidentiality],
   ['Migration blocker', row.value.blocker], ['Business impact', row.value.impact], ['Next action', row.value.action],
@@ -43,7 +46,7 @@ watch(() => route.params.id, () => { field.value = 0; });
       <select v-model.number="field" aria-label="Evidence field"><option v-for="([label], index) in fields" :key="label" :value="index">{{ label }}</option></select>
     </label>
     <PagedText :text="fields[field][1]" />
-    <div class="focus-footer"><RouterLink class="text-link" :to="{ name: back }"><AppIcon name="back" />Back to {{ back }}</RouterLink><RouterLink class="text-link" :to="{ name: 'customer' }">Customer report</RouterLink></div>
+    <div class="focus-footer"><RouterLink class="text-link" :to="returnRoute"><AppIcon name="back" />Back to {{ back }}</RouterLink><RouterLink class="text-link" :to="{ name: 'customer' }">Customer report</RouterLink></div>
   </section>
   <section v-else class="panel centered">
     <h2>Connection not in this snapshot</h2><p>Choose a segment from the current inventory.</p>

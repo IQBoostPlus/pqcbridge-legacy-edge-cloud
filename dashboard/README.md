@@ -1,4 +1,4 @@
-# PQC Bridge | Sprint 2 dashboard
+# PQC Bridge dashboard
 
 The corrected [Sprint 2 goal](../docs/sprints/sprint-2/SPRINT_GOAL.md) prioritizes
 the key customer's data-class HNDL report and 2027 migration gap, including the
@@ -99,3 +99,21 @@ The [Jira upload record](../docs/sprints/sprint-2/JIRA_UPLOAD.md) records the
 15 real Sprint 2 issue keys, workflow states and ten directed dependencies
 verified on 13 November 2026. Upload completion is separate from teacher/PO
 acceptance and course submission.
+## Sprint 3 incident walkthrough
+
+From the repository root, run `npm ci --prefix dashboard` on a fresh checkout
+and then `npm --prefix dashboard run dev`. Open the Vite URL and choose
+**Incident** in the supporting navigation. Keep the bundled Northfield dataset
+selected. Choose a persona and an exercise checkpoint to inspect the affected,
+unresolved, upgrade-recorded and response-verified states. The old customer
+report remains the home page.
+
+The incident view uses a fictional provider and separate synthetic records.
+Its checkpoint clock controls incident evidence age. The customer reporting
+clock controls the underlying migration report. The incident records are
+excluded from the existing report evidence export. That export still includes
+the complete source snapshot for internal traceability. The frontend is a local
+course demo and the role links are views within the same app.
+
+[Sprint 3 verification](../docs/sprints/sprint-3/VERIFICATION.md) ·
+[Dashboard evolution PDF](../docs/sprints/sprint-3/Sprint3_Dashboard_Evolution_Group22.pdf)
