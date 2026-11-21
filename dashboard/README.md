@@ -1,5 +1,32 @@
 # PQC Bridge dashboard
 
+## Sprint 3 — Incident walkthrough
+
+Start the dashboard using the [development commands](#develop), open the Vite
+URL and choose **Incident** in the supporting navigation (`#/incident`).
+Use **Dataset → Reset demo** to restore the bundled Northfield dataset and
+historical reporting clock. Then choose an exercise checkpoint:
+
+| Checkpoint | What to verify |
+| --- | --- |
+| Advisory received | **Sarah** can see the simulated affected provider and its inventory evidence for SEG-002. |
+| Version evidence missing | Sarah sees unresolved applicability and a request to confirm the deployed version. |
+| Upgrade recorded | **Michael** sees the upgrade recorded, with rotation and monitoring checks still pending. |
+| Response verified | **Emma** can review the simulated response, residual exposure, continuity and contract risks. |
+
+The view uses a fictional provider and separate synthetic records. The exercise
+clock determines incident evidence age. The customer reporting clock determines
+migration evidence age, and the existing report export carries the migration
+snapshot without the incident records. The repository verification records the
+unresolved advisory applicability for the separate Gateway/Cloud prototype.
+
+[Sprint 3 plan](../docs/sprints/sprint-3/PLAN.md) ·
+[Technical verification](../docs/sprints/sprint-3/VERIFICATION.md) ·
+[Dashboard evolution PDF](../docs/sprints/sprint-3/Sprint3_Dashboard_Evolution_Group22.pdf) ·
+[Jira upload record](../docs/sprints/sprint-3/JIRA_UPLOAD.md)
+
+## Sprint 2 — Customer reporting
+
 The corrected [Sprint 2 goal](../docs/sprints/sprint-2/SPRINT_GOAL.md) prioritizes
 the key customer's data-class HNDL report and 2027 migration gap, including the
 2028 replacement conflict. These features are implemented. Group endorsement
@@ -35,9 +62,9 @@ Technical verification: 39 model tests (17 legacy + 22 customer), production
 build and 11 legacy scenario comparisons passed; desktop and 390px browser
 workflows are recorded in the
 [Sprint 2 verification](../docs/sprints/sprint-2/VERIFICATION.md).
-The [Sprint 2 goal](../docs/sprints/sprint-2/SPRINT_GOAL.md) is the current scope
-authority. Group endorsement of the review conclusions is confirmed; human
-comprehension measurements and teacher/PO acceptance remain pending.
+The [Sprint 2 goal](../docs/sprints/sprint-2/SPRINT_GOAL.md) defines the customer
+report's scope. The group endorsed the review conclusions. Human comprehension
+measurements and teacher/PO acceptance remain pending.
 
 For customer-focused group sessions, reset the demo or load
 `dashboard/fixtures/customer-snapshot.json` and use the CUS tasks in the
@@ -85,7 +112,7 @@ Open the URL printed by Vite. Run `npm test` for the model suite and `npm run bu
 - A legacy snapshot without customer metadata still imports. The Customer page explicitly reports unavailable attribution; all-system views remain usable. Reset demo restores the customer-aware fixture and historical clock.
 - Historical mode compares observations with the snapshot time. Current-time mode compares the same observations with the browser clock. The reporting threshold is 24 hours.
 - Local JSON import stays in the browser. Reset demo restores the bundled fixture. Search checks supported text fields; filters only change the inventory.
-- The default `#/` route is the customer report; `#/overview` is the separate all-system overview. Other routes cover Sarah, Michael, Emma, inventory, individual evidence, the dataset, the interpretation guide and indicator audit. Customer/class totals stay fixed when filtering the item list or connection inventory.
+- The default `#/` route is the customer report, `#/overview` is the all-system overview and `#/incident` is the Sprint 3 exercise. Other routes cover Sarah, Michael, Emma, inventory, individual evidence, the dataset, the interpretation guide and indicator audit. Customer/class totals stay fixed when filtering the item list or connection inventory.
 - `model.mjs` owns validation and reporting. `src/dashboard.js` owns the shared snapshot and filters. `src/router.js` defines the routes. Hash navigation supports opening a route directly from a plain static server.
 - This dashboard uses synthetic data independently of Device/Gateway/Cloud. Reported migration, fallback, and suspected downgrade scenarios have the limits documented in the interface.
 - This frontend is the working dashboard increment. Scrum records, team evaluation and Moodle submissions are tracked separately.
@@ -99,21 +126,3 @@ The [Jira upload record](../docs/sprints/sprint-2/JIRA_UPLOAD.md) records the
 15 real Sprint 2 issue keys, workflow states and ten directed dependencies
 verified on 13 November 2026. Upload completion is separate from teacher/PO
 acceptance and course submission.
-## Sprint 3 incident walkthrough
-
-From the repository root, run `npm ci --prefix dashboard` on a fresh checkout
-and then `npm --prefix dashboard run dev`. Open the Vite URL and choose
-**Incident** in the supporting navigation. Keep the bundled Northfield dataset
-selected. Choose a persona and an exercise checkpoint to inspect the affected,
-unresolved, upgrade-recorded and response-verified states. The old customer
-report remains the home page.
-
-The incident view uses a fictional provider and separate synthetic records.
-Its checkpoint clock controls incident evidence age. The customer reporting
-clock controls the underlying migration report. The incident records are
-excluded from the existing report evidence export. That export still includes
-the complete source snapshot for internal traceability. The frontend is a local
-course demo and the role links are views within the same app.
-
-[Sprint 3 verification](../docs/sprints/sprint-3/VERIFICATION.md) ·
-[Dashboard evolution PDF](../docs/sprints/sprint-3/Sprint3_Dashboard_Evolution_Group22.pdf)

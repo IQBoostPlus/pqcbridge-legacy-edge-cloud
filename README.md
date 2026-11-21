@@ -14,6 +14,42 @@
 Project: **Legacy System Modernization for PQC & LLM-Assisted Development**
 Course: Software Development, Maintenance & Operations
 
+## Sprint 3 — ML-KEM incident response dashboard
+
+The Professional Software Engineering Processes and Human Factors (811373A)
+dashboard adds an internal **Incident** view for a synthetic ML-KEM advisory.
+Sarah can trace the applicability decision to provider and inventory evidence.
+Michael can track the upgrade, key rotation and monitoring recovery. Emma can
+review remaining risks and decisions. The customer migration report remains the
+home page.
+
+The browser dashboard reads synthetic records. Applicability of the course
+advisory to the separate Gateway/Cloud prototype remains unresolved because
+the notice provides no supplier or affected version range. The dashboard's
+upgrades, rotations and recovery checks are simulated.
+
+- [Sprint 3 plan and deliverables](docs/sprints/sprint-3/PLAN.md)
+- [Technical verification and LLM evaluation](docs/sprints/sprint-3/VERIFICATION.md) — 41 model tests, production build and browser checks passed.
+- [Dashboard evolution PDF](docs/sprints/sprint-3/Sprint3_Dashboard_Evolution_Group22.pdf) — eight pages showing the baseline, intermediate alert and final role views.
+- [Jira upload record](docs/sprints/sprint-3/JIRA_UPLOAD.md) — the saved goal and six verified issues, SCRUM-30 through SCRUM-35.
+
+Team review, Product Owner acceptance and course submission remain open.
+
+### Run the dashboard
+
+From the repository root, with Node.js 22.12+ or 24, run:
+
+```powershell
+npm.cmd --prefix dashboard ci
+npm.cmd --prefix dashboard run dev
+```
+
+Open the local URL printed by Vite and select **Incident**. Use the bundled
+Northfield demo to explore the four exercise checkpoints. The dashboard runs
+independently of Device/Gateway/Cloud. Run `npm.cmd --prefix dashboard test`
+for the model suite and `npm.cmd --prefix dashboard run build` for the static
+build. [Dashboard run instructions and walkthrough](dashboard/README.md)
+
 ## Sprint 2: Customer reporting and the 2027 migration target
 
 The corrected priority is **the key customer's changed reporting and migration
@@ -54,7 +90,7 @@ Sprint dates, individual session responses and teacher/PO acceptance remain
 pending. Group endorsement of the review conclusions is confirmed by the user.
 The course submission is due 18 November 2026 at 23:59 Finnish time and includes
 an approximately 500-word report, five-minute video and PDF of slides used.
-Dashboard startup commands below still apply.
+Use the dashboard startup commands above.
 
 ## Sprint 1: PQC Security Monitoring Dashboard
 
@@ -64,28 +100,16 @@ Sprint 1 goal is a runnable dashboard with fixed synthetic data, overview
 metrics, a filterable connection list, basic security/migration/executive views,
 and explicit indicator definitions and limits.
 
-**Current status: the Sprint 1 dashboard uses the Vue interface.** The model
-suite, production build and scoped Chromium walkthrough pass. Team and Product
-Owner acceptance remain pending. The
-dashboard runs independently of Device/Gateway/Cloud. From the repository root,
-with Node.js 22.12+ or 24:
-
-```powershell
-npm.cmd --prefix dashboard ci
-npm.cmd --prefix dashboard run dev
-```
-
-Open the local URL printed by Vite. Stop with Ctrl+C. The historical synthetic
+The Sprint 1 dashboard introduced the Vue interface. The model suite,
+production build and scoped Chromium walkthrough passed. Team and Product
+Owner acceptance remained pending in the Sprint 1 record. The historical synthetic
 snapshot has 8 connection segments: 5 PQC, 2 fallback and 1 unknown (62.5%
 coverage). Switch between Sarah, Michael and Emma views, inspect connection
 context, filter/search, compare reporting clocks or load another synthetic JSON
 snapshot. Unknown, empty, invalid and stale data have explicit reporting states.
 
-Run `npm.cmd --prefix dashboard test` for the model suite and
-`npm.cmd --prefix dashboard run build` for the static build. See the
-[dashboard instructions](dashboard/README.md) and the
-[verification record](docs/sprints/sprint-1/VERIFICATION.md) for the Vue checks
-and separately recorded browser evidence from the first interface.
+See the [Sprint 1 verification record](docs/sprints/sprint-1/VERIFICATION.md)
+for the Vue checks and browser evidence from the first interface.
 
 The [Sprint goal and delivery record](docs/sprints/sprint-1/SPRINT_GOAL.md)
 is the scope authority and contains acceptance, build sequence and submission
@@ -195,6 +219,8 @@ JSON-lines protocol (no TLS — see section 7):
 │   └── cloud.py       gateway TCP server, session registry with
 │                      eviction, persisted ML-KEM keypair
 ├── tests/             136 pytest tests (P08)
+├── dashboard/         Vue dashboard, synthetic fixtures and model tests
+├── docs/sprints/      Scrum plans, verification and deliverables
 ├── scripts/docker_bootstrap.py  fresh-clone Docker trust-anchor
 │   │                  provisioning (F-01 pin, section 6)
 ├── .github/workflows/ci.yml

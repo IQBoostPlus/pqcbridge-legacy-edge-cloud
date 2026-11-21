@@ -14,6 +14,23 @@ Development" (Software Development, Maintenance & Operations).
 - Every significant AI interaction must be documented by the student
   team (README.md §9).
 
+## Sprint 3 dashboard work
+
+For incident scope, persona outcomes and deliverables, read
+[Sprint 3 plan](docs/sprints/sprint-3/PLAN.md). When changing the incident
+view, use `dashboard/incident.mjs` for checkpoint assessment and
+`dashboard/fixtures/mlkem-incident.mjs` for the synthetic records. Keep the
+exercise clock separate from the customer reporting clock and keep incident
+records outside the migration export. Verify that an upgrade without recorded
+rotation and continuity checks remains pending.
+
+For technical claims or PDF provenance, read
+[Sprint 3 verification](docs/sprints/sprint-3/VERIFICATION.md). For Scrum
+status and issue mapping, read [Sprint 3 Jira record](docs/sprints/sprint-3/JIRA_UPLOAD.md).
+Track simulated response, repository applicability, team review, PO acceptance
+and course submission against their own evidence. Use standard Jira forms for
+work-item creation.
+
 ## Sprint 2 dashboard work
 
 Before planning, implementing or reviewing Sprint 2 dashboard work, read
